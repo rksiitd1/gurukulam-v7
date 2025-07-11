@@ -93,7 +93,7 @@ const AboutMissionHero = () => (
             <span className="text-lg sm:text-2xl">🌱</span>
           </div>
           <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
-            <span className="text-lg sm:text-2xl">🏡</span>
+            <span className="text-lg sm:text-2xl">🪔</span>
           </div>
         </div>
       </div>
