@@ -1,5 +1,6 @@
 import { Heart, Users, Leaf } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: "25+", label: "Villages Impacted", color: "text-green-600" },
@@ -54,6 +55,17 @@ const AboutMissionHero = () => (
                 <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
+          </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white">
+              Join Our Community
+            </Button>
+            <a href="/about#mentors">
+              <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50">
+                Meet Our Mentors
+              </Button>
+            </a>
           </div>
         </div>
         {/* Image */}
