@@ -3,7 +3,7 @@ import { Play, Heart, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-export function Hero() {
+export function Hero11() {
   return (
     <section className="relative bg-gradient-to-br from-green-50 via-orange-50 to-yellow-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Background Pattern - responsive sizing */}
