@@ -58,13 +58,14 @@ const AboutMissionHero = () => (
           </div>
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://chat.whatsapp.com/KU2neVtvTYC9wjsPrDxlTd" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white">
+            <a href="https://chat.whatsapp.com/KU2neVtvTYC9wjsPrDxlTd" target="_blank" rel="noopener noreferrer" className="flex-1">
+              <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white w-full">
+                <Users className="w-5 h-5 mr-2" />
                 Join Our Community
               </Button>
             </a>
-            <a href="/about#mentors">
-              <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50">
+            <a href="/about#mentors" className="flex-1">
+              <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50 w-full">
                 Meet Our Mentors
               </Button>
             </a>
