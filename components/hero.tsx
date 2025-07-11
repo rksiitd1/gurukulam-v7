@@ -1,4 +1,4 @@
-import { Heart, Users, Leaf } from "lucide-react";
+import { Heart, Users, Leaf, Target } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
@@ -27,7 +27,7 @@ const Hero = () => (
         {/* Content */}
         <div className="space-y-8 text-center lg:text-left lg:-mt-8">
           <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-700 rounded-full text-sm font-medium">
-            <Leaf className="w-4 h-4 mr-2" />
+            <Target className="w-4 h-4 mr-2" />
             Divya Bihar Mission
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
