@@ -77,14 +77,14 @@ const Hero = () => (
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
               <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 sm:p-4">
                 <p className="text-xs sm:text-sm font-medium text-gray-900">
-                  Empowering villages, transforming lives.
+                  Rooted in culture, growing towards excellence.
                 </p>
               </div>
             </div>
           </div>
           {/* Floating Elements */}
-          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-orange-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
-            <span className="text-lg sm:text-2xl">🌱</span>
+          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-blue-900 text-blue-200 p-2 sm:p-3 rounded-full shadow-lg">
+            <span className="text-lg sm:text-2xl">🪷</span>
           </div>
           <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
             <span className="text-lg sm:text-2xl">🏡</span>
