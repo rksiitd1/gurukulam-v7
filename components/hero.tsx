@@ -38,13 +38,17 @@ const Hero = () => (
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Divya Bihar Mission is dedicated to the holistic development of Bihar's villages—empowering youth, revitalizing agriculture, fostering entrepreneurship, and reviving our rich culture. Join us in building a self-reliant, proud, and progressive rural Bihar.
+            "Only the race which does not sacrifice the soundness of its rural root of life to the urban brilliance of its foliage and flowering, is in a sound condition and certain of permanence..."
+          </p>
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-right">
+            SRI AUROBINDO
           </p>
           <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
             <p className="text-orange-800 font-devanagari text-base sm:text-lg">
               "गांव उठेंगे, तभी देश प्रगति करेगा।"
             </p>
-            <p className="text-orange-700 text-xs sm:text-sm mt-1">"When villages rise, only then will the nation progress."</p>
+            <p className="text-orange-700 text-xs sm:text-sm mt-1">
+              "When villages rise, only then will the nation progress."</p>
           </div>
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-gray-200">
