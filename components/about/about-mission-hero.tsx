@@ -43,9 +43,9 @@ const AboutMissionHero = () => (
           </p>
           <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
             <p className="text-yellow-800 font-devanagari text-base sm:text-lg">
-              "गांव उठेंगे, तभी देश प्रगति करेगा।"
+              "एक दीपक से हजारों दीपक जलाए जा सकते हैं।"
             </p>
-            <p className="text-yellow-700 text-xs sm:text-sm mt-1">"When villages rise, only then will the nation progress."</p>
+            <p className="text-yellow-700 text-xs sm:text-sm mt-1">"From one lamp, thousands of lamps can be lit."</p>
           </div>
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-gray-200">
