@@ -38,7 +38,7 @@ export function About() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                <span className="mr-2">👨‍🎓</span>
+                <span className="mr-2">🎓</span>
                 From IIT Delhi to Bihar Villages
               </div>
 
