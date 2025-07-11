@@ -30,10 +30,10 @@ const AboutMissionHero = () => (
             <Leaf className="w-4 h-4 mr-2" />
             About Divya Bihar Mission
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Divya Bihar
-            <span className="text-yellow-600 block mt-2">Mission</span>
-            <span className="text-green-700 block font-devanagari text-2xl sm:text-3xl lg:text-4xl mt-4">
+          <h1 className="font-bold text-gray-900 leading-tight">
+            <span className="block text-5xl sm:text-6xl lg:text-7xl">Divya Bihar</span>
+            <span className="text-yellow-600 block text-5xl sm:text-6xl lg:text-7xl mt-2">Mission</span>
+            <span className="text-green-700 block font-devanagari text-3xl sm:text-4xl lg:text-5xl mt-4">
               दिव्य बिहार मिशन
             </span>
           </h1>
