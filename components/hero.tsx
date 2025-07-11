@@ -26,9 +26,9 @@ const Hero = () => (
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="space-y-8 text-center lg:text-left">
-          <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-800 rounded-full text-sm font-medium">
+          <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-700 rounded-full text-sm font-medium">
             <Leaf className="w-4 h-4 mr-2" />
-            About Divya Bihar Mission
+            Divya Bihar Mission
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
             Village Upliftment,
