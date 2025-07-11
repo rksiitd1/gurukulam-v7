@@ -1,3 +1,4 @@
+import AboutMissionHero from "@/components/about/about-mission-hero"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Programs } from "@/components/programs"
@@ -9,6 +10,7 @@ import UpanishadVerse from "@/components/UpanishadVerse"
 export default function HomePage() {
   return (
     <main>
+      <AboutMissionHero />
       <Hero />
       <WhyWeExistSection />
       <About />
