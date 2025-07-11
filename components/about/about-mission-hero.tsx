@@ -25,16 +25,16 @@ const AboutMissionHero = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
-        <div className="space-y-8 text-center lg:text-left">
+        <div className="space-y-8 text-center lg:text-left lg:-mt-8">
           <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
             <Leaf className="w-4 h-4 mr-2" />
             About Divya Bihar Mission
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Village Upliftment,
-            <span className="text-orange-600 block">Nation Building</span>
+            Divya Bihar
+            <span className="text-orange-600 block">Mission</span>
             <span className="text-green-700 block font-devanagari text-2xl sm:text-3xl lg:text-4xl mt-2">
-              देश की आत्मा गाँवों में बसती है
+              दिव्य बिहार मिशन
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -57,7 +57,7 @@ const AboutMissionHero = () => (
           </div>
         </div>
         {/* Image */}
-        <div className="relative order-first lg:order-last">
+        <div className="relative order-first lg:order-last lg:-mt-8">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <Image
               src="/placeholder.svg?height=600&width=500"
