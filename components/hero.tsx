@@ -37,12 +37,14 @@ const Hero = () => (
               देश की आत्मा गाँवों में बसती है
             </span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            "Only the race which does not sacrifice the soundness of its rural root of life to the urban brilliance of its foliage and flowering, is in a sound condition and certain of permanence..."
-          </p>
-          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-right">
-            SRI AUROBINDO
-          </p>
+          <blockquote className="max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed italic">
+              “Only the race which does not sacrifice the soundness of its rural root of life to the urban brilliance of its foliage and flowering, is in a sound condition and certain of permanence... ”
+            </p>
+            <footer className="mt-2 text-right text-base sm:text-lg text-orange-700 font-semibold tracking-wide">
+              — Sri Aurobindo
+            </footer>
+          </blockquote>
           <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
             <p className="text-orange-800 font-devanagari text-base sm:text-lg">
               "गांव उठेंगे, तभी देश प्रगति करेगा।"
