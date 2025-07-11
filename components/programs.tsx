@@ -1,8 +1,11 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, BookOpen, Sprout, Users, ArrowRight } from "lucide-react"
 import ProgramImage from "./programs/ProgramImage"
 import Link from "next/link"
+import { useCallback } from "react";
 
 export function Programs() {
   const programs = [
@@ -155,14 +158,27 @@ export function Programs() {
                 Explore All Programs
               </Button>
             </Link>
-            <a href="#get-involved" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-                className="border-green-600 text-green-700 hover:bg-green-50 w-full sm:w-auto touch-manipulation"
+            <a
+              href="#get-involved"
+              className="w-full sm:w-auto"
+              onClick={e => {
+                e.preventDefault();
+                const section = document.getElementById("get-involved");
+                if (section) {
+                  const header = document.querySelector("header");
+                  const headerHeight = header ? header.offsetHeight : 0;
+                  const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
             >
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-green-600 text-green-700 hover:bg-green-50 w-full sm:w-auto touch-manipulation"
+              >
                 How You Can Help
-            </Button>
+              </Button>
             </a>
           </div>
         </div>
