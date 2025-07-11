@@ -3,15 +3,15 @@ import Image from "next/image";
 
 const stats = [
   { value: "25+", label: "Villages Impacted", color: "text-green-600" },
-  { value: "2000+", label: "Students Benefited", color: "text-orange-600" },
+  { value: "2000+", label: "Students Benefited", color: "text-yellow-600" },
   { value: "100+", label: "Volunteers", color: "text-blue-600" },
 ];
 
 const AboutMissionHero = () => (
-  <section className="relative bg-gradient-to-br from-green-50 via-orange-50 to-yellow-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
+  <section className="relative bg-gradient-to-br from-green-50 via-yellow-50 to-yellow-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
     {/* Background Pattern */}
     <div className="absolute inset-0 opacity-5 pointer-events-none">
-      <div className="absolute top-10 left-10 w-16 h-16 text-orange-600">
+      <div className="absolute top-10 left-10 w-16 h-16 text-yellow-600">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <path d="M50 10 L90 90 L10 90 Z" fill="currentColor" />
         </svg>
@@ -32,19 +32,19 @@ const AboutMissionHero = () => (
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
             Divya Bihar
-            <span className="text-orange-600 block">Mission</span>
-            <span className="text-green-700 block font-devanagari text-2xl sm:text-3xl lg:text-4xl mt-2">
+            <span className="text-yellow-600 block mt-2">Mission</span>
+            <span className="text-green-700 block font-devanagari text-2xl sm:text-3xl lg:text-4xl mt-4">
               दिव्य बिहार मिशन
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Divya Bihar Mission is dedicated to the holistic development of Bihar's villages—empowering youth, revitalizing agriculture, fostering entrepreneurship, and reviving our rich culture. Join us in building a self-reliant, proud, and progressive rural Bihar.
           </p>
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
-            <p className="text-orange-800 font-devanagari text-base sm:text-lg">
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
+            <p className="text-yellow-800 font-devanagari text-base sm:text-lg">
               "गांव उठेंगे, तभी देश प्रगति करेगा।"
             </p>
-            <p className="text-orange-700 text-xs sm:text-sm mt-1">"When villages rise, only then will the nation progress."</p>
+            <p className="text-yellow-700 text-xs sm:text-sm mt-1">"When villages rise, only then will the nation progress."</p>
           </div>
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-gray-200">
@@ -77,7 +77,7 @@ const AboutMissionHero = () => (
             </div>
           </div>
           {/* Floating Elements */}
-          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-orange-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
+          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-yellow-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
             <span className="text-lg sm:text-2xl">🌱</span>
           </div>
           <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
