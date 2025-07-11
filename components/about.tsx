@@ -39,7 +39,7 @@ export function About() {
             <div className="space-y-4">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                 <span className="mr-2">👨‍🎓</span>
-                IIT Delhi Alumnus
+                From IIT Delhi to Bihar Villages
               </div>
 
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
