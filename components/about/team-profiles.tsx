@@ -6,8 +6,8 @@ export function TeamProfiles() {
   const coreTeam = [
     {
       name: "Shri Mukund Agrawal",
-      title: "Founder & Director",
-      titleHindi: "संस्थापक एवं निदेशक",
+      title: "Founder & Acharya",
+      titleHindi: "संस्थापक एवं आचार्य",
       education: "B.Tech Mechanical Engineering, IIT Delhi",
       experience: "6+ years in rural education",
       specialization: "Educational Leadership, Rural Development",
@@ -27,8 +27,8 @@ export function TeamProfiles() {
     },
     {
       name: "Raju Kumar Jha",
-      title: "Academic Director",
-      titleHindi: "शैक्षणिक निदेशक",
+      title: "Senior Acharya",
+      titleHindi: "वरिष्ठ आचार्य",
       education: "M.Sc. Patna University",
       experience: "6+ years in education",
       specialization: "Curriculum Development, Teacher Training",
@@ -48,8 +48,8 @@ export function TeamProfiles() {
     },
     {
       name: "Sanjay Kumar",
-      title: "Operations Manager",
-      titleHindi: "संचालन प्रबंधक",
+      title: "Gurukulam Faculty",
+      titleHindi: "गुरुकुलम शिक्षक",
       education: "B.A. Madhepura University",
       experience: "3+ years in Education",
       specialization: "Education, Community Relations",
@@ -69,8 +69,8 @@ export function TeamProfiles() {
     },
     {
       name: "Vivek Kumar",
-      title: "Agriculture Coordinator",
-      titleHindi: "कृषि समन्वयक",
+      title: "Gurukulam Faculty",
+      titleHindi: "गुरुकुलम शिक्षक",
       education: "B.Sc. Physics(Hons.), BNMU",
       experience: "15+ years in sustainable farming",
       specialization: "Organic Farming, Agroforestry",
