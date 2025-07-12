@@ -9,7 +9,7 @@ export function TeamProfiles() {
       title: "Founder & Acharya",
       titleHindi: "संस्थापक एवं आचार्य",
       education: "B.Tech Mechanical Engineering, IIT Delhi",
-      experience: "6+ years in rural education",
+      experience: "6+ years in education and grassroot work",
       specialization: "Educational Leadership, Rural Development",
       description:
         "Visionary leader who left corporate opportunities to serve rural Bihar. Known as 'Golu Sir' by students, he combines modern educational methods with traditional Indian values.",
