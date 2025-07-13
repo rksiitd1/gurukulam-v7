@@ -19,7 +19,7 @@ export function About() {
     {
       icon: <Sprout className="w-8 h-8 text-green-500" />,
       title: "Sustainability",
-      subtitle: "स्थिरता",
+      subtitle: "सतत विकास",
       description: "Promoting eco-friendly farming and self-reliant village economies.",
     },
     {
