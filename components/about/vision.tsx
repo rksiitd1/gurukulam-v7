@@ -148,7 +148,7 @@ export function Vision() {
                 <div className="flex justify-center"><Sprout className="w-8 h-8 text-green-500" /></div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900">Sustainability</h4>
-                  <p className="text-lg font-devanagari text-gray-600">स्थिरता</p>
+                  <p className="text-lg font-devanagari text-gray-600">सतत विकास</p>
                 </div>
                 <p className="text-gray-600 text-sm">Promoting eco-friendly farming and self-reliant village economies.</p>
               </CardContent>
