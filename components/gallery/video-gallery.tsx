@@ -142,7 +142,17 @@ export function VideoGallery() {
       embedId: "vyUQtcgUudE",
       date: "July 2024",
     },
-    
+    {
+      id: 13,
+      title: "Matki Fod by Krishna । Dahi Handi । Janmashtami",
+      description: "A traditional festival of Bihar, where people play and celebrate the birth of Lord Krishna",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "1:00",
+      views: "1,336",
+      category: "Culture",
+      embedId: "K8keiAcVz_Y",
+      date: "August 2024",
+    },
     
   ]
 
