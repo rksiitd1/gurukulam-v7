@@ -124,7 +124,7 @@ export function TeamProfiles() {
                         alt={member.name}
                         width={150}
                         height={150}
-                        className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover shadow-lg"
+                        className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover shadow-lg border border-gray-200"
                       />
                       <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white p-2 rounded-full shadow-lg">
                         <GraduationCap className="w-5 h-5" />
