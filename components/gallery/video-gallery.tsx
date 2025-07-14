@@ -153,7 +153,17 @@ export function VideoGallery() {
       embedId: "K8keiAcVz_Y",
       date: "August 2024",
     },
-    
+    {
+      id: 14,
+      title: "अब भारत विश्व गुरु बन कर रहेगा",
+      description: '"Golu Sir" leads a group of children in an educational activity for Divya Bihar Mission',
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "0:57",
+      views: "467",
+      category: "Community",
+      embedId: "_FP3i22JSxU",
+      date: "August 2024",
+    },
   ]
 
   const openVideo = (index: number) => {
