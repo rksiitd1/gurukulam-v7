@@ -31,7 +31,7 @@ export function TeamProfiles() {
       titleHindi: "वरिष्ठ आचार्य",
       education: "M.Sc. Patna University",
       experience: "6+ years in education",
-      specialization: "Curriculum Development, Teacher Training",
+      specialization: "Youth Guide/Mentor, Faculty Training",
       description:
         "A dedicated educator with deep roots in Bihar's educational landscape, Raju Sir brings transformative vision to rural learning. With his value-integrated pedagogy, he has revolutionized how traditional wisdom meets modern curriculum standards.",
       image: "/images/team/raju.jpg",
