@@ -109,6 +109,29 @@ export function VideoGallery() {
       embedId: "LgLfqx8MQaU",
       date: "August 2021",
     },
+    {
+      id: 10,
+      title: "बूढ़े कछुए अकुपार की याददाश्त - हिंदी कहानी",
+      description: "A virtuous king learns that good deeds outlive lifetimes, remembered even by animals across generations",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "5:40",
+      views: "161",
+      category: "Story",
+      embedId: "Rn7VnVaPhd0",
+      date: "July 2021",
+    },
+    {
+      id: 11,
+      title: "IIT Delhi से आए मित्रों का बिहार अनुभव",
+      description: "Friends from IIT Delhi share their experience of visiting Bihar and the impact it had on them",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "0:46",
+      views: "696",
+      category: "Testimonials",
+      embedId: "OrDhjamg4sY",
+      date: "July 2021",
+    },
+    
   ]
 
   const openVideo = (index: number) => {
