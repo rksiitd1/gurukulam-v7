@@ -18,8 +18,8 @@ export function VideoGallery() {
       duration: "12:45",
       views: "2.5K",
       category: "Documentary",
-      embedId: "dQw4w9WgXcQ", // YouTube video ID
-      date: "March 2024",
+      embedId: "X2RFUholoU0", // YouTube video ID
+      date: "July 2025",
     },
     {
       id: 2,
