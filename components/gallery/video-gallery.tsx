@@ -98,6 +98,17 @@ export function VideoGallery() {
       embedId: "DR6GQgcGKxw",
       date: "August 2021",
     },
+    {
+      id: 9,
+      title: "है शौक यही अरमान यही हम कुछ करके दिखलाएंगे - हिंदी कविता",
+      description: "This poem is about the power of dreams and how we can achieve them by working hard",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "3:45",
+      views: "816",
+      category: "Poem",
+      embedId: "LgLfqx8MQaU",
+      date: "August 2021",
+    },
   ]
 
   const openVideo = (index: number) => {
