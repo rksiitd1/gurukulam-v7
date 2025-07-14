@@ -89,14 +89,14 @@ export function VideoGallery() {
     },
     {
       id: 8,
-      title: "Gaushala and Cow Protection",
-      description: "Our efforts in preserving indigenous cow breeds and organic farming",
+      title: "Kamla River Aarti | कमला नदी आरती",
+      description: "A beautiful aarti performed on the banks of the Kamla River, celebrating the beauty of nature & the divine presence",
       thumbnail: "/placeholder.svg?height=300&width=500",
-      duration: "11:15",
-      views: "1.9K",
-      category: "Agriculture",
-      embedId: "dQw4w9WgXcQ",
-      date: "January 2024",
+      duration: "10:02",
+      views: "193",
+      category: "Culture",
+      embedId: "DR6GQgcGKxw",
+      date: "August 2021",
     },
   ]
 
