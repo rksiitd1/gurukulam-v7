@@ -142,7 +142,7 @@ export function ContactHero() {
                     <MapPin className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-bold text-slate-600 text-xl leading-relaxed">
-                        Village Jiaram, Raghopur Block,
+                        Village Jiaram Raghopur, Simrahi Bazaar,
                       </p>
                       <p className="font-bold text-slate-600 text-xl">Supaul District, Bihar 852111, India</p>
                     </div>
