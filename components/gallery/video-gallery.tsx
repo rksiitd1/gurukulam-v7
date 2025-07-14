@@ -83,7 +83,7 @@ export function VideoGallery() {
       thumbnail: "/placeholder.svg?height=300&width=500",
       duration: "4:40",
       views: "146",
-      category: "Sports",
+      category: "Story",
       embedId: "5L0RZM2ZdeE",
       date: "September 2021",
     },
