@@ -282,8 +282,8 @@ export function VideoGallery() {
 
         {/* Video Modal */}
         {selectedVideo !== null && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-            <div className="relative max-w-4xl w-full">
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={closeVideo}>
+            <div className="relative max-w-4xl w-full" onClick={e => e.stopPropagation()}>
               <button
                 onClick={closeVideo}
                 className="absolute -top-12 right-0 bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors"
