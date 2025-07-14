@@ -72,8 +72,8 @@ export function TeamProfiles() {
       title: "Gurukulam Faculty",
       titleHindi: "गुरुकुलम शिक्षक",
       education: "B.Sc. Physics(Hons.), BNMU",
-      experience: "15+ years in sustainable farming",
-      specialization: "Organic Farming, Agroforestry",
+      experience: "3+ years in education, rural community work",
+      specialization: "Education, Organic Farming, Agroforestry",
       description:
         "Leads our agricultural initiatives, training farmers in sustainable practices. Expert in organic farming and agroforestry models suitable for Bihar's climate.",
       image: "/images/team/vivek.jpg",
