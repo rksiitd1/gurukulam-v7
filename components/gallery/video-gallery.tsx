@@ -24,7 +24,7 @@ export function VideoGallery() {
     {
       id: 2,
       title: "रश्मिरथी तृत्य सर्ग।। रामधारी सिंह दिनकर।। महाभारत शांति पर्व।।",
-      description: "This video is about 'रश्मिरथी तृत्य सर्ग' by Ramdhari Singh Dinkar, related to 'Mahabharat Shanti Parv'.",
+      description: "This video is about 'रश्मिरथी तृत्य सर्ग' by Ramdhari Singh Dinkar, related to 'Mahabharat Shanti Parv'",
       thumbnail: "/placeholder.svg?height=300&width=500",
       duration: "2:33",
       views: "276",
@@ -46,7 +46,7 @@ export function VideoGallery() {
     {
       id: 4,
       title: "ये मत कहो खुदा से मेरी मुश्किलें - हिंदी कविता",
-      description: 'This stirring Hindi poem, "Ye Mat Kaho Khuda Se," is an uplifting message of resilience and faith.',
+      description: 'This stirring Hindi poem, "Ye Mat Kaho Khuda Se," is an uplifting message of resilience and faith',
       thumbnail: "/placeholder.svg?height=300&width=500",
       duration: "3:48",
       views: "172",
@@ -57,7 +57,7 @@ export function VideoGallery() {
     {
       id: 5,
       title: "एकता की शक्ति: चिड़िया और हाथी की प्रेरणादायक कहानी",
-      description: "A heartwarming tale of unity where tiny creatures outsmart a mighty elephant through teamwork.",
+      description: "A heartwarming tale of unity where tiny creatures outsmart a mighty elephant through teamwork",
       thumbnail: "/placeholder.svg?height=300&width=500",
       duration: "5:57",
       views: "410",
@@ -67,14 +67,14 @@ export function VideoGallery() {
     },
     {
       id: 6,
-      title: "Women Empowerment Through Udyamita",
-      description: "Women entrepreneurs showcase their journey to financial independence",
+      title: "दूर असत से करो मुझे सत्पथ दिखलाओ - हिंदी कविता",
+      description: "A spiritually uplifting poem invoking divine guidance from darkness to truth, celebrating nature’s strength",
       thumbnail: "/placeholder.svg?height=300&width=500",
-      duration: "9:30",
-      views: "1.6K",
-      category: "Empowerment",
-      embedId: "dQw4w9WgXcQ",
-      date: "February 2024",
+      duration: "1:58",
+      views: "445",
+      category: "Poem",
+      embedId: "XGHk_POOx2o",
+      date: "September 2021",
     },
     {
       id: 7,
