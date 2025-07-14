@@ -9,7 +9,7 @@ import { useState } from "react"
 import { blogPosts } from "@/lib/blog-posts"
 
 export function BlogGrid() {
-  const [visiblePosts, setVisiblePosts] = useState(6)
+  const [visiblePosts, setVisiblePosts] = useState(12)
 
   // Sort posts by id in descending order
   const sortedPosts = blogPosts.slice().sort((a, b) => b.id - a.id)
