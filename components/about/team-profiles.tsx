@@ -33,7 +33,7 @@ export function TeamProfiles() {
       experience: "6+ years in education",
       specialization: "Curriculum Development, Teacher Training",
       description:
-        "Experienced educator who designs our holistic curriculum blending NCERT standards with cultural education. Leads teacher training and academic quality assurance.",
+        "A dedicated educator with deep roots in Bihar's educational landscape, Raju Sir brings transformative vision to rural learning. With his value-integrated pedagogy, he has revolutionized how traditional wisdom meets modern curriculum standards.",
       image: "/images/team/raju.jpg",
       contact: {
         email: "priya@divyabiharmission.in",
@@ -54,7 +54,7 @@ export function TeamProfiles() {
       experience: "3+ years in Education",
       specialization: "Education, Community Relations",
       description:
-        "Manages day-to-day operations, financial planning, and community outreach. Ensures smooth functioning of all programs.",
+        "The organizational backbone of Divya Bihar Mission, while being a dedicated faculty, Sanjay ji manages day-to-day operations, financial planning, and community outreach. Ensures smooth functioning of all programs.",
       image: "/images/team/sanjay.jpg",
       contact: {
         email: "rajesh@divyabiharmission.in",
@@ -75,7 +75,7 @@ export function TeamProfiles() {
       experience: "3+ years in education, rural community work",
       specialization: "Education, Organic Farming",
       description:
-        "Leads our agricultural initiatives, training farmers in sustainable practices. Expert in organic farming and agroforestry models suitable for Bihar's climate.",
+        "Born into a farming family in rural Bihar, Vivek ji represents the perfect blend of traditional wisdom and modern sustainable practices. While being a great faculty, he leads our organic farming and agroforestry models suitable for Bihar's climate.",
       image: "/images/team/vivek.jpg",
       contact: {
         email: "sunita@divyabiharmission.in",
