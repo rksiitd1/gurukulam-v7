@@ -129,8 +129,20 @@ export function VideoGallery() {
       views: "696",
       category: "Testimonials",
       embedId: "OrDhjamg4sY",
-      date: "July 2021",
+      date: "December 2024",
     },
+    {
+      id: 12,
+      title: "Ek Ped Maa ke Naam Tree Plantation",
+      description: "A tree planting event organized by Divya Bihar Mission to promote tree plantation",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "0:30",
+      views: "696",
+      category: "Planting",
+      embedId: "vyUQtcgUudE",
+      date: "July 2024",
+    },
+    
     
   ]
 
