@@ -113,7 +113,10 @@ export function TeamProfiles() {
         {/* Team Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
           {coreTeam.map((member, index) => (
-            <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Card
+              key={index}
+              className="bg-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 group"
+            >
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Profile Image */}
