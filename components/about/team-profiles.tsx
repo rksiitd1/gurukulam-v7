@@ -121,14 +121,18 @@ export function TeamProfiles() {
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Profile Image */}
                   <div className="flex-shrink-0">
-                    <div className="relative">
-                      <Image
-                        src={member.image || "/placeholder.svg"}
-                        alt={member.name}
-                        width={150}
-                        height={150}
-                        className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover shadow-lg border border-gray-200"
-                      />
+                    <div className="relative group">
+                      <div className="rounded-xl p-0.5 bg-gradient-to-tr from-blue-500 via-green-400 to-yellow-400 group-hover:from-blue-600 group-hover:via-green-500 group-hover:to-yellow-500 transition-all duration-500">
+                        <div className="bg-white rounded-xl">
+                          <Image
+                            src={member.image || "/placeholder.svg"}
+                            alt={member.name}
+                            width={150}
+                            height={150}
+                            className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover shadow-lg border-none"
+                          />
+                        </div>
+                      </div>
                       <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white p-2 rounded-full shadow-lg">
                         <GraduationCap className="w-5 h-5" />
                       </div>
