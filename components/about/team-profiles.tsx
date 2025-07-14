@@ -12,7 +12,7 @@ export function TeamProfiles() {
       experience: "6+ years in education and grassroot work",
       specialization: "Educational Leadership, Rural Development",
       description:
-        "Visionary leader who left corporate opportunities to serve rural Bihar. Known as 'Golu Sir' by students, he combines modern educational methods with traditional Indian values.",
+        'Visionary leader who left corporate opportunities to serve rural Bihar. Known affectionately as "Golu Sir" by students whose lives he has touched, he represents the rare combination of modern educational insight and deep spiritual wisdom.',
       image: "/images/team/mukund.jpg",
       contact: {
         email: "mukund@divyabiharmission.in",
