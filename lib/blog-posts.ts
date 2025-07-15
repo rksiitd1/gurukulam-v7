@@ -19,30 +19,47 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [// FILE: lib/blog-posts.ts
   {
     id: 1,
-    title: "From IIT to Village: The Story Behind Divya Bihar Mission",
-    slug: "from-iit-to-village-the-story-of-divya-bihar-mission",
+    title: "From IIT Delhi to Bihar Villages: A Journey of Purpose",
+    slug: "iit-delhi-to-bihar-villages-journey",
     image: "/images/blog/placeholder.svg?height=400&width=600",
     date: "2024-07-15",
     category: "Founder's Journey",
-    excerpt: "Discover the powerful story of Mukund Agrawal, an IIT Delhi alumnus who chose a path of service over a corporate career to ignite a revolution in rural Bihar. Learn about the 'turning point' that led to the birth of a mission dedicated to transforming lives through education and dharma.",
+    excerpt: "How Mukund Agrawal left his corporate career to dedicate his life to transforming rural education in Bihar through dharmic values and modern pedagogy.",
     content: `
-      <h2>The Road Less Traveled</h2>
-      <p>In a world where success is often measured by corporate titles and financial wealth, some individuals choose to measure it by the impact they create. Shri Mukund Agrawal, a Mechanical Engineering graduate from the prestigious IIT Delhi, is one such individual. After witnessing the stark contrast between the opportunities in metropolitan cities and the systemic challenges in his home state of Bihar, he felt an undeniable calling to return to his roots.</p>
-      <p>This wasn't a decision made lightly. It was a conscious choice to trade a lucrative career for a life of service, driven by a deep-seated belief that the soul of India resides in its villages, and their upliftment is paramount to the nation's progress.</p>
-      
-      <h2>The Turning Point</h2>
-      <p>During his final year at IIT, Mukund was actively involved in teaching underprivileged children in Delhi's slums. He met a brilliant young boy who, despite his immense potential, was forced to drop out of school to support his family. This incident became a profound turning point.</p>
-      <blockquote>"I realized that for every child in Delhi who faced such hurdles, there were hundreds in Bihar who never even got the chance to begin. The path became clear. My education, my skills, and my life had to be dedicated to ensuring that no child's potential is extinguished by circumstance."</blockquote>
-      <p>In 2018, with this unwavering resolve, Mukund returned to Raghopur, Supaul, and laid the foundation for the Divya Bihar Mission. The journey began humbly, with informal classes conducted under the shade of a banyan tree, but the vision was grand: to build a self-reliant, culturally proud, and progressive rural Bihar.</p>
-
-      <h2>The Founding Philosophy</h2>
-      <p>The mission was founded on a simple yet profound philosophy: education is the most powerful tool for liberation, but it must be holistic. It should not only sharpen the intellect but also nurture the heart and soul.</p>
+      <p>When I graduated from IIT Delhi with a Computer Science degree, everyone expected me to join a multinational corporation or start a tech company. Instead, I chose a different path – one that led me back to the villages of Bihar, where I was born and raised.</p>
+      <h2>The Calling</h2>
+      <p>During my time at IIT, I witnessed the stark contrast between urban opportunities and rural realities. While my classmates discussed startup ideas and corporate packages, I couldn't stop thinking about the children in my village who had the same potential but lacked access to quality education.</p>
+      <p>The turning point came during a visit home in my final year. I met Ravi, a bright 12-year-old who could solve complex mathematical problems in his head but had never seen a computer. His curiosity and intelligence reminded me of myself at that age, but unlike me, he didn't have the privilege of quality education.</p>
+      <h2>The Decision</h2>
+      <p>That encounter changed everything. I realized that true success isn't measured by personal achievements alone, but by the positive impact we create in others' lives. I decided to dedicate my life to bridging the educational gap between urban and rural India.</p>
+      <blockquote>
+        <p>"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
+      </blockquote>
+      <p>This quote resonated deeply with me as I embarked on this journey. I knew that by focusing on education, I could create a ripple effect that would transform entire communities.</p>
+      <h2>Building Divya Bihar Mission</h2>
+      <p>Starting Divya Bihar Mission wasn't easy. I faced skepticism from family, friends, and even potential beneficiaries. Many questioned why someone with an IIT degree would choose to work in rural areas when lucrative opportunities awaited in cities.</p>
+      <p>But I was determined. I started small – with just five students in a rented room in Raghopur. We had no fancy infrastructure, no high-tech equipment, just a whiteboard, some books, and an unwavering belief in the power of education.</p>
+      <h2>The Gurukulam Vision</h2>
+      <p>The journey of Divya Bihar Mission began with a simple yet powerful vision: to provide quality education to every child in rural Bihar, irrespective of their socio-economic background. Our founder, Mukund Agrawal, an IIT Delhi alumnus, witnessed the stark educational disparities in his home state and was moved to create a system that was both modern in its approach and rooted in Indian values.</p>
+      <p>Our founder's vision was not just to build schools, but to create centers of excellence that would serve as beacons of hope and transformation for entire communities. The goal was to nurture students who were not only academically proficient but also culturally aware, socially responsible, and equipped to lead in a global world. This led to the creation of our Gurukulam system – a unique blend of ancient wisdom and contemporary learning.</p>
+      <p>In our Gurukulam, students learn Sanskrit alongside Science, practice yoga with mathematics, and understand dharmic values through practical applications. This holistic approach ensures that our students become well-rounded individuals, ready to face life's challenges with confidence and integrity.</p>
+      <h2>Impact and Growth</h2>
+      <p>Today, six years later, Divya Bihar Mission has grown beyond my wildest dreams. We have:</p>
       <ul>
-          <li><strong>Education with Values:</strong> Integrating modern curriculum with the timeless wisdom of Indian culture, yoga, and meditation.</li>
-          <li><strong>Community First:</strong> Believing that individual success is only meaningful when it contributes to the collective welfare of society.</li>
-          <li><strong>Sustainable Growth:</strong> Focusing on grassroots solutions in agriculture and entrepreneurship to create a self-sufficient ecosystem.</li>
+        <li>Educated over 500 students across multiple programs</li>
+        <li>Helped 50+ students gain admission to prestigious colleges</li>
+        <li>Trained 200+ farmers in sustainable agriculture practices</li>
+        <li>Supported 30+ young entrepreneurs through our Udyamita program</li>
       </ul>
-      <p>This is more than just an organization; it is a movement. A movement to prove that when villages rise, the nation truly progresses. Join us in scripting this story of change, one child, one family, one village at a time.</p>
+      <p>But numbers don't tell the complete story. The real impact lies in the transformed lives – students who have become the first in their families to attend college, farmers who have doubled their income through organic practices, and young entrepreneurs who are creating jobs in their communities.</p>
+      <h2>Challenges and Learnings</h2>
+      <p>The journey hasn't been without challenges. We've faced funding constraints, infrastructure limitations, and occasional resistance to change. However, each challenge has taught us valuable lessons and made our mission stronger.</p>
+      <p>One of the biggest learnings has been the importance of community involvement. Sustainable change can only happen when the community takes ownership of the transformation process. We've learned to work with local leaders, involve parents in decision-making, and respect traditional knowledge while introducing modern concepts.</p>
+      <h2>Looking Ahead</h2>
+      <p>As I reflect on this journey, I'm filled with gratitude and excitement for the future. We're planning to expand our reach to more villages, introduce new programs, and create a model that can be replicated across rural India.</p>
+      <p>My message to young professionals, especially those from rural backgrounds, is simple: success isn't just about personal achievement. True fulfillment comes from using your skills and knowledge to uplift others. The villages that raised us need our expertise, our passion, and our commitment.</p>
+      <p>The journey from IIT Delhi to Bihar villages has been the most rewarding experience of my life. Every day, I wake up knowing that my work has the potential to change lives, preserve our cultural heritage, and build a better future for rural India.</p>
+      <p>This is not just my story – it's a call to action for all of us to contribute to the transformation of rural India, one village at a time.</p>
     `
   },
   {
