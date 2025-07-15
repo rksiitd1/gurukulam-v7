@@ -164,6 +164,17 @@ export function VideoGallery() {
       embedId: "_FP3i22JSxU",
       date: "August 2024",
     },
+    {
+      id: 15,
+      title: "Saraswati Puja Decoration । Village Look गांव_का_दृश्य",
+      description: "A beautiful decoration of Saraswati Puja in a village, showcasing the traditional and cultural heritage of Bihar",
+      thumbnail: "/placeholder.svg?height=300&width=500",
+      duration: "0:43",
+      views: "168",
+      category: "Events",
+      embedId: "FT71jw1w2Fg",
+      date: "February 2025",
+    },
   ]
 
   const openVideo = (index: number) => {
