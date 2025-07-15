@@ -246,7 +246,7 @@ export function ProgramsGrid() {
         </div>
 
         {/* Program Comparison */}
-        <div className="mt-20 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-4 sm:p-8">
+        <div className="mt-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-4 sm:p-8">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Program Comparison</h3>
             <p className="text-gray-600 font-devanagari">कार्यक्रम तुलना</p>
