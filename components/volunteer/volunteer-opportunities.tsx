@@ -1,102 +1,138 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Sprout, Users, Code, PenSquare, Camera } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Sprout, Users, Code, PenSquare, Camera, ArrowRight, Heart } from "lucide-react";
+import Link from "next/link";
 
-const opportunities = [
+const sevaPaths = [
     {
-        category: "On-Field Roles",
-        roles: [
+        sevaType: "Tan Seva",
+        sevaTypeHindi: "तन सेवा",
+        description: "Offer your physical presence and effort. Join us on the ground to serve the community directly.",
+        color: "green",
+        opportunities: [
             {
-                icon: <BookOpen className="w-8 h-8 text-blue-600" />,
-                title: "Gurukulam Educator",
-                description: "Teach subjects like Mathematics, Science, or English. Mentor students and assist with co-curricular activities.",
-                skills: ["Passion for teaching", "Patience", "Subject knowledge"],
-                commitment: "Minimum 3 months",
+                icon: <BookOpen />,
+                title: "Ignite Minds as an Educator",
+                details: "Mentor and teach at our Gurukulam, shaping the next generation with knowledge and values.",
+                commitment: "3-6 months commitment",
             },
             {
-                icon: <Sprout className="w-8 h-8 text-green-600" />,
-                title: "Agriculture Assistant",
-                description: "Work on our demonstration farms, assist with organic farming, and help train local farmers in sustainable practices.",
-                skills: ["Interest in farming", "Willingness to work outdoors"],
-                commitment: "Flexible (Short & Long term)",
+                icon: <Sprout />,
+                title: "Nurture the Land with Farmers",
+                details: "Work on our organic farms, promote sustainable agriculture, and empower our farming community.",
+                commitment: "1-3 months commitment",
             },
             {
-                icon: <Users className="w-8 h-8 text-orange-600" />,
-                title: "Community Coordinator",
-                description: "Help organize community events, manage outreach programs, and facilitate workshops for women and youth.",
-                skills: ["Good communication", "Organizational skills"],
-                commitment: "Minimum 1 month",
+                icon: <Users />,
+                title: "Strengthen the Community",
+                details: "Organize workshops, health camps, and cultural events that bring our villages together.",
+                commitment: "Flexible commitment",
             },
         ],
     },
     {
-        category: "Remote & Skill-Based Roles",
-        roles: [
+        sevaType: "Man Seva",
+        sevaTypeHindi: "मन सेवा",
+        description: "Offer your intellectual and creative skills. Support our mission from anywhere in the world.",
+        color: "orange",
+        opportunities: [
             {
-                icon: <PenSquare className="w-8 h-8 text-purple-600" />,
-                title: "Content Creator",
-                description: "Write blog posts, create social media content, and develop educational materials to share our story.",
-                skills: ["Strong writing skills", "Creative thinking"],
-                commitment: "Flexible (Part-time)",
+                icon: <PenSquare />,
+                title: "Weave Our Story",
+                details: "Use your writing skills to create compelling content, grant proposals, and social media posts.",
+                commitment: "Flexible & Remote",
             },
             {
-                icon: <Code className="w-8 h-8 text-red-600" />,
-                title: "Tech Support",
-                description: "Assist with our website, manage digital tools, or help develop simple tech solutions for our programs.",
-                skills: ["Web development", "IT support knowledge"],
-                commitment: "Flexible (Project-based)",
+                icon: <Code />,
+                title: "Build Our Digital Ashram",
+                details: "Lend your tech expertise to enhance our website, develop learning tools, and improve our digital outreach.",
+                commitment: "Project-based & Remote",
             },
             {
-                icon: <Camera className="w-8 h-8 text-yellow-600" />,
-                title: "Photography/Videography",
-                description: "Visit us to capture the essence of our work, or help edit and produce visual content remotely.",
-                skills: ["Photography", "Videography", "Editing"],
-                commitment: "Flexible (On-site or Remote)",
+                icon: <Camera />,
+                title: "Capture the Spirit of Seva",
+                details: "Document our journey through photography and videography, either on-site or by editing remotely.",
+                commitment: "Flexible (On-site/Remote)",
             },
         ]
     }
 ];
 
+const getColorClasses = (color: "green" | "orange") => {
+    if (color === 'green') {
+        return {
+            bg: 'bg-green-50',
+            border: 'border-green-600',
+            text: 'text-green-600',
+            button: 'bg-green-600 hover:bg-green-700',
+        };
+    }
+    return {
+        bg: 'bg-orange-50',
+        border: 'border-orange-600',
+        text: 'text-orange-600',
+        button: 'bg-orange-600 hover:bg-orange-700',
+    };
+};
+
+
 export function VolunteerOpportunities() {
     return (
-        <section id="opportunities" className="py-20 bg-gradient-to-br from-orange-50 to-green-50">
+        <section id="opportunities" className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
+                    <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-800 rounded-full text-sm font-medium mb-4 shadow-sm">
+                        <Heart className="w-4 h-4 mr-2 text-orange-600" />
+                        An Invitation to Serve
+                    </div>
                     <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                        Find Your Way to
-                        <span className="text-orange-600 block">Contribute</span>
+                        Offer Your Seva: Body & Mind
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Whether you can join us on the ground or support us from afar, there's a place for you in our mission.
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto font-devanagari">
+                        तन, मन से हमारे इस सेवा यज्ञ में अपनी आहुति दें।
                     </p>
                 </div>
 
-                {opportunities.map((category, index) => (
-                    <div key={index} className="mb-16">
-                        <h3 className="text-2xl font-bold text-center text-gray-800 mb-8 pb-2 border-b-2 border-orange-300">{category.category}</h3>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {category.roles.map((role, rIndex) => (
-                                <Card key={rIndex} className="bg-white hover:shadow-2xl transition-all duration-300 hover:scale-105 flex flex-col">
-                                    <CardContent className="p-6 flex flex-col flex-grow">
-                                        <div className="flex items-center space-x-4 mb-4">
-                                            {role.icon}
-                                            <h4 className="text-xl font-bold text-gray-900">{role.title}</h4>
-                                        </div>
-                                        <p className="text-gray-700 leading-relaxed mb-4 flex-grow">{role.description}</p>
-                                        <div className="mt-auto pt-4 border-t border-gray-100">
-                                            <h5 className="font-semibold text-sm text-gray-800 mb-2">Skills/Interests:</h5>
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {role.skills.map((skill, sIndex) => (
-                                                    <span key={sIndex} className="bg-gray-100 text-gray-700 px-2 py-1 text-xs font-medium rounded-full">{skill}</span>
-                                                ))}
+                <div className="grid lg:grid-cols-2 gap-12">
+                    {sevaPaths.map((path) => {
+                        const colors = getColorClasses(path.color as "green" | "orange");
+                        return(
+                            <div key={path.sevaType} className={`p-8 rounded-2xl shadow-lg border-t-4 ${colors.border} ${colors.bg}`}>
+                                <div className="text-center mb-8">
+                                    <h3 className={`text-3xl font-bold ${colors.text}`}>{path.sevaType}</h3>
+                                    <p className={`text-2xl font-devanagari mt-1 ${colors.text}`}>{path.sevaTypeHindi}</p>
+                                    <p className="mt-2 text-gray-600">{path.description}</p>
+                                </div>
+                                <div className="space-y-6">
+                                    {path.opportunities.map((opp) => (
+                                        <Card key={opp.title} className="bg-white hover:shadow-md transition-shadow duration-300 overflow-hidden">
+                                            <div className="p-5 flex items-start space-x-4">
+                                                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${colors.bg} ${colors.text}`}>
+                                                    {opp.icon}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h4 className="font-bold text-gray-800">{opp.title}</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">{opp.details}</p>
+                                                    <p className={`mt-2 text-xs font-semibold ${colors.text}`}>{opp.commitment}</p>
+                                                </div>
                                             </div>
-                                            <p className="text-xs text-orange-700 font-semibold">Commitment: {role.commitment}</p>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <div className="text-center mt-16">
+                    <p className="text-lg text-gray-700 mb-6">Every act of service, big or small, helps us build a brighter future for Bihar.</p>
+                    <Link href="#apply">
+                        <Button size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            Apply to Volunteer
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </section>
     );
