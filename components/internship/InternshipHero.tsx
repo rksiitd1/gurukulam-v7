@@ -32,7 +32,7 @@ const InternshipHero = () => {
               </Button>
             </a>
             <a href="#impact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto text-slate-300 border-slate-600 hover:bg-slate-700 hover:text-white font-medium px-8 py-6">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto text-slate-600 border-slate-600 hover:bg-slate-700 hover:text-white font-medium px-8 py-6">
                 Why This Matters
               </Button>
             </a>
