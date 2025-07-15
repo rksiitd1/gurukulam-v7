@@ -121,20 +121,27 @@ export function TeamProfiles() {
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Profile Image */}
                   <div className="flex-shrink-0">
-                    <div className="relative group">
-                      <div className="rounded-xl p-0.5 bg-gradient-to-tr from-blue-500 via-green-400 to-yellow-400 group-hover:from-blue-600 group-hover:via-green-500 group-hover:to-yellow-500 transition-all duration-500">
-                        <div className="bg-white rounded-xl">
+                    <div className="relative mx-auto">
+                      <div className="w-40 h-40 mx-auto relative transform group-hover:scale-105 transition-transform duration-500">
+                        {/* Background Frame */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-600 via-blue-700 to-indigo-800 transform rotate-2 group-hover:rotate-0 transition-transform duration-500 shadow-xl rounded-xl"></div>
+                        {/* Inner Frame */}
+                        <div className="absolute inset-1 bg-gradient-to-br from-slate-500 via-blue-600 to-indigo-700 transform -rotate-1 group-hover:rotate-0 transition-transform duration-500 rounded-xl"></div>
+                        {/* Image Container */}
+                        <div className="relative w-full h-full p-2">
+                          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl"></div>
                           <Image
                             src={member.image || "/placeholder.svg"}
                             alt={member.name}
-                            width={150}
-                            height={150}
-                            className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover shadow-lg border-none"
+                            width={160}
+                            height={160}
+                            className="relative w-full h-full object-cover shadow-2xl border-4 border-white group-hover:border-slate-200 transition-all duration-500 group-hover:scale-105 rounded-xl"
                           />
                         </div>
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white p-2 rounded-full shadow-lg">
-                        <GraduationCap className="w-5 h-5" />
+                        {/* Corner Accent */}
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-slate-600 to-blue-700 transform rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg border-2 border-white rounded-xl"></div>
+                        {/* Bottom Shadow Effect */}
+                        <div className="absolute -bottom-4 left-4 right-4 h-8 bg-black/15 blur-xl transform scale-x-75 group-hover:scale-x-100 transition-transform duration-500 rounded-xl"></div>
                       </div>
                     </div>
                   </div>
