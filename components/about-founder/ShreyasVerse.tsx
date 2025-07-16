@@ -15,8 +15,7 @@ export function ShreyasVerse() {
         {/* Sanskrit Quote */}
         <div className="mb-8">
           <div className="text-3xl md:text-4xl font-['Noto Serif Devanagari',serif] text-gray-800 leading-relaxed mb-4 drop-shadow-md">
-            श्रेयश्च प्रेयश्च मनुष्यमेत- <br/>
-            स्तौ संपरीत्य विविनक्ति धीरः । <br/>
+            श्रेयश्च प्रेयश्च मनुष्यमेतस्तौ संपरीत्य विविनक्ति धीरः । <br/>
             श्रेयो हि धीरोऽभि प्रेयसो वृणीते <br/>
             प्रेयो मन्दो योगक्षेमाद् वृणीते ॥
           </div>
