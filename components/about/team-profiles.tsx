@@ -122,26 +122,26 @@ export function TeamProfiles() {
                   {/* Profile Image */}
                   <div className="flex-shrink-0">
                     <div className="relative mx-auto">
-                      <div className="w-40 h-40 mx-auto relative transform group-hover:scale-105 transition-transform duration-500">
+                      <div className="w-40 h-48 mx-auto relative transform group-hover:scale-105 transition-transform duration-500">
                         {/* Background Frame */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-600 via-blue-700 to-indigo-800 transform rotate-2 group-hover:rotate-0 transition-transform duration-500 shadow-xl rounded-xl"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-600 via-blue-700 to-indigo-800 transform rotate-2 group-hover:rotate-0 transition-transform duration-500 shadow-xl"></div>
                         {/* Inner Frame */}
-                        <div className="absolute inset-1 bg-gradient-to-br from-slate-500 via-blue-600 to-indigo-700 transform -rotate-1 group-hover:rotate-0 transition-transform duration-500 rounded-xl"></div>
+                        <div className="absolute inset-1 bg-gradient-to-br from-slate-500 via-blue-600 to-indigo-700 transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
                         {/* Image Container */}
                         <div className="relative w-full h-full p-2">
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl"></div>
+                          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                           <Image
                             src={member.image || "/placeholder.svg"}
                             alt={member.name}
                             width={160}
-                            height={160}
-                            className="relative w-full h-full object-cover shadow-2xl border-4 border-white group-hover:border-slate-200 transition-all duration-500 group-hover:scale-105 rounded-xl"
+                            height={192}
+                            className="relative w-full h-full object-cover shadow-2xl border-4 border-white group-hover:border-slate-200 transition-all duration-500 group-hover:scale-105"
                           />
                         </div>
                         {/* Corner Accent */}
-                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-slate-600 to-blue-700 transform rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg border-2 border-white rounded-xl"></div>
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-slate-600 to-blue-700 transform rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg border-2 border-white"></div>
                         {/* Bottom Shadow Effect */}
-                        <div className="absolute -bottom-4 left-4 right-4 h-8 bg-black/15 blur-xl transform scale-x-75 group-hover:scale-x-100 transition-transform duration-500 rounded-xl"></div>
+                        <div className="absolute -bottom-4 left-4 right-4 h-8 bg-black/15 blur-xl transform scale-x-75 group-hover:scale-x-100 transition-transform duration-500"></div>
                       </div>
                     </div>
                   </div>
