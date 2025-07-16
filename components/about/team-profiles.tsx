@@ -88,6 +88,44 @@ export function TeamProfiles() {
         "Expert in indigenous seed preservation",
       ],
     },
+    {
+      name: "Ratnesh Sharma",
+      title: "Faculty Member",
+      titleHindi: "शिक्षक",
+      education: "B.Tech Biotechnology, IIT Delhi",
+      experience: "2+ years in education",
+      specialization: "Community Engagement, Teaching",
+      description:
+        "Ratnesh is dedicated to supporting students and community programs, bringing energy and care to every initiative.",
+      image: "/images/team/ratnesh.jpg",
+      contact: {
+        email: "ratnesh@divyabiharmission.in",
+        phone: "",
+      },
+      achievements: [
+        "Active in community outreach",
+        "Supports academic and extracurricular activities",
+      ],
+    },
+    {
+      name: "Mukul Kumar",
+      title: "Faculty Member",
+      titleHindi: "शिक्षक",
+      education: "B.Sc. (Details to update)",
+      experience: "2+ years in education",
+      specialization: "Student Mentoring, Administration",
+      description:
+        "Mukul is committed to student growth and smooth operations, ensuring a positive learning environment for all.",
+      image: "/images/team/mukul.jpg",
+      contact: {
+        email: "mukul@divyabiharmission.in",
+        phone: "",
+      },
+      achievements: [
+        "Mentors students in academics and values",
+        "Helps manage daily school operations",
+      ],
+    },
   ]
 
   return (
