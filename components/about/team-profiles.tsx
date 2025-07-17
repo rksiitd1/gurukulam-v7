@@ -115,7 +115,7 @@ export function TeamProfiles() {
       experience: "20+ years in social work and community development",
       specialization: "Physical Education, Sports Training, Student Wellness",
       description:
-        "A veteran social worker with over two decades of unwavering dedication to rural Bihar's upliftment, Mukul ji embodies the true spirit of seva and community service. As our Krida Acharya, he believes that physical fitness and mental strength are the foundations of a strong society."
+        "A veteran social worker with over two decades of unwavering dedication to rural Bihar's upliftment, Mukul ji embodies the true spirit of seva and community service. As our Krida Acharya, he believes that physical fitness and mental strength are the foundations of a strong society.",
       image: "/images/team/mukul.jpg",
       contact: {
         email: "mukul@divyabiharmission.in",
