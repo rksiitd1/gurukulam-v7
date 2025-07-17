@@ -109,11 +109,11 @@ export function TeamProfiles() {
     },
     {
       name: "Mukul Das",
-      title: "Krida Acharya & Senior Social Worker",
+      title: "Krida Acharya & Changemaker",
       titleHindi: "क्रीड़ा आचार्य एवं वरिष्ठ समाजसेवी",
-      education: "20+ years as a principal in various schools",
-      experience: "20+ years in social work and community development",
-      specialization: "Physical Education, Sports Training, Student Wellness",
+      education: "(Details to Update)",
+      experience: "20+ years as a principal, social work",
+      specialization: "Physical Education, Sports Training",
       description:
         "A veteran social worker with over two decades of unwavering dedication to rural Bihar's upliftment, Mukul ji embodies the true spirit of seva and community service. As our Krida Acharya, he believes that physical fitness and mental strength are the foundations of a strong society.",
       image: "/images/team/mukul.jpg",
