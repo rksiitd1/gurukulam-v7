@@ -108,10 +108,10 @@ export function TeamProfiles() {
       ],
     },
     {
-      name: "Mukul Kumar",
+      name: "Mukul Das",
       title: "Krida Acharya & Senior Social Worker",
       titleHindi: "क्रीड़ा आचार्य एवं वरिष्ठ समाजसेवी",
-      education: "B.Sc. (Details to update)",
+      education: "20+ years as a principal in various schools",
       experience: "20+ years in social work and community development",
       specialization: "Physical Education, Sports Training, Student Wellness",
       description:
