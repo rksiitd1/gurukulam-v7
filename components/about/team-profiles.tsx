@@ -108,7 +108,7 @@ export function TeamProfiles() {
       ],
     },
     {
-      name: "Mukul Das",
+      name: "Shri Mukul Das",
       title: "Krida Acharya & Changemaker",
       titleHindi: "क्रीड़ा आचार्य एवं वरिष्ठ समाजसेवी",
       education: "(Details to Update)",
