@@ -109,13 +109,13 @@ export function TeamProfiles() {
     },
     {
       name: "Mukul Kumar",
-      title: "Faculty Member",
-      titleHindi: "शिक्षक",
+      title: "Krida Acharya & Senior Social Worker",
+      titleHindi: "क्रीड़ा आचार्य एवं वरिष्ठ समाजसेवी",
       education: "B.Sc. (Details to update)",
-      experience: "2+ years in education",
-      specialization: "Student Mentoring, Administration",
+      experience: "20+ years in social work and community development",
+      specialization: "Physical Education, Sports Training, Student Wellness",
       description:
-        "Mukul is committed to student growth and smooth operations, ensuring a positive learning environment for all.",
+        "A veteran social worker with over two decades of unwavering dedication to rural Bihar's upliftment, Mukul ji embodies the true spirit of seva and community service. As our Krida Acharya, he believes that physical fitness and mental strength are the foundations of a strong society."
       image: "/images/team/mukul.jpg",
       contact: {
         email: "mukul@divyabiharmission.in",
