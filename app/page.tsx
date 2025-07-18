@@ -5,6 +5,7 @@ import { CallToAction } from "@/components/call-to-action"
 import { WhyWeExistSection } from "@/components/why-we-exist-section"
 import { GetInvolvedSection } from "@/components/get-involved-section"
 import UpanishadVerse from "@/components/UpanishadVerse"
+import { HomepageTestimonials } from "@/components/homepage-testimonials"
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <WhyWeExistSection />
       <About />
       <Programs />
+      <HomepageTestimonials />
       <GetInvolvedSection />
       <UpanishadVerse />
       <CallToAction />
