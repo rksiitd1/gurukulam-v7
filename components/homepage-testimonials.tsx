@@ -16,16 +16,7 @@ export function HomepageTestimonials() {
     if (!api) return
 
     const interval = setInterval(() => {
-      const currentIndex = api.selectedScrollSnap()
-      const totalSlides = api.slideNodes().length
-      
-      if (currentIndex === totalSlides - 1) {
-        // If we're at the last slide, go to the first
-        api.scrollTo(0)
-      } else {
-        // Otherwise, go to the next slide
-        api.scrollNext()
-      }
+      api.scrollNext()
     }, 6000)
 
     return () => clearInterval(interval)
@@ -89,10 +80,7 @@ export function HomepageTestimonials() {
                   <Carousel
             setApi={setApi}
             opts={{
-              align: "start",
               loop: true,
-              skipSnaps: false,
-              containScroll: "trimSnaps",
             }}
             className="w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto"
           >
