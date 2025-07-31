@@ -1,43 +1,67 @@
+"use client"
+
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Quote, Star } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export function HomepageTestimonials() {
+  const [api, setApi] = useState<any>(null)
+
+  // Auto-advance carousel every 6 seconds
+  useEffect(() => {
+    if (!api) return
+
+    const interval = setInterval(() => {
+      const currentIndex = api.selectedScrollSnap()
+      const totalSlides = api.slideNodes().length
+      
+      if (currentIndex === totalSlides - 1) {
+        // If we're at the last slide, go to the first
+        api.scrollTo(0)
+      } else {
+        // Otherwise, go to the next slide
+        api.scrollNext()
+      }
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [api])
   // A curated list of the most impactful testimonials for the homepage
   const testimonials = [
     {
-      name: "Amit Singh",
-      title: "Former Student, Now Engineering Student",
+      name: "Nikhil Kulkarni",
+      title: "CS, BTech, IIT Delhi",
       image: "/placeholder.svg?height=80&width=80",
       content:
-        "Golu sir (Mukund Agrawal) changed my life. From a village boy with no hope, I'm now pursuing engineering. The values he taught will stay with me forever.",
-      initials: "AS",
+        "Bihar’s villages felt safer, cleaner, and richer -- culturally, socially, and even in natural beauty -- than many towns. After meeting the children at Divya Bihar Mission , I came back deeply assured about India’s future. The values and education they’re receiving are already visible in their personalities and confidence. Many, many best wishes to you, Mukund Bhaiya!",
+      initials: "NK",
     },
     {
-      name: "Sunita Devi",
-      title: "Farmer, Supaul",
+      name: "Robin Singh Rathore",
+      title: "PhD Scholar, BTech, Chemical Engg, IIT Delhi",
       image: "/placeholder.svg?height=80&width=80",
       content:
-        "The agriculture training from Divya Bihar Mission helped me triple my income. I learned organic farming techniques and now I teach other women in my village.",
+        "Visiting Bihar has always been special — not just for its rich heritage of knowledge and spirituality, but also for the potential it holds today. Despite challenges like high population and small landholdings, it remains one of the most fertile regions in India. My visit to Raghopur was truly inspiring. I met changemakers like Mukund Bhai, who are working to build villages that are sustainable and aligned with nature. What stood out most was the role of education — the true anchor for change. It can empower youth to take charge of their communities and lead the way toward a better, more sustainable rural India.",
       initials: "SD",
     },
     {
-      name: "Priya Sharma",
-      title: "Parent, Raghopur",
+      name: "Omkar",
+      title: "Aurangabad, Maharashtra",
       image: "/placeholder.svg?height=80&width=80",
       content:
-        "My son is getting an excellent education at the Gurukulam. They teach modern subjects along with our cultural values (sanskar). I am so grateful.",
+        "The overall impression of Bihar in the public mind is well known. However, rural areas in Bihar are an exception. The reason for this was that I met a well-wisher residing in a district called Supaul in Bihar and stayed there for some time. The difference in the experience of urban and rural life in Bihar was striking. Rural Bihar appears cleaner, beautiful, safe and prosperous in comparison. The abundant water and fertile land there enrich the rural life. This is a rural area in Bihar Instead of 'male-dominated' it should be called 'feminine-dominated' because all the domestic and agricultural work there is mainly done by women. The male class has largely migrated in search of work. This is the reason why the villages there are more attractive. In short, Bihar has succeeded in preserving the rural culture. May Bihar prosper in all things and prosper there. And finally, words are not enough to express my gratitude to Mukund Bhaiya for this unforgettable experience.",
       initials: "PS",
     },
     {
-      name: "Dr. Rajesh Kumar",
-      title: "Professor, IIT Delhi",
+      name: "Dharmadas Ji",
+      title: "Vivekananda Kendra, Kanyakumari",
       image: "/placeholder.svg?height=80&width=80",
       content:
-        "Mukund's dedication is exemplary. His approach of combining modern curriculum with traditional values is exactly what rural India needs for a sustainable future.",
+        "Mukund's dedication is exemplary. His approach of combining modern curriculum with traditional values is exactly what rural India needs for a sustainable future. He is doing great job for nation building.",
       initials: "RK",
     },
   ]
@@ -62,26 +86,24 @@ export function HomepageTestimonials() {
         </div>
 
         {/* Testimonials Carousel */}
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto"
-        >
-          <CarouselContent>
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+              skipSnaps: false,
+              containScroll: "trimSnaps",
+            }}
+            className="w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto"
+          >
+                      <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col justify-between bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden">
                     <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
                       <Quote className="w-10 h-10 text-purple-300 mb-4" />
-                      <p className="text-gray-700 italic leading-relaxed flex-grow">"{testimonial.content}"</p>
-                      <div className="flex mt-4">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                        ))}
-                      </div>
+                                             <p className="text-gray-700 italic leading-relaxed flex-grow">"{testimonial.content}"</p>
                     </CardContent>
                     <div className="bg-gray-50 p-4 flex items-center space-x-4 border-t border-gray-100">
                       <Avatar>
