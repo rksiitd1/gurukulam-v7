@@ -50,7 +50,7 @@ export function HomepageTestimonials() {
     setSelectedTestimonial(null)
   }
 
-  const getPreviewText = (content: string, maxLength: number = 300) => {
+  const getPreviewText = (content: string, maxLength: number = 400) => {
     if (content.length <= maxLength) return content
     return content.substring(0, maxLength) + "..."
   }
@@ -141,7 +141,7 @@ export function HomepageTestimonials() {
                           </p>
                           
                           {/* See More Button */}
-                          {testimonial.content.length > 300 && (
+                          {testimonial.content.length > 400 && (
                             <Button
                               variant="ghost"
                               size="sm"
@@ -193,9 +193,9 @@ export function HomepageTestimonials() {
       {/* Modal Tray */}
       {selectedTestimonial !== null && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden animate-in fade-in-0 zoom-in-95 duration-300">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-100">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full h-[90vh] flex flex-col animate-in fade-in-0 zoom-in-95 duration-300">
+            {/* Modal Header - Fixed */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-100 flex-shrink-0">
               <div className="flex items-center space-x-3">
                 <Avatar className="w-12 h-12 ring-2 ring-purple-100">
                   <AvatarImage src={testimonials[selectedTestimonial].image} alt={testimonials[selectedTestimonial].name} />
@@ -218,8 +218,8 @@ export function HomepageTestimonials() {
               </Button>
             </div>
 
-            {/* Modal Content */}
-            <div className="p-6 overflow-y-auto max-h-[60vh]">
+            {/* Modal Content - Scrollable */}
+            <div className="flex-1 overflow-y-auto p-6">
               <div className="flex justify-center mb-6">
                 <div className="p-3 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full">
                   <Quote className="w-8 h-8 text-purple-500" />
@@ -230,8 +230,8 @@ export function HomepageTestimonials() {
               </p>
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-6 border-t border-gray-100 bg-gray-50">
+            {/* Modal Footer - Fixed */}
+            <div className="p-6 border-t border-gray-100 bg-gray-50 flex-shrink-0">
               <Button
                 onClick={closeModal}
                 className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
