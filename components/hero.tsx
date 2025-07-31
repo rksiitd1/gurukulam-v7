@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const stats = [
   { value: "25+", label: "Villages Impacted", color: "text-green-600" },
-  { value: "2000+", label: "Students Benefited", color: "text-orange-600" },
-  { value: "100+", label: "Volunteers", color: "text-blue-600" },
+  { value: "1500+", label: "Students Benefited", color: "text-orange-600" },
+  { value: "50+", label: "Volunteers", color: "text-blue-600" },
 ];
 
 const Hero = () => (
