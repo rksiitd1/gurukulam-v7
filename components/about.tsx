@@ -1,8 +1,54 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Heart, Sprout, Users } from "lucide-react"
 import Image from "next/image"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { useEffect, useState } from "react"
 
 export function About() {
+  const [api, setApi] = useState<any>(null)
+
+  // Auto-advance carousel every 4 seconds
+  useEffect(() => {
+    if (!api) return
+
+    const interval = setInterval(() => {
+      api.scrollNext()
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [api])
+
+  const carouselImages = [
+    {
+      src: "/images/about/1.jpg",
+      alt: "About Divya Bihar Mission",
+    },
+    {
+      src: "/images/about/2.jpg",
+      alt: "Our mission and vision",
+    },
+    {
+      src: "/images/about/3.jpg",
+      alt: "Community engagement",
+    },
+    {
+      src: "/images/about/4.jpg",
+      alt: "Education and empowerment",
+    },
+    {
+      src: "/images/about/5.jpg",
+      alt: "Divya Bihar Mission activities",
+    },
+  ]
+
   const values = [
     {
       icon: <Heart className="w-8 h-8 text-red-500" />,
@@ -69,16 +115,36 @@ export function About() {
             </div>
           </div>
 
-          {/* Image and Stats */}
+          {/* Image Carousel and Stats */}
           <div className="space-y-8">
             <div className="relative">
-              <Image
-                src="/placeholder.svg?height=400&width=500"
-                alt="Mukund Agrawal with students"
-                width={500}
-                height={400}
-                className="rounded-2xl shadow-lg w-full h-auto object-cover"
-              />
+              <Carousel
+                setApi={setApi}
+                className="w-full"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+              >
+                <CarouselContent>
+                  {carouselImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          width={500}
+                          height={400}
+                          className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+              
               <div className="hidden sm:block absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-4 border">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-600">2018</div>
