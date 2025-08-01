@@ -3,7 +3,7 @@ import { VolunteerHero } from '@/components/volunteer/volunteer-hero';
 import { WhyVolunteer } from '@/components/volunteer/why-volunteer';
 import { VolunteerOpportunities } from '@/components/volunteer/volunteer-opportunities';
 import { VolunteerSignup } from '@/components/volunteer/volunteer-signup';
-import { VolunteerTestimonials } from '@/components/volunteer/volunteer-testimonials';
+// import { VolunteerTestimonials } from '@/components/volunteer/volunteer-testimonials';
 import { VolunteerFAQ } from '@/components/volunteer/volunteer-faq';
 import { CallToAction } from '@/components/call-to-action';
 
@@ -13,7 +13,7 @@ export default function VolunteerPage() {
       <VolunteerHero />
       <WhyVolunteer />
       <VolunteerOpportunities />
-      <VolunteerTestimonials />
+      {/* <VolunteerTestimonials /> */}
       <VolunteerSignup />
       <VolunteerFAQ />
       <CallToAction />
