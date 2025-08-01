@@ -60,7 +60,7 @@ export function HomepageTestimonials() {
     {
       name: "Nikhil Kulkarni",
       title: "CS, BTech, IIT Delhi",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "/images/team/placeholder-user.jpg",
       content:
         "Bihar's villages felt safer, cleaner, and richer -- culturally, socially, and even in natural beauty -- than many towns. After meeting the children at Divya Bihar Mission , I came back deeply assured about India's future. The values and education they're receiving are already visible in their personalities and confidence. Many, many best wishes to you, Mukund Bhaiya!",
       initials: "NK",
@@ -68,7 +68,7 @@ export function HomepageTestimonials() {
     {
       name: "Robin Singh Rathore",
       title: "PhD Scholar, BTech, Chemical Engg, IIT Delhi",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "/images/team/placeholder-user.jpg",
       content:
         "Visiting Bihar has always been special — not just for its rich heritage of knowledge and spirituality, but also for the potential it holds today. Despite challenges like high population and small landholdings, it remains one of the most fertile regions in India. My visit to Raghopur was truly inspiring. I met changemakers like Mukund Bhai, who are working to build villages that are sustainable and aligned with nature. What stood out most was the role of education — the true anchor for change. It can empower youth to take charge of their communities and lead the way toward a better, more sustainable rural India.",
       initials: "SD",
@@ -76,18 +76,18 @@ export function HomepageTestimonials() {
     {
       name: "Omkar",
       title: "Aurangabad, Maharashtra",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "/images/testimonials/omkar.jpg",
       content:
         "The overall impression of Bihar in the public mind is well known. However, rural areas in Bihar are an exception. The reason for this was that I met a well-wisher residing in a district called Supaul in Bihar and stayed there for some time. The difference in the experience of urban and rural life in Bihar was striking. Rural Bihar appears cleaner, beautiful, safe and prosperous in comparison. The abundant water and fertile land there enrich the rural life. This is a rural area in Bihar Instead of 'male-dominated' it should be called 'feminine-dominated' because all the domestic and agricultural work there is mainly done by women. The male class has largely migrated in search of work. This is the reason why the villages there are more attractive. In short, Bihar has succeeded in preserving the rural culture. May Bihar prosper in all things and prosper there. And finally, words are not enough to express my gratitude to Mukund Bhaiya for this unforgettable experience.",
-      initials: "PS",
+      initials: "O",
     },
     {
       name: "Dharmadas Ji",
       title: "Vivekananda Kendra, Kanyakumari",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "/images/testimonials/dharmadasji.jpg",
       content:
         "Mukund's dedication is exemplary. His approach of combining modern curriculum with traditional values is exactly what rural India needs for a sustainable future. He is doing great job for nation building.",
-      initials: "RK",
+      initials: "DJ",
     },
   ]
 
@@ -157,12 +157,12 @@ export function HomepageTestimonials() {
                         {/* Author Section */}
                         <div className="mt-6 pt-4 border-t border-gray-100">
                           <div className="flex items-center space-x-3">
-                            <Avatar className="w-12 h-12 ring-2 ring-purple-100 group-hover:ring-purple-200 transition-all duration-300">
-                              <AvatarImage src={testimonial.image} alt={testimonial.name} />
-                              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-pink-500 text-white font-bold">
-                                {testimonial.initials}
-                              </AvatarFallback>
-                            </Avatar>
+                                                      <Avatar className="w-12 h-12 ring-2 ring-purple-100 group-hover:ring-purple-200 transition-all duration-300">
+                            <AvatarImage src={testimonial.image} alt={testimonial.name} className="object-cover" />
+                            <AvatarFallback className="bg-gradient-to-br from-purple-500 to-pink-500 text-white font-bold">
+                              {testimonial.initials}
+                            </AvatarFallback>
+                          </Avatar>
                             <div className="flex-1 min-w-0">
                               <p className="font-semibold text-gray-900 text-sm truncate">{testimonial.name}</p>
                               <p className="text-xs text-gray-600 truncate">{testimonial.title}</p>
@@ -198,7 +198,7 @@ export function HomepageTestimonials() {
             <div className="flex items-center justify-between p-6 border-b border-gray-100 flex-shrink-0">
               <div className="flex items-center space-x-3">
                 <Avatar className="w-12 h-12 ring-2 ring-purple-100">
-                  <AvatarImage src={testimonials[selectedTestimonial].image} alt={testimonials[selectedTestimonial].name} />
+                  <AvatarImage src={testimonials[selectedTestimonial].image} alt={testimonials[selectedTestimonial].name} className="object-cover" />
                   <AvatarFallback className="bg-gradient-to-br from-purple-500 to-pink-500 text-white font-bold">
                     {testimonials[selectedTestimonial].initials}
                   </AvatarFallback>
