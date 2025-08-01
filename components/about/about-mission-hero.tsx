@@ -48,14 +48,14 @@ const AboutMissionHero = () => (
             <p className="text-yellow-700 text-xs sm:text-sm mt-1">"From one lamp, thousands of lamps can be lit."</p>
           </div>
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-gray-200">
+          {/* <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-gray-200">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className={`text-xl sm:text-2xl font-bold ${stat.color}`}>{stat.value}</div>
                 <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="https://chat.whatsapp.com/KU2neVtvTYC9wjsPrDxlTd" target="_blank" rel="noopener noreferrer" className="flex-1">
