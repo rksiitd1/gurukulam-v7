@@ -253,11 +253,11 @@ export function VideoGallery() {
 
         {/* Video Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.slice(1).map((video, index) => (
+          {videos.map((video, index) => (
             <Card
               key={video.id}
               className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              onClick={() => openVideo(index + 1)}
+              onClick={() => openVideo(index)}
             >
               <CardContent className="p-0">
                 <div className="relative overflow-hidden">
