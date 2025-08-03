@@ -153,7 +153,7 @@ export function About() {
               </div>
               <div className="block sm:hidden mt-4 bg-white rounded-lg shadow-lg p-4 border w-full max-w-xs mx-auto">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">2018</div>
+                  <div className="text-2xl font-bold text-orange-600">2021</div>
                   <div className="text-sm text-gray-600">Mission Started</div>
                 </div>
               </div>
@@ -169,15 +169,15 @@ export function About() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">2018: Returned to Bihar, Founded Divya Bihar Mission</span>
+                  <span className="text-gray-700">2019: Returned to Bihar &amp; Started Agro Projects</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                  <span className="text-gray-700">2020: Launched Shri Classes &amp; Agro Projects</span>
+                  <span className="text-gray-700">2021: Founded Divya Bihar Mission &amp; Launched Shri Classes</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <span className="text-gray-700">2024: Established Divya Bihar Global Gurukulam</span>
+                  <span className="text-gray-700">2025: Established Divya Bihar Global Gurukulam</span>
                 </div>
               </div>
             </div>
