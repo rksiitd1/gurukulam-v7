@@ -253,10 +253,10 @@ export function PhotoGallery() {
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h3 className="font-semibold text-sm mb-1">{photo.title}</h3>
                     <p className="text-xs opacity-90">{photo.date}</p>
-                  </div>
+                  </div> */}
                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Camera className="w-4 h-4 text-white" />
                   </div>
@@ -313,11 +313,11 @@ export function PhotoGallery() {
                   height={600}
                   className="w-full h-auto max-h-[70vh] object-contain"
                 />
-                <div className="p-6">
+                {/* <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{filteredPhotos[selectedImage].title}</h3>
                   <p className="text-gray-600 mb-2">{filteredPhotos[selectedImage].description}</p>
                   <p className="text-sm text-gray-500">{filteredPhotos[selectedImage].date}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
