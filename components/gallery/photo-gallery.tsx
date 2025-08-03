@@ -21,6 +21,15 @@ export function PhotoGallery() {
   ]
 
   const photos = [
+    // New gallery images (sorted by number, appear at top)
+    ...Array.from({ length: 25 }, (_, i) => ({
+      id: i + 1,
+      src: `/images/gallery/${i + 1}.jpg?height=400&width=600`,
+      title: `Gallery Image ${i + 1}`,
+      description: `Photo number ${i + 1} from gallery`,
+      category: "gallery",
+      date: "2025-08-03", // Use current date for sorting at top
+    })),
     {
       id: 1,
       src: "/images/gallery/agriculture/1.jpg?height=400&width=600",
