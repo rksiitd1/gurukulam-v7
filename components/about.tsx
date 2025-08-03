@@ -147,7 +147,7 @@ export function About() {
               
               <div className="hidden sm:block absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-4 border">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">2018</div>
+                  <div className="text-2xl font-bold text-orange-600">2021</div>
                   <div className="text-sm text-gray-600">Mission Started</div>
                 </div>
               </div>
