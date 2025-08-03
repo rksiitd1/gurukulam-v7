@@ -204,7 +204,7 @@ export function VideoGallery() {
           <p className="text-lg font-devanagari text-red-700 mt-2">चलचित्रों में हमारी कहानी</p>
         </div>
 
-        {/* Featured Video */}
+        {/*
         <div className="mb-16">
           <Card className="overflow-hidden shadow-2xl">
             <CardContent className="p-0">
@@ -249,6 +249,7 @@ export function VideoGallery() {
             </CardContent>
           </Card>
         </div>
+        */}
 
         {/* Video Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
