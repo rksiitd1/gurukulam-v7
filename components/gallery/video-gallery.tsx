@@ -10,17 +10,17 @@ export function VideoGallery() {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
 
   const videos = [
-    {
-      id: 1,
-      title: "Divya Bihar Mission - Our Story",
-      description: "Complete journey of Divya Bihar Mission from inception to current impact",
-      thumbnail: "/placeholder.svg?height=300&width=500",
-      duration: "12:45",
-      views: "2.5K",
-      category: "Documentary",
-      embedId: "X2RFUholoU0", // YouTube video ID
-      date: "July 2025",
-    },
+    // {
+    //   id: 1,
+    //   title: "Divya Bihar Mission - Our Story",
+    //   description: "Complete journey of Divya Bihar Mission from inception to current impact",
+    //   thumbnail: "/placeholder.svg?height=300&width=500",
+    //   duration: "12:45",
+    //   views: "2.5K",
+    //   category: "Documentary",
+    //   embedId: "X2RFUholoU0", // YouTube video ID
+    //   date: "July 2025",
+    // },
     {
       id: 2,
       title: "रश्मिरथी तृत्य सर्ग।। रामधारी सिंह दिनकर।। महाभारत शांति पर्व।।",
