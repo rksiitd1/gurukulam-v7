@@ -25,7 +25,7 @@ export function VideoGallery() {
       id: 2,
       title: "रश्मिरथी तृत्य सर्ग।। रामधारी सिंह दिनकर।। महाभारत शांति पर्व।।",
       description: "This video is about 'रश्मिरथी तृत्य सर्ग' by Ramdhari Singh Dinkar, related to 'Mahabharat Shanti Parv'",
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      thumbnail: "/images/thumbnails/rashmirathi.png",
       duration: "2:33",
       views: "276",
       category: "Poem",
