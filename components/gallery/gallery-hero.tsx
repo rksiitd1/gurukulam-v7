@@ -55,7 +55,7 @@ export function GalleryHero() {
               <div className="space-y-4">
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/placeholder.svg?height=200&width=300"
+                    src="/images/gallery/header/classroom.png"
                     alt="Students in classroom"
                     width={300}
                     height={200}
@@ -66,7 +66,7 @@ export function GalleryHero() {
                 </div>
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/placeholder.svg?height=250&width=300"
+                    src="/images/gallery/header/cultural-program.png"
                     alt="Cultural program"
                     width={300}
                     height={250}
@@ -79,7 +79,7 @@ export function GalleryHero() {
               <div className="space-y-4 mt-8">
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/placeholder.svg?height=250&width=300"
+                    src="/images/gallery/header/planting.png"
                     alt="Agricultural training"
                     width={300}
                     height={250}
@@ -90,7 +90,7 @@ export function GalleryHero() {
                 </div>
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/placeholder.svg?height=200&width=300"
+                    src="/images/gallery/header/community-events.png"
                     alt="Community gathering"
                     width={300}
                     height={200}
