@@ -36,7 +36,7 @@ export function VideoGallery() {
       id: 3,
       title: "सुबह सवेरे लेकर तेरा नाम प्रभु - प्रार्थना",
       description: "Begin your day on a positive and spiritual note with this heartfelt rendition of the popular prayer",
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      thumbnail: "/images/thumbnails/sabah_savere.png",
       duration: "1:57",
       views: "172",
       category: "Prayer",
