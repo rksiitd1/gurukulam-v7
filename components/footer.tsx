@@ -38,7 +38,7 @@ export function Footer() {
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Empowering Bihar's rural communities through education with yogic values, sustainable agriculture, and cultural
-              preservation since 2018.
+              preservation since 2021.
             </p>
             <p className="text-gray-400 text-sm font-devanagari">शिक्षा से समाज का कल्याण</p>
 
