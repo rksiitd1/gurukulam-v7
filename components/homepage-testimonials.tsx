@@ -60,7 +60,7 @@ export function HomepageTestimonials() {
     {
       name: "Nikhil Kulkarni",
       title: "CS, BTech, IIT Delhi",
-      image: "/images/team/placeholder-user.jpg",
+      image: "/images/testimonials/nikhil.png",
       content:
         "Bihar's villages felt safer, cleaner, and richer -- culturally, socially, and even in natural beauty -- than many towns. After meeting the children at Divya Bihar Mission , I came back deeply assured about India's future. The values and education they're receiving are already visible in their personalities and confidence. Many, many best wishes to you, Mukund Bhaiya!",
       initials: "NK",
@@ -68,7 +68,7 @@ export function HomepageTestimonials() {
     {
       name: "Robin Singh Rathore",
       title: "PhD Scholar, BTech, Chemical Engg, IIT Delhi",
-      image: "/images/team/placeholder-user.jpg",
+      image: "/images/testimonials/robin.jpg",
       content:
         "Visiting Bihar has always been special — not just for its rich heritage of knowledge and spirituality, but also for the potential it holds today. Despite challenges like high population and small landholdings, it remains one of the most fertile regions in India. My visit to Raghopur was truly inspiring. I met changemakers like Mukund Bhai, who are working to build villages that are sustainable and aligned with nature. What stood out most was the role of education — the true anchor for change. It can empower youth to take charge of their communities and lead the way toward a better, more sustainable rural India.",
       initials: "SD",
