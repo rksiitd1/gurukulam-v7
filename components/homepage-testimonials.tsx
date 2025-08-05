@@ -59,7 +59,7 @@ export function HomepageTestimonials() {
   const testimonials = [
     {
       name: "Nikhil Kulkarni",
-      title: "CS, BTech, IIT Delhi",
+      title: "BTech in Computer Science, IIT Delhi",
       image: "/images/testimonials/nikhil.png",
       content:
         "Bihar's villages felt safer, cleaner, and richer -- culturally, socially, and even in natural beauty -- than many towns. After meeting the children at Divya Bihar Mission , I came back deeply assured about India's future. The values and education they're receiving are already visible in their personalities and confidence. Many, many best wishes to you, Mukund Bhaiya!",
@@ -74,7 +74,7 @@ export function HomepageTestimonials() {
       initials: "SD",
     },
     {
-      name: "Omkar",
+      name: "Onkar Vaijanath Bengal",
       title: "Aurangabad, Maharashtra",
       image: "/images/testimonials/omkar.jpg",
       content:
