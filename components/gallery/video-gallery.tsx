@@ -47,7 +47,7 @@ export function VideoGallery() {
       id: 4,
       title: "ये मत कहो खुदा से मेरी मुश्किलें - हिंदी कविता",
       description: 'This stirring Hindi poem, "Ye Mat Kaho Khuda Se," is an uplifting message of resilience and faith',
-      thumbnail: "/placeholder.svg?height=300&width=500",
+      thumbnail: "/images/thumbnails/ye_mat_kaho.png",
       duration: "3:48",
       views: "172",
       category: "Poem",
