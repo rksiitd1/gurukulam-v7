@@ -69,7 +69,7 @@ const Hero = () => (
             <HeroCarousel
               imageDir="home"
               alt="Divya Bihar Mission - Rural Development"
-              className="h-64 sm:h-80 lg:h-[32rem]"
+              className="h-[28rem]"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
