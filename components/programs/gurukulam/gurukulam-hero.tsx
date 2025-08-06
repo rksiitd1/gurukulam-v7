@@ -72,7 +72,7 @@ export function GurukulamHero() {
               <HeroCarousel
                 imageDir="gurukulam"
                 alt="Students at Divya Bihar Gurukulam"
-                className="w-full h-[32rem] object-cover rounded-2xl shadow-2xl"
+                className="w-full h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 

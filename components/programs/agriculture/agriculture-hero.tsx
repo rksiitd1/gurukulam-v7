@@ -46,11 +46,11 @@ export function AgricultureHero() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="agriculture"
                 alt="Farmers learning modern agricultural techniques"
-                className="w-full h-full object-cover"
+                className="w-full h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">

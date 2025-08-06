@@ -90,11 +90,11 @@ export function ShriClassesHero() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="shri-classes"
                 alt="Students in classroom"
-                className="w-full h-full object-cover"
+                className="w-full h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>

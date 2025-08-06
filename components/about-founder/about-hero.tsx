@@ -104,7 +104,7 @@ export function AboutHero() {
               <HeroCarousel
                 imageDir="about"
                 alt="Mukund Agrawal teaching students in village classroom"
-                className="h-[28rem]"
+                className="w-full h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 

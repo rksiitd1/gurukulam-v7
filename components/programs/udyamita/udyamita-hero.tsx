@@ -79,11 +79,13 @@ export function UdyamitaHero() {
                   <span className="text-gray-700">{highlight}</span>
                 </div>
               ))}
-              <HeroCarousel
-                imageDir="udyamita"
-                alt="Entrepreneurs at work"
-                className="w-full h-auto object-cover rounded-2xl shadow-xl"
-              />
+              <div className="mt-6 rounded-2xl overflow-hidden">
+                <HeroCarousel
+                  imageDir="udyamita"
+                  alt="Entrepreneurs at work"
+                  className="w-full h-[36rem] object-cover"
+                />
+              </div>
             </div>
 
             {/* CTA Buttons */}
