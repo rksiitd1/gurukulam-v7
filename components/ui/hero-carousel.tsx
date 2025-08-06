@@ -77,7 +77,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 6000); // Changed from 5000ms to 6000ms for 6-second auto-scroll
 
     return () => clearInterval(timer);
   }, [images.length]);
@@ -143,21 +143,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
           </>
         )}
         
-        {/* Dots Indicator */}
-        {images.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
+        {/* Navigation Dots removed as per user request */}
       </div>
       
       {/* Gradient Overlay */}
