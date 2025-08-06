@@ -60,7 +60,10 @@ export function Footer() {
               >
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors p-2 touch-manipulation">
+              <a
+                href="mailto:divyabiharmission@gmail.com"
+                className="text-gray-400 hover:text-blue-500 transition-colors p-2 touch-manipulation"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
