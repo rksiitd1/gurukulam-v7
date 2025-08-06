@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { BookOpen, Users, Award, Clock, Star, Play } from "lucide-react"
+import { HeroCarousel } from "../../ui/hero-carousel"
 
 export function ShriClassesHero() {
   return (
@@ -90,11 +91,12 @@ export function ShriClassesHero() {
 
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/placeholder.svg?height=400&width=600"
+              <HeroCarousel
+                imageDir="shri-classes"
                 alt="Students in classroom"
                 className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
             {/* Floating Cards */}

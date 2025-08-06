@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Lightbulb, TrendingUp, Users, Award, Target, Briefcase, ArrowRight, CheckCircle } from "lucide-react"
+import { HeroCarousel } from "../../ui/hero-carousel"
 
 const stats = [
   {
@@ -78,6 +79,11 @@ export function UdyamitaHero() {
                   <span className="text-gray-700">{highlight}</span>
                 </div>
               ))}
+              <HeroCarousel
+                imageDir="udyamita"
+                alt="Entrepreneurs at work"
+                className="w-full h-auto object-cover rounded-2xl shadow-xl"
+              />
             </div>
 
             {/* CTA Buttons */}

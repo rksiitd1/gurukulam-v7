@@ -5,8 +5,56 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Define the image directories and their corresponding images
+const HERO_IMAGES = {
+  home: [
+    '/images/hero/home/1.png',
+    '/images/hero/home/2.png',
+    '/images/hero/home/3.png',
+    '/images/hero/home/4.png',
+    '/images/hero/home/5.png',
+  ],
+  about: [
+    '/images/hero/about/1.jpg',
+    '/images/hero/about/2.jpg',
+    '/images/hero/about/3.jpg',
+  ],
+  contact: [
+    '/images/hero/contact/1.jpg',
+    '/images/hero/contact/2.jpg',
+    '/images/hero/contact/3.jpg',
+  ],
+  programs: [
+    '/images/hero/programs/1.jpg',
+    '/images/hero/programs/2.jpg',
+    '/images/hero/programs/3.jpg',
+  ],
+  gurukulam: [
+    '/images/hero/gurukulam/1.jpg',
+    '/images/hero/gurukulam/2.jpg',
+    '/images/hero/gurukulam/3.jpg',
+  ],
+  agriculture: [
+    '/images/hero/agriculture/1.jpg',
+    '/images/hero/agriculture/2.jpg',
+    '/images/hero/agriculture/3.jpg',
+  ],
+  'shri-classes': [
+    '/images/hero/shri-classes/1.jpg',
+    '/images/hero/shri-classes/2.jpg',
+    '/images/hero/shri-classes/3.jpg',
+  ],
+  udyamita: [
+    '/images/hero/udyamita/1.jpg',
+    '/images/hero/udyamita/2.jpg',
+    '/images/hero/udyamita/3.jpg',
+  ],
+} as const;
+
+type ImageDir = keyof typeof HERO_IMAGES;
+
 interface HeroCarouselProps {
-  imageDir: string; // e.g., 'home', 'about', 'contact', 'programs'
+  imageDir: ImageDir; // e.g., 'home', 'about', 'contact', 'programs'
   alt: string;
   className?: string;
   priority?: boolean;
@@ -14,36 +62,14 @@ interface HeroCarouselProps {
 
 export function HeroCarousel({ imageDir, alt, className, priority = false }: HeroCarouselProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [images, setImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [images, setImages] = useState<string[]>(['/placeholder.svg']);
 
   useEffect(() => {
-    // Dynamically import all images from the specified directory
-    const importImages = async () => {
-      try {
-        // This will be handled by Next.js at build time
-        const context = require.context(
-          '@/../public/images/hero',
-          false,
-          /\.(png|jpg|jpeg|webp|avif)$/
-        );
-        
-        // Filter images by directory
-        const imageFiles = context
-          .keys()
-          .filter((key) => key.startsWith(`./${imageDir}/`))
-          .map((key) => key.replace('./', '/images/hero/'));
-        
-        setImages(imageFiles);
-      } catch (error) {
-        console.error('Error loading hero images:', error);
-        setImages(['/placeholder.svg']);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    importImages();
+    // Set images based on the directory
+    const selectedImages = HERO_IMAGES[imageDir] || ['/placeholder.svg'];
+    setImages(Array.isArray(selectedImages) ? [...selectedImages] : [selectedImages]);
+    setIsLoading(false);
   }, [imageDir]);
 
   useEffect(() => {
@@ -89,6 +115,12 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
           className="object-cover transition-opacity duration-1000"
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+          onLoadingComplete={() => setIsLoading(false)}
+          onError={(e) => {
+            console.error('Error loading image:', e);
+            // Fallback to placeholder if image fails to load
+            e.currentTarget.src = '/placeholder.svg';
+          }}
         />
         
         {/* Navigation Arrows */}

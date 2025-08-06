@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Leaf, TrendingUp } from "lucide-react"
+import { HeroCarousel } from "../../ui/hero-carousel"
 
 export function AgricultureHero() {
   return (
@@ -46,19 +47,21 @@ export function AgricultureHero() {
 
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Modern agriculture training"
+              <HeroCarousel
+                imageDir="agriculture"
+                alt="Farmers learning modern agricultural techniques"
                 className="w-full h-full object-cover"
               />
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <TrendingUp className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-900">Crop Yield</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-green-100 p-2 rounded-full">
+                    <TrendingUp className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-gray-900">Crop Yield</div>
+                    <div className="text-xs text-gray-600">+40% Increase</div>
+                  </div>
                   <div className="text-xs text-gray-600">+40% Increase</div>
                 </div>
               </div>
