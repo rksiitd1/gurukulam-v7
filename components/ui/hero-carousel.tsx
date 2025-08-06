@@ -92,20 +92,20 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
 
   if (isLoading) {
     return (
-      <div className={cn("bg-gray-200 animate-pulse w-full h-64 sm:h-80 lg:h-96", className)} />
+      <div className={cn("bg-gray-200 animate-pulse w-full", className)} />
     );
   }
 
   if (images.length === 0) {
     return (
-      <div className={cn("bg-gray-200 flex items-center justify-center w-full h-64 sm:h-80 lg:h-96", className)}>
+      <div className={cn("bg-gray-200 flex items-center justify-center w-full", className)}>
         <span className="text-gray-500">No images found</span>
       </div>
     );
   }
 
   return (
-    <div className={cn("relative w-full h-64 sm:h-80 lg:h-96 overflow-hidden rounded-2xl shadow-2xl", className)}>
+    <div className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl", className)}>
       {/* Current Image */}
       <div className="relative w-full h-full">
         <Image
