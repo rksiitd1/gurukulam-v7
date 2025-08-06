@@ -96,16 +96,19 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
   
-  const onTouchStart = (e: React.TouchEvent) => {
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const onTouchMove = (e: React.TouchEvent) => {
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
-  const onTouchEnd = () => {
+  const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     if (!touchStart || touchEnd === null) return;
     
     const distance = touchStart - touchEnd;
@@ -117,6 +120,10 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     } else if (isRightSwipe) {
       goToPrevious();
     }
+    
+    // Reset touch positions
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   if (isLoading) {
@@ -135,14 +142,16 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
 
   return (
     <div 
-      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl", className)}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
+      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y", className)}
       ref={sliderRef}
     >
-      {/* Current Image */}
-      <div className="relative w-full h-full">
+      {/* Current Image - Touch area */}
+      <div 
+        className="relative w-full h-full touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <Image
           src={images[currentImageIndex]}
           alt={alt}
