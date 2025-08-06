@@ -174,7 +174,7 @@ export function ContactHero() {
               <HeroCarousel
                 imageDir="contact"
                 alt="Mukund Agrawal with students and community members"
-                className="w-full h-[36rem] object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 

@@ -60,7 +60,7 @@ export function ProgramsOverview() {
               <HeroCarousel
                 imageDir="programs"
                 alt="Students in various programs at Divya Bihar Mission"
-                className="w-full h-[36rem] object-cover"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>

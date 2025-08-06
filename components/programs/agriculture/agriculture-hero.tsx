@@ -50,7 +50,7 @@ export function AgricultureHero() {
               <HeroCarousel
                 imageDir="agriculture"
                 alt="Farmers learning modern agricultural techniques"
-                className="w-full h-[36rem] object-cover"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">

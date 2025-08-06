@@ -83,7 +83,7 @@ export function UdyamitaHero() {
                 <HeroCarousel
                   imageDir="udyamita"
                   alt="Entrepreneurs at work"
-                  className="w-full h-[36rem] object-cover"
+                  className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
                 />
               </div>
             </div>
