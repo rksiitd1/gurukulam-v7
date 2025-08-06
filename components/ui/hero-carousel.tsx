@@ -112,7 +112,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
           src={images[currentImageIndex]}
           alt={alt}
           fill
-          className="object-cover transition-opacity duration-1000"
+          className="object-cover transition-opacity duration-1000 brightness-100"
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           onLoadingComplete={() => setIsLoading(false)}
@@ -123,22 +123,22 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
           }}
         />
         
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows - Smaller and more transparent */}
         {images.length > 1 && (
           <>
             <button
               onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors z-10"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/30 text-white p-1.5 sm:p-2 rounded-full transition-all duration-200 transform hover:scale-110 z-10"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors z-10"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/30 text-white p-1.5 sm:p-2 rounded-full transition-all duration-200 transform hover:scale-110 z-10"
               aria-label="Next image"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </>
         )}
