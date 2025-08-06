@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { GraduationCap, Home, Users, Award } from "lucide-react"
-import Image from "next/image"
+import { HeroCarousel } from "../../ui/hero-carousel"
 
 export function GurukulamHero() {
   const highlights = [
@@ -69,12 +69,10 @@ export function GurukulamHero() {
           {/* Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=600&width=500"
-                alt="Students at Divya Bihar Global Gurukulam"
-                width={500}
-                height={600}
-                className="w-full h-auto object-cover"
+              <HeroCarousel
+                imageDir="gurukulam"
+                alt="Students at Divya Bihar Gurukulam"
+                className="w-full h-[32rem] object-cover rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 

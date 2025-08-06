@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { GraduationCap, BookOpen, Sprout, Users } from "lucide-react"
-import Image from "next/image"
+import { HeroCarousel } from "../ui/hero-carousel"
 
 export function ProgramsOverview() {
   const programs: any[] = []
@@ -57,14 +57,12 @@ export function ProgramsOverview() {
           {/* Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=600&width=500"
+              <HeroCarousel
+                imageDir="programs"
                 alt="Students in various programs at Divya Bihar Mission"
-                width={500}
-                height={600}
-                className="w-full h-auto object-cover"
+                className="w-full h-[32rem] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
             {/* Floating Stats */}

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { GraduationCap, Heart, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { HeroCarousel } from "../ui/hero-carousel"
 
 export function AboutHero() {
   return (
@@ -100,17 +101,15 @@ export function AboutHero() {
           {/* Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=700&width=600"
+              <HeroCarousel
+                imageDir="about"
                 alt="Mukund Agrawal teaching students in village classroom"
-                width={600}
-                height={700}
-                className="w-full h-auto object-cover"
+                className="h-[28rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Overlay Info */}
-              <div className="absolute bottom-6 left-6 right-6">
+              <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4">
                   <p className="text-sm font-medium text-gray-900 mb-1">"Golu Sir" - as lovingly called by students</p>
                   <p className="text-xs text-gray-600">Teaching mathematics to village children in Raghopur</p>

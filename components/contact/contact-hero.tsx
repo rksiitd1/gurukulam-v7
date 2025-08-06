@@ -12,7 +12,7 @@ import {
   Lightbulb,
   Plane,
 } from "lucide-react"
-import Image from "next/image"
+import { HeroCarousel } from "../ui/hero-carousel"
 
 export function ContactHero() {
   return (
@@ -171,17 +171,15 @@ export function ContactHero() {
           {/* Image */}
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-shadow duration-300">
-              <Image
-                src="/placeholder.svg?height=600&width=500"
+              <HeroCarousel
+                imageDir="contact"
                 alt="Mukund Agrawal with students and community members"
-                width={500}
-                height={600}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-[32rem] object-cover hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Overlay Info */}
-              <div className="absolute bottom-6 left-6 right-6">
+              <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1 flex items-center">
                     <Heart className="w-4 h-4 mr-2 text-red-500" />
