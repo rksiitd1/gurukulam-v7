@@ -47,6 +47,8 @@ export function Footer() {
               <a
                 href="https://www.facebook.com/DivyaBiharMission"
                 className="text-gray-400 hover:text-orange-500 transition-colors p-2 -ml-2 touch-manipulation"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook className="w-5 h-5" />
               </a>
