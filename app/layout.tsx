@@ -7,10 +7,18 @@ import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: 'swap', // Better font loading
+  preload: true
+})
+
 const notoSansDevanagari = Noto_Sans_Devanagari({
   subsets: ["devanagari"],
   variable: "--font-devanagari",
+  display: 'swap', // Better font loading
+  preload: true
 })
 
 // --- SEO & Site Configuration ---
@@ -147,7 +155,7 @@ export const metadata: Metadata = {
   },
   other: {
     'msapplication-TileColor': '#2b5797',
-    'msapplication-config': '/browserconfig.xml',
+    // Removed browserconfig.xml reference as it's no longer used
   },
 };
 
@@ -255,7 +263,8 @@ export default function RootLayout({
 
   return (
     <html 
-      lang="en" 
+      lang="en"
+      dir="ltr"
       className={`${inter.variable} ${notoSansDevanagari.variable}`} 
       suppressHydrationWarning
       itemScope 
@@ -269,20 +278,27 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.facebook.com" />
         
         {/* Preload critical resources */}
-        <link rel="preload" href={`${siteConfig.url}/_next/static/css/app/layout.css`} as="style" />
+        <link 
+          rel="preload" 
+          href={`${siteConfig.url}/_next/static/css/app/layout.css`} 
+          as="style" 
+          fetchPriority="high"
+        />
         <link 
           rel="preload" 
           href="/_next/static/media/Inter.var.woff2" 
           as="font" 
           type="font/woff2" 
-          crossOrigin="anonymous" 
+          crossOrigin="anonymous"
+          fetchPriority="high"
         />
         <link 
           rel="preload" 
           href="/_next/static/media/NotoSansDevanagari-VariableFont_wdth,wght.woff2" 
           as="font" 
           type="font/woff2" 
-          crossOrigin="anonymous" 
+          crossOrigin="anonymous"
+          fetchPriority="high"
         />
         
         {/* Structured Data */}
@@ -312,14 +328,28 @@ export default function RootLayout({
         {/* iOS specific */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
         <meta name="format-detection" content="telephone=yes" />
         
         {/* PWA related */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content={siteConfig.name} />
-        <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
+        
+        {/* Security Headers (will be added by Next.js config) */}
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
+        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        
+        {/* Performance hints */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
       </head>
-      <body className="font-sans antialiased overflow-x-hidden">
+      <body 
+        className="font-sans antialiased overflow-x-hidden"
+        itemScope 
+        itemType="https://schema.org/WebPage"
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
