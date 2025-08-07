@@ -277,29 +277,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://www.facebook.com" />
         
-        {/* Preload critical resources */}
-        <link 
-          rel="preload" 
-          href={`${siteConfig.url}/_next/static/css/app/layout.css`} 
-          as="style" 
-          fetchPriority="high"
-        />
-        <link 
-          rel="preload" 
-          href="/_next/static/media/Inter.var.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
-        <link 
-          rel="preload" 
-          href="/_next/static/media/NotoSansDevanagari-VariableFont_wdth,wght.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
+        {/* Preload critical resources - Removed as Next.js handles this automatically */}
         
         {/* Structured Data */}
         <script
@@ -335,10 +313,9 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content={siteConfig.name} />
         
-        {/* Security Headers (will be added by Next.js config) */}
+        {/* Security Headers - Note: X-Frame-Options should be set in server config */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         
