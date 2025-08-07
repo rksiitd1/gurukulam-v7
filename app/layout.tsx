@@ -18,7 +18,7 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 const siteConfig = {
   name: "Divya Bihar Mission",
   description:
-    "From IIT Delhi to Bihar Village - Empowering Bihar through education with yogic values, sustainable farming, and cultural values. Join our mission to transform rural communities.",
+    "From IIT Delhi to Bihar Villages - Empowering Bihar through education with yogic values, sustainable farming, and cultural values. Join our mission to transform rural communities.",
   url: "https://divyabiharmission.com",
   ogImage: "https://divyabiharmission.com/og-image.jpg",
   author: "Mukund Agrawal",
@@ -38,7 +38,7 @@ const siteConfig = {
     facebook: "https://www.facebook.com/DivyaBiharMission",
     youtube: "https://www.youtube.com/@shriclasses2"
   },
-  businessHours: "Mo-Su 09:00-18:00"
+  // businessHours: "Mo-Su 09:00-18:00"
 };
 
 // --- Optimised Metadata for Google & Social Media ---
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: '@divyabiharmission', // Update with your Twitter handle if available
+    creator: '@DBMRaghopur', // Update with your Twitter handle if available
   },
   
   // Search Engine Directives
@@ -143,7 +143,7 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   verification: {
-    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_KEY', // Replace with your actual key
+    google: 'WtriZ8saaxufwWJ7SNEjCzc8yxjp4BnmAmFnBRB_4NM', // Replace with your actual key
   },
   other: {
     'msapplication-TileColor': '#2b5797',
