@@ -66,10 +66,12 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   const [images, setImages] = useState<string[]>(['/placeholder.svg']);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   
   // Minimum swipe distance (in pixels) to trigger slide change
   const minSwipeDistance = 50;
+  const transitionDuration = 500; // Duration of slide transition in milliseconds
 
   useEffect(() => {
     // Set images based on the directory
@@ -89,11 +91,20 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   }, [images.length]);
 
   const goToNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const goToPrevious = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+  
+  // Reset transition state after animation completes
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
   };
   
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -145,27 +156,37 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
       className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y", className)}
       ref={sliderRef}
     >
-      {/* Current Image - Touch area */}
+      {/* Image container with smooth transitions */}
       <div 
         className="relative w-full h-full touch-pan-y"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        onTransitionEnd={handleTransitionEnd}
       >
-        <Image
-          src={images[currentImageIndex]}
-          alt={alt}
-          fill
-          className="object-cover transition-opacity duration-1000 brightness-110 contrast-105"
-          priority={priority}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-          onLoadingComplete={() => setIsLoading(false)}
-          onError={(e) => {
-            console.error('Error loading image:', e);
-            // Fallback to placeholder if image fails to load
-            e.currentTarget.src = '/placeholder.svg';
+        <div 
+          className="relative w-full h-full transition-transform duration-500 ease-in-out"
+          style={{
+            transform: touchEnd !== null && touchStart !== null 
+              ? `translateX(${touchEnd - touchStart}px)`
+              : 'none',
           }}
-        />
+        >
+          <Image
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt={alt}
+            fill
+            className="object-cover brightness-110 contrast-105"
+            priority={priority}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+            onLoadingComplete={() => setIsLoading(false)}
+            onError={(e) => {
+              console.error('Error loading image:', e);
+              e.currentTarget.src = '/placeholder.svg';
+            }}
+          />
+        </div>
         
         {/* Navigation Arrows - Hidden on mobile, visible on md+ */}
         {images.length > 1 && (
