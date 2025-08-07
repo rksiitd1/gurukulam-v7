@@ -62,6 +62,8 @@ interface HeroCarouselProps {
 
 export function HeroCarousel({ imageDir, alt, className, priority = false }: HeroCarouselProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
   const [isLoading, setIsLoading] = useState(true);
   const [images, setImages] = useState<string[]>(['/placeholder.svg']);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -69,9 +71,10 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   const [isTransitioning, setIsTransitioning] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   
-  // Minimum swipe distance (in pixels) to trigger slide change
+  // Carousel settings
   const minSwipeDistance = 50;
   const transitionDuration = 500; // Duration of slide transition in milliseconds
+  const autoScrollInterval = 4000; // Auto-scroll every 4 seconds
 
   useEffect(() => {
     // Set images based on the directory
@@ -80,25 +83,36 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     setIsLoading(false);
   }, [imageDir]);
 
+  // Set next image index whenever current index changes
+  useEffect(() => {
+    setNextImageIndex((currentImageIndex + 1) % images.length);
+  }, [currentImageIndex, images.length]);
+
+  // Auto-scroll functionality
   useEffect(() => {
     if (images.length <= 1) return;
     
     const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 6000); // Changed from 5000ms to 6000ms for 6-second auto-scroll
+      if (!isTransitioning) {
+        setSlideDirection('left');
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }
+    }, autoScrollInterval);
 
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [images.length, isTransitioning, autoScrollInterval]);
 
   const goToNext = () => {
-    if (isTransitioning) return;
+    if (isTransitioning || images.length <= 1) return;
     setIsTransitioning(true);
+    setSlideDirection('left');
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const goToPrevious = () => {
-    if (isTransitioning) return;
+    if (isTransitioning || images.length <= 1) return;
     setIsTransitioning(true);
+    setSlideDirection('right');
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
   
@@ -151,6 +165,15 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     );
   }
 
+  // Calculate positions for sliding animation
+  const getSlidePosition = (index: number) => {
+    if (index === currentImageIndex) return 'translateX(0%)';
+    if (index === nextImageIndex) {
+      return slideDirection === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+    }
+    return 'translateX(100%)';
+  };
+
   return (
     <div 
       className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y", className)}
@@ -158,24 +181,26 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
     >
       {/* Image container with smooth transitions */}
       <div 
-        className="relative w-full h-full touch-pan-y"
+        className="relative w-full h-full touch-pan-y overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        onTransitionEnd={handleTransitionEnd}
       >
+        {/* Current Image */}
         <div 
-          className="relative w-full h-full transition-transform duration-500 ease-in-out"
+          className="absolute inset-0 transition-transform duration-500 ease-in-out"
           style={{
             transform: touchEnd !== null && touchStart !== null 
               ? `translateX(${touchEnd - touchStart}px)`
-              : 'none',
+              : getSlidePosition(currentImageIndex),
+            width: '100%',
+            height: '100%',
           }}
+          onTransitionEnd={handleTransitionEnd}
         >
           <Image
-            key={currentImageIndex}
             src={images[currentImageIndex]}
-            alt={alt}
+            alt={`${alt} ${currentImageIndex + 1}`}
             fill
             className="object-cover brightness-110 contrast-105"
             priority={priority}
@@ -187,6 +212,30 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
             }}
           />
         </div>
+        
+        {/* Next/Previous Image (for sliding) */}
+        {images.length > 1 && (
+          <div 
+            className="absolute inset-0 transition-transform duration-500 ease-in-out"
+            style={{
+              transform: getSlidePosition(nextImageIndex),
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            <Image
+              src={images[nextImageIndex]}
+              alt={`${alt} ${nextImageIndex + 1}`}
+              fill
+              className="object-cover brightness-110 contrast-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+              onError={(e) => {
+                console.error('Error loading image:', e);
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
+          </div>
+        )}
         
         {/* Navigation Arrows - Hidden on mobile, visible on md+ */}
         {images.length > 1 && (
