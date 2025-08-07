@@ -193,20 +193,7 @@ export default function RootLayout({
       "longitude": siteConfig.location.geo.longitude
     },
     "hasMap": `https://maps.google.com/maps?q=${siteConfig.location.geo.latitude},${siteConfig.location.geo.longitude}`,
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    }],
+    "nonprofitStatus": "Nonprofit",
     "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+91-92625-36295",
