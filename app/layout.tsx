@@ -18,30 +18,53 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 const siteConfig = {
   name: "Divya Bihar Mission",
   description:
-    "From IIT to Village - Empowering Bihar through education with yogic values, sustainable farming, and cultural values. Join our mission to transform rural communities.",
-  url: "https://divyabiharmission.com", // Your NEW, current domain.
-  ogImage: "https://divyabiharmission.com/og-image.jpg", // An image for social media sharing.
+    "From IIT Delhi to Bihar Village - Empowering Bihar through education with yogic values, sustainable farming, and cultural values. Join our mission to transform rural communities.",
+  url: "https://divyabiharmission.com",
+  ogImage: "https://divyabiharmission.com/og-image.jpg",
   author: "Mukund Agrawal",
+  location: {
+    address: "Jiaram Raghopur, Simrahi Bazaar",
+    city: "Supaul",
+    region: "Bihar",
+    postalCode: "852111",
+    country: "India",
+    geo: {
+      latitude: "25.9",
+      longitude: "86.6"
+    },
+    landmark: "~200m from Raghopur Railway Station"
+  },
+  social: {
+    facebook: "https://www.facebook.com/DivyaBiharMission",
+    youtube: "https://www.youtube.com/@shriclasses2"
+  },
+  businessHours: "Mo-Su 09:00-18:00"
 };
 
 // --- Optimised Metadata for Google & Social Media ---
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url), // Sets the base URL for all other links.
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`, // Creates dynamic page titles like "About Us | Divya Bihar Mission".
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   
-  // Canonical URL to tell Google this is the primary domain.
+  // Canonical URL and language alternates
   alternates: {
     canonical: siteConfig.url,
+    // Add if you have other language versions
+    // languages: {
+    //   'en-US': '/en-US',
+    //   'hi': '/hi',
+    // },
   },
 
-  // For Social Media Sharing (Open Graph)
+  // Open Graph for Social Media
   openGraph: {
     type: "website",
     locale: "en_US",
+    siteName: siteConfig.name,
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -51,27 +74,81 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: `${siteConfig.name} - Empowering Rural Bihar`,
+        type: 'image/jpeg',
+      },
+    ],
+  },
+
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@divyabiharmission', // Update with your Twitter handle if available
+  },
+  
+  // Search Engine Directives
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  
+  // Icons and PWA
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#5bbad5',
       },
     ],
   },
   
-  // For Search Engine Crawlers
-  robots: {
-    index: true,
-    follow: true,
-  },
-  
-  // For Website Icons (Favicon, etc.)
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  
-  // Other Important Tags
+  // Additional Metadata
   creator: siteConfig.author,
   publisher: siteConfig.name,
-  manifest: `/site.webmanifest`, // For Progressive Web App features.
+  manifest: '/site.webmanifest',
+  keywords: [
+    'Divya Bihar Mission', 
+    'Rural Education Bihar', 
+    'Yogic Education', 
+    'Sustainable Farming',
+    'Bihar Development',
+    'Raghopur Education',
+    'Supaul Schools'
+  ],
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
+  ],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_KEY', // Replace with your actual key
+  },
+  other: {
+    'msapplication-TileColor': '#2b5797',
+    'msapplication-config': '/browserconfig.xml',
+  },
 };
 
 export default function RootLayout({
@@ -83,28 +160,164 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Divya Bihar Mission",
+    "@id": `${siteConfig.url}/#organization`,
+    "name": siteConfig.name,
     "url": siteConfig.url,
-    "logo": `${siteConfig.url}/DBM-logo.png`, // Full URL to your logo
-    "contactPoint": {
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteConfig.url}/DBM-logo.png`,
+      "width": 600,
+      "height": 60
+    },
+    "image": siteConfig.ogImage,
+    "description": siteConfig.description,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": siteConfig.location.address,
+      "addressLocality": siteConfig.location.city,
+      "addressRegion": siteConfig.location.region,
+      "postalCode": siteConfig.location.postalCode,
+      "addressCountry": siteConfig.location.country
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": siteConfig.location.geo.latitude,
+      "longitude": siteConfig.location.geo.longitude
+    },
+    "hasMap": `https://maps.google.com/maps?q=${siteConfig.location.geo.latitude},${siteConfig.location.geo.longitude}`,
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+91-92625-36295",
-      "contactType": "Customer Service"
-    },
+      "contactType": ["customer service", "general"],
+      "availableLanguage": ["English", "Hindi"],
+      "areaServed": "IN",
+      "contactOption": "TollFree"
+    }],
     "sameAs": [
-      // Add your official social media URLs here when available
-      // "https://www.youtube.com/@shriclasses2",
+      siteConfig.social.facebook,
+      siteConfig.social.youtube
     ]
   };
 
+  // Additional WebSite and WebPage schemas
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
+    "url": siteConfig.url,
+    "name": siteConfig.name,
+    "description": siteConfig.description,
+    "publisher": {
+      "@id": `${siteConfig.url}/#organization`
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteConfig.url}/search?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/#webpage`,
+    "url": siteConfig.url,
+    "name": siteConfig.name,
+    "description": siteConfig.description,
+    "isPartOf": {
+      "@id": `${siteConfig.url}/#website`
+    },
+    "about": {
+      "@id": `${siteConfig.url}/#organization`
+    },
+    "primaryImageOfPage": {
+      "@id": siteConfig.ogImage
+    },
+    "inLanguage": "en-US"
+  };
+
   return (
-    <html lang="en" className={`${inter.variable} ${notoSansDevanagari.variable}`} suppressHydrationWarning>
+    <html 
+      lang="en" 
+      className={`${inter.variable} ${notoSansDevanagari.variable}`} 
+      suppressHydrationWarning
+      itemScope 
+      itemType="https://schema.org/WebPage"
+    >
       <head>
-        {/* Injects the structured data into every page's <head> */}
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://www.facebook.com" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href={`${siteConfig.url}/_next/static/css/app/layout.css`} as="style" />
+        <link 
+          rel="preload" 
+          href="/_next/static/media/Inter.var.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
+        <link 
+          rel="preload" 
+          href="/_next/static/media/NotoSansDevanagari-VariableFont_wdth,wght.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
+        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+        />
+        
+        {/* Favicon links */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Mobile address bar theming */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)" />
+        
+        {/* iOS specific */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=yes" />
+        
+        {/* PWA related */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content={siteConfig.name} />
+        <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
       </head>
       <body className="font-sans antialiased overflow-x-hidden">
         <ThemeProvider
