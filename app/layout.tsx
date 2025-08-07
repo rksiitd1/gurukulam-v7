@@ -20,7 +20,7 @@ const siteConfig = {
   description:
     "From IIT to Village - Empowering Bihar through education with yogic values, sustainable farming, and cultural values. Join our mission to transform rural communities.",
   url: "https://divyabiharmission.com", // Your NEW, current domain.
-  ogImage: "https://divyabiharmission.com/og-image.png", // An image for social media sharing.
+  ogImage: "https://divyabiharmission.com/og-image.jpg", // An image for social media sharing.
   author: "Mukund Agrawal",
 };
 
