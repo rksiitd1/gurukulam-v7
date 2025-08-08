@@ -1,4 +1,5 @@
 import { Clock, Calendar, Camera, Shield, Heart, Home, HandHeart, GraduationCap } from "lucide-react"
+import Link from "next/link"
 
 export function VisitingInfo() {
   const visitTypes = [
@@ -129,7 +130,7 @@ export function VisitingInfo() {
             {visitTypes.map((visit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col"
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative md:pb-24"
               >
                 <div className="flex items-start space-x-4 mb-6">
                   {visit.icon}
@@ -166,26 +167,36 @@ export function VisitingInfo() {
 
                 {/* Add buttons for Seva and Internship tiles - now in normal flow for better mobile UX */}
                 {(visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity") && (
-                  <div className="mt-6 pt-4 border-t border-gray-100">
+                  <div className="mt-6 pt-4 border-t border-gray-100 md:absolute md:bottom-8 md:right-8 md:mt-0 md:border-t-0 md:pt-0 md:flex md:flex-col md:items-end md:gap-3">
                     {visit.type === "🙌 Seva Opportunity" && (
-                      <a
+                      <Link
                         href="/volunteer"
                         aria-label="Apply to volunteer"
-                        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:to-green-800 text-white px-5 py-3 font-semibold shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-sm sm:text-base"
+                        className="group inline-flex w-full md:w-auto"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        Volunteer
-                      </a>
+                        <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 shadow-lg transition-all duration-300 hover:shadow-xl">
+                          <span className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
+                            <HandHeart className="w-5 h-5 text-green-600" />
+                            <span>Volunteer</span>
+                            <svg className="w-4 h-4 text-green-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                          </span>
+                        </span>
+                      </Link>
                     )}
                     {visit.type === "🎓 Internship Opportunity" && (
-                      <a
+                      <Link
                         href="/internship"
                         aria-label="Apply for internship"
-                        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-5 py-3 font-semibold shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 text-sm sm:text-base"
+                        className="group inline-flex w-full md:w-auto"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z" /></svg>
-                        Internship
-                      </a>
+                        <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 shadow-lg transition-all duration-300 hover:shadow-xl">
+                          <span className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
+                            <GraduationCap className="w-5 h-5 text-orange-600" />
+                            <span>Internships</span>
+                            <svg className="w-4 h-4 text-orange-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                          </span>
+                        </span>
+                      </Link>
                     )}
                   </div>
                 )}
