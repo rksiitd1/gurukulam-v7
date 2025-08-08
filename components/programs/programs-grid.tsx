@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, BookOpen, Sprout, Users, ArrowRight, Clock, MapPin } from "lucide-react"
-import Image from "next/image"
+import ProgramImage from "./ProgramImage"
 import Link from "next/link"
 
 export function ProgramsGrid() {
@@ -166,7 +166,7 @@ export function ProgramsGrid() {
               className={`overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${getColorClasses(program.color)}`}
             >
               <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-gray-100">
-                <Image
+                <ProgramImage
                   src={program.image || "/placeholder.svg"}
                   alt={program.title}
                   width={1536}
