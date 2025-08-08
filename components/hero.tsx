@@ -65,6 +65,10 @@ const Hero = () => (
         </div>
         {/* Image */}
         <div className="relative order-first lg:order-last lg:-mt-8">
+          {/* Floating Elements */}
+          <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
+            <span className="text-lg sm:text-2xl">🏡</span>
+          </div>
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <HeroCarousel
               imageDir="home"
@@ -81,12 +85,8 @@ const Hero = () => (
               </div>
             </div>
           </div>
-          {/* Floating Elements */}
           <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-blue-900 text-blue-200 p-2 sm:p-3 rounded-full shadow-lg">
             <span className="text-lg sm:text-2xl">🪷</span>
-          </div>
-          <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
-            <span className="text-lg sm:text-2xl">🏡</span>
           </div>
         </div>
       </div>
