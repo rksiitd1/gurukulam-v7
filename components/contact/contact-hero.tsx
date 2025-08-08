@@ -169,7 +169,7 @@ export function ContactHero() {
           </div>
 
           {/* Image */}
-          <div className="relative">
+          <div className="relative order-first lg:order-last lg:-mt-8">
             <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-shadow duration-300">
               <HeroCarousel
                 imageDir="contact"
