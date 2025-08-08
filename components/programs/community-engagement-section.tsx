@@ -59,9 +59,16 @@ export function CommunityEngagementSection() {
         {/* Call to Action & Quote */}
         <div className="text-center mt-12">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white w-full sm:w-auto">
-              Join Our Community
-            </Button>
+            <a
+              href="https://chat.whatsapp.com/KU2neVtvTYC9wjsPrDxlTd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white w-full sm:w-auto">
+                Join Our Community
+              </Button>
+            </a>
             <a href="/about#mentors" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50 w-full sm:w-auto">
               Meet Our Mentors
