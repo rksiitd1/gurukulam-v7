@@ -1,6 +1,6 @@
-import { Heart, Users, Leaf } from "lucide-react";
-import Image from "next/image";
+import { Users, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HeroCarousel } from "@/components/ui/hero-carousel";
 
 const stats = [
   { value: "25+", label: "Villages Impacted", color: "text-green-600" },
@@ -74,12 +74,10 @@ const AboutMissionHero = () => (
         {/* Image */}
         <div className="relative order-first lg:order-last lg:-mt-8">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/placeholder.svg?height=600&width=500"
+            <HeroCarousel
+              imageDir="about"
               alt="Divya Bihar Mission - Rural Development"
-              width={500}
-              height={600}
-              className="w-full h-64 sm:h-80 lg:h-auto object-cover"
+              className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
