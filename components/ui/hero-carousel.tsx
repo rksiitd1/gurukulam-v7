@@ -25,10 +25,11 @@ const HERO_IMAGES = {
   ],
   // Contact → use header images
   contact: [
-    '/images/header/classroom.png',
-    '/images/header/community-events.png',
-    '/images/header/cultural-program.png',
-    '/images/header/planting.png',
+    '/images/gallery/1.jpg',
+    '/images/gallery/2.jpg',
+    '/images/gallery/3.jpg',
+    '/images/gallery/4.jpg',
+    '/images/gallery/5.jpg',
   ],
   // Programs overview → representative program images
   programs: [
