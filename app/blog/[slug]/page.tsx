@@ -2,22 +2,18 @@ import { BlogPost } from "@/components/blog/blog-post"
 import type { Metadata } from "next"
 import { blogPosts } from "@/lib/blog-posts"
 
-interface BlogPostPageProps {
-  params: {
-    slug: string
-  }
-}
-
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   return (
     <main>
-      <BlogPost slug={params.slug} />
+      <BlogPost slug={slug} />
     </main>
   )
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = blogPosts.find((p) => p.slug === params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = blogPosts.find((p) => p.slug === slug)
   if (!post) {
     return {
       title: "Story",
