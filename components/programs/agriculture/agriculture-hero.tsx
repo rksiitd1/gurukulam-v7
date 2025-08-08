@@ -7,7 +7,7 @@ export function AgricultureHero() {
     <section className="relative bg-gradient-to-br from-green-50 to-emerald-100 py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-10"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-green-600">
@@ -45,12 +45,12 @@ export function AgricultureHero() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative order-first lg:order-last lg:-mt-8">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="agriculture"
                 alt="Farmers learning modern agricultural techniques"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">

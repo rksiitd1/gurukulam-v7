@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Camera, Video, Calendar, Users } from "lucide-react"
-import Image from "next/image"
+import { HeroCarousel } from "@/components/ui/hero-carousel"
 
 export function GalleryHero() {
 
@@ -17,9 +17,9 @@ export function GalleryHero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left lg:-mt-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
                 <Camera className="w-4 h-4 mr-2" />
@@ -49,57 +49,15 @@ export function GalleryHero() {
 
           </div>
 
-          {/* Featured Image Collage */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/gallery/header/classroom.png"
-                    alt="Students in classroom"
-                    width={300}
-                    height={200}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Classroom Learning</div>
-                </div>
-                <div className="relative rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/gallery/header/cultural-program.png"
-                    alt="Cultural program"
-                    width={300}
-                    height={250}
-                    className="w-full h-60 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Cultural Programs</div>
-                </div>
-              </div>
-              <div className="space-y-4 mt-8">
-                <div className="relative rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/gallery/header/planting.png"
-                    alt="Agricultural training"
-                    width={300}
-                    height={250}
-                    className="w-full h-60 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Planting</div>
-                </div>
-                <div className="relative rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/gallery/header/community-events.png"
-                    alt="Community gathering"
-                    width={300}
-                    height={200}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Community Events</div>
-                </div>
-              </div>
+          {/* Featured Carousel */}
+          <div className="relative order-first lg:order-last lg:-mt-8">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <HeroCarousel
+                imageDir="gallery"
+                alt="Gallery highlights"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
             {/* Floating Elements */}

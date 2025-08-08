@@ -6,11 +6,11 @@ export function ProgramsOverview() {
   const programs: any[] = []
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-blue-50 via-green-50 to-orange-50 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-50 via-green-50 to-orange-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left lg:-mt-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                 <GraduationCap className="w-4 h-4 mr-2" />
@@ -55,14 +55,14 @@ export function ProgramsOverview() {
           </div>
 
           {/* Image */}
-          <div className="relative">
+          <div className="relative order-first lg:order-last lg:-mt-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="programs"
                 alt="Students in various programs at Divya Bihar Mission"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
             {/* Floating Stats */}

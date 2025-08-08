@@ -50,9 +50,9 @@ export function UdyamitaHero() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:-mt-8">
             <div>
               <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
                 <Lightbulb className="w-4 h-4 mr-1" />

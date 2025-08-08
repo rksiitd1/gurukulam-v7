@@ -7,7 +7,7 @@ export function ShriClassesHero() {
     <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-5"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-blue-600">
@@ -89,12 +89,12 @@ export function ShriClassesHero() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative order-first lg:order-last lg:-mt-8">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="shri-classes"
                 alt="Students in classroom"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
