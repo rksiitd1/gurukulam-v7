@@ -73,9 +73,9 @@ export function ContactHero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left lg:-mt-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300">
                 <Phone className="w-4 h-4 mr-2 animate-pulse" />
@@ -170,13 +170,13 @@ export function ContactHero() {
 
           {/* Image */}
           <div className="relative order-first lg:order-last lg:-mt-8">
-            <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-shadow duration-300">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="contact"
                 alt="Mukund Agrawal with students and community members"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
               {/* Overlay Info */}
               <div className="absolute bottom-6 left-6 right-6 z-20">
