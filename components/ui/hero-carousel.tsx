@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Define the image directories and their corresponding images
+// Updated to match files that actually exist under public/images
 const HERO_IMAGES = {
   home: [
     '/images/hero/home/1.png',
@@ -14,40 +15,52 @@ const HERO_IMAGES = {
     '/images/hero/home/4.png',
     '/images/hero/home/5.png',
   ],
+  // About → use images from public/images/about
   about: [
-    '/images/hero/about/1.jpg',
-    '/images/hero/about/2.jpg',
-    '/images/hero/about/3.jpg',
+    '/images/about/1.jpg',
+    '/images/about/2.jpg',
+    '/images/about/3.jpg',
+    '/images/about/4.jpg',
+    '/images/about/5.jpg',
   ],
+  // Contact → use header images
   contact: [
-    '/images/hero/contact/1.jpg',
-    '/images/hero/contact/2.jpg',
-    '/images/hero/contact/3.jpg',
+    '/images/header/classroom.png',
+    '/images/header/community-events.png',
+    '/images/header/cultural-program.png',
+    '/images/header/planting.png',
   ],
+  // Programs overview → representative program images
   programs: [
-    '/images/hero/programs/1.jpg',
-    '/images/hero/programs/2.jpg',
-    '/images/hero/programs/3.jpg',
+    '/images/programs/gurukulam.jpg',
+    '/images/programs/shri-classes.jpg',
+    '/images/programs/udyamita.jpg',
+    '/images/programs/agro-gaushala.jpg',
   ],
+  // Gurukulam → available program + classroom images
   gurukulam: [
-    '/images/hero/gurukulam/1.jpg',
-    '/images/hero/gurukulam/2.jpg',
-    '/images/hero/gurukulam/3.jpg',
+    '/images/programs/gurukulam.jpg',
+    '/images/programs/gurukulam3.jpg',
+    "/images/gallery/classroom/WhatsApp Image 2025-07-04 at 09.51.03_87f0d490.jpg",
   ],
+  // Agriculture → use gallery images
   agriculture: [
-    '/images/hero/agriculture/1.jpg',
-    '/images/hero/agriculture/2.jpg',
-    '/images/hero/agriculture/3.jpg',
+    '/images/gallery/agriculture/1.jpg',
+    '/images/gallery/agriculture/2.jpg',
+    '/images/gallery/agriculture/3.jpg',
+    '/images/gallery/agriculture/4.jpg',
+    '/images/gallery/agriculture/5.jpg',
   ],
+  // Shri Classes → program + classroom images
   'shri-classes': [
-    '/images/hero/shri-classes/1.jpg',
-    '/images/hero/shri-classes/2.jpg',
-    '/images/hero/shri-classes/3.jpg',
+    '/images/programs/shri-classes.jpg',
+    '/images/programs/shri-classes3.jpg',
+    "/images/gallery/classroom/WhatsApp Image 2025-07-04 at 09.50.30_296ab7cd.jpg",
   ],
+  // Udyamita → available program images
   udyamita: [
-    '/images/hero/udyamita/1.jpg',
-    '/images/hero/udyamita/2.jpg',
-    '/images/hero/udyamita/3.jpg',
+    '/images/programs/udyamita.jpg',
+    '/images/programs/udyamita3.jpg',
   ],
 } as const;
 
@@ -66,7 +79,6 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   const [images, setImages] = useState<string[]>(['/placeholder.svg']);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStartX, setTouchStartX] = useState(0);
-  const [touchEndX, setTouchEndX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
@@ -77,8 +89,8 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   const transitionSpeed = 300; // milliseconds
 
   useEffect(() => {
-    // Set images based on the directory
-    const selectedImages = HERO_IMAGES[imageDir] || ['/placeholder.svg'];
+    // Set images based on the directory; fallback to home if not found
+    const selectedImages = HERO_IMAGES[imageDir] || HERO_IMAGES.home;
     setImages(Array.isArray(selectedImages) ? [...selectedImages] : [selectedImages]);
     setIsLoading(false);
   }, [imageDir]);
@@ -135,21 +147,13 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
   const handleTouchEnd = () => {
     if (!isDraggingRef.current) return;
     isDraggingRef.current = false;
-    
-    const diff = touchEndX - touchStartX;
-    
+    const diff = offsetX;
     if (Math.abs(diff) > minSwipeDistance) {
-      if (diff > 0) {
-        handleSwipe('right');
-      } else {
-        handleSwipe('left');
-      }
+      handleSwipe(diff > 0 ? 'right' : 'left');
     } else {
       setOffsetX(0);
     }
-    
     setTouchStartX(0);
-    setTouchEndX(0);
   };
 
   if (isLoading) {
