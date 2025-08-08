@@ -40,7 +40,7 @@ const highlights = [
 
 export function UdyamitaHero() {
   return (
-    <section className="relative py-12 lg:py-20 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-20 h-20 bg-orange-500 rounded-full"></div>
@@ -49,7 +49,7 @@ export function UdyamitaHero() {
         <div className="absolute bottom-40 right-1/3 w-24 h-24 bg-orange-400 rounded-full"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
           <div className="space-y-8 lg:-mt-8">
@@ -79,13 +79,6 @@ export function UdyamitaHero() {
                   <span className="text-gray-700">{highlight}</span>
                 </div>
               ))}
-              <div className="mt-6 rounded-2xl overflow-hidden">
-                <HeroCarousel
-                  imageDir="udyamita"
-                  alt="Entrepreneurs at work"
-                  className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
-                />
-              </div>
             </div>
 
             {/* CTA Buttons */}
@@ -120,7 +113,17 @@ export function UdyamitaHero() {
           </div>
 
           {/* Right Content - Stats Cards */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:-mt-8">
+            {/* Hero Image Carousel */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <HeroCarousel
+                imageDir="udyamita"
+                alt="Entrepreneurs at work"
+                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+
             {/* Main Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
