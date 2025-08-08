@@ -8,6 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
     "about",
+    "privacy",
+    "terms",
+    "refund-policy",
     "programs",
     "programs/gurukulam",
     "programs/shri-classes",
