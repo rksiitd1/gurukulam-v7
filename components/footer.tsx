@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Youtube, Mail, Phone, MapPin, Heart, Twitter } from "lucide-react"
+import { Facebook, Youtube, Mail, Phone, MapPin, Heart, Linkedin } from "lucide-react"
 import Image from "next/image"
 
 export function Footer() {
@@ -53,12 +53,34 @@ export function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition-colors p-2 touch-manipulation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
                 href="https://x.com/DBMRaghopur"
                 className="text-gray-400 hover:text-blue-400 transition-colors p-2 touch-manipulation"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Twitter className="w-5 h-5" />
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4l16 16" />
+                  <path d="M20 4L4 20" />
+                </svg>
               </a>
               <a
                 href="https://www.youtube.com/@shriclasses2"
