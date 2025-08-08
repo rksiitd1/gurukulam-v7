@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { Camera, Video, Calendar, Users } from "lucide-react"
-import { HeroCarousel } from "@/components/ui/hero-carousel"
+import Image from "next/image"
+import { Camera, Video } from "lucide-react"
 
 export function GalleryHero() {
 
@@ -49,17 +48,59 @@ export function GalleryHero() {
 
           </div>
 
-          {/* Featured Carousel */}
+          {/* Featured Image Collage */}
           <div className="relative order-first lg:order-last lg:-mt-8">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <HeroCarousel
-                imageDir="gallery"
-                alt="Gallery highlights"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/gallery/header/classroom.png"
+                    alt="Students in classroom"
+                    width={300}
+                    height={200}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Classroom Learning</div>
+                </div>
+                <div className="relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/gallery/header/cultural-program.png"
+                    alt="Cultural program"
+                    width={300}
+                    height={250}
+                    className="w-full h-60 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Cultural Programs</div>
+                </div>
+              </div>
+              <div className="space-y-4 mt-8">
+                <div className="relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/gallery/header/planting.png"
+                    alt="Agricultural training"
+                    width={300}
+                    height={250}
+                    className="w-full h-60 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Planting</div>
+                </div>
+                <div className="relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/gallery/header/community-events.png"
+                    alt="Community gathering"
+                    width={300}
+                    height={200}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Community Events</div>
+                </div>
+              </div>
             </div>
-
+            
             {/* Floating Elements */}
             <div className="absolute -top-4 -right-4 bg-purple-500 text-white p-3 rounded-full shadow-lg">
               <span className="text-xl">📸</span>
