@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: { images: ["/og-image.jpg"] },
 }
 import { WhyWeExistSection } from "@/components/why-we-exist-section"
-import FocusAreas from "@/components/about/focus-areas"
+// import FocusAreas from "@/components/about/focus-areas"
 import { TeamProfiles } from "@/components/about/team-profiles"
 import { Vision } from "@/components/about/vision"
 import { Mentors } from "@/components/about/mentors"
@@ -20,7 +20,7 @@ export default function AboutPage() {
     <main>
       <AboutMissionHero />
       <WhyWeExistSection />
-      <FocusAreas />
+      {/* <FocusAreas /> */}
       <Vision />
       <TeamProfiles />
       <Mentors />
