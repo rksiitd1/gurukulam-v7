@@ -117,7 +117,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     return () => mq.removeEventListener?.('change', update);
   }, []);
 
-  // Auto-scroll functionality (respects reduced motion and pause)
+  // Auto-scroll functionality (respects reduced motion and hover pause)
   useEffect(() => {
     if (images.length <= 1 || prefersReducedMotion || isPaused) return;
     
@@ -304,14 +304,6 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
               aria-label="Next image"
             >
               <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-            </button>
-            <button
-              onClick={() => setIsPaused((p) => !p)}
-              className="hidden md:flex absolute top-2 right-2 bg-black/30 hover:bg-black/40 text-white text-xs px-2 py-1 rounded z-10"
-              aria-pressed={isPaused}
-              aria-label={isPaused ? 'Play carousel' : 'Pause carousel'}
-            >
-              {isPaused ? 'Play' : 'Pause'}
             </button>
           </>
         )}
