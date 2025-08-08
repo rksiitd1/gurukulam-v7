@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero"
+import Hero from "@/components/hero"
 import { About } from "@/components/about"
 import { Impact } from "@/components/impact"
 import { Programs } from "@/components/programs"
