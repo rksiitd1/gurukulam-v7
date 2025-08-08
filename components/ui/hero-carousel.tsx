@@ -213,21 +213,16 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
           }
         }}
       >
-        <div 
-          className="flex w-full h-full transition-transform duration-300 ease-in-out"
-          style={{
-            transform: `translateX(${offsetX}px)`,
-            width: `${images.length * 100}%`,
-          }}
-        >
+      <div 
+        className="flex w-full h-full transition-transform duration-300 ease-in-out"
+        style={{
+          transform: `translateX(calc(-${currentIndex * 100}% + ${offsetX}px))`,
+        }}
+      >
           {images.map((src, index) => (
             <div 
               key={index}
-              className="relative w-full h-full flex-shrink-0"
-              style={{
-                transform: `translateX(${-currentIndex * 100}%)`,
-                transition: isDraggingRef.current ? 'none' : `transform ${transitionSpeed}ms ease-in-out`,
-              }}
+            className="relative h-full flex-shrink-0 min-w-full"
             >
               <Image
                 src={src}
