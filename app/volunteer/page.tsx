@@ -1,4 +1,10 @@
 import React from 'react';
+import type { Metadata } from "next"
+export const metadata: Metadata = {
+  title: "Volunteer",
+  description: "Contribute your time and skills – on-site and remote volunteering opportunities.",
+  openGraph: { images: ["/og-image.jpg"] },
+}
 import { VolunteerHero } from '@/components/volunteer/volunteer-hero';
 import { WhyVolunteer } from '@/components/volunteer/why-volunteer';
 import { VolunteerOpportunities } from '@/components/volunteer/volunteer-opportunities';

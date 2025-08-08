@@ -1,4 +1,11 @@
 import Hero from "@/components/hero"
+import type { Metadata } from "next"
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Empowering Bihar through education with yogic values, sustainable farming, and cultural values.",
+  openGraph: { images: ["/og-image.jpg"] },
+}
 import { About } from "@/components/about"
 import { Programs } from "@/components/programs"
 import { CallToAction } from "@/components/call-to-action"

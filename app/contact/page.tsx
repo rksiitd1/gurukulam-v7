@@ -1,4 +1,10 @@
 import { ContactHero } from "@/components/contact/contact-hero"
+import type { Metadata } from "next"
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with Divya Bihar Mission – address, phone, email and visiting information.",
+  openGraph: { images: ["/og-image.jpg"] },
+}
 import { ContactForm } from "@/components/contact/contact-form"
 import { LocationMap } from "@/components/contact/location-map"
 import { VisitingInfo } from "@/components/contact/visiting-info"

@@ -1,4 +1,10 @@
 import React from 'react';
+import type { Metadata } from "next"
+export const metadata: Metadata = {
+  title: "Internships",
+  description: "Meaningful internships across education, agriculture, media and operations.",
+  openGraph: { images: ["/og-image.jpg"] },
+}
 import InternshipHero from '@/components/internship/InternshipHero';
 import InternshipImpact from '@/components/internship/InternshipImpact';
 import InternshipRoles from '@/components/internship/InternshipRoles';
