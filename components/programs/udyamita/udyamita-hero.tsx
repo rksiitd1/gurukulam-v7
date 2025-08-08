@@ -121,7 +121,7 @@ export function UdyamitaHero() {
                 alt="Entrepreneurs at work"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
             {/* Main Stats Grid */}

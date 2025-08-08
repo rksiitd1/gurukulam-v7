@@ -62,7 +62,7 @@ export function ProgramsOverview() {
                 alt="Students in various programs at Divya Bihar Mission"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
             {/* Floating Stats */}

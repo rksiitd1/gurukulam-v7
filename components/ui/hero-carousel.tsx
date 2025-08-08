@@ -166,6 +166,13 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     setTouchStartX(0);
   };
 
+  const handleTouchCancel = () => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setOffsetX(0);
+    setTouchStartX(0);
+  };
+
   if (isLoading) {
     return (
       <div className={cn("bg-gray-200 animate-pulse w-full", className)} />
@@ -194,6 +201,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchCancel}
         onMouseDown={(e) => {
           isDraggingRef.current = true;
           setTouchStartX(e.clientX);

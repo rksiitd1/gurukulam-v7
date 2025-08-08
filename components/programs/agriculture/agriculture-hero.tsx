@@ -52,7 +52,7 @@ export function AgricultureHero() {
                 alt="Farmers learning modern agricultural techniques"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
                 <div className="flex items-center space-x-3">
                   <div className="bg-green-100 p-2 rounded-full">

@@ -106,7 +106,7 @@ export function AboutHero() {
                 alt="Mukund Agrawal teaching students in village classroom"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Overlay Info */}
               <div className="absolute bottom-6 left-6 right-6 z-20">

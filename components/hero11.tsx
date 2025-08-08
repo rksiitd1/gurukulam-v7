@@ -79,7 +79,7 @@ export function Hero11() {
                 className="w-full h-64 sm:h-80 lg:h-auto object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 sm:p-4">
                   <p className="text-xs sm:text-sm font-medium text-gray-900">

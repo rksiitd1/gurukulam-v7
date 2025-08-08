@@ -96,7 +96,7 @@ export function ShriClassesHero() {
                 alt="Students in classroom"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
             {/* Floating Cards */}
