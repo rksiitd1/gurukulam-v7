@@ -1,10 +1,10 @@
 import Hero from "@/components/hero"
 import type { Metadata } from "next"
 export const metadata: Metadata = {
-  title: "Home",
+  title: { absolute: "Divya Bihar Mission – Village Upliftment, Nation Building" },
   description:
-    "Empowering Bihar through education with yogic values, sustainable farming, and cultural values.",
-  openGraph: { images: ["/og-image.jpg"] },
+    "Empowering rural Bihar through education with yogic values, sustainable farming, entrepreneurship and culture.",
+  openGraph: { images: ["/og-image.jpg"], title: "Divya Bihar Mission – Village Upliftment, Nation Building" },
 }
 import { About } from "@/components/about"
 import { Programs } from "@/components/programs"
