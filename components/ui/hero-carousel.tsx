@@ -72,9 +72,10 @@ interface HeroCarouselProps {
   className?: string;
   priority?: boolean;
   fit?: 'contain' | 'cover';
+  showOverlay?: boolean; // optional dark gradient overlay for cover-style displays
 }
 
-export function HeroCarousel({ imageDir, alt, className, priority = false, fit = 'contain' }: HeroCarouselProps) {
+export function HeroCarousel({ imageDir, alt, className, priority = false, fit = 'contain', showOverlay = false }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [images, setImages] = useState<string[]>(['/placeholder.svg']);
@@ -177,7 +178,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
 
   return (
     <div 
-      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y bg-black", className)}
+      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y bg-gray-100", className)}
       ref={sliderRef}
     >
       <div 
@@ -268,9 +269,9 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
         
         {/* Navigation Dots removed as per user request */}
       </div>
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+      {showOverlay && fit === 'cover' ? (
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+      ) : null}
     </div>
   );
 }
