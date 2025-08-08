@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Youtube, Mail, Phone, MapPin, Heart } from "lucide-react"
+import { Facebook, Youtube, Mail, Phone, MapPin, Heart, Twitter } from "lucide-react"
 import Image from "next/image"
 
 export function Footer() {
@@ -51,6 +51,14 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://x.com/DBMRaghopur"
+                className="text-gray-400 hover:text-blue-400 transition-colors p-2 touch-manipulation"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="https://www.youtube.com/@shriclasses2"

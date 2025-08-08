@@ -44,7 +44,8 @@ const siteConfig = {
   },
   social: {
     facebook: "https://www.facebook.com/DivyaBiharMission",
-    youtube: "https://www.youtube.com/@shriclasses2"
+    youtube: "https://www.youtube.com/@shriclasses2",
+    twitter: "https://x.com/DBMRaghopur"
   },
   // businessHours: "Mo-Su 09:00-18:00"
 };
@@ -204,7 +205,8 @@ export default function RootLayout({
     }],
     "sameAs": [
       siteConfig.social.facebook,
-      siteConfig.social.youtube
+      siteConfig.social.youtube,
+      siteConfig.social.twitter
     ]
   };
 
@@ -263,6 +265,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://www.facebook.com" />
+        <link rel="preconnect" href="https://x.com" />
         
         {/* Preload critical resources - Removed as Next.js handles this automatically */}
         
