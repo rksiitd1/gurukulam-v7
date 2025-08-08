@@ -171,9 +171,6 @@ export function Footer() {
               <Link href="/terms" className="hover:text-orange-500 transition-colors py-2 touch-manipulation">
                 Terms of Service
               </Link>
-              <Link href="/refund-policy" className="hover:text-orange-500 transition-colors py-2 touch-manipulation">
-                Refund & Cancellation
-              </Link>
             </div>
           </div>
 
