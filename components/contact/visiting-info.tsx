@@ -130,7 +130,7 @@ export function VisitingInfo() {
             {visitTypes.map((visit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative md:pb-24"
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative"
               >
                 <div className="flex items-start space-x-4 mb-6">
                   {visit.icon}
@@ -167,15 +167,15 @@ export function VisitingInfo() {
 
                 {/* Add buttons for Seva and Internship tiles - now in normal flow for better mobile UX */}
                 {(visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity") && (
-                  <div className="mt-6 pt-4 border-t border-gray-100 md:absolute md:bottom-8 md:right-8 md:mt-0 md:border-t-0 md:pt-0 md:flex md:flex-col md:items-end md:gap-3">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 md:bottom-8 md:right-8 md:left-auto md:translate-x-0 md:items-end">
                     {visit.type === "🙌 Seva Opportunity" && (
                       <Link
                         href="/volunteer"
                         aria-label="Apply to volunteer"
-                        className="group inline-flex w-full md:w-auto"
+                        className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 shadow-lg transition-all duration-300 hover:shadow-xl">
-                          <span className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
+                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-5 md:px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
                             <HandHeart className="w-5 h-5 text-green-600" />
                             <span>Volunteer</span>
                             <svg className="w-4 h-4 text-green-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -187,10 +187,10 @@ export function VisitingInfo() {
                       <Link
                         href="/internship"
                         aria-label="Apply for internship"
-                        className="group inline-flex w-full md:w-auto"
+                        className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 shadow-lg transition-all duration-300 hover:shadow-xl">
-                          <span className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
+                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-5 md:px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
                             <GraduationCap className="w-5 h-5 text-orange-600" />
                             <span>Internships</span>
                             <svg className="w-4 h-4 text-orange-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
