@@ -148,7 +148,7 @@ export const metadata: Metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
+    viewportFit: 'cover',
   },
   verification: {
     google: 'WtriZ8saaxufwWJ7SNEjCzc8yxjp4BnmAmFnBRB_4NM', // Replace with your actual key
@@ -307,7 +307,6 @@ export default function RootLayout({
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         
         {/* Performance hints */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
       </head>
       <body 
         className="font-sans antialiased overflow-x-hidden"
