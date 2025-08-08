@@ -16,7 +16,7 @@ import { HeroCarousel } from "../ui/hero-carousel"
 
 export function ContactHero() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 z-0">
         <div className="absolute top-10 left-10 w-20 h-20 text-green-300 animate-pulse">
