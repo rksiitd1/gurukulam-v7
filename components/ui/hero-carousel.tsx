@@ -224,6 +224,19 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
               key={index}
             className="relative h-full flex-shrink-0 min-w-full"
             >
+            {fit === 'contain' ? (
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10"
+                style={{
+                  backgroundImage: `url(${src})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'blur(18px)',
+                  transform: 'scale(1.1)',
+                }}
+              />
+            ) : null}
               <Image
                 src={src}
                 alt={`${alt} ${index + 1}`}
