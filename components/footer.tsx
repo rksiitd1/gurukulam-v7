@@ -69,8 +69,8 @@ export function Footer() {
               >
                 <svg
                   viewBox="0 0 32 32"
-                  width="22"
-                  height="22"
+                  width="26"
+                  height="26"
                   aria-hidden="true"
                   focusable="false"
                 >
