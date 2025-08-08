@@ -92,6 +92,8 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
   const [offsetX, setOffsetX] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
   // Carousel settings
   const minSwipeDistance = 50;
@@ -105,9 +107,19 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     setIsLoading(false);
   }, [imageDir]);
 
-  // Auto-scroll functionality
+  // Detect prefers-reduced-motion
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPrefersReducedMotion(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, []);
+
+  // Auto-scroll functionality (respects reduced motion and pause)
+  useEffect(() => {
+    if (images.length <= 1 || prefersReducedMotion || isPaused) return;
     
     const autoScroll = () => {
       if (!isTransitioning && !isDraggingRef.current) {
@@ -117,7 +129,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     
     const timer = setInterval(autoScroll, autoScrollDelay);
     return () => clearInterval(timer);
-  }, [images.length, isTransitioning]);
+  }, [images.length, isTransitioning, prefersReducedMotion, isPaused]);
 
   const handleSwipe = (direction: 'left' | 'right') => {
     if (isTransitioning) return;
@@ -195,6 +207,11 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     <div 
       className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y bg-gray-100", className)}
       ref={sliderRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={alt}
     >
       <div 
         className="relative w-full h-full overflow-hidden"
@@ -287,6 +304,14 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
               aria-label="Next image"
             >
               <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+            </button>
+            <button
+              onClick={() => setIsPaused((p) => !p)}
+              className="hidden md:flex absolute top-2 right-2 bg-black/30 hover:bg-black/40 text-white text-xs px-2 py-1 rounded z-10"
+              aria-pressed={isPaused}
+              aria-label={isPaused ? 'Play carousel' : 'Pause carousel'}
+            >
+              {isPaused ? 'Play' : 'Pause'}
             </button>
           </>
         )}
