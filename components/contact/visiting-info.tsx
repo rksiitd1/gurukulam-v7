@@ -129,7 +129,7 @@ export function VisitingInfo() {
             {visitTypes.map((visit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 relative"
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col"
               >
                 <div className="flex items-start space-x-4 mb-6">
                   {visit.icon}
@@ -164,13 +164,14 @@ export function VisitingInfo() {
                   </div>
                 </div>
 
-                {/* Add buttons for Seva and Internship tiles */}
+                {/* Add buttons for Seva and Internship tiles - now in normal flow for better mobile UX */}
                 {(visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity") && (
-                  <div className="absolute bottom-10 right-12 flex flex-col items-end gap-3">
+                  <div className="mt-6 pt-4 border-t border-gray-100">
                     {visit.type === "🙌 Seva Opportunity" && (
                       <a
                         href="/volunteer"
-                        className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:to-green-800 text-white px-5 py-2 font-semibold shadow-lg transition-transform duration-200 transform hover:scale-105 text-sm"
+                        aria-label="Apply to volunteer"
+                        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:to-green-800 text-white px-5 py-3 font-semibold shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-sm sm:text-base"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                         Volunteer
@@ -179,7 +180,8 @@ export function VisitingInfo() {
                     {visit.type === "🎓 Internship Opportunity" && (
                       <a
                         href="/internship"
-                        className="flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-5 py-2 font-semibold shadow-lg transition-transform duration-200 transform hover:scale-105 text-sm"
+                        aria-label="Apply for internship"
+                        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-5 py-3 font-semibold shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 text-sm sm:text-base"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z" /></svg>
                         Internship
