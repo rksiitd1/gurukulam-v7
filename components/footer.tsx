@@ -68,18 +68,17 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <svg
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 32 32"
                   width="20"
                   height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                   aria-hidden="true"
+                  focusable="false"
                 >
-                  <path d="M4 4l16 16" />
-                  <path d="M20 4L4 20" />
+                  <g fill="currentColor">
+                    <polygon points="14.202 16.292 14.788 17.15 9.241 23.58 7.91 23.58" />
+                    <polygon points="22.968 7.672 17.028 14.559 16.437 13.7 21.641 7.672" />
+                    <path d="M12.369 8.509L22.132 22.743H19.133L9.37 8.509h3M12.809 7.672H7.78L18.692 23.58h5.03L12.809 7.672z" />
+                  </g>
                 </svg>
               </a>
               <a
