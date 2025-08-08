@@ -130,7 +130,9 @@ export function VisitingInfo() {
             {visitTypes.map((visit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative"
+                className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative ${
+                  visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "pb-16 md:pb-24" : ""
+                }`}
               >
                 <div className="flex items-start space-x-4 mb-6">
                   {visit.icon}
@@ -139,12 +141,16 @@ export function VisitingInfo() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-6 leading-relaxed">{visit.description}</p>
+                <p className={`text-gray-700 leading-relaxed ${
+                  visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "mb-4" : "mb-6"
+                }`}>{visit.description}</p>
 
                 <div className="space-y-4">
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-3">Requirements:</h5>
-                    <div className="space-y-2">
+                    <div className={`${
+                      visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "space-y-1" : "space-y-2"
+                    }`}>
                       {visit.requirements.map((req, reqIndex) => (
                         <div key={reqIndex} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -167,7 +173,7 @@ export function VisitingInfo() {
 
                 {/* Add buttons for Seva and Internship tiles - now in normal flow for better mobile UX */}
                 {(visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity") && (
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 md:bottom-8 md:right-8 md:left-auto md:translate-x-0 md:items-end">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:bottom-8 md:right-8 md:left-auto md:translate-x-0 md:items-end">
                     {visit.type === "🙌 Seva Opportunity" && (
                       <Link
                         href="/volunteer"
@@ -175,7 +181,7 @@ export function VisitingInfo() {
                         className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 shadow-lg transition-all duration-300 hover:shadow-xl">
-                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-5 md:px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
+                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white/95 backdrop-blur-sm px-5 md:px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
                             <HandHeart className="w-5 h-5 text-green-600" />
                             <span>Volunteer</span>
                             <svg className="w-4 h-4 text-green-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -190,7 +196,7 @@ export function VisitingInfo() {
                         className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 shadow-lg transition-all duration-300 hover:shadow-xl">
-                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white px-5 md:px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
+                          <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white/95 backdrop-blur-sm px-5 md:px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
                             <GraduationCap className="w-5 h-5 text-orange-600" />
                             <span>Internships</span>
                             <svg className="w-4 h-4 text-orange-700/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
