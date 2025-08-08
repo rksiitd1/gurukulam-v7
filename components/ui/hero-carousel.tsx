@@ -71,9 +71,10 @@ interface HeroCarouselProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  fit?: 'contain' | 'cover';
 }
 
-export function HeroCarousel({ imageDir, alt, className, priority = false }: HeroCarouselProps) {
+export function HeroCarousel({ imageDir, alt, className, priority = false, fit = 'contain' }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [images, setImages] = useState<string[]>(['/placeholder.svg']);
@@ -176,7 +177,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
 
   return (
     <div 
-      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y", className)}
+      className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y bg-black", className)}
       ref={sliderRef}
     >
       <div 
@@ -231,7 +232,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
                 src={src}
                 alt={`${alt} ${index + 1}`}
                 fill
-                className="object-cover brightness-110 contrast-105"
+                className={cn(fit === 'contain' ? 'object-contain' : 'object-cover', 'object-center')}
                 priority={index === 0 && priority}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                 onLoadingComplete={() => setIsLoading(false)}
@@ -239,6 +240,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false }: Her
                   console.error('Error loading image:', e);
                   e.currentTarget.src = '/placeholder.svg';
                 }}
+                draggable={false}
               />
             </div>
           ))}
