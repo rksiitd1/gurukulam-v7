@@ -66,7 +66,7 @@ const Hero = () => (
         {/* Image */}
         <div className="relative order-first lg:order-last lg:-mt-8">
           {/* Floating Elements */}
-          <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 z-30 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
+          <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 z-30 bg-green-500 text-white p-2 sm:p-3 rounded-full shadow-lg">
             <span className="text-lg sm:text-2xl">🏡</span>
           </div>
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
