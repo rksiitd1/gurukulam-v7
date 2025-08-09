@@ -111,7 +111,7 @@ export function ContactForm() {
                   <label className="block text-lg font-bold text-gray-900 mb-4 break-words">
                     Choose Your Preferred Contact Method
                   </label>
-                  <div className="grid grid-cols-2 gap-4 min-w-0">
+                  <div className="grid grid-cols-2 gap-4 min-w-0 transform-gpu scale-[0.985] sm:scale-100 origin-top-left">
                     <label
                       className={`relative flex items-center justify-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 ${
                         formData.preferredContact === "email"
@@ -323,7 +323,7 @@ export function ContactForm() {
           </Card>
 
             {/* Contact Information & Quick Actions */}
-            <div className="space-y-8 min-w-0">
+            <div className="space-y-8 min-w-0 transform-gpu scale-[0.985] sm:scale-100 origin-top-left">
               {/* Quick Contact Cards */}
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-gray-900">Quick Contact</h3>
