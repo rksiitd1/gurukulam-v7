@@ -73,11 +73,12 @@ const AboutMissionHero = () => (
         </div>
         {/* Image */}
         <div className="relative order-first lg:order-last lg:-mt-8">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] sm:aspect-video">
             <HeroCarousel
               imageDir="about"
               alt="Divya Bihar Mission - Rural Development"
-              className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
+              className="w-full h-full"
+              fit="cover"
               priority
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>

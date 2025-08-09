@@ -104,14 +104,14 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <Card className="bg-white shadow-2xl border-0 overflow-hidden">
-            <CardContent className="p-6 sm:p-8 md:p-10">
+            <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Contact Method Selection */}
                 <div className="space-y-4">
                   <label className="block text-lg font-bold text-gray-900 mb-4">
                     Choose Your Preferred Contact Method
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     <label
                       className={`relative flex items-center justify-center p-3 sm:p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 ${
                         formData.preferredContact === "email"
@@ -325,19 +325,19 @@ export function ContactForm() {
           {/* Contact Information & Quick Actions */}
           <div className="space-y-8">
             {/* Quick Contact Cards */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">Quick Contact</h3>
 
               <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
                 <CardContent className="p-6">
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-green-600" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="font-semibold text-gray-900 text-base sm:text-lg">Call Us Now</h4>
-                      <p className="text-green-600 font-medium text-sm sm:text-base">+91 92625 36295 </p>
-                      <p className="text-xs sm:text-sm text-gray-600">Mon-Sat, 9 AM - 6 PM</p>
+                      <h4 className="font-semibold text-gray-900">Call Us Now</h4>
+                      <p className="text-green-600 font-medium">+91 92625 36295 </p>
+                      <p className="text-sm text-gray-600">Mon-Sat, 9 AM - 6 PM</p>
                     </div>
                   </div>
                 </CardContent>
@@ -345,14 +345,14 @@ export function ContactForm() {
 
               <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
                 <CardContent className="p-6">
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MessageSquare className="w-6 h-6 text-blue-600" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="font-semibold text-gray-900 text-base sm:text-lg">WhatsApp</h4>
-                      <p className="text-blue-600 font-medium text-sm sm:text-base">+91 92625 36295 </p>
-                      <p className="text-xs sm:text-sm text-gray-600">Quick responses</p>
+                      <h4 className="font-semibold text-gray-900">WhatsApp</h4>
+                      <p className="text-blue-600 font-medium">+91 92625 36295 </p>
+                      <p className="text-sm text-gray-600">Quick responses</p>
                     </div>
                   </div>
                 </CardContent>
@@ -360,14 +360,14 @@ export function ContactForm() {
 
               <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
                 <CardContent className="p-6">
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-6 h-6 text-purple-600" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="font-semibold text-gray-900 text-base sm:text-lg">Email Support</h4>
-                      <p className="text-purple-600 font-medium text-sm sm:text-base break-words">divyabiharmission@gmail.com</p>
-                      <p className="text-xs sm:text-sm text-gray-600">24-hour response</p>
+                      <h4 className="font-semibold text-gray-900">Email Support</h4>
+                      <p className="text-purple-600 font-medium break-words">divyabiharmission@gmail.com</p>
+                      <p className="text-sm text-gray-600">24-hour response</p>
                     </div>
                   </div>
                 </CardContent>

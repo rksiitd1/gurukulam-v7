@@ -132,7 +132,7 @@ export function LocationMap() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {locations.map((location, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div
@@ -141,7 +141,7 @@ export function LocationMap() {
                       }`}
                     ></div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-words">{location.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 break-words">{location.name}</h3>
                       <p className="text-gray-600 mt-1">{location.description}</p>
                     </div>
                   </div>
@@ -155,7 +155,7 @@ export function LocationMap() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 pt-3">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-3">
                       <Button
                         size="sm"
                         onClick={() => window.open(location.mapsUrl, "_blank")}
