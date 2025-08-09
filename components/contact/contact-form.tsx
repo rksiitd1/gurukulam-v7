@@ -101,17 +101,17 @@ export function ContactForm() {
           <p className="text-lg font-devanagari text-green-700 mt-2">हमसे संपर्क करें</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 min-w-0">
           {/* Contact Form */}
           <Card className="bg-white shadow-2xl border-0 overflow-hidden">
             <CardContent className="p-10">
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Contact Method Selection */}
                 <div className="space-y-4">
-                  <label className="block text-lg font-bold text-gray-900 mb-4">
+                  <label className="block text-lg font-bold text-gray-900 mb-4 break-words">
                     Choose Your Preferred Contact Method
                   </label>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 min-w-0">
                     <label
                       className={`relative flex items-center justify-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 ${
                         formData.preferredContact === "email"
@@ -322,57 +322,57 @@ export function ContactForm() {
             </CardContent>
           </Card>
 
-          {/* Contact Information & Quick Actions */}
-          <div className="space-y-8">
-            {/* Quick Contact Cards */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900">Quick Contact</h3>
+            {/* Contact Information & Quick Actions */}
+            <div className="space-y-8 min-w-0">
+              {/* Quick Contact Cards */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-gray-900">Quick Contact</h3>
 
-              <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-green-600" />
+                <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4 min-w-0">
+                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <Phone className="w-6 h-6 text-green-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-semibold text-gray-900">Call Us Now</h4>
+                        <p className="text-green-600 font-medium">+91 92625 36295 </p>
+                        <p className="text-sm text-gray-600">Mon-Sat, 9 AM - 6 PM</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Call Us Now</h4>
-                      <p className="text-green-600 font-medium">+91 92625 36295 </p>
-                      <p className="text-sm text-gray-600">Mon-Sat, 9 AM - 6 PM</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <MessageSquare className="w-6 h-6 text-blue-600" />
+                <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4 min-w-0">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <MessageSquare className="w-6 h-6 text-blue-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-semibold text-gray-900">WhatsApp</h4>
+                        <p className="text-blue-600 font-medium">+91 92625 36295 </p>
+                        <p className="text-sm text-gray-600">Quick responses</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">WhatsApp</h4>
-                      <p className="text-blue-600 font-medium">+91 92625 36295 </p>
-                      <p className="text-sm text-gray-600">Quick responses</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-purple-600" />
+                <Card className="bg-white hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4 min-w-0">
+                      <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                        <Mail className="w-6 h-6 text-purple-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-semibold text-gray-900">Email Support</h4>
+                        <p className="text-purple-600 font-medium break-all">divyabiharmission@gmail.com</p>
+                        <p className="text-sm text-gray-600">24-hour response</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Email Support</h4>
-                      <p className="text-purple-600 font-medium">divyabiharmission@gmail.com</p>
-                      <p className="text-sm text-gray-600">24-hour response</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                  </CardContent>
+                </Card>
+              </div>
 
             {/* Response Time Info */}
             <Card className="bg-gradient-to-r from-green-500 to-blue-500 text-white">
