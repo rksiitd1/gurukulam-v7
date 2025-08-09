@@ -75,7 +75,7 @@ export function ContactHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Content */}
-          <div className="space-y-8 text-center lg:text-left lg:-mt-8 min-w-0">
+          <div className="space-y-8 text-center lg:text-left lg:-mt-8">
             <div className="space-y-6">
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300">
                 <Phone className="w-4 h-4 mr-2 animate-pulse" />
@@ -169,7 +169,7 @@ export function ContactHero() {
           </div>
 
           {/* Image */}
-          <div className="relative order-first lg:order-last lg:-mt-8 overflow-hidden min-w-0">
+          <div className="relative order-first lg:order-last lg:-mt-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="contact"
@@ -190,7 +190,7 @@ export function ContactHero() {
             </div>
 
             {/* Floating Contact Stats */}
-            <div className="absolute right-3 top-3 sm:-top-4 sm:-right-4 bg-gradient-to-br from-green-500 to-blue-500 text-white p-4 sm:p-6 rounded-2xl shadow-2xl hover:rotate-6 transition-transform duration-300 max-w-[calc(100%-1.5rem)] sm:max-w-none">
+            <div className="absolute -top-4 -right-4 bg-gradient-to-br from-green-500 to-blue-500 text-white p-6 rounded-2xl shadow-2xl hover:rotate-6 transition-transform duration-300">
               <div className="text-center">
                 <div className="text-3xl font-bold flex items-center justify-center">
                   24/7

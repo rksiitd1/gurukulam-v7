@@ -130,21 +130,27 @@ export function VisitingInfo() {
             {visitTypes.map((visit, index) => (
               <div
                 key={index}
-                className="relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 flex flex-col relative ${
+                  visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "pb-16 md:pb-24" : ""
+                }`}
               >
                 <div className="flex items-start space-x-4 mb-6">
                   {visit.icon}
                   <div>
-                    <h4 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 break-words hyphens-auto">{visit.type}</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3">{visit.type}</h4>
                   </div>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed mb-6">{visit.description}</p>
+                <p className={`text-gray-700 leading-relaxed ${
+                  visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "mb-4" : "mb-6"
+                }`}>{visit.description}</p>
 
                 <div className="space-y-4">
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-3">Requirements:</h5>
-                    <div className="space-y-2">
+                    <div className={`${
+                      visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity" ? "space-y-1" : "space-y-2"
+                    }`}>
                       {visit.requirements.map((req, reqIndex) => (
                         <div key={reqIndex} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -158,21 +164,21 @@ export function VisitingInfo() {
                     <p className="text-sm font-semibold text-gray-900 mb-2">Contact to reach us:</p>
                     <a
                       href={`mailto:${visit.contact}`}
-                      className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors break-all"
+                      className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors"
                     >
                       📧 {visit.contact}
                     </a>
                   </div>
                 </div>
 
-                {/* CTA buttons: static on mobile, absolute on md+ to avoid overflow */}
+                {/* Add buttons for Seva and Internship tiles - now in normal flow for better mobile UX */}
                 {(visit.type === "🙌 Seva Opportunity" || visit.type === "🎓 Internship Opportunity") && (
-                  <div className="mt-4 flex flex-col items-center gap-3 md:mt-0 md:absolute md:bottom-8 md:right-8 md:left-auto md:items-end">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 md:bottom-8 md:right-8 md:left-auto md:translate-x-0 md:items-end">
                     {visit.type === "🙌 Seva Opportunity" && (
                       <Link
                         href="/volunteer"
                         aria-label="Apply to volunteer"
-                        className="group inline-flex w-auto max-w-full"
+                        className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 shadow-lg transition-all duration-300 hover:shadow-xl">
                           <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white/95 backdrop-blur-sm px-5 md:px-6 text-sm md:text-base font-semibold text-green-700 ring-1 ring-black/5">
@@ -187,7 +193,7 @@ export function VisitingInfo() {
                       <Link
                         href="/internship"
                         aria-label="Apply for internship"
-                        className="group inline-flex w-auto max-w-full"
+                        className="group inline-flex w-auto"
                       >
                         <span className="relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 shadow-lg transition-all duration-300 hover:shadow-xl">
                           <span className="inline-flex h-10 md:h-12 items-center justify-center gap-2 rounded-full bg-white/95 backdrop-blur-sm px-5 md:px-6 text-sm md:text-base font-semibold text-orange-700 ring-1 ring-black/5">
