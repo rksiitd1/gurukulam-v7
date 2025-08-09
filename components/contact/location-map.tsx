@@ -132,7 +132,7 @@ export function LocationMap() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {locations.map((location, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div
@@ -140,8 +140,8 @@ export function LocationMap() {
                         location.type === "primary" ? "bg-red-500" : "bg-green-500"
                       }`}
                     ></div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">{location.name}</h3>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-words">{location.name}</h3>
                       <p className="text-gray-600 mt-1">{location.description}</p>
                     </div>
                   </div>
@@ -150,12 +150,12 @@ export function LocationMap() {
                     <div className="flex items-start space-x-2">
                       <MapPin className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
                       <div>
-                        <p className="text-gray-700">{location.address}</p>
+                        <p className="text-gray-700 break-words">{location.address}</p>
                         <p className="text-sm text-gray-500">{location.coordinates}</p>
                       </div>
                     </div>
 
-                    <div className="flex space-x-3 pt-3">
+                    <div className="flex flex-wrap gap-3 pt-3">
                       <Button
                         size="sm"
                         onClick={() => window.open(location.mapsUrl, "_blank")}
