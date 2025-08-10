@@ -59,7 +59,7 @@ export function DonateHero() {
           </div>
         </div>
 
-        {/* Impact Stats */}
+        {/* <!-- Impact Stats -->
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div
@@ -73,7 +73,7 @@ export function DonateHero() {
               <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Trust Indicators */}
         <div className="mt-12 text-center">
