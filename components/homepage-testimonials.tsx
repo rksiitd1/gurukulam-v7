@@ -89,6 +89,22 @@ export function HomepageTestimonials() {
         "Mukund's dedication is exemplary. His approach of combining modern curriculum with traditional values is exactly what rural India needs for a sustainable future. He is doing great job for nation building.",
       initials: "DJ",
     },
+    {
+      name: "Dr. Rohit Kumar Choudhary",
+      title: "(PhD, IIT Delhi), Assistant Professor, SSNC, Delhi University",
+      image: "/images/testimonials/rohitji.jpg",
+      content: `"है अपना हिंदुस्तान, कहाँ वह बसा हमारे गाँवों में"
+        This verse by Sohan Lal Dwivedi ji is beautifully said and absolutely true. However, the present scenario of Indian villages is changing. In the state of Bihar especially, there is an urgent need to uplift society from the rural sector.
+
+        A great initiative has been taken by Mukund ji — an IITian who left a high-paying job and prestigious positions in world-renowned institutes, driven by the hope of serving the nation and his motherland in the best way possible. His aim is to directly uplift the future makers of our society — the underprivileged yet highly capable students — by providing them with proper guidance so they can serve the nation in the years to come.
+
+        The Bharatiya thought process must be instilled in them so they can build themselves and lead Bharat with pride. The beginning is always small, difficult, and full of challenges, but it holds immense potential to grow. Bihar, with its glorious history, now needs strong support from people to regain its past glory in Bharat.
+
+        Such work, activities, and a learning environment that connects Bharatiyata with cultural values, rational thinking, and scientific living will surely inspire the new generation to become powerful changemakers.
+
+        We fully stand with such noble efforts — they deserve our utmost support.`,
+      initials: "RC",
+    },
   ]
 
   return (
@@ -225,9 +241,14 @@ export function HomepageTestimonials() {
                   <Quote className="w-8 h-8 text-purple-500" />
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed text-lg italic text-center">
-                "{testimonials[selectedTestimonial].content}"
-              </p>
+              <div className="text-gray-700 leading-relaxed text-lg italic text-center space-y-4">
+                {testimonials[selectedTestimonial].content
+                  .trim()
+                  .split(/\n\s*\n?/)
+                  .map((paragraph, index) => (
+                    <p key={index}>"{paragraph}"</p>
+                  ))}
+              </div>
             </div>
 
             {/* Modal Footer - Fixed */}
