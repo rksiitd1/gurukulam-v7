@@ -13,7 +13,7 @@ export function WhyWeExistSection() {
         <p className="text-base sm:text-lg text-gray-600 mb-8">
           We believe true progress begins in the villages. Our mission is to empower rural Bihar through education, sustainable agriculture, entrepreneurship, and cultural pride.
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
+        <div className="hidden sm:grid grid-cols-5 gap-4 mb-8">
           <div className="flex flex-col items-center p-3 bg-white/70 rounded-lg shadow-sm">
             <GraduationCap className="w-11 h-11 text-blue-600 mb-2" />
             <span className="font-medium text-base font-devanagari">शिक्षा</span>
