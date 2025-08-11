@@ -247,19 +247,17 @@ Many, many best wishes to you, Mukund Bhaiya!`,
             </div>
 
             {/* Modal Content - Scrollable */}
-            <div className="flex-1 overflow-y-auto p-6">
-              <div className="flex justify-center mb-6">
-                <div className="p-3 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full">
-                  <Quote className="w-8 h-8 text-purple-500" />
+            <div className="flex-1 overflow-y-auto p-6 sm:p-8">
+              <div className="relative">
+                <Quote className="absolute -top-4 -left-4 w-16 h-16 text-purple-100/80" />
+                <div className="relative z-10 text-gray-800 leading-relaxed text-base sm:text-lg text-left space-y-5">
+                  {testimonials[selectedTestimonial].content
+                    .trim()
+                    .split(/\n\s*\n?/)
+                    .map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
                 </div>
-              </div>
-              <div className="text-gray-700 leading-relaxed text-lg italic text-center space-y-4">
-                {testimonials[selectedTestimonial].content
-                  .trim()
-                  .split(/\n\s*\n?/)
-                  .map((paragraph, index) => (
-                    <p key={index}>"{paragraph}"</p>
-                  ))}
               </div>
             </div>
 

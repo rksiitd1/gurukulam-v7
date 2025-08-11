@@ -2,8 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote } from "lucide-react"
 import Image from "next/image"
 
-export function Testimonials() {
-  const testimonials = [
+const testimonials = [
     {
       name: "Dr. Rajesh Kumar",
       title: "IIT Delhi Professor",
@@ -58,27 +57,30 @@ export function Testimonials() {
     },
   ]
 
-  const getTypeColor = (type: string) => {
-    const colors = {
-      mentor: "bg-blue-100 text-blue-800",
-      parent: "bg-green-100 text-green-800",
-      student: "bg-orange-100 text-orange-800",
-      farmer: "bg-emerald-100 text-emerald-800",
-      volunteer: "bg-purple-100 text-purple-800",
-    }
-    return colors[type as keyof typeof colors] || colors.mentor
+const getTypeColor = (type: string) => {
+  const colors = {
+    mentor: "bg-blue-100 text-blue-800",
+    parent: "bg-green-100 text-green-800",
+    student: "bg-orange-100 text-orange-800",
+    farmer: "bg-emerald-100 text-emerald-800",
+    volunteer: "bg-purple-100 text-purple-800",
   }
+  return colors[type as keyof typeof colors] || colors.mentor
+}
 
-  const getTypeLabel = (type: string) => {
-    const labels = {
-      mentor: "Mentor",
-      parent: "Parent",
-      student: "Student",
-      farmer: "Farmer",
-      volunteer: "Volunteer",
-    }
-    return labels[type as keyof typeof labels] || "Supporter"
+const getTypeLabel = (type: string) => {
+  const labels = {
+    mentor: "Mentor",
+    parent: "Parent",
+    student: "Student",
+    farmer: "Farmer",
+    volunteer: "Volunteer",
   }
+  return labels[type as keyof typeof labels] || "Supporter"
+}
+
+export function Testimonials() {
+
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
