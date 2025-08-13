@@ -126,6 +126,14 @@ Many, many best wishes to you, Mukund Bhaiya!`,
       जय श्री राम!`,
       initials: "DR",
     },
+    {
+      name: "Neeraj ji",
+      title: "Founder, Khetee Foundation, Lakhisarai",
+      image: "/images/testimonials/neeraj.jpg",
+      content: `The moment I stepped onto the campus of Divya Bihar Mission, I could feel the energy of a community dedicated to growth. As a visitor, I was impressed by the intentionality behind every program and activity. This is clearly a place where students are encouraged to explore their full potential, not just in the classroom, but as future leaders and compassionate individuals. 
+      I am so glad I had the chance to see it in action.`,
+      initials: "NJ",
+    },
   ]
 
   return (
