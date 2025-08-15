@@ -80,36 +80,6 @@
 
 ---
 
-### अनुमानित बजट आवश्यकताएं (Indicative)
-
-हमारी शुरुआत दो मॉडल परियोजनाओं से हो रही है, जिनके लिए हमें आर्थिक सहयोग की आवश्यकता है: 1) Agroforestry Demo Plot—किसानों को प्रशिक्षित करने हेतु एक प्रदर्शनी प्लॉट। 2) Divya Bihar Global Gurukulam (DBG Gurukulam)—हमारा शिक्षा मॉडल स्कूल जिसे हम भविष्य में पूरे बिहार और भारत में दोहराना चाहेंगे।
-
-#### शिक्षा (DBG Gurukulam Model School): ₹1.5 Crore
-
-- Infrastructure
-- Library & Lab Setup
-- Smart Classrooms and Digital Learning Resources
-- Transport Facilities
-- Faculty/Staff Salaries
-
-#### एग्रोफॉरेस्ट्री (Initial Demonstration Farm Setup): ₹1.25 Crore&#x20;
-
-- Land Purchase
-- Tree Plantation (Medicinal & Fruit-bearing plants)
-- Drip Irrigation Systems
-- Organic Compost & Bio-fertilizer Units
-- Skilled & Unskilled Labor
-- Farmer Training Camps & Seed Bank
-
-#### गौशाला
-
-- Land Purchase
-- Cow Shelter Construction
-- Veterinary Facilities
-- Fodder and Cow Care Expenses
-
----
-
 ### आपका सहयोग
 
 हर संवेदनशील नागरिक समाज के लिए कुछ करना चाहता है। हम गांवों की दुर्दशा से व्यथित हैं, और भारत के भविष्य को उज्ज्वल देखना चाहते हैं, तो आइए साथ मिलकर इस यज्ञ में आहुति दें। हम आपकी भागीदारी को आमंत्रित करते हैं—यह आंदोलन केवल हमारा नहीं, बल्कि हम सबका है।
