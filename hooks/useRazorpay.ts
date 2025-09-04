@@ -1,0 +1,33 @@
+import { useEffect, useState } from 'react';
+
+// This makes the Razorpay object available on the window
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
+const useRazorpay = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => setIsLoaded(true);
+    script.onerror = () => {
+      console.error('Razorpay SDK could not be loaded.');
+      setIsLoaded(false);
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return isLoaded;
+};
+
+export default useRazorpay;
