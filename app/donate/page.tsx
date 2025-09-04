@@ -1,29 +1,62 @@
-import { DonateHero } from "@/components/donate/donate-hero"
-import type { Metadata } from "next"
-export const metadata: Metadata = {
-  title: "Donate",
-  description: "Support Divya Bihar Mission. 12A & 80G registered – your contribution transforms lives.",
-  openGraph: { images: ["/og-image.jpg"] },
-}
-// import { DonationOptions } from "@/components/donate/donation-options"
-// import { ImpactStories } from "@/components/donate/impact-stories"
-import { DonationForm } from "@/components/donate/donation-form"
-import { TaxBenefits } from "@/components/donate/tax-benefits"
-// import { TransparencyReport } from "@/components/donate/transparency-report"
-// import { DonorTestimonials } from "@/components/donate/donor-testimonials"
-import { CallToAction } from "@/components/call-to-action"
+"use client";
 
-export default function DonatePage() {
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { DonateHero } from "@/components/donate/donate-hero";
+import { DonationModal } from "@/components/donate/DonationModal";
+import { TaxBenefits } from "@/components/donate/tax-benefits";
+import { CallToAction } from "@/components/call-to-action";
+
+// A wrapper component is needed to use useSearchParams within a Client Component
+function DonatePageContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [initialAmount, setInitialAmount] = useState<number | undefined>();
+
+  useEffect(() => {
+    const amountParam = searchParams.get("amount");
+    if (amountParam) {
+      const parsedAmount = parseInt(amountParam, 10);
+      if (!isNaN(parsedAmount)) {
+        setInitialAmount(parsedAmount);
+        setIsModalOpen(true);
+      }
+    }
+  }, [searchParams]);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Optional: Clean up the URL when the modal is closed for a cleaner UX
+    router.replace('/donate', { scroll: false });
+  };
+  
+  const handleOpenModal = (amount?: number) => {
+    setInitialAmount(amount);
+    setIsModalOpen(true);
+  }
+
   return (
     <div className="min-h-screen">
-      <DonateHero />
-      {/* <DonationOptions /> */}
-      {/* <ImpactStories /> */}
-      <DonationForm />
+      {/* Pass the handleOpenModal function to the hero component */}
+      <DonateHero onDonateClick={() => handleOpenModal()} />
       <TaxBenefits />
-      {/* <TransparencyReport /> */}
-      {/* <DonorTestimonials /> */}
       <CallToAction />
+
+      <DonationModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialAmount={initialAmount}
+      />
     </div>
-  )
+  );
+}
+
+// The main export uses Suspense for better performance with search params
+export default function DonatePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DonatePageContent />
+    </Suspense>
+  );
 }
