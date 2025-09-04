@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Heart, Users, GraduationCap, Sprout, TrendingUp } from "lucide-react"
 
-export function DonateHero() {
+interface DonateHeroProps {
+  onDonateClick: () => void;
+}
+
+export function DonateHero({ onDonateClick }: DonateHeroProps) {
   const stats = [
     { icon: Users, value: "2,500+", label: "Lives Transformed", color: "text-blue-600" },
     { icon: GraduationCap, value: "850+", label: "Students Educated", color: "text-green-600" },
@@ -45,6 +49,7 @@ export function DonateHero() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 text-lg"
+              onClick={onDonateClick}
             >
               <Heart className="w-5 h-5 mr-2" />
               Donate Now
