@@ -39,7 +39,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
   const isRazorpayLoaded = useRazorpay();
   const { toast } = useToast();
 
-  const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000];
+  const predefinedAmounts = [500, 2000, 5000, 10000, 25000, 100000]
 
   // This hook pre-fills the form if an initialAmount is provided
   useEffect(() => {

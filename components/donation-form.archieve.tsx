@@ -20,7 +20,7 @@ export function DonationForm() {
   const [paymentMethod, setPaymentMethod] = useState("card")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const predefinedAmounts = [500, 2000, 5000, 10000, 25000, 100000]
+  const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
