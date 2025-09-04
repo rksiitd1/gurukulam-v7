@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -12,7 +12,11 @@ import { Shield, Lock, CheckCircle, Heart } from "lucide-react"
 import useRazorpay from "@/hooks/useRazorpay"
 import { useToast } from "@/hooks/use-toast"
 
-export function DonationForm() {
+interface DonationFormProps {
+  initialAmount?: number;
+}
+
+export function DonationForm({ initialAmount }: DonationFormProps) {
   const [amount, setAmount] = useState("")
   const [customAmount, setCustomAmount] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -28,6 +32,20 @@ export function DonationForm() {
   const { toast } = useToast();
 
   const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000];
+
+  useEffect(() => {
+    if (initialAmount) {
+      // Check if the initial amount is one of the predefined options
+      if (predefinedAmounts.includes(initialAmount)) {
+        setAmount(initialAmount.toString());
+        setCustomAmount("");
+      } else {
+        // If not, set it as a custom amount
+        setCustomAmount(initialAmount.toString());
+        setAmount("");
+      }
+    }
+  }, [initialAmount]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
