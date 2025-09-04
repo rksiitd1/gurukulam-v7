@@ -47,23 +47,30 @@ export function CallToAction() {
           <div className="space-y-6">
             <h3 className="text-2xl font-bold mb-6">Choose Your Impact</h3>
             <div className="grid gap-4">
-              {donationOptions.map((option, index) => (
-                <Card
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all"
-                >
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="text-xl font-bold text-yellow-300">{option.amount}</div>
-                      <div className="text-sm opacity-90">{option.description}</div>
-                      <div className="text-xs opacity-75 mt-1">{option.impact}</div>
-                    </div>
-                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold" asChild>
-                      <Link href="/donate">Donate</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+              {donationOptions.map((option, index) => {
+                const numericAmount = parseInt(option.amount.replace(/[^0-9]/g, ''), 10);
+                return (
+                  <Link 
+                    key={index} 
+                    href={`/donate?amount=${numericAmount}`}
+                    passHref
+                    className="no-underline"
+                  >
+                    <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all cursor-pointer">
+                      <CardContent className="p-4 flex items-center justify-between">
+                        <div className="flex-1">
+                          <div className="text-xl font-bold text-yellow-300">{option.amount}</div>
+                          <div className="text-sm opacity-90">{option.description}</div>
+                          <div className="text-xs opacity-75 mt-1">{option.impact}</div>
+                        </div>
+                        <div className="bg-yellow-500 text-gray-900 font-semibold rounded-md px-4 py-2">
+                          Donate
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
