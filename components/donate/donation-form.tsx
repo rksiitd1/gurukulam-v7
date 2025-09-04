@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Shield, Lock, CheckCircle, Heart, User, Mail, Phone, IndianRupee, BookOpen, Sprout, Star, Award, Users, Lotus, Building, Home } from "lucide-react";
+import { Shield, Lock, CheckCircle, Heart, User, Mail, Phone, IndianRupee, BookOpen, Sprout, Star, Award, Users, Building, Home } from "lucide-react";
 import useRazorpay from "@/hooks/useRazorpay";
 import { useToast } from "@/hooks/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -138,9 +138,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           <div className="text-center mb-12">
             {/* Cultural Header */}
             <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-saffron-100 via-orange-100 to-red-100 px-6 py-4 rounded-full mb-8 border-2 border-saffron-200 shadow-lg">
-              <Lotus className="w-6 h-6 text-saffron-700" />
+              <Sprout className="w-6 h-6 text-saffron-700" />
               <span className="text-saffron-800 font-bold text-lg font-hindi">दान धर्म • Donation Drive</span>
-              <Lotus className="w-6 h-6 text-saffron-700" />
+              <Sprout className="w-6 h-6 text-saffron-700" />
             </div>
 
             <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
@@ -497,7 +497,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
               
               <CardHeader className="relative z-10">
                 <CardTitle className="text-xl font-bold text-gray-800 flex items-center">
-                  <Lotus className="w-6 h-6 mr-3 text-saffron-600" />
+                  <Sprout className="w-6 h-6 mr-3 text-saffron-600" />
                   <span className="font-hindi">हमारे साथ क्यों?</span> • Why Donate With Us?
                 </CardTitle>
               </CardHeader>
