@@ -459,7 +459,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 <motion.div 
                   key={index}
                   whileHover={{ y: -2 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-lg border border-amber-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  className={cn(
+                    'bg-white/90 backdrop-blur-sm rounded-lg border p-4 shadow-sm hover:shadow-md transition-all cursor-pointer',
+                    (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
+                      ? 'border-amber-400 bg-amber-50 ring-2 ring-amber-200/50'
+                      : 'border-amber-100 hover:border-amber-200'
+                  )}
                   onClick={() => {
                     const amountValue = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
                     // Always set the custom amount field
@@ -475,7 +480,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-amber-100 p-2 rounded-lg">
+                      <div className={cn(
+                        'p-2 rounded-lg',
+                        (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
+                          ? 'bg-amber-200 text-amber-800'
+                          : 'bg-amber-100'
+                      )}>
                         {item.icon}
                       </div>
                       <div>
@@ -485,8 +495,13 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-bold text-amber-700">{item.amount}</div>
-                      <div className="text-xs text-amber-600 font-medium">
-                        {customAmount === item.amount.replace(/[^0-9]/g, '') ? 'Selected' : 'Select'}
+                      <div className={cn(
+                        'text-xs font-medium px-2 py-0.5 rounded-full',
+                        (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
+                          ? 'bg-amber-100 text-amber-800'
+                          : 'text-amber-600'
+                      )}>
+                        {amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, '') ? 'Selected' : 'Select'}
                       </div>
                     </div>
                   </div>
