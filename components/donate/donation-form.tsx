@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2 } from "lucide-react";
+import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2, BookOpen, GraduationCap, Home } from "lucide-react";
 import useRazorpay from "@/hooks/useRazorpay";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -402,52 +402,77 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             </Card>
           </motion.div>
 
-          {/* Sidebar */}
+          {/* Sidebar - Your Impact Section */}
           <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <Card className="border-amber-100 bg-amber-50">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-amber-800 flex items-center">
-                  <Heart className="w-5 h-5 mr-2 text-amber-600" />
-                  Your Impact
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                    <span className="text-amber-700 font-bold">₹500</span>
+            {/* Motivational Header */}
+            <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-6 text-white">
+              <h3 className="text-xl font-bold mb-2">Your Generosity Creates Ripples</h3>
+              <p className="text-amber-100 text-sm mb-4">
+                Every contribution, big or small, helps us build a better future. Here's what your donation can achieve:
+              </p>
+              <div className="flex items-center text-amber-200 text-sm">
+                <Heart className="w-4 h-4 mr-1" />
+                <span>100% of your donation goes directly to our programs</span>
+              </div>
+            </div>
+
+            {/* Impact Cards - Matching call-to-action style */}
+            <div className="space-y-4">
+              {[
+                {
+                  amount: "₹500",
+                  title: "Educational Materials",
+                  description: "Sponsors one student's books and supplies for a month",
+                  icon: <BookOpen className="w-5 h-5 text-amber-600" />
+                },
+                {
+                  amount: "₹2,000",
+                  title: "Monthly Tuition",
+                  description: "Supports a child's education for an entire month",
+                  icon: <GraduationCap className="w-5 h-5 text-amber-600" />
+                },
+                {
+                  amount: "₹5,000+",
+                  title: "Infrastructure & Growth",
+                  description: "Helps maintain and improve our learning centers",
+                  icon: <Home className="w-5 h-5 text-amber-600" />
+                }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  whileHover={{ y: -2 }}
+                  className="bg-white/90 backdrop-blur-sm rounded-lg border border-amber-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  onClick={() => {
+                    const amount = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
+                    setCustomAmount(amount.toString());
+                    setAmount('');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-amber-100 p-2 rounded-lg">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800">{item.title}</h4>
+                        <p className="text-sm text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-amber-700">{item.amount}</div>
+                      <div className="text-xs text-amber-600 font-medium">
+                        {customAmount === item.amount.replace(/[^0-9]/g, '') ? 'Selected' : 'Select'}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Books for a Student</h4>
-                    <p className="text-sm text-gray-600">Provides study materials for one student for a month</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                    <span className="text-amber-700 font-bold">₹2,000</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Monthly Tuition</h4>
-                    <p className="text-sm text-gray-600">Supports one child's education for a month</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                    <span className="text-amber-700 font-bold">₹5,000+</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Infrastructure</h4>
-                    <p className="text-sm text-gray-600">Helps maintain and improve our learning facilities</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </motion.div>
+              ))}
+            </div>
 
             <Card className="bg-gray-50 border-gray-100">
               <CardHeader className="pb-3">
