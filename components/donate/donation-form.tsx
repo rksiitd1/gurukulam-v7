@@ -409,69 +409,57 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            {/* Motivational Header */}
-            <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-2">Your Generosity Creates Ripples</h3>
-              <p className="text-amber-100 text-sm mb-4">
-                Every contribution, big or small, helps us build a better future. Here's what your donation can achieve:
+            <div className="text-center bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl p-6 text-white">
+              <h3 className="text-2xl font-bold mb-2">Your Impact</h3>
+              <p className="text-amber-100 text-sm">
+                Every contribution makes a difference in preserving our cultural heritage and empowering communities.
               </p>
-              <div className="flex items-center text-amber-200 text-sm">
-                <Heart className="w-4 h-4 mr-1" />
-                <span>100% of your donation goes directly to our programs</span>
-              </div>
             </div>
 
-            {/* Impact Cards - Matching call-to-action style */}
             <div className="space-y-4">
               {[
                 {
                   amount: "₹500",
-                  title: "Educational Materials",
-                  description: "Sponsors one student's books and supplies for a month",
-                  icon: <BookOpen className="w-5 h-5 text-amber-600" />
+                  description: "Sponsors one student for a month",
+                  impact: "Monthly education support"
                 },
                 {
                   amount: "₹2,000",
-                  title: "Monthly Tuition",
-                  description: "Supports a child's education for an entire month",
-                  icon: <GraduationCap className="w-5 h-5 text-amber-600" />
+                  description: "Provides books and materials for 5 students",
+                  impact: "Educational resources"
                 },
                 {
-                  amount: "₹5,000+",
-                  title: "Infrastructure & Growth",
-                  description: "Helps maintain and improve our learning centers",
-                  icon: <Home className="w-5 h-5 text-amber-600" />
+                  amount: "₹5,000",
+                  description: "Supports a farmer training program",
+                  impact: "Sustainable livelihood"
                 }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  whileHover={{ y: -2 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-lg border border-amber-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
-                  onClick={() => {
-                    const amount = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
-                    setCustomAmount(amount.toString());
-                    setAmount('');
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="bg-amber-100 p-2 rounded-lg">
-                        {item.icon}
-                      </div>
+              ].map((option, index) => {
+                const numericAmount = parseInt(option.amount.replace(/[^0-9]/g, ''), 10);
+                const isSelected = customAmount === numericAmount.toString();
+                
+                return (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ y: -2 }}
+                    className={`bg-white/10 backdrop-blur-sm rounded-lg border ${isSelected ? 'border-amber-400' : 'border-white/20'} p-4 cursor-pointer transition-all`}
+                    onClick={() => {
+                      setCustomAmount(numericAmount.toString());
+                      setAmount('');
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="font-semibold text-gray-800">{item.title}</h4>
-                        <p className="text-sm text-gray-600">{item.description}</p>
+                        <div className="text-xl font-bold text-yellow-300">{option.amount}</div>
+                        <div className="text-sm text-white/90">{option.description}</div>
+                        <div className="text-xs text-amber-100/70 mt-1">{option.impact}</div>
+                      </div>
+                      <div className="bg-amber-500 text-gray-900 font-semibold rounded-md px-4 py-2 text-sm">
+                        {isSelected ? 'Selected' : 'Select'}
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold text-amber-700">{item.amount}</div>
-                      <div className="text-xs text-amber-600 font-medium">
-                        {customAmount === item.amount.replace(/[^0-9]/g, '') ? 'Selected' : 'Select'}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
 
             <Card className="bg-gray-50 border-gray-100">
