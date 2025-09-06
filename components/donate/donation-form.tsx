@@ -358,9 +358,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
                   {/* Terms and Submit */}
                   <div className="space-y-6 pt-2">
-                    <div className="flex items-start space-x-3">
-                      <Checkbox id="terms" required className="mt-1" />
-                      <Label htmlFor="terms" className="text-sm text-gray-600 leading-relaxed">
+                    <div className="flex items-center space-x-3">
+                      <Checkbox id="terms" required className="h-4 w-4" />
+                      <Label htmlFor="terms" className="text-sm text-gray-600">
                         I agree to the{' '}
                         <a href="/terms" target="_blank" className="text-amber-600 hover:underline font-medium">
                           Terms of Service
