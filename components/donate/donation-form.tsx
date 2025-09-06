@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2, BookOpen, GraduationCap, Home } from "lucide-react";
+import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2, BookOpen, GraduationCap, Home, Award } from "lucide-react";
 import useRazorpay from "@/hooks/useRazorpay";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -426,21 +426,31 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
               {[
                 {
                   amount: "₹500",
-                  title: "Educational Materials",
-                  description: "Sponsors one student's books and supplies for a month",
+                  title: "Monthly Education",
+                  description: "Sponsors one student for a month",
+                  impact: "Monthly education support",
                   icon: <BookOpen className="w-5 h-5 text-amber-600" />
                 },
                 {
                   amount: "₹2,000",
-                  title: "Monthly Tuition",
-                  description: "Supports a child's education for an entire month",
+                  title: "Learning Resources",
+                  description: "Provides books and materials for 5 students",
+                  impact: "Educational resources",
                   icon: <GraduationCap className="w-5 h-5 text-amber-600" />
                 },
                 {
-                  amount: "₹5,000+",
-                  title: "Infrastructure & Growth",
-                  description: "Helps maintain and improve our learning centers",
+                  amount: "₹5,000",
+                  title: "Farmer Training",
+                  description: "Supports a farmer training program",
+                  impact: "Sustainable livelihood",
                   icon: <Home className="w-5 h-5 text-amber-600" />
+                },
+                {
+                  amount: "₹10,000",
+                  title: "Full Scholarship",
+                  description: "Funds a complete scholarship for one year",
+                  impact: "Full year education",
+                  icon: <Award className="w-5 h-5 text-amber-600" />
                 }
               ].map((item, index) => (
                 <motion.div 
