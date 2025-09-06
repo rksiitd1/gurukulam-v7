@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import Image from "next/image";
 import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2, BookOpen, GraduationCap, Home, Award } from "lucide-react";
 import useRazorpay from "@/hooks/useRazorpay";
 import { useToast } from "@/hooks/use-toast";
@@ -205,11 +206,24 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           >
             <Card className="shadow-xl border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-amber-600 to-amber-700 px-6 py-4">
-                <h3 className="text-xl font-semibold text-white flex items-center">
-                  <Shield className="w-5 h-5 mr-2 text-amber-200" />
-                  Secure Donation Form
-                </h3>
-                <p className="text-amber-100 text-sm mt-1">All transactions are 100% secure and encrypted</p>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold text-white flex items-center">
+                      <Shield className="w-5 h-5 mr-2 text-amber-200" />
+                      Secure Donation Form
+                    </h3>
+                    <p className="text-amber-100 text-sm mt-1">All transactions are 100% secure and encrypted</p>
+                  </div>
+                  <div className="bg-white/20 p-1.5 rounded-md">
+                    <Image 
+                      src="/DBM-logo.png" 
+                      alt="Divya Bihar Mission Logo" 
+                      width={40} 
+                      height={40}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
               </div>
               
               <CardContent className="p-6">
@@ -448,7 +462,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-6 text-white">
               <h3 className="text-xl font-bold mb-2">Your Generosity Creates Ripples</h3>
               <p className="text-amber-100 text-sm mb-4">
-                Every contribution, big or small, helps us build a better future. Here's what your donation can achieve:
+                Every contribution, big or small, helps us build a better future.
               </p>
               <div className="flex items-center text-amber-200 text-sm">
                 <Heart className="w-4 h-4 mr-1" />
@@ -541,18 +555,49 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
               ))}
             </div>
 
-            <Card className="bg-gray-50 border-gray-100">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg text-gray-800">Tax Benefits</CardTitle>
-                <CardDescription className="text-sm">
-                  Your donation is eligible for 50% tax exemption under Section 80G of the Income Tax Act.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="outline" className="w-full border-amber-300 text-amber-700 hover:bg-amber-50">
-                  Learn More About 80G
-                </Button>
-              </CardContent>
+            {/* Tax Benefits */}
+            <Card className="bg-gradient-to-b from-amber-50 to-white border-2 border-amber-100 rounded-xl shadow-sm mb-6 overflow-hidden">
+              <div className="p-5">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-amber-100 p-3 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800">Tax Benefits</h3>
+                    <p className="text-sm text-gray-600 mt-1">50% tax exemption under Section 80G</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Founder's Message */}
+            <Card className="border-2 border-amber-100 rounded-xl overflow-hidden">
+              <div className="p-5 bg-white">
+                {/* Quote */}
+                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400 mb-4">
+                  <p className="text-sm text-gray-700 italic">
+                    "Your generous donation will help us continue our mission of spreading spiritual knowledge and serving the community. Every contribution makes a difference in someone's life."
+                  </p>
+                </div>
+                
+                {/* Founder Info */}
+                <div className="flex items-center space-x-3">
+                  <div className="relative h-14 w-14 flex-shrink-0">
+                    <Image 
+                      src="/images/team/mukund.jpg" 
+                      alt="Mukund Agrawal" 
+                      fill 
+                      className="rounded-full object-cover border-2 border-amber-200"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Mukund Agrawal</h4>
+                    <p className="text-sm text-amber-700">Founder and Acharya</p>
+                  </div>
+                </div>
+              </div>
             </Card>
           </motion.div>
         </div>
