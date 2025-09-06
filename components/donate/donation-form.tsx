@@ -34,6 +34,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     name: "",
     email: "",
     phone: "",
+    pan: "",
     address: "",
     message: "",
   });
@@ -119,7 +120,11 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           });
         },
         prefill: { name: formData.name, email: formData.email, contact: formData.phone },
-        notes: { address: formData.address, message: formData.message },
+        notes: { 
+          address: formData.address, 
+          message: formData.message,
+          pan: formData.pan 
+        },
         theme: { color: "#ea580c" },
         modal: {
           ondismiss: function() {
@@ -307,6 +312,22 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                         required 
                         className="h-12"
                         placeholder="+91 XXXXXXXXXX"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="pan" className="text-gray-700">PAN Number <span className="text-sm text-gray-500">(for 80G tax exemption certificate)</span></Label>
+                      <Input 
+                        id="pan" 
+                        name="pan" 
+                        type="text" 
+                        value={formData.pan} 
+                        onChange={handleInputChange} 
+                        className="h-12 uppercase"
+                        placeholder="AAAAA0000A"
+                        maxLength={10}
+                        pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                        title="Please enter a valid PAN number (e.g., AAAAA9999A)"
                       />
                     </div>
 
