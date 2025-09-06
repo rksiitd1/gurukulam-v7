@@ -57,25 +57,20 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     const searchParams = new URLSearchParams(window.location.search);
     const urlAmount = searchParams.get('amount');
     
-    // Clear any previous selections
-    setAmount("");
-    setCustomAmount("");
-    
     // Use URL amount if available, otherwise use the initialAmount prop
     const amountToUse = urlAmount ? parseInt(urlAmount, 10) : initialAmount;
     
     if (amountToUse) {
       const amountNum = Number(amountToUse);
       if (!isNaN(amountNum) && amountNum > 0) {
-        // Check if this matches any predefined amount
-        const matchingPredefined = predefinedAmounts.find(item => item.amount === amountNum);
-        
-        if (matchingPredefined) {
-          // If it matches a predefined amount, select that button
+        // Always set the custom amount when coming from URL
+        setCustomAmount(amountNum.toString());
+        // Also update the selected amount if it matches a predefined amount
+        const amountExists = predefinedAmounts.some(item => item.amount === amountNum);
+        if (amountExists) {
           setAmount(amountNum.toString());
         } else {
-          // Otherwise, fill the custom amount field
-          setCustomAmount(amountNum.toString());
+          setAmount("");
         }
       }
     }
