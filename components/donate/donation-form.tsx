@@ -497,30 +497,6 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 </Button>
               </CardContent>
             </Card>
-
-            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
-              <h4 className="font-medium text-gray-900 mb-3">Other Ways to Give</h4>
-              <div className="space-y-3">
-                <Button variant="outline" className="w-full justify-start text-left h-auto py-2.5">
-                  <span className="text-left">
-                    <span className="block font-medium">Bank Transfer</span>
-                    <span className="text-sm text-gray-500 font-normal">Direct transfer to our account</span>
-                  </span>
-                </Button>
-                <Button variant="outline" className="w-full justify-start text-left h-auto py-2.5">
-                  <span className="text-left">
-                    <span className="block font-medium">UPI Payment</span>
-                    <span className="text-sm text-gray-500 font-normal">Pay using any UPI app</span>
-                  </span>
-                </Button>
-                <Button variant="outline" className="w-full justify-start text-left h-auto py-2.5">
-                  <span className="text-left">
-                    <span className="block font-medium">Cheque/DD</span>
-                    <span className="text-sm text-gray-500 font-normal">Mail us your contribution</span>
-                  </span>
-                </Button>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
