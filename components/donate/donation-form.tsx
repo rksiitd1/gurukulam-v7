@@ -63,12 +63,13 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     if (amountToUse) {
       const amountNum = Number(amountToUse);
       if (!isNaN(amountNum) && amountNum > 0) {
+        // Always set the custom amount when coming from URL
+        setCustomAmount(amountNum.toString());
+        // Also update the selected amount if it matches a predefined amount
         const amountExists = predefinedAmounts.some(item => item.amount === amountNum);
         if (amountExists) {
           setAmount(amountNum.toString());
-          setCustomAmount("");
         } else {
-          setCustomAmount(amountNum.toString());
           setAmount("");
         }
       }
