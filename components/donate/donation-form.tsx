@@ -215,7 +215,10 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                             <Button
                               type="button"
                               variant={amount === item.amount.toString() ? 'default' : 'outline'}
-                              onClick={() => { setAmount(item.amount.toString()); setCustomAmount(''); }}
+                              onClick={() => { 
+                                setAmount(item.amount.toString()); 
+                                setCustomAmount(item.amount.toString());
+                              }}
                               className={cn(
                                 'w-full h-16 flex flex-col items-center justify-center transition-all duration-200',
                                 amount === item.amount.toString() 
@@ -458,9 +461,16 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   whileHover={{ y: -2 }}
                   className="bg-white/90 backdrop-blur-sm rounded-lg border border-amber-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
                   onClick={() => {
-                    const amount = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
-                    setCustomAmount(amount.toString());
-                    setAmount('');
+                    const amountValue = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
+                    // Always set the custom amount field
+                    setCustomAmount(amountValue.toString());
+                    // Also update the selected amount if it matches a predefined amount
+                    const matchingPredefined = predefinedAmounts.find(a => a.amount === amountValue);
+                    if (matchingPredefined) {
+                      setAmount(amountValue.toString());
+                    } else {
+                      setAmount('');
+                    }
                   }}
                 >
                   <div className="flex items-center justify-between">
