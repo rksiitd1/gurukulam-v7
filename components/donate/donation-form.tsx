@@ -29,7 +29,6 @@ interface DonationFormProps {
 export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProps) {
   const [amount, setAmount] = useState(initialAmount?.toString() || "");
   const [customAmount, setCustomAmount] = useState("");
-  const [selectedImpact, setSelectedImpact] = useState<number | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -58,11 +57,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
       if (amountExists) {
         setAmount(initialAmount.toString());
         setCustomAmount("");
-        setSelectedImpact(initialAmount);
       } else {
         setCustomAmount(initialAmount.toString());
         setAmount("");
-        setSelectedImpact(null);
       }
     }
   }, [initialAmount]);
@@ -70,21 +67,6 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleAmountSelect = (amt: number) => {
-    setAmount(amt.toString());
-    setCustomAmount("");
-    setSelectedImpact(amt);
-  };
-
-  const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setCustomAmount(value);
-    if (value) {
-      setAmount("");
-      setSelectedImpact(null);
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -222,20 +204,34 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       <Label className="text-base font-medium text-gray-800 mb-3 block">
                         Select Donation Amount (INR)
                       </Label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {predefinedAmounts.map((item) => (
-                          <Button 
-                            key={item.amount} 
-                            type="button" 
-                            variant={selectedImpact === item.amount ? "default" : "outline"} 
-                            onClick={() => handleAmountSelect(item.amount)}
-                            className={selectedImpact === item.amount ? "bg-amber-600 hover:bg-amber-700" : ""}
+                          <motion.div 
+                            key={item.amount}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full"
                           >
-                            {item.label}
-                            {selectedImpact === item.amount && (
-                              <CheckCircle className="ml-2 h-4 w-4" />
-                            )}
-                          </Button>
+                            <Button
+                              type="button"
+                              variant={amount === item.amount.toString() ? 'default' : 'outline'}
+                              onClick={() => { setAmount(item.amount.toString()); setCustomAmount(''); }}
+                              className={cn(
+                                'w-full h-16 flex flex-col items-center justify-center transition-all duration-200',
+                                amount === item.amount.toString() 
+                                  ? 'bg-amber-600 hover:bg-amber-700 text-white border-amber-600' 
+                                  : 'bg-white hover:bg-amber-50 border-gray-200 text-gray-800 hover:border-amber-400'
+                              )}
+                            >
+                              <span className="text-lg font-medium">{item.label}</span>
+                              {amount === item.amount.toString() && (
+                                <span className="text-xs mt-1 opacity-90 flex items-center">
+                                  <CheckCircle className="w-3.5 h-3.5 mr-1" />
+                                  Selected
+                                </span>
+                              )}
+                            </Button>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -253,10 +249,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                           type="number"
                           placeholder="Enter amount in INR"
                           value={customAmount}
-                          onChange={handleCustomAmountChange}
-                          onClick={() => {
-                            setSelectedImpact(null);
-                            setAmount("");
+                          onChange={(e) => { 
+                            setCustomAmount(e.target.value); 
+                            if (e.target.value) setAmount(''); 
                           }}
                           className="pl-10 h-12 text-base"
                           min="1"
@@ -461,15 +456,11 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 <motion.div 
                   key={index}
                   whileHover={{ y: -2 }}
-                  className={cn(
-                    "bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm hover:shadow-md transition-all cursor-pointer",
-                    selectedImpact === parseInt(item.amount.replace(/[^0-9]/g, ''), 10) 
-                      ? "border-2 border-amber-500" 
-                      : "border border-amber-100"
-                  )}
+                  className="bg-white/90 backdrop-blur-sm rounded-lg border border-amber-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
                   onClick={() => {
                     const amount = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
-                    handleAmountSelect(amount);
+                    setCustomAmount(amount.toString());
+                    setAmount('');
                   }}
                 >
                   <div className="flex items-center justify-between">
@@ -484,11 +475,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-bold text-amber-700">{item.amount}</div>
-                      <div className="text-xs text-amber-600 font-medium flex items-center justify-end">
-                        {selectedImpact === parseInt(item.amount.replace(/[^0-9]/g, ''), 10) && (
-                          <CheckCircle className="w-3 h-3 mr-1 text-green-500" />
-                        )}
-                        {selectedImpact === parseInt(item.amount.replace(/[^0-9]/g, ''), 10) ? 'Selected' : 'Select'}
+                      <div className="text-xs text-amber-600 font-medium">
+                        {customAmount === item.amount.replace(/[^0-9]/g, '') ? 'Selected' : 'Select'}
                       </div>
                     </div>
                   </div>
