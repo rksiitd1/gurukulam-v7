@@ -51,16 +51,26 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     { amount: 100000, label: '₹1,00,000' }
   ];
 
-  // This hook pre-fills the form if an initialAmount is provided
+  // This hook handles URL parameters and initial amount
   useEffect(() => {
-    if (initialAmount) {
-      const amountExists = predefinedAmounts.some(item => item.amount === initialAmount);
-      if (amountExists) {
-        setAmount(initialAmount.toString());
-        setCustomAmount("");
-      } else {
-        setCustomAmount(initialAmount.toString());
-        setAmount("");
+    // Check for amount in URL parameters
+    const searchParams = new URLSearchParams(window.location.search);
+    const urlAmount = searchParams.get('amount');
+    
+    // Use URL amount if available, otherwise use the initialAmount prop
+    const amountToUse = urlAmount ? parseInt(urlAmount, 10) : initialAmount;
+    
+    if (amountToUse) {
+      const amountNum = Number(amountToUse);
+      if (!isNaN(amountNum) && amountNum > 0) {
+        const amountExists = predefinedAmounts.some(item => item.amount === amountNum);
+        if (amountExists) {
+          setAmount(amountNum.toString());
+          setCustomAmount("");
+        } else {
+          setCustomAmount(amountNum.toString());
+          setAmount("");
+        }
       }
     }
   }, [initialAmount]);
