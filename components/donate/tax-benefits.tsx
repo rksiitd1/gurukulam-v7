@@ -88,7 +88,7 @@ export function TaxBenefits() {
                         <strong>12A Registration:</strong> AAETD5010DE20241
                       </div>
                       <div>
-                        <strong>Valid Until:</strong> March 2027
+                        <strong>Valid Until:</strong> 31 March 2028
                       </div>
                       <div>
                         <strong>PAN:</strong> AAETD5010D
