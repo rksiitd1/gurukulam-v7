@@ -205,21 +205,25 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <Card className="shadow-xl border border-gray-100 overflow-hidden">
-              <div className="bg-gradient-to-r from-amber-600 to-amber-700 px-4 sm:px-6 py-3 sm:py-4">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white flex items-center">
-                      <Shield className="w-5 h-5 mr-2 text-amber-200" />
-                      Secure Donation Form
-                    </h3>
-                    <p className="text-amber-100 text-xs sm:text-sm mt-1">All transactions are 100% secure and encrypted</p>
+              <div className="bg-gradient-to-r from-amber-600 to-amber-700 px-4 sm:px-6 py-4 sm:py-5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-white/20 p-2 rounded-lg">
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-white">
+                        Secure Donation Form
+                      </h3>
+                      <p className="text-amber-100 text-xs sm:text-sm mt-0.5">100% secure & encrypted transactions</p>
+                    </div>
                   </div>
-                  <div className="bg-white/20 p-1.5 rounded-md">
+                  <div className="bg-white/20 p-2 rounded-lg">
                     <Image 
                       src="/DBM-logo.png" 
                       alt="Divya Bihar Mission Logo" 
-                      width={40} 
-                      height={40}
+                      width={36} 
+                      height={36}
                       className="object-contain"
                     />
                   </div>
@@ -231,7 +235,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   {/* Donation Amount */}
                   <div className="space-y-3 sm:space-y-4">
                     <div>
-                      <Label className="text-sm sm:text-base font-medium text-gray-800 mb-3 block">
+                      <Label className="text-base sm:text-lg font-semibold text-gray-900 mb-3 block">
                         Select Donation Amount (INR)
                       </Label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-3">
@@ -297,7 +301,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
                   {/* Donor Information */}
                   <div className="space-y-4 sm:space-y-6">
-                    <h3 className="text-base sm:text-lg font-medium text-gray-900 border-b pb-2">Your Information</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 border-b pb-2">Your Information</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
