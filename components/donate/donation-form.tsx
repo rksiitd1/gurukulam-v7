@@ -189,7 +189,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             className="text-center mb-6 sm:mb-12"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-devanagari">दान करें (Donate)</h2>
-            <div className="w-20 h-1 bg-amber-500 mx-auto mb-4"></div>
+            <div className="w-20 h-1 bg-orange-500 mx-auto mb-4"></div>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Your generous contribution will help us continue our mission of spreading knowledge and wisdom.
             </p>
@@ -205,7 +205,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <Card className="shadow-xl border border-gray-100 overflow-hidden">
-              <div className="bg-gradient-to-r from-amber-600 to-amber-700 px-4 sm:px-6 py-4 sm:py-5">
+              <div className="bg-gradient-to-r from-orange-600 to-red-600 px-4 sm:px-6 py-4 sm:py-5">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-3">
                     <div className="bg-white/20 p-2 rounded-lg">
@@ -215,7 +215,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       <h3 className="text-lg sm:text-xl font-bold text-white">
                         Secure Donation Form
                       </h3>
-                      <p className="text-amber-100 text-xs sm:text-sm mt-0.5">100% secure & encrypted transactions</p>
+                      <p className="text-orange-100 text-xs sm:text-sm mt-0.5">100% secure & encrypted transactions</p>
                     </div>
                   </div>
                   <div className="bg-white/20 p-2 rounded-lg">
@@ -256,8 +256,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                               className={cn(
                                 'w-full h-12 sm:h-16 flex flex-col items-center justify-center transition-all duration-200 text-base sm:text-lg relative rounded-sm border-2 font-bold tracking-wide',
                                 amount === item.amount.toString() 
-                                  ? 'bg-amber-600 hover:bg-amber-700 text-white border-amber-600 shadow-lg' 
-                                  : 'bg-white hover:bg-amber-50 border-gray-400 text-gray-900 hover:border-amber-500 hover:shadow-md'
+                                  ? 'bg-orange-600 hover:bg-orange-700 text-white border-orange-600 shadow-lg' 
+                                  : 'bg-white hover:bg-orange-50 border-gray-400 text-gray-900 hover:border-orange-500 hover:shadow-md'
                               )}
                             >
                               <span className={cn(
@@ -393,11 +393,11 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       <Checkbox id="terms" required className="h-4 w-4" />
                       <Label htmlFor="terms" className="text-xs sm:text-sm text-gray-600">
                         I agree to the{' '}
-                        <a href="/terms" target="_blank" className="text-amber-600 hover:underline font-medium">
+                        <a href="/terms" target="_blank" className="text-orange-600 hover:underline font-medium">
                           Terms of Service
                         </a>{' '}
                         &{' '}
-                        <a href="/privacy" target="_blank" className="text-amber-600 hover:underline font-medium">
+                        <a href="/privacy" target="_blank" className="text-orange-600 hover:underline font-medium">
                           Privacy Policy
                         </a>
                         <span className="text-red-500">*</span>
@@ -410,7 +410,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                         size="lg" 
                         className={cn(
                           'w-full h-12 sm:h-14 text-sm sm:text-lg font-medium rounded-lg transition-all duration-300',
-                          'bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800',
+                          'bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700',
                           'shadow-lg hover:shadow-xl hover:-translate-y-0.5',
                           (isSubmitting || finalAmount <= 0 || !isRazorpayLoaded) && 'opacity-80 cursor-not-allowed'
                         )}
@@ -425,7 +425,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                           <>
                             <Lock className="w-5 h-5 mr-2" />
                             Donate ₹{finalAmount.toLocaleString('en-IN')}
-                            <span className="ml-1 text-amber-100 text-xs sm:text-sm font-normal hidden sm:inline">(Secure Payment)</span>
+                            <span className="ml-1 text-orange-100 text-xs sm:text-sm font-normal hidden sm:inline">(Secure Payment)</span>
                           </>
                         )}
                       </Button>
@@ -433,7 +433,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
                     {!isRazorpayLoaded && (
                       <div className="text-center py-2">
-                        <p className="text-xs sm:text-sm text-amber-700 bg-amber-50 px-3 py-1.5 rounded-md inline-flex items-center">
+                        <p className="text-xs sm:text-sm text-orange-700 bg-orange-50 px-3 py-1.5 rounded-md inline-flex items-center">
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                           Payment gateway is loading, please wait...
                         </p>
@@ -465,12 +465,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             {/* Motivational Header */}
-            <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-6 text-white hidden lg:block">
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white hidden lg:block">
               <h3 className="text-xl font-bold mb-2">Your Generosity Creates Ripples</h3>
-              <p className="text-amber-100 text-sm mb-4">
+              <p className="text-orange-100 text-sm mb-4">
                 Every contribution, big or small, helps us build a better future.
               </p>
-              <div className="flex items-center text-amber-200 text-sm">
+              <div className="flex items-center text-orange-200 text-sm">
                 <Heart className="w-4 h-4 mr-1" />
                 <span>100% of your donation goes directly to our programs</span>
               </div>
@@ -484,28 +484,28 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   title: "Monthly Education",
                   description: "Sponsors one student for a month",
                   impact: "Monthly education support",
-                  icon: <BookOpen className="w-5 h-5 text-amber-600" />
+                  icon: <BookOpen className="w-5 h-5 text-orange-600" />
                 },
                 {
                   amount: "₹2,000",
                   title: "Learning Resources",
                   description: "Provides books and materials for 5 students",
                   impact: "Educational resources",
-                  icon: <GraduationCap className="w-5 h-5 text-amber-600" />
+                  icon: <GraduationCap className="w-5 h-5 text-orange-600" />
                 },
                 {
                   amount: "₹5,000",
                   title: "Farmer Training",
                   description: "Supports a farmer training program",
                   impact: "Sustainable livelihood",
-                  icon: <Home className="w-5 h-5 text-amber-600" />
+                  icon: <Home className="w-5 h-5 text-orange-600" />
                 },
                 {
                   amount: "₹10,000",
                   title: "Full Scholarship",
                   description: "Funds a complete scholarship for one year",
                   impact: "Full year education",
-                  icon: <Award className="w-5 h-5 text-amber-600" />
+                  icon: <Award className="w-5 h-5 text-orange-600" />
                 }
               ].map((item, index) => (
                 <motion.div 
@@ -514,8 +514,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   className={cn(
                     'bg-white/90 backdrop-blur-sm rounded-lg border p-3 sm:p-4 shadow-sm hover:shadow-md transition-all cursor-pointer',
                     (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
-                      ? 'border-amber-400 bg-amber-50 ring-2 ring-amber-200/50'
-                      : 'border-amber-100 hover:border-amber-200'
+                      ? 'border-orange-400 bg-orange-50 ring-2 ring-orange-200/50'
+                      : 'border-orange-100 hover:border-orange-200'
                   )}
                   onClick={() => {
                     const amountValue = parseInt(item.amount.replace(/[^0-9]/g, ''), 10);
@@ -534,8 +534,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                     <div className={cn(
                       'p-2 rounded-lg flex-shrink-0',
                       (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
-                        ? 'bg-amber-200 text-amber-800'
-                        : 'bg-amber-100'
+                        ? 'bg-orange-200 text-orange-800'
+                        : 'bg-orange-100'
                     )}>
                       {item.icon}
                     </div>
@@ -546,12 +546,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                           <p className="text-xs sm:text-sm text-gray-600 mt-1">{item.description}</p>
                         </div>
                         <div className="text-right ml-2 flex-shrink-0">
-                          <div className="text-sm sm:text-lg font-bold text-amber-700">{item.amount}</div>
+                          <div className="text-sm sm:text-lg font-bold text-orange-700">{item.amount}</div>
                           <div className={cn(
                             'text-xs font-medium px-1.5 py-0.5 rounded-full',
                             (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
-                              ? 'bg-amber-100 text-amber-800'
-                              : 'text-amber-600'
+                              ? 'bg-orange-100 text-orange-800'
+                              : 'text-orange-600'
                           )}>
                             {amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, '') ? '✓' : 'Select'}
                           </div>
@@ -564,11 +564,11 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             </div>
 
             {/* Tax Benefits */}
-            <Card className="bg-gradient-to-b from-amber-50 to-white border-2 border-amber-100 rounded-xl shadow-sm mb-6 overflow-hidden hidden lg:block">
+            <Card className="bg-gradient-to-b from-orange-50 to-white border-2 border-orange-100 rounded-xl shadow-sm mb-6 overflow-hidden hidden lg:block">
               <div className="p-5">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-100 p-3 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-orange-100 p-3 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -581,10 +581,10 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
             </Card>
 
             {/* Founder's Message */}
-            <Card className="border-2 border-amber-100 rounded-xl overflow-hidden">
+            <Card className="border-2 border-orange-100 rounded-xl overflow-hidden">
               <div className="p-5 bg-white">
                 {/* Quote */}
-                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400 mb-4">
+                <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400 mb-4">
                   <p className="text-sm text-gray-700 italic">
                     "Your generous donation will help us continue our mission of spreading spiritual knowledge and serving the community. Every contribution makes a difference in someone's life."
                   </p>
@@ -597,12 +597,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       src="/images/team/mukund.jpg" 
                       alt="Mukund Agrawal" 
                       fill 
-                      className="rounded-full object-cover border-2 border-amber-200"
+                      className="rounded-full object-cover border-2 border-orange-200"
                     />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Mukund Agrawal</h4>
-                    <p className="text-sm text-amber-700">Founder and Acharya</p>
+                    <p className="text-sm text-orange-700">Founder and Acharya</p>
                   </div>
                 </div>
               </div>
@@ -612,10 +612,10 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
         {/* Founder's Message - Mobile Only */}
         <div className="lg:hidden mt-8">
-          <Card className="border-2 border-amber-100 rounded-xl overflow-hidden">
+          <Card className="border-2 border-orange-100 rounded-xl overflow-hidden">
             <div className="p-5 bg-white">
               {/* Quote */}
-              <div className="bg-amber-50 p-3 sm:p-4 rounded-lg border-l-4 border-amber-400 mb-4">
+              <div className="bg-orange-50 p-3 sm:p-4 rounded-lg border-l-4 border-orange-400 mb-4">
                 <p className="text-xs sm:text-sm text-gray-700 italic">
                   "Your generous donation will help us continue our mission of spreading spiritual knowledge and serving the community. Every contribution makes a difference in someone's life."
                 </p>
@@ -628,12 +628,12 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                     src="/images/team/mukund.jpg" 
                     alt="Mukund Agrawal" 
                     fill 
-                    className="rounded-full object-cover border-2 border-amber-200"
+                      className="rounded-full object-cover border-2 border-orange-200"
                   />
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm sm:text-base text-gray-800">Mukund Agrawal</h4>
-                  <p className="text-xs sm:text-sm text-amber-700">Founder and Acharya</p>
+                  <p className="text-xs sm:text-sm text-orange-700">Founder and Acharya</p>
                 </div>
               </div>
             </div>
