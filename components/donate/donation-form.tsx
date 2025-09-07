@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Shield, Lock, CheckCircle, Heart, IndianRupee, Loader2, BookOpen, GraduationCap, Home, Award } from "lucide-react";
 import useRazorpay from "@/hooks/useRazorpay";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Add Razorpay to the window type
@@ -40,17 +40,18 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     message: "",
   });
 
-  const isRazorpayLoaded = useRazorpay();
+  const { isLoaded: isRazorpayLoaded, loadRazorpay } = useRazorpay();
   const { toast } = useToast();
+  const shouldReduceMotion = useReducedMotion();
 
-  const predefinedAmounts = [
+  const predefinedAmounts = useMemo(() => [
     { amount: 500, label: '₹500' },
     { amount: 2000, label: '₹2,000' },
     { amount: 5000, label: '₹5,000' },
     { amount: 10000, label: '₹10,000' },
     { amount: 25000, label: '₹25,000' },
     { amount: 100000, label: '₹1,00,000' }
-  ];
+  ], []);
 
   // This hook handles URL parameters and initial amount
   useEffect(() => {
@@ -77,20 +78,22 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     }
   }, [initialAmount]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!isRazorpayLoaded) {
+    // Load Razorpay SDK if not already loaded
+    const razorpayLoaded = await loadRazorpay();
+    if (!razorpayLoaded) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Payment gateway is not loaded. Please try again.",
+        description: "Payment gateway could not be loaded. Please try again.",
       });
       setIsSubmitting(false);
       return;
@@ -176,16 +179,16 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
     }
   };
 
-  const finalAmount = Number(customAmount) || Number(amount) || 0;
+  const finalAmount = useMemo(() => Number(customAmount) || Number(amount) || 0, [customAmount, amount]);
 
   return (
     <section className="py-6 sm:py-12 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         {!initialAmount && (
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
             className="text-center mb-6 sm:mb-12"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-devanagari">दान करें (Donate)</h2>
@@ -200,9 +203,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           {/* Main Form */}
           <motion.div 
             className="lg:col-span-2"
-            initial={{ opacity: 0, x: -20 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2, duration: 0.5 }}
           >
             <Card className="shadow-xl border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-orange-600 to-red-600 px-4 sm:px-6 py-4 sm:py-5">
@@ -225,6 +228,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       width={36} 
                       height={36}
                       className="object-contain"
+                      priority={false}
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -242,8 +247,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                         {predefinedAmounts.map((item) => (
                           <motion.div 
                             key={item.amount}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
                             className="w-full"
                           >
                             <Button
@@ -404,7 +409,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       </Label>
                     </div>
 
-                    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                    <motion.div whileHover={shouldReduceMotion ? {} : { scale: 1.01 }} whileTap={shouldReduceMotion ? {} : { scale: 0.99 }}>
                       <Button 
                         type="submit" 
                         size="lg" 
@@ -412,9 +417,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                           'w-full h-12 sm:h-14 text-sm sm:text-lg font-medium rounded-lg transition-all duration-300',
                           'bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700',
                           'shadow-lg hover:shadow-xl hover:-translate-y-0.5',
-                          (isSubmitting || finalAmount <= 0 || !isRazorpayLoaded) && 'opacity-80 cursor-not-allowed'
+                          (isSubmitting || finalAmount <= 0) && 'opacity-80 cursor-not-allowed'
                         )}
-                        disabled={isSubmitting || finalAmount <= 0 || !isRazorpayLoaded}
+                        disabled={isSubmitting || finalAmount <= 0}
                       >
                         {isSubmitting ? (
                           <>
@@ -431,14 +436,6 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       </Button>
                     </motion.div>
 
-                    {!isRazorpayLoaded && (
-                      <div className="text-center py-2">
-                        <p className="text-xs sm:text-sm text-orange-700 bg-orange-50 px-3 py-1.5 rounded-md inline-flex items-center">
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Payment gateway is loading, please wait...
-                        </p>
-                      </div>
-                    )}
 
                     <div className="flex items-center justify-center text-xs sm:text-sm text-gray-500 space-x-2 sm:space-x-4">
                       <div className="flex items-center">
@@ -460,9 +457,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           {/* Sidebar - Your Impact Section */}
           <motion.div 
             className="space-y-6 hidden lg:block"
-            initial={{ opacity: 0, x: 20 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.5 }}
           >
             {/* Motivational Header */}
             <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white hidden lg:block">
@@ -478,7 +475,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
             {/* Impact Cards - Matching call-to-action style */}
             <div className="space-y-4 hidden lg:block">
-              {[
+              {useMemo(() => [
                 {
                   amount: "₹500",
                   title: "Monthly Education",
@@ -507,10 +504,10 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   impact: "Full year education",
                   icon: <Award className="w-5 h-5 text-orange-600" />
                 }
-              ].map((item, index) => (
+              ], []).map((item, index) => (
                 <motion.div 
                   key={index}
-                  whileHover={{ y: -2 }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
                   className={cn(
                     'bg-white/90 backdrop-blur-sm rounded-lg border p-3 sm:p-4 shadow-sm hover:shadow-md transition-all cursor-pointer',
                     (amount === item.amount.replace(/[^0-9]/g, '') || customAmount === item.amount.replace(/[^0-9]/g, ''))
@@ -598,6 +595,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                       alt="Mukund Agrawal" 
                       fill 
                       className="rounded-full object-cover border-2 border-orange-200"
+                      priority={false}
+                      loading="lazy"
                     />
                   </div>
                   <div>
@@ -628,7 +627,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                     src="/images/team/mukund.jpg" 
                     alt="Mukund Agrawal" 
                     fill 
-                      className="rounded-full object-cover border-2 border-orange-200"
+                    className="rounded-full object-cover border-2 border-orange-200"
+                    priority={false}
+                    loading="lazy"
                   />
                 </div>
                 <div>
