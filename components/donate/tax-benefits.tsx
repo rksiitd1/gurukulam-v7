@@ -5,22 +5,22 @@ import { FileText, Calculator, Download, CheckCircle } from "lucide-react"
 export function TaxBenefits() {
   const taxExamples = [
     {
-      income: "₹5,00,000",
-      donation: "₹25,000",
-      taxSaving: "₹7,750",
-      effectiveCost: "₹17,250",
-    },
-    {
-      income: "₹10,00,000",
+      income: "₹20,00,000",
       donation: "₹50,000",
-      taxSaving: "₹15,500",
-      effectiveCost: "₹34,500",
+      taxSaving: "₹7,500",
+      effectiveCost: "₹42,500",
     },
     {
-      income: "₹15,00,000",
-      donation: "₹75,000",
-      taxSaving: "₹23,250",
-      effectiveCost: "₹51,750",
+      income: "₹50,00,000",
+      donation: "₹2,00,000",
+      taxSaving: "₹30,000",
+      effectiveCost: "₹1,70,000",
+    },
+    {
+      income: "₹2,00,00,000",
+      donation: "₹10,00,000",
+      taxSaving: "₹1,95,000",
+      effectiveCost: "₹8,05,000",
     },
   ]
 
@@ -118,7 +118,7 @@ export function TaxBenefits() {
                           <div className="font-semibold">{example.donation}</div>
                         </div>
                         <div>
-                          <div className="text-gray-600">Tax Saving (31%)</div>
+                          <div className="text-gray-600">Tax Saving (30% slab)</div>
                           <div className="font-semibold text-green-600">{example.taxSaving}</div>
                         </div>
                         <div>
@@ -132,8 +132,7 @@ export function TaxBenefits() {
 
                 <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                   <p className="text-sm text-yellow-800">
-                    <strong>Note:</strong> Tax savings calculated at 31% tax rate (30% + 1% cess). Actual savings may
-                    vary based on your tax slab.
+                    <strong>Note:</strong> Tax savings calculated at 50% deduction under Section 80G. Actual savings depend on the donor’s income tax slab (and surcharge, if applicable).
                   </p>
                 </div>
               </CardContent>
