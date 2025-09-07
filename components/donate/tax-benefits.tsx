@@ -91,7 +91,7 @@ export function TaxBenefits() {
                         <strong>Valid Until:</strong> March 2027
                       </div>
                       <div>
-                        <strong>PAN:</strong> AABCD1234E
+                        <strong>PAN:</strong> AAETD5010D
                       </div>
                     </div>
                   </div>
