@@ -82,10 +82,10 @@ export function TaxBenefits() {
                     <h4 className="font-semibold text-sm sm:text-base text-green-900 mb-2">Registration Details:</h4>
                     <div className="text-xs sm:text-sm text-green-800 space-y-1">
                       <div>
-                        <strong>80G Registration:</strong> AABCD1234E20214
+                        <strong>80G Registration:</strong> AAETD5010DF20241
                       </div>
                       <div>
-                        <strong>12A Registration:</strong> AABCD1234E20215
+                        <strong>12A Registration:</strong> AAETD5010DE20241
                       </div>
                       <div>
                         <strong>Valid Until:</strong> March 2027
