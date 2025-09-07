@@ -218,7 +218,7 @@ export function TaxBenefits() {
             <div className="bg-gradient-to-r from-orange-100 to-red-100 rounded-xl p-4 sm:p-6 mt-6">
               <h3 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Need Help with Tax Benefits?</h3>
               <p className="text-gray-700 text-xs sm:text-sm mb-4">
-                Our finance team is here to help you understand tax implications and maximize your benefits.
+                Our team is here to help you understand tax implications and maximize your benefits.
               </p>
               <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50 w-full sm:w-auto text-sm">
                 Contact Tax Support
