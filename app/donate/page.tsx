@@ -4,6 +4,8 @@ import { Suspense, useEffect, useState, useRef, lazy } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { DonateHero } from "@/components/donate/donate-hero";
 import { DonationForm } from "@/components/donate/donation-form";
+import { LoadingState } from "@/components/ui/loading";
+
 // Lazy load heavy components
 const DonationModal = lazy(() => import("@/components/donate/DonationModal").then(module => ({ default: module.DonationModal })));
 const TaxBenefits = lazy(() => import("@/components/donate/tax-benefits").then(module => ({ default: module.TaxBenefits })));
@@ -48,16 +50,34 @@ function DonatePageContent() {
         <DonationForm />
       </div>
 
-      <Suspense fallback={<div className="py-8 text-center">Loading...</div>}>
+      <Suspense fallback={
+        <LoadingState 
+          variant="section"
+          title="Loading Tax Benefits" 
+          subtitle="Preparing your tax exemption information..."
+        />
+      }>
         <TaxBenefits />
       </Suspense>
-      <Suspense fallback={<div className="py-8 text-center">Loading...</div>}>
+      <Suspense fallback={
+        <LoadingState 
+          variant="section"
+          title="Loading Ways to Help" 
+          subtitle="Discovering more ways to support our mission..."
+        />
+      }>
         <CallToAction />
       </Suspense>
 
       {/* The modal is here, but only opens when triggered by the URL */}
       {isModalOpen && (
-        <Suspense fallback={<div>Loading payment form...</div>}>
+        <Suspense fallback={
+          <LoadingState 
+            variant="payment"
+            title="Preparing Payment Form" 
+            subtitle="Setting up secure payment processing..."
+          />
+        }>
           <DonationModal
             isOpen={isModalOpen}
             onClose={handleCloseModal}
@@ -75,7 +95,13 @@ export default function DonatePage() {
       {/* Preload critical resources */}
       <link rel="preload" href="/DBM-logo.png" as="image" />
       <link rel="preload" href="/images/team/mukund.jpg" as="image" />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={
+        <LoadingState 
+          variant="page"
+          title="Loading Donation Page" 
+          subtitle="Setting up your donation experience..."
+        />
+      }>
         <DonatePageContent />
       </Suspense>
     </>
