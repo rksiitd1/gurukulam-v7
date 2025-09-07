@@ -591,7 +591,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 <div className="flex items-center space-x-3">
                   <div className="relative h-14 w-14 flex-shrink-0">
                     <Image 
-                      src="/images/team/mukund.jpg" 
+                      src="/images/team/golusir.jpg" 
                       alt="Mukund Agrawal" 
                       fill 
                       className="rounded-full object-cover border-2 border-orange-200"
@@ -624,7 +624,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
               <div className="flex items-center space-x-3">
                 <div className="relative h-14 w-14 flex-shrink-0">
                   <Image 
-                    src="/images/team/mukund.jpg" 
+                    src="/images/team/golusir.jpg" 
                     alt="Mukund Agrawal" 
                     fill 
                     className="rounded-full object-cover border-2 border-orange-200"
