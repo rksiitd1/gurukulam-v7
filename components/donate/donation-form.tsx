@@ -583,7 +583,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 {/* Quote */}
                 <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400 mb-4">
                   <p className="text-sm text-gray-700 italic">
-                    "Your generous donation will help us continue our mission of spreading spiritual knowledge and serving the community. Every contribution makes a difference in someone's life."
+                    "Every contribution, regardless of its size, is a beacon of hope that lights up the path toward a self-reliant and prosperous Bihar — and through it, a stronger Bharata. Your trust in our mission is deeply valued."
                   </p>
                 </div>
                 
@@ -601,7 +601,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Mukund Agrawal</h4>
-                    <p className="text-sm text-orange-700">Founder and Acharya</p>
+                    <p className="text-sm text-orange-700">Founder & Acharya</p>
                   </div>
                 </div>
               </div>
@@ -616,7 +616,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
               {/* Quote */}
               <div className="bg-orange-50 p-3 sm:p-4 rounded-lg border-l-4 border-orange-400 mb-4">
                 <p className="text-xs sm:text-sm text-gray-700 italic">
-                  "Your generous donation will help us continue our mission of spreading spiritual knowledge and serving the community. Every contribution makes a difference in someone's life."
+                  "Every contribution, regardless of its size, is a beacon of hope that lights up the path toward a self-reliant and prosperous Bihar — and through it, a stronger Bharata. Your trust in our mission is deeply valued."
                 </p>
               </div>
               
@@ -634,7 +634,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm sm:text-base text-gray-800">Mukund Agrawal</h4>
-                  <p className="text-xs sm:text-sm text-orange-700">Founder and Acharya</p>
+                  <p className="text-xs sm:text-sm text-orange-700">Founder & Acharya</p>
                 </div>
               </div>
             </div>
