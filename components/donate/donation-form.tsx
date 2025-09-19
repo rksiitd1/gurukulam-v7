@@ -80,7 +80,9 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    // Convert PAN to uppercase, but not other fields
+    const processedValue = name === 'pan' ? value.toUpperCase() : value;
+    setFormData(prev => ({ ...prev, [name]: processedValue }));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -114,7 +116,14 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
       const orderResponse = await fetch("/api/razorpay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: finalAmount }),
+        body: JSON.stringify({ 
+          amount: finalAmount,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          pan: formData.pan,
+          address: formData.address
+        }),
       });
 
       if (!orderResponse.ok) throw new Error("Failed to create payment order.");
