@@ -11,8 +11,12 @@ export async function POST(req: Request) {
     const razorpay_payment_id = formData.get('razorpay_payment_id') as string;
     const razorpay_signature = formData.get('razorpay_signature') as string;
 
+    const successUrl = new URL('/payment-success', req.url);
+    const failureUrl = new URL('/payment-failure', req.url);
+
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
-      return NextResponse.redirect(new URL('/payment-failure', req.url));
+      // Use 303 redirect
+      return NextResponse.redirect(failureUrl, { status: 303 });
     }
 
     const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -25,15 +29,18 @@ export async function POST(req: Request) {
     const isAuthentic = expectedSignature === razorpay_signature;
 
     if (isAuthentic) {
-      // Payment is authentic, redirect to the success page.
-      // We don't need to update Supabase here because the webhook will handle that reliably.
-      return NextResponse.redirect(new URL('/payment-success', req.url));
+      // Payment is authentic.
+      // Use a 303 redirect to ensure the browser makes a GET request to the success page.
+      return NextResponse.redirect(successUrl, { status: 303 });
     } else {
-      // Payment verification failed, redirect to a failure page.
-      return NextResponse.redirect(new URL('/payment-failure', req.url));
+      // Payment verification failed.
+      // Use 303 redirect
+      return NextResponse.redirect(failureUrl, { status: 303 });
     }
   } catch (error) {
     console.error('Payment verification error:', error);
-    return NextResponse.redirect(new URL('/payment-failure', req.url));
+    const failureUrl = new URL('/payment-failure', req.url);
+    // Use 303 redirect
+    return NextResponse.redirect(failureUrl, { status: 303 });
   }
 }
