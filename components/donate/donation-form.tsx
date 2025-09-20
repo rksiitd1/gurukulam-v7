@@ -122,7 +122,8 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
           email: formData.email,
           phone: formData.phone,
           pan: formData.pan,
-          address: formData.address
+          address: formData.address,
+          message: formData.message
         }),
       });
 

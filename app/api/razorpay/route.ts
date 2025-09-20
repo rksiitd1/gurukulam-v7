@@ -2,14 +2,14 @@
 import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import { z } from "zod";
-import { supabaseAdmin } from "@/lib/supabase/server"; // Using the secure admin client
+import { supabaseAdmin } from "@/lib/supabase/server";
 
 const razorpay = new Razorpay({
   key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
   key_secret: process.env.RAZORPAY_KEY_SECRET!,
 });
 
-// This schema now validates all the fields from your form
+// 1. ADD 'message' TO THE SCHEMA
 const orderSchema = z.object({
   amount: z.number().positive("Amount must be a positive number."),
   name: z.string().min(1, "Name is required."),
@@ -17,6 +17,7 @@ const orderSchema = z.object({
   phone: z.string().optional(),
   pan: z.string().optional(),
   address: z.string().optional(),
+  message: z.string().optional(), // <-- ADDED THIS LINE
 });
 
 export async function POST(req: Request) {
@@ -31,11 +32,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const { amount, name, email, phone, pan, address } = parsedBody.data;
+    // 2. GET 'message' FROM THE PARSED BODY
+    const { amount, name, email, phone, pan, address, message } = parsedBody.data; // <-- ADDED 'message' HERE
 
-    // 1. Create the Razorpay order first
     const options = {
-      amount: amount * 100, // Amount in paise
+      amount: amount * 100,
       currency: "INR",
       receipt: `receipt_order_${new Date().getTime()}`,
     };
@@ -45,7 +46,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Failed to create Razorpay order." }, { status: 500 });
     }
 
-    // 2. Insert a new 'pending' record into the Supabase 'donations' table
+    // 3. INSERT 'message' INTO THE SUPABASE RECORD
     const { error: supabaseError } = await supabaseAdmin
       .from('donations')
       .insert({
@@ -55,17 +56,16 @@ export async function POST(req: Request) {
         pan_number: pan,
         address: address,
         amount: amount,
-        razorpay_order_id: order.id, // Link our record to the Razorpay order
-        status: 'pending'
+        razorpay_order_id: order.id,
+        status: 'pending',
+        message: message // <-- ADDED THIS LINE
       });
 
     if (supabaseError) {
       console.error("Supabase insert error:", supabaseError);
-      // If the database insert fails, we should not proceed with payment.
       return NextResponse.json({ error: "Failed to save donation record before payment." }, { status: 500 });
     }
 
-    // 3. Send the order details to the frontend to open the payment modal
     return NextResponse.json(order, { status: 200 });
 
   } catch (error) {
