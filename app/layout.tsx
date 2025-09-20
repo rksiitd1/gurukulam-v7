@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/next"
 import { Inter, Noto_Sans_Devanagari } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
