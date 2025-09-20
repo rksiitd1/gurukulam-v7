@@ -141,7 +141,7 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
 
         // --- NEW RELIABLE METHOD ---
         // This tells Razorpay to send the user to our new page on success.
-        callback_url: `${window.location.origin}/payment-success`,
+        callback_url: `${window.location.origin}/api/payment-verification`,
         redirect: true, // This enables the automatic redirection.
         // The old 'handler' function is no longer needed.
 
