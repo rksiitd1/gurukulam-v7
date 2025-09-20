@@ -138,12 +138,13 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
         description: "Donation to support our cause",
         image: "/DBM-logo.png",
         order_id: order.id,
-        handler: function (response: any) {
-          toast({
-            title: "Thank You! 🙏",
-            description: "Your donation has been received successfully. A receipt will be sent to your email.",
-          });
-        },
+
+        // --- NEW RELIABLE METHOD ---
+        // This tells Razorpay to send the user to our new page on success.
+        callback_url: `${window.location.origin}/payment-success`,
+        redirect: true, // This enables the automatic redirection.
+        // The old 'handler' function is no longer needed.
+
         prefill: { name: formData.name, email: formData.email, contact: formData.phone },
         notes: { 
           address: formData.address, 
@@ -153,7 +154,6 @@ export function DonationForm({ initialAmount, onPaymentStart }: DonationFormProp
         theme: { color: "#ea580c" },
         modal: {
           ondismiss: function() {
-            // Re-enable our form button if the user closes the Razorpay modal
             setIsSubmitting(false);
           }
         }
