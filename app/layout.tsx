@@ -330,6 +330,7 @@ export default function RootLayout({
           <Footer />
           <Toaster /> {/* Global notification system */}
         </ThemeProvider>
+        <Analytics /> {/* Vercel Analytics */}
       </body>
     </html>
   )
