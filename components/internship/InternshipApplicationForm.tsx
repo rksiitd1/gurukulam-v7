@@ -1,15 +1,16 @@
 // components/internship/InternshipApplicationForm.tsx
 "use client";
 
-import { useState } from "react";
+// STEP 1: Import useRef and useEffect from React
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { DollarSign, Clock, Home, Info, Loader2, CheckCircle, Send, PartyPopper } from "lucide-react";
+import { DollarSign, Clock, Home, Info, Loader2, PartyPopper } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import Link from "next/link"; // <-- Import Link for the success message buttons
+import Link from "next/link";
 
 export default function InternshipApplicationForm() {
   const { toast } = useToast();
@@ -18,9 +19,23 @@ export default function InternshipApplicationForm() {
     linkedin: '', portfolio: '', role: '', problemSolving: '', whyUs: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // --- NEW STATE TO CONTROL THE UI ---
-  // This state will track if the form has been successfully submitted.
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // STEP 2: Create a ref to "bookmark" the success message element
+  const successRef = useRef<HTMLDivElement>(null);
+
+  // STEP 3: Create an effect that triggers when the form is successful
+  useEffect(() => {
+    // This code runs only when the 'isSuccess' state changes
+    if (isSuccess && successRef.current) {
+      // If the submission was a success and the success message exists,
+      // scroll it smoothly into the user's view.
+      successRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center' // This centers the message on the screen
+      });
+    }
+  }, [isSuccess]); // The dependency array ensures this runs only when 'isSuccess' changes
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -31,8 +46,6 @@ export default function InternshipApplicationForm() {
     setFormData(prev => ({ ...prev, role: value }));
   };
   
-  // --- NEW FUNCTION TO RESET THE FORM ---
-  // This allows the user to submit another application if they wish.
   const handleResetForm = () => {
     setFormData({
       fullName: '', email: '', college: '', gradYear: '',
@@ -55,11 +68,7 @@ export default function InternshipApplicationForm() {
       if (!response.ok) {
         throw new Error(result.error || 'Something went wrong.');
       }
-
-      // --- LOGIC CHANGE ---
-      // Instead of just a toast, we now set our success state to true.
       setIsSuccess(true); 
-
     } catch (error) {
       toast({
         variant: "destructive",
@@ -75,10 +84,9 @@ export default function InternshipApplicationForm() {
     <section className="py-20 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* --- CONDITIONAL RENDERING LOGIC --- */}
           {isSuccess ? (
-            // --- THE NEW "NICE THING": The Success Message UI ---
-            <div className="lg:col-span-2 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-lg">
+            // STEP 4: Attach the ref to the success message container
+            <div ref={successRef} className="lg:col-span-2 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-lg">
               <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
                 <PartyPopper className="w-12 h-12 text-green-600" />
               </div>
@@ -99,7 +107,6 @@ export default function InternshipApplicationForm() {
               </div>
             </div>
           ) : (
-            // --- THE ORIGINAL FORM UI ---
             <>
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
@@ -109,6 +116,7 @@ export default function InternshipApplicationForm() {
                   We are looking for individuals with skill, passion, and resilience. If you believe you are a fit, we want to hear from you.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Form fields remain unchanged */}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -169,7 +177,7 @@ export default function InternshipApplicationForm() {
               </div>
               
               <div className="sticky top-24">
-                <Alert className="bg-gradient-to-br from-orange-50 to-amber-100 border-orange-200">
+                 <Alert className="bg-gradient-to-br from-orange-50 to-amber-100 border-orange-200">
                   <Info className="h-5 w-5 text-orange-600" />
                   <AlertTitle className="text-xl font-bold text-orange-800">Internship Logistics</AlertTitle>
                   <AlertDescription className="mt-4 space-y-4 text-orange-900">
@@ -180,10 +188,12 @@ export default function InternshipApplicationForm() {
                         <p>A modest stipend will be provided to cover basic living expenses.</p>
                       </div>
                     </div>
-                    <div className="flex items-start">
+                     <div className="flex items-start">
                       <Clock className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold">Durations</h4>
+                        <h4 className="font-semibold">
+                          Durations
+                        </h4>
                         <p>8-12 weeks, flexible based on academic calendar (typically May-July).</p>
                       </div>
                     </div>
@@ -195,7 +205,7 @@ export default function InternshipApplicationForm() {
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-orange-300/50">
-                      <p className="text-sm">This is an intense, immersive experience. We seek candidates who are adaptable, self-motivated, and driven by a desire to learn and contribute.</p>
+                       <p className="text-sm">This is an intense, immersive experience. We seek candidates who are adaptable, self-motivated, and driven by a desire to learn and contribute.</p>
                     </div>
                   </AlertDescription>
                 </Alert>
