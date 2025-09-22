@@ -1,8 +1,56 @@
-import { Mail, Send } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+// components/blog/newsletter.tsx
+"use client";
+
+import { useState } from "react";
+import { Mail, Send, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast"; // Use the correct toast hook
 
 export function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast({ variant: "destructive", title: "Please enter an email address." });
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        // Handle specific errors from our API
+        throw new Error(result.error || "Something went wrong.");
+      }
+
+      toast({
+        title: "Subscription Successful! 🎉",
+        description: "Thank you for joining our community. Look for our stories in your inbox.",
+      });
+      setEmail(""); // Clear the input field on success
+
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Subscription Failed",
+        description: (error as Error).message,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="bg-gradient-to-br from-orange-600 to-red-600 py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -17,20 +65,30 @@ export function Newsletter() {
           Get inspiring stories, program updates, and educational insights delivered to your inbox every week.
         </p>
 
-        <div className="max-w-md mx-auto">
+        <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
           <div className="flex space-x-3">
             <Input
               type="email"
               placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isSubmitting}
+              required
               className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-orange-200 focus:bg-white/20"
             />
-            <Button className="bg-white text-orange-600 hover:bg-orange-50 px-6">
-              <Send className="w-4 h-4 mr-2" />
-              Subscribe
+            <Button type="submit" className="bg-white text-orange-600 hover:bg-orange-50 px-6" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <>
+                  <Send className="w-4 h-4 mr-2" />
+                  Subscribe
+                </>
+              )}
             </Button>
           </div>
           <p className="text-sm text-orange-200 mt-3">Join our subscribers. No spam, unsubscribe anytime.</p>
-        </div>
+        </form>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-orange-100">
           <div>
@@ -48,5 +106,5 @@ export function Newsletter() {
         </div>
       </div>
     </section>
-  )
+  );
 }
