@@ -1,13 +1,77 @@
 // components/internship/InternshipApplicationForm.tsx
+"use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { DollarSign, Clock, Home, Info } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { DollarSign, Clock, Home, Info, Loader2, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
-const InternshipApplicationForm = () => {
+export default function InternshipApplicationForm() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    college: '',
+    gradYear: '',
+    linkedin: '',
+    portfolio: '',
+    role: '',
+    problemSolving: '',
+    whyUs: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleRoleChange = (value: string) => {
+    setFormData(prev => ({ ...prev, role: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/internship/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong.');
+      }
+
+      toast({
+        title: "Application Submitted! 🎉",
+        description: "Thank you for your interest. We have received your application and will be in touch soon.",
+      });
+      // Reset form
+      setFormData({
+        fullName: '', email: '', college: '', gradYear: '',
+        linkedin: '', portfolio: '', role: '', problemSolving: '', whyUs: ''
+      });
+
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: (error as Error).message,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-20 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,57 +84,63 @@ const InternshipApplicationForm = () => {
             <p className="text-lg text-gray-600 mb-8">
               We are looking for individuals with skill, passion, and resilience. If you believe you are a fit, we want to hear from you.
             </p>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <Input id="name" type="text" placeholder="Your Name" required />
+                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <Input id="fullName" type="text" placeholder="Your Name" value={formData.fullName} onChange={handleInputChange} required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <Input id="email" type="email" placeholder="you@example.com" required />
+                  <Input id="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} required />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="college" className="block text-sm font-medium text-gray-700 mb-1">College/University</label>
-                  <Input id="college" type="text" placeholder="e.g., IIT Bombay" required />
+                  <Input id="college" type="text" placeholder="e.g., IIT Bombay" value={formData.college} onChange={handleInputChange} required />
                 </div>
                 <div>
-                  <label htmlFor="grad-year" className="block text-sm font-medium text-gray-700 mb-1">Graduation Year</label>
-                  <Input id="grad-year" type="number" placeholder="2026" required />
+                  <label htmlFor="gradYear" className="block text-sm font-medium text-gray-700 mb-1">Graduation Year</label>
+                  <Input id="gradYear" type="number" placeholder="2026" value={formData.gradYear} onChange={handleInputChange} required />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                  <div>
                   <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
-                  <Input id="linkedin" type="url" placeholder="https://linkedin.com/in/..." />
+                  <Input id="linkedin" type="url" placeholder="https://linkedin.com/in/..." value={formData.linkedin} onChange={handleInputChange} />
                 </div>
                 <div>
-                  <label htmlFor="github" className="block text-sm font-medium text-gray-700 mb-1">GitHub / Portfolio</label>
-                  <Input id="github" type="url" placeholder="https://github.com/..." required />
+                  <label htmlFor="portfolio" className="block text-sm font-medium text-gray-700 mb-1">GitHub / Portfolio</label>
+                  <Input id="portfolio" type="url" placeholder="https://github.com/..." value={formData.portfolio} onChange={handleInputChange} />
                 </div>
               </div>
               <div>
                 <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">Preferred Mission/Role</label>
-                <Select required>
+                <Select value={formData.role} onValueChange={handleRoleChange} required>
                   <SelectTrigger><SelectValue placeholder="Select a role" /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="tech">Tech for Impact Lead</SelectItem>
-                    <SelectItem value="agri">Sustainable Agriculture Innovator</SelectItem>
-                    <SelectItem value="data">Impact Measurement Analyst</SelectItem>
+                    <SelectItem value="Tech for Impact Lead">Tech for Impact Lead</SelectItem>
+                    <SelectItem value="Sustainable Agriculture Innovator">Sustainable Agriculture Innovator</SelectItem>
+                    <SelectItem value="Impact Measurement Analyst">Impact Measurement Analyst</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <label htmlFor="problem-solving" className="block text-sm font-medium text-gray-700 mb-1">Describe a complex project or problem you've worked on. (Max 150 words)</label>
-                <Textarea id="problem-solving" placeholder="Focus on the challenge, your approach, and the outcome." rows={4} required />
+                <label htmlFor="problemSolving" className="block text-sm font-medium text-gray-700 mb-1">Describe a complex project or problem you've worked on. (Max 150 words)</label>
+                <Textarea id="problemSolving" placeholder="Focus on the challenge, your approach, and the outcome." rows={4} value={formData.problemSolving} onChange={handleInputChange} required />
               </div>
               <div>
-                <label htmlFor="why-us" className="block text-sm font-medium text-gray-700 mb-1">This internship involves working in a resource-constrained rural environment. Why does this challenge appeal to you? (Max 150 words)</label>
-                <Textarea id="why-us" placeholder="Be specific about your motivation and resilience." rows={4} required />
+                <label htmlFor="whyUs" className="block text-sm font-medium text-gray-700 mb-1">This internship involves working in a resource-constrained rural environment. Why does this challenge appeal to you? (Max 150 words)</label>
+                <Textarea id="whyUs" placeholder="Be specific about your motivation and resilience." rows={4} value={formData.whyUs} onChange={handleInputChange} required />
               </div>
-              <Button type="submit" size="lg" className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold text-lg py-4">Submit Application</Button>
+              <Button type="submit" size="lg" className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold text-lg py-4" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</>
+                ) : (
+                  'Submit Application'
+                )}
+              </Button>
             </form>
           </div>
           {/* Logistics Section */}
@@ -113,5 +183,3 @@ const InternshipApplicationForm = () => {
     </section>
   );
 };
-
-export default InternshipApplicationForm;
