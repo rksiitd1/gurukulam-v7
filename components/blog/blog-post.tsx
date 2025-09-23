@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { blogPosts } from "@/lib/blog-posts"
 import { RelatedPosts } from "./related-posts"
+import { Newsletter } from "./newsletter"
 import { useEffect, useState, useRef } from "react"
 
 interface BlogPostProps {
@@ -251,6 +252,9 @@ export function BlogPost({ slug }: BlogPostProps) {
       <div className="bg-gradient-to-r from-orange-50/60 to-red-50/60 py-16">
         <RelatedPosts currentId={post.id} />
       </div>
+
+      {/* Newsletter below the article */}
+      <Newsletter />
     </article>
   )
 }
