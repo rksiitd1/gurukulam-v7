@@ -58,12 +58,12 @@ export default function NotFound() {
               <Compass className="w-12 h-12 text-orange-500" />
             </div>
           </div>
-          <Badge variant="outline" className="mb-2 border-orange-300 text-orange-600">404 Error</Badge>
-          <CardTitle className="text-4xl font-bold text-gray-900">
-            A Minor Detour on Your Journey
+          <Badge variant="outline" className="mb-2 border-orange-300 text-orange-600">Page Not Found</Badge>
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-orange-600 via-rose-600 to-purple-600 bg-clip-text text-transparent">
+            You’ve wandered off the path
           </CardTitle>
           <p className="mt-2 text-2xl font-devanagari text-orange-700">
-            पथ खो गया?
+            रास्ता भटक गए?
           </p>
         </CardHeader>
         <CardContent className="space-y-8 px-10 pb-10">
