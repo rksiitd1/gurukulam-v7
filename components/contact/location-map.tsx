@@ -9,25 +9,25 @@ export function LocationMap() {
     {
       name: "Main Campus - Divya Bihar Global Gurukulam",
       address: "Village Raghopur, Supaul District, Bihar – 852111",
-      coordinates: "26.29939° N, 86.82470° E",
+      coordinates: "26.30195° N, 86.83787° E",
       type: "primary",
       description: "Our main residential campus with Gurukulam and office",
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.2993965,86.8247017",
+      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.301954983719874,86.83787673672636",
       locationUrl: "https://maps.app.goo.gl/t1tA3SeqiafqBNfj8",
     },
     {
       name: "Agroforestry & Training Center - Divya Vatika",
-      address: "Village Gamhariya, Supaul District, Bihar – 813209",
-      coordinates: "26.29469° N, 86.80259° E",
+      address: "Village Gamhariya, Supaul District, Bihar – 852111",
+      coordinates: "26.29488° N, 86.80517° E",
       type: "secondary",
       description: "Demonstration farm and agricultural training center",
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.2946998,86.8025991",
+      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.294882414387125,86.80517392649352",
       locationUrl: "https://maps.app.goo.gl/YrFU3qDgygzsthLbA",
     },
   ]
 
   const handleGetDirections = () => {
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=26.2993965,86.8247017`, "_blank")
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=26.301954983719874,86.83787673672636`, "_blank")
   }
 
   const handleViewInGoogleMaps = () => {
