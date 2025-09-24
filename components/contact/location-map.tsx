@@ -9,10 +9,10 @@ export function LocationMap() {
     {
       name: "Main Campus - Divya Bihar Global Gurukulam",
       address: "Village Raghopur, Supaul District, Bihar – 852111",
-      coordinates: "26.30195° N, 86.83787° E",
+      coordinates: "26.30127° N, 86.83800° E",
       type: "primary",
       description: "Our main residential campus with Gurukulam and office",
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.301954983719874,86.83787673672636",
+      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.30127903534549,86.8380092258069",
       locationUrl: "https://maps.app.goo.gl/t1tA3SeqiafqBNfj8",
     },
     {
@@ -27,7 +27,7 @@ export function LocationMap() {
   ]
 
   const handleGetDirections = () => {
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=26.301954983719874,86.83787673672636`, "_blank")
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=26.30127903534549,86.8380092258069`, "_blank")
   }
 
   const handleViewInGoogleMaps = () => {
