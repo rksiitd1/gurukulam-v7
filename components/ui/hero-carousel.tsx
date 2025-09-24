@@ -9,11 +9,11 @@ import { cn } from '@/lib/utils';
 // Updated to match files that actually exist under public/images
 const HERO_IMAGES = {
   home: [
-    '/images/hero/home/1.png',
-    '/images/hero/home/2.png',
-    '/images/hero/home/3.png',
-    '/images/hero/home/4.png',
-    '/images/hero/home/5.png',
+    '/images/hero/home/1.jpg',
+    '/images/hero/home/2.jpg',
+    '/images/hero/home/3.jpg',
+    '/images/hero/home/4.jpg',
+    '/images/hero/home/5.jpg',
   ],
   // About → use images from public/images/about
   about: [
