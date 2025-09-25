@@ -23,7 +23,7 @@ export function FAQ() {
         {
           question: "Where are you located?",
           answer:
-            "Our main campus is situated in Raghopur Village, Supaul District, Bihar, and is conveniently accessible by both road and rail.",
+            "Our main campus is situated in Raghopur Village, Raghopur Block, Supaul District, Bihar, and is conveniently accessible by both road and rail.",
         },
         {
           question: "What makes your approach unique?",
