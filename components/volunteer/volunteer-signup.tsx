@@ -75,7 +75,7 @@ export function VolunteerSignup() {
 
                 <div className="mt-8">
                      <h3 className="text-2xl font-semibold text-gray-800 mb-4">Prefer a Detailed Application?</h3>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_9-_9qvt_Ld4Yc22CqKso_w2a6yG5j9pYpZl8rXJ8aXJ0Ww/viewform" target="_blank" rel="noopener noreferrer">
+                    <a href="https://forms.gle/puEdZmyjrk83Dt9L8" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" variant="outline" className="border-orange-600 text-orange-700 hover:bg-orange-50">
                             <FileText className="w-5 h-5 mr-2" />
                             Fill Our Google Form
