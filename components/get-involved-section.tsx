@@ -21,7 +21,7 @@ export function GetInvolvedSection() {
             <Lightbulb className="w-10 h-10 text-yellow-500 mb-3" />
             <h3 className="font-semibold text-lg mb-2">Suggest an Idea</h3>
             <p className="text-gray-600 text-sm mb-4">Share your thoughts or suggestions to help us grow and improve.</p>
-            <a href="mailto:divyabiharmission@gmail.com" className="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded font-semibold transition-colors">Suggest Now</a>
+            <a href="mailto:contact@divyabiharmission.com" className="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded font-semibold transition-colors">Suggest Now</a>
           </div>
           <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
             <Heart className="w-10 h-10 text-pink-600 mb-3" />

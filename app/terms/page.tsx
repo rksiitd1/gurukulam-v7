@@ -37,7 +37,7 @@ export default function TermsPage() {
       <p className="text-gray-700 mb-4">
         Donations are generally <strong>non-refundable</strong>. However, if a donation was made by error or an incorrect
         amount was entered, please contact us within 48 hours at
-        <a className="text-blue-600 ml-1" href="mailto:divyabiharmission@gmail.com">divyabiharmission@gmail.com</a>
+        <a className="text-blue-600 ml-1" href="mailto:contact@divyabiharmission.com">contact@divyabiharmission.com</a>
         or call <a className="text-blue-600" href="tel:+919262536295">+91 92625 36295</a>. We will review genuine
         cases and process refunds at our discretion. Refunds, if approved, will be made to the original payment method
         within 7–10 working days.
@@ -76,7 +76,7 @@ export default function TermsPage() {
         <p><strong>Divya Bihar Mission</strong></p>
         <p>Raghopur, Supaul District, Bihar 852111, India</p>
         <p>Phone: <a className="text-blue-600" href="tel:+919262536295">+91 92625 36295</a></p>
-        <p>Email: <a className="text-blue-600" href="mailto:divyabiharmission@gmail.com">divyabiharmission@gmail.com</a></p>
+        <p>Email: <a className="text-blue-600" href="mailto:contact@divyabiharmission.com">contact@divyabiharmission.com</a></p>
       </div>
     </main>
   )

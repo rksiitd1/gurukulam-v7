@@ -90,7 +90,7 @@ export function Footer() {
                 <Youtube className="w-5 h-5" />
               </a>
               <a
-                href="mailto:divyabiharmission@gmail.com"
+                href="mailto:contact@divyabiharmission.com"
                 className="text-gray-400 hover:text-blue-500 transition-colors p-2 touch-manipulation"
               >
                 <Mail className="w-5 h-5" />
@@ -157,11 +157,11 @@ export function Footer() {
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
                 <a
-                  href="mailto:divyabiharmission@gmail.com"
+                  href="mailto:contact@divyabiharmission.com"
                   className="text-sm text-gray-300 hover:text-orange-500 transition-colors touch-manipulation flex items-center"
                   style={{ lineHeight: 1 }}
                 >
-                  divyabiharmission@gmail.com
+                  contact@divyabiharmission.com
                 </a>
               </div>
             </div>

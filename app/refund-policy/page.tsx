@@ -28,7 +28,7 @@ export default function RefundPolicyPage() {
 
       <h2 className="text-2xl font-semibold mt-8 mb-3">How to Request a Refund</h2>
       <ul className="list-disc ml-6 space-y-2 text-gray-700">
-        <li>Email: <a className="text-blue-600" href="mailto:divyabiharmission@gmail.com">divyabiharmission@gmail.com</a></li>
+        <li>Email: <a className="text-blue-600" href="mailto:contact@divyabiharmission.com">contact@divyabiharmission.com</a></li>
         <li>Phone: <a className="text-blue-600" href="tel:+919262536295">+91 92625 36295</a></li>
         <li>Provide: donor name, date/time, amount, payment reference (Razorpay order/payment id), and reason.</li>
       </ul>
@@ -44,7 +44,7 @@ export default function RefundPolicyPage() {
         <p><strong>Divya Bihar Mission</strong></p>
         <p>Raghopur, Supaul District, Bihar 852111, India</p>
         <p>Phone: <a className="text-blue-600" href="tel:+919262536295">+91 92625 36295</a></p>
-        <p>Email: <a className="text-blue-600" href="mailto:divyabiharmission@gmail.com">divyabiharmission@gmail.com</a></p>
+        <p>Email: <a className="text-blue-600" href="mailto:contact@divyabiharmission.com">contact@divyabiharmission.com</a></p>
       </div>
     </main>
   )

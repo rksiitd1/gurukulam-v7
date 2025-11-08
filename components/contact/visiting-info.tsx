@@ -13,7 +13,7 @@ export function VisitingInfo() {
         "Come as you are, with curiosity and openness",
         "Families and well-wishers are always welcome",
       ],
-      contact: "divyabiharmission@gmail.com",
+      contact: "contact@divyabiharmission.com",
     },
     {
       type: "🙌 Seva Opportunity",
@@ -25,7 +25,7 @@ export function VisitingInfo() {
         "Let us know in advance how you'd like to contribute",
         "No formalities—just sincerity and a smile",
       ],
-      contact: "divyabiharmission@gmail.com",
+      contact: "contact@divyabiharmission.com",
     },
     {
       type: "🎓 Internship Opportunity",
@@ -37,7 +37,7 @@ export function VisitingInfo() {
         "Let us know how you'd like to be involved",
         "Curiosity, openness, and a willingness to grow",
       ],
-      contact: "divyabiharmission@gmail.com",
+      contact: "contact@divyabiharmission.com",
     },
     {
       type: "🤝 Partnership Meeting",
@@ -49,7 +49,7 @@ export function VisitingInfo() {
         "Share a little about your journey or organization",
         "Bring your ideas and intention to serve",
       ],
-      contact: "divyabiharmission@gmail.com",
+      contact: "contact@divyabiharmission.com",
     },
   ]
 
