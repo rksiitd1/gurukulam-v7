@@ -58,12 +58,12 @@ export default function NotFound() {
               <Compass className="w-12 h-12 text-orange-500" />
             </div>
           </div>
-          <Badge variant="outline" className="mb-2 border-orange-300 text-orange-600">Page Not Found</Badge>
+          <Badge variant="outline" className="mb-2 border-orange-300 text-orange-600">Village Upliftment</Badge>
           <CardTitle className="text-4xl font-bold bg-gradient-to-r from-orange-600 via-rose-600 to-purple-600 bg-clip-text text-transparent">
-            You’ve wandered off the path
+            Village Upliftment, Nation Building
           </CardTitle>
           <p className="mt-2 text-2xl font-devanagari text-orange-700">
-            रास्ता भटक गए?
+            देश की आत्मा गाँव में बसती है
           </p>
         </CardHeader>
         <CardContent className="space-y-8 px-10 pb-10">
