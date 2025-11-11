@@ -177,7 +177,7 @@ export function Biography() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">The Turning Point</h3>
               <p className="text-gray-700 leading-relaxed mb-6">
-                "In my first year at IIT Delhi, a senior friend from Nilgiri Hostel, Tarun Mangala, invited me to join him on a trip to Chitrakoot with Professor Pragya Singhla. That journey introduced me to a community that embodied service, simplicity, and profound impact. For three years, I witnessed how education, when grounded in dharmic values and community service, could transform not just individuals but create real impact in communities. By the time I completed my B.Tech in 2017, the choice was clear: return to my roots in Bihar and build something similar."
+                "In my first year at IIT Delhi, a senior friend from Nilgiri Hostel, Tarun Mangla, invited me to join him on a trip to Chitrakoot with Professor Parag Singla. That journey introduced me to a community that embodied service, simplicity, and profound impact. For three years, I witnessed how education, when grounded in dharmic values and community service, could transform not just individuals but create real impact in communities. By the time I completed my B.Tech in 2017, the choice was clear: return to my roots in Bihar and build something similar."
               </p>
               <div className="bg-white rounded-lg p-4 border border-blue-200">
                 <p className="text-blue-800 font-devanagari text-lg">"जहाँ से आए हैं, वहीं वापस जाकर सेवा करना ही सच्ची सफलता है"</p>
