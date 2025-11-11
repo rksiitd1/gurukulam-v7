@@ -52,8 +52,8 @@ export default function NotFound() {
         className="max-w-2xl w-full text-center shadow-2xl border-orange-200 bg-white/80 backdrop-blur-md overflow-hidden transition-transform duration-300 hover:shadow-orange-200/80 hover:-translate-y-1 will-change-transform"
         style={{ transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)` }}
       >
-        <CardHeader className="p-10">
-          <div className="relative w-24 h-24 mx-auto mb-6">
+        <CardHeader className="p-6 sm:p-10">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6">
             <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_var(--tw-rotate),theme(colors.orange.300),theme(colors.blue.300),theme(colors.green.300),theme(colors.orange.300))] animate-spin [animation-duration:5s] blur-[2px] opacity-60" />
             <div className="relative w-full h-full rounded-full shadow-inner overflow-hidden">
               <Image
@@ -69,16 +69,16 @@ export default function NotFound() {
             <Target className="w-4 h-4 mr-2" />
             Divya Bihar Mission
           </div>
-          <CardTitle className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-snug text-gray-900">
+          <CardTitle className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-snug text-gray-900">
             Village Upliftment,
             <span className="block text-orange-600 mt-1 sm:mt-1.5">Nation Building</span>
           </CardTitle>
-          <p className="mt-3 text-2xl sm:text-3xl font-devanagari text-green-700">
+          <p className="mt-3 text-xl sm:text-3xl font-devanagari text-green-700">
             देश की आत्मा गाँवों में बसती है
           </p>
         </CardHeader>
-        <CardContent className="space-y-8 px-10 pb-10">
-          <p className="text-lg text-gray-700">
+        <CardContent className="space-y-6 sm:space-y-8 px-6 sm:px-10 pb-8 sm:pb-10">
+          <p className="text-base sm:text-lg text-gray-700">
             The page you are looking for might have been moved, renamed, or is taking a brief moment for reflection. Let's get you back on the right path.
           </p>
           <form action="/blog/search" className="relative max-w-xl mx-auto">
@@ -90,13 +90,13 @@ export default function NotFound() {
               className="pl-10 pr-4 h-11 bg-white/70 border-orange-200 focus-visible:ring-orange-400"
             />
           </form>
-          <div className="flex items-center justify-center gap-3">
-            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-200/60">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-200/60">
               <Link href="/">
                 Return Home
               </Link>
             </Button>
-            <Button asChild variant="secondary" className="backdrop-blur hover:shadow-md">
+            <Button asChild variant="secondary" className="w-full sm:w-auto backdrop-blur hover:shadow-md">
               <Link href="/programs">Explore Programs</Link>
             </Button>
           </div>
