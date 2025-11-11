@@ -75,7 +75,7 @@ export function Biography() {
               </blockquote>
 
               <div className="bg-white rounded-lg p-6 border border-orange-200">
-                <p className="font-devanagari text-xl text-orange-800 mb-2">
+                <p className="font-devanagari text-lg text-orange-800 mb-2">
                   "जहाँ से आए हैं, वहीं वापस जाकर सेवा करना ही सच्ची सफलता है"
                 </p>
                 <p className="text-orange-700 text-sm">"True success lies in returning to serve where we came from"</p>
