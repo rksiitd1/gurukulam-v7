@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { Home, BookOpen, Heart, Mail, Search } from 'lucide-react';
+import { Home, BookOpen, Heart, Mail, Search, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -55,18 +55,20 @@ export default function NotFound() {
         <CardHeader className="p-10">
           <div className="relative w-24 h-24 mx-auto mb-6">
             <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_var(--tw-rotate),theme(colors.orange.300),theme(colors.blue.300),theme(colors.green.300),theme(colors.orange.300))] animate-spin [animation-duration:5s] blur-[2px] opacity-60" />
-            <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+            <div className="relative w-full h-full rounded-full shadow-inner overflow-hidden">
               <Image
                 src="/DBM-logo.png"
                 alt="Divya Bihar Mission logo"
-                width={56}
-                height={56}
-                className="w-14 h-14 object-contain"
+                fill
+                className="object-cover"
                 priority
               />
             </div>
           </div>
-          <Badge variant="outline" className="mb-2 border-orange-300 text-orange-600">Village Upliftment</Badge>
+          <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-700 rounded-full text-sm font-medium mb-2">
+            <Target className="w-4 h-4 mr-2" />
+            Divya Bihar Mission
+          </div>
           <CardTitle className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
             Village Upliftment,
             <span className="block text-orange-600">Nation Building</span>
