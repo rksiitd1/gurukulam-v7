@@ -82,12 +82,12 @@ export default function NotFound() {
             The page you are looking for might have been moved, renamed, or is taking a brief moment for reflection. Let's get you back on the right path.
           </p>
           <form action="/blog/search" className="relative max-w-xl mx-auto">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
             <Input
               ref={searchRef}
               name="q"
               placeholder="Search articles and pages... (press / to focus)"
-              className="pl-10 pr-4 h-11 bg-white/70 border-orange-200 focus-visible:ring-orange-400"
+              className="pl-9 sm:pl-10 pr-3 sm:pr-4 h-12 sm:h-11 bg-white/70 border-orange-200 focus-visible:ring-orange-400 text-base placeholder:text-gray-500 placeholder:opacity-90"
             />
           </form>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
