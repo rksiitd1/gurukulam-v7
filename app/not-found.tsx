@@ -65,15 +65,15 @@ export default function NotFound() {
               />
             </div>
           </div>
-          <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-700 rounded-full text-sm font-medium mb-2">
+          <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-orange-700 rounded-full text-sm font-medium mb-3">
             <Target className="w-4 h-4 mr-2" />
             Divya Bihar Mission
           </div>
-          <CardTitle className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+          <CardTitle className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-snug text-gray-900">
             Village Upliftment,
-            <span className="block text-orange-600">Nation Building</span>
+            <span className="block text-orange-600 mt-1 sm:mt-1.5">Nation Building</span>
           </CardTitle>
-          <p className="mt-2 text-2xl sm:text-3xl font-devanagari text-green-700">
+          <p className="mt-3 text-2xl sm:text-3xl font-devanagari text-green-700">
             देश की आत्मा गाँवों में बसती है
           </p>
         </CardHeader>
