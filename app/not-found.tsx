@@ -13,6 +13,7 @@ export default function NotFound() {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const searchRef = useRef<HTMLInputElement | null>(null);
   const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -35,6 +36,15 @@ export default function NotFound() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640); // sm breakpoint
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
@@ -81,13 +91,13 @@ export default function NotFound() {
           <p className="text-base sm:text-lg text-gray-700">
             The page you are looking for might have been moved, renamed, or is taking a brief moment for reflection. Let's get you back on the right path.
           </p>
-          <form action="/blog/search" className="relative max-w-xl mx-auto">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+          <form action="/blog/search" className="relative w-[80%] sm:max-w-xl mx-auto">
+            <Search className="hidden sm:block absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
             <Input
               ref={searchRef}
               name="q"
-              placeholder="Search articles and pages... (press / to focus)"
-              className="pl-9 sm:pl-10 pr-3 sm:pr-4 h-12 sm:h-11 bg-white/70 border-orange-200 focus-visible:ring-orange-400 text-base placeholder:text-gray-500 placeholder:opacity-90"
+              placeholder={isMobile ? "Search articles" : "Search articles and pages... (press / to focus)"}
+              className="pl-3 sm:pl-10 pr-3 sm:pr-4 h-12 sm:h-11 bg-white/70 border-orange-200 focus-visible:ring-orange-400 text-base text-center sm:text-left placeholder:text-gray-500 placeholder:opacity-90"
             />
           </form>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
