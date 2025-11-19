@@ -85,7 +85,7 @@ export function AboutHero() {
             </div>
 
             {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 relative z-30">
               <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
                 <Link href="/donate">
                   <Heart className="w-5 h-5 mr-2" />
