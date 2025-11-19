@@ -85,13 +85,13 @@ export function AboutHero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/donate">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
+              <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
+                <Link href="/donate">
                   <Heart className="w-5 h-5 mr-2" />
                   Support Our Mission
-                </Button>
-              </Link>
+                </Link>
+              </Button>
               <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50">
                 Read Full Story
               </Button>
