@@ -25,8 +25,8 @@ export function Biography() {
       highlights: [
         "B.Tech Mechanical Engineering",
         "Taught children in Delhi slums",
-        "Engaged with social activists",
-        "Developed passion for education",
+        "Engaged with dedicated social workers",
+        "Developed passion for serving communities",
       ],
     },
     {
