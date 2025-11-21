@@ -1,29 +1,26 @@
 // components/internship/InternshipTestimonials.tsx
 
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import { Lightbulb, Heart, Mic } from "lucide-react";
 
-const testimonials = [
+const values = [
   {
-    name: "Aarav Sharma",
-    college: "IIT Delhi, Computer Science",
-    role: "Tech for Impact Intern, Summer '24",
-    quote: "I wrote more meaningful code in 8 weeks here than during my entire previous internship at a big tech firm. Seeing the teachers use the system I built, and knowing it saves them hours every day... that's a different level of satisfaction. This isn't just resume-building; it's character-building.",
-    image: "/images/team/placeholder-male-1.jpg",
+    title: "Frugal Innovation",
+    description: "We don't complain about resources; we get creative. You will learn to design high-impact solutions using low-cost, locally available materials. It's about solving problems with your brain, not just your budget.",
+    icon: <Lightbulb className="w-8 h-8 text-yellow-400" />,
+    color: "border-yellow-500",
   },
   {
-    name: "Priya Singh",
-    college: "NIT Trichy, Civil Engineering",
-    role: "Sustainable Agriculture Intern, Summer '24",
-    quote: "My coursework was all theory. Here, I designed a real, low-cost rainwater harvesting system that is now being implemented. I learned more about frugal innovation and user-centric design in two months than in two years of college. You learn to solve problems with your brain, not just with a budget.",
-    image: "/images/team/placeholder-female-1.jpg",
+    title: "Empathy in Action",
+    description: "Designs don't happen in a vacuum. You will live among the community, eat the same food, and understand their daily struggles. True engineering starts with deep empathy for the user.",
+    icon: <Heart className="w-8 h-8 text-red-400" />,
+    color: "border-red-500",
   },
   {
-    name: "Rohan Verma",
-    college: "BITS Pilani, Economics & Finance",
-    role: "Impact Measurement Intern, Summer '24",
-    quote: "The 'impact' in a corporate ESG report feels abstract. Here, I was on the ground, interviewing farmers and students, collecting data, and building a model that directly influences strategy. This experience gave me a clarity of purpose that no corporate internship could ever offer.",
-    image: "/images/team/placeholder-male-2.jpg",
+    title: "Voice for the Voiceless",
+    description: "Your work isn't just about code or crops; it's about dignity. Whether you are documenting a story or building a tool, you are amplifying the potential of rural India to the world.",
+    icon: <Mic className="w-8 h-8 text-blue-400" />,
+    color: "border-blue-500",
   },
 ];
 
@@ -33,33 +30,23 @@ const InternshipTestimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Voices from the Field
+            The Intern Mindset
           </h2>
           <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
-            Perspectives from past interns who took the challenge.
+            We don't just look for skills; we look for the right spirit. This is what defines life at the mission.
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-slate-800 border-slate-700 text-white">
-              <CardContent className="p-8">
-                <blockquote className="text-lg text-slate-200 mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={56}
-                    height={56}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-orange-500"
-                  />
-                  <div className="ml-4">
-                    <p className="font-semibold text-lg">{testimonial.name}</p>
-                    <p className="text-sm text-slate-400">{testimonial.college}</p>
-                    <p className="text-xs text-orange-400 font-medium">{testimonial.role}</p>
-                  </div>
+          {values.map((value, index) => (
+            <Card key={index} className={`bg-slate-800 border-t-4 ${value.color} border-x-0 border-b-0 text-white hover:bg-slate-750 transition-colors`}>
+              <CardContent className="p-8 flex flex-col h-full">
+                <div className="mb-6 p-3 bg-slate-700/50 rounded-full w-fit">
+                  {value.icon}
                 </div>
+                <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
+                <blockquote className="text-base text-slate-300 leading-relaxed">
+                  "{value.description}"
+                </blockquote>
               </CardContent>
             </Card>
           ))}
