@@ -1,76 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-// Define the image directories and their corresponding images
-// Updated to match files that actually exist under public/images
-const HERO_IMAGES = {
-  home: [
-    '/images/hero/home/1.jpg',
-    '/images/hero/home/2.jpg',
-    '/images/hero/home/3.jpg',
-    '/images/hero/home/4.jpg',
-    '/images/hero/home/5.jpg',
-  ],
-  // About → use images from public/images/about
-  about: [
-    '/images/about/1.jpg',
-    '/images/about/2.jpg',
-    '/images/about/3.jpg',
-    '/images/about/4.jpg',
-    '/images/about/5.jpg',
-  ],
-  // Contact → use header images
-  contact: [
-    '/images/gallery/1.jpg',
-    '/images/gallery/2.jpg',
-    '/images/gallery/3.jpg',
-    '/images/gallery/4.jpg',
-    '/images/gallery/5.jpg',
-  ],
-  gallery: [
-    '/images/gallery/6.jpg',
-    '/images/gallery/7.jpg',
-    '/images/gallery/8.jpg',
-    '/images/gallery/9.jpg',
-    '/images/gallery/10.jpg',
-  ],
-  // Programs overview → representative program images
-  programs: [
-    '/images/programs/gurukulam.jpg',
-    '/images/programs/shri-classes.jpg',
-    '/images/programs/udyamita.jpg',
-    '/images/programs/agro-gaushala.jpg',
-  ],
-  // Gurukulam → available program + classroom images
-  gurukulam: [
-    '/images/programs/gurukulam.jpg',
-    '/images/programs/gurukulam3.jpg',
-    "/images/gallery/classroom/WhatsApp Image 2025-07-04 at 09.51.03_87f0d490.jpg",
-  ],
-  // Agriculture → use gallery images
-  agriculture: [
-    '/images/gallery/agriculture/1.jpg',
-    '/images/gallery/agriculture/2.jpg',
-    '/images/gallery/agriculture/3.jpg',
-    '/images/gallery/agriculture/4.jpg',
-    '/images/gallery/agriculture/5.jpg',
-  ],
-  // Shri Classes → program + classroom images
-  'shri-classes': [
-    '/images/programs/shri-classes.jpg',
-    '/images/programs/shri-classes3.jpg',
-    "/images/gallery/classroom/WhatsApp Image 2025-07-04 at 09.50.30_296ab7cd.jpg",
-  ],
-  // Udyamita → available program images
-  udyamita: [
-    '/images/programs/udyamita.jpg',
-    '/images/programs/udyamita3.jpg',
-  ],
-} as const;
+import { HERO_IMAGES } from './hero-images-data';
 
 type ImageDir = keyof typeof HERO_IMAGES;
 
@@ -81,12 +15,21 @@ interface HeroCarouselProps {
   priority?: boolean;
   fit?: 'contain' | 'cover';
   showOverlay?: boolean; // optional dark gradient overlay for cover-style displays
+  sizes?: string;
 }
 
-export function HeroCarousel({ imageDir, alt, className, priority = false, fit = 'contain', showOverlay = false }: HeroCarouselProps) {
+export function HeroCarousel({
+  imageDir,
+  alt,
+  className,
+  priority = false,
+  fit = 'contain',
+  showOverlay = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+}: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [images, setImages] = useState<string[]>(['/placeholder.svg']);
+  const [images, setImages] = useState<StaticImageData[]>([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStartX, setTouchStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
@@ -94,7 +37,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
   const isDraggingRef = useRef(false);
   const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  
+
   // Carousel settings
   const minSwipeDistance = 50;
   const autoScrollDelay = 4000; // 4 seconds
@@ -103,6 +46,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
   useEffect(() => {
     // Set images based on the directory; fallback to home if not found
     const selectedImages = HERO_IMAGES[imageDir] || HERO_IMAGES.home;
+    // @ts-ignore - we know this is an array of StaticImageData
     setImages(Array.isArray(selectedImages) ? [...selectedImages] : [selectedImages]);
     setIsLoading(false);
   }, [imageDir]);
@@ -120,39 +64,39 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
   // Auto-scroll functionality (respects reduced motion and hover pause)
   useEffect(() => {
     if (images.length <= 1 || prefersReducedMotion || isPaused) return;
-    
+
     const autoScroll = () => {
       if (!isTransitioning && !isDraggingRef.current) {
         handleSwipe('left');
       }
     };
-    
+
     const timer = setInterval(autoScroll, autoScrollDelay);
     return () => clearInterval(timer);
   }, [images.length, isTransitioning, prefersReducedMotion, isPaused]);
 
   const handleSwipe = (direction: 'left' | 'right') => {
     if (isTransitioning) return;
-    
+
     setIsTransitioning(true);
     setOffsetX(direction === 'left' ? -100 : 100);
-    
+
     setTimeout(() => {
       setCurrentIndex(prevIndex => {
-        const nextIndex = direction === 'left' 
-          ? (prevIndex + 1) % images.length 
+        const nextIndex = direction === 'left'
+          ? (prevIndex + 1) % images.length
           : (prevIndex - 1 + images.length) % images.length;
         return nextIndex;
       });
-      
+
       setOffsetX(0);
       setTimeout(() => setIsTransitioning(false), 50);
     }, transitionSpeed);
   };
-  
+
   const goToNext = () => handleSwipe('left');
   const goToPrevious = () => handleSwipe('right');
-  
+
   const handleTouchStart = (e: React.TouchEvent) => {
     isDraggingRef.current = true;
     setTouchStartX(e.touches[0].clientX);
@@ -160,7 +104,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDraggingRef.current) return;
-    
+
     const touchX = e.touches[0].clientX;
     const diff = touchX - touchStartX;
     setOffsetX(diff);
@@ -199,21 +143,17 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
     );
   }
 
-  const getAdjacentIndex = (offset: number) => {
-    return (currentIndex + offset + images.length) % images.length;
-  };
-
   return (
-    <div 
+    <div
       className={cn("relative w-full overflow-hidden rounded-2xl shadow-2xl select-none touch-pan-y bg-gray-100", className)}
       ref={sliderRef}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        role="region"
-        aria-roledescription="carousel"
-        aria-label={alt}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={alt}
     >
-      <div 
+      <div
         className="relative w-full h-full overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -230,7 +170,7 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
         onMouseUp={() => {
           if (!isDraggingRef.current) return;
           isDraggingRef.current = false;
-          
+
           if (offsetX > minSwipeDistance) {
             handleSwipe('right');
           } else if (offsetX < -minSwipeDistance) {
@@ -246,48 +186,32 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
           }
         }}
       >
-      <div 
-        className="flex w-full h-full transition-transform duration-300 ease-in-out"
-        style={{
-          transform: `translateX(calc(-${currentIndex * 100}% + ${offsetX}px))`,
-        }}
-      >
+        <div
+          className="flex w-full h-full transition-transform duration-300 ease-in-out"
+          style={{
+            transform: `translateX(calc(-${currentIndex * 100}% + ${offsetX}px))`,
+          }}
+        >
           {images.map((src, index) => (
-            <div 
+            <div
               key={index}
-            className="relative h-full flex-shrink-0 min-w-full"
+              className="relative h-full flex-shrink-0 min-w-full"
             >
-            {fit === 'contain' ? (
-              <div
-                aria-hidden
-                className="absolute inset-0 -z-10"
-                style={{
-                  backgroundImage: `url(${src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  filter: 'blur(18px)',
-                  transform: 'scale(1.1)',
-                }}
-              />
-            ) : null}
               <Image
                 src={src}
                 alt={`${alt} ${index + 1}`}
                 fill
                 className={cn(fit === 'contain' ? 'object-contain' : 'object-cover', 'object-center')}
                 priority={index === 0 && priority}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                sizes={sizes}
+                placeholder="blur"
                 onLoadingComplete={() => setIsLoading(false)}
-                onError={(e) => {
-                  console.error('Error loading image:', e);
-                  e.currentTarget.src = '/placeholder.svg';
-                }}
                 draggable={false}
               />
             </div>
           ))}
         </div>
-        
+
         {/* Navigation Arrows - Hidden on mobile, visible on md+ */}
         {images.length > 1 && (
           <>
@@ -307,8 +231,6 @@ export function HeroCarousel({ imageDir, alt, className, priority = false, fit =
             </button>
           </>
         )}
-        
-        {/* Navigation Dots removed as per user request */}
       </div>
       {showOverlay && fit === 'cover' ? (
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
