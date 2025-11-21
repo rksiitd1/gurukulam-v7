@@ -35,7 +35,7 @@ export function FellowshipHero() {
                             </Button>
                         </Link>
                         <Link href="#apply">
-                            <Button size="lg" variant="outline" className="w-full sm:w-auto text-white border-slate-500 hover:bg-slate-800 hover:text-white font-medium px-8 py-6">
+                            <Button size="lg" variant="outline" className="w-full sm:w-auto text-slate-300 border-slate-500 hover:bg-slate-800 hover:text-white font-medium px-8 py-6">
                                 Apply Now
                             </Button>
                         </Link>
