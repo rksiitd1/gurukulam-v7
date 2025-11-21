@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Cpu, Leaf, BarChart2 } from "lucide-react";
+import { Cpu, Leaf, Camera } from "lucide-react";
 
 const roles = [
   {
@@ -26,14 +26,14 @@ const roles = [
     skills: ["IoT/Embedded Systems (Arduino/Raspberry Pi)", "Data Analysis (Python/R)", "Mechanical/Agricultural Engineering", "Prototyping"],
   },
   {
-    id: "data",
-    title: "Impact Measurement Analyst",
-    icon: <BarChart2 className="w-8 h-8 text-white" />,
-    badge: "Data & Strategy",
+    id: "media",
+    title: "Digital Media & Storytelling Lead",
+    icon: <Camera className="w-8 h-8 text-white" />,
+    badge: "Creative & Communication",
     color: "from-purple-600 to-violet-600",
-    challenge: "We know we are creating impact, but we need to quantify it effectively to secure future funding and scale our operations. Our data collection is fragmented across multiple, offline sources.",
-    mission: "Establish a unified data collection framework across all our programs. Build automated dashboards to track Key Performance Indicators (KPIs) for education, agriculture, and entrepreneurship. Conduct a qualitative and quantitative impact assessment study.",
-    skills: ["Data Analytics & Visualization (Tableau/PowerBI)", "Statistics", "Survey Design & Analysis", "Strategic Thinking"],
+    challenge: "The profound transformation happening in our villages often remains invisible to the outside world. We need to bridge the gap between rural reality and global awareness to inspire more support.",
+    mission: "Be the voice of the mission. Document daily life, success stories, and events through high-quality photography and video. Create compelling content for social media and newsletters that captures the soul of rural Bihar.",
+    skills: ["Photography & Videography", "Video Editing (Premiere/DaVinci)", "Content Writing", "Social Media Strategy", "Storytelling"],
   },
 ];
 
