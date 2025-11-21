@@ -45,7 +45,7 @@ export default function InternshipApplicationForm() {
   const handleRoleChange = (value: string) => {
     setFormData(prev => ({ ...prev, role: value }));
   };
-  
+
   const handleResetForm = () => {
     setFormData({
       fullName: '', email: '', college: '', gradYear: '',
@@ -68,7 +68,7 @@ export default function InternshipApplicationForm() {
       if (!response.ok) {
         throw new Error(result.error || 'Something went wrong.');
       }
-      setIsSuccess(true); 
+      setIsSuccess(true);
     } catch (error) {
       toast({
         variant: "destructive",
@@ -154,7 +154,8 @@ export default function InternshipApplicationForm() {
                       <SelectContent>
                         <SelectItem value="Tech for Impact Lead">Tech for Impact Lead</SelectItem>
                         <SelectItem value="Sustainable Agriculture Innovator">Sustainable Agriculture Innovator</SelectItem>
-                        <SelectItem value="Impact Measurement Analyst">Impact Measurement Analyst</SelectItem>
+                        <SelectItem value="Digital Media & Storytelling Lead">Digital Media & Storytelling Lead</SelectItem>
+
                       </SelectContent>
                     </Select>
                   </div>
@@ -175,9 +176,9 @@ export default function InternshipApplicationForm() {
                   </Button>
                 </form>
               </div>
-              
+
               <div className="sticky top-24">
-                 <Alert className="bg-gradient-to-br from-orange-50 to-amber-100 border-orange-200">
+                <Alert className="bg-gradient-to-br from-orange-50 to-amber-100 border-orange-200">
                   <Info className="h-5 w-5 text-orange-600" />
                   <AlertTitle className="text-xl font-bold text-orange-800">Internship Logistics</AlertTitle>
                   <AlertDescription className="mt-4 space-y-4 text-orange-900">
@@ -188,7 +189,7 @@ export default function InternshipApplicationForm() {
                         <p>A modest stipend will be provided to cover basic living expenses.</p>
                       </div>
                     </div>
-                     <div className="flex items-start">
+                    <div className="flex items-start">
                       <Clock className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold">
@@ -205,7 +206,7 @@ export default function InternshipApplicationForm() {
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-orange-300/50">
-                       <p className="text-sm">This is an intense, immersive experience. We seek candidates who are adaptable, self-motivated, and driven by a desire to learn and contribute.</p>
+                      <p className="text-sm">This is an intense, immersive experience. We seek candidates who are adaptable, self-motivated, and driven by a desire to learn and contribute.</p>
                     </div>
                   </AlertDescription>
                 </Alert>
