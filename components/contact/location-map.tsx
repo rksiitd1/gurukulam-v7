@@ -86,7 +86,7 @@ export function LocationMap() {
             Located in the heart of rural Bihar, our campuses are easily accessible by road, rail, and air. Plan your
             visit with our detailed location and transportation information.
           </p>
-          <p className="text-lg font-devanagari text-orange-700 mt-2">हमारे स्थान खोजें</p>
+          <p className="text-lg font-devanagari text-orange-700 mt-2">मानचित्र पर हमें ढूँढें</p>
         </div>
 
         {/* Interactive Map Placeholder */}
@@ -136,9 +136,8 @@ export function LocationMap() {
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div
-                      className={`w-4 h-4 rounded-full mt-1 ${
-                        location.type === "primary" ? "bg-red-500" : "bg-green-500"
-                      }`}
+                      className={`w-4 h-4 rounded-full mt-1 ${location.type === "primary" ? "bg-red-500" : "bg-green-500"
+                        }`}
                     ></div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xl font-bold text-gray-900 break-words">{location.name}</h3>
