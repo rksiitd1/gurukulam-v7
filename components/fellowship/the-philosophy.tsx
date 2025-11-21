@@ -42,7 +42,7 @@ export function ThePhilosophy() {
                                 </blockquote>
                                 <div className="mt-8 pt-8 border-t border-slate-700">
                                     <p className="text-orange-400 font-semibold text-lg">Divya Bihar Mission</p>
-                                    <p className="text-slate-400 text-sm mt-1">Core Belief</p>
+                                    {/* <p className="text-slate-400 text-sm mt-1">Core Belief</p> */}
                                 </div>
                             </CardContent>
                         </Card>
