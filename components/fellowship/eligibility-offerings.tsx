@@ -28,7 +28,7 @@ export function EligibilityOfferings() {
         {
             icon: <Lightbulb className="w-6 h-6 text-yellow-600" />,
             title: "Mentorship",
-            desc: "Guidance from IIT alumni and experienced social workers involved in the Mission."
+            desc: "Guidance from great modern Rishis and experienced social workers involved in the Mission."
         }
     ];
 
