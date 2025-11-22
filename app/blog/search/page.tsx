@@ -65,14 +65,14 @@ function SearchPage() {
           <div className="absolute bottom-10 right-10 w-24 h-24 bg-yellow-400 rounded-full blur-2xl"></div>
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-amber-400 rounded-full blur-xl"></div>
         </div>
-        
+
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 opacity-20" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}></div>
         </div>
-        
+
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 mb-4 shadow-lg border border-orange-200/50 relative group">
             <SearchIcon className="w-10 h-10 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
@@ -86,18 +86,19 @@ function SearchPage() {
             className="max-w-lg mx-auto mb-5"
             autoComplete="off"
           >
-            <div className="relative flex group">
+            <div className="relative flex group max-w-2xl mx-auto">
+              <div className="absolute inset-0 bg-orange-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Input
                 ref={inputRef}
                 type="text"
                 placeholder="Search articles..."
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                className="flex-1 pr-12 text-lg bg-white/90 backdrop-blur-sm border-orange-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-400/50 focus:outline-none shadow-lg group-hover:shadow-xl transition-all duration-300 rounded-xl"
+                className="relative flex-1 pr-14 pl-6 h-14 text-lg bg-white/80 backdrop-blur-md border-0 ring-1 ring-black/5 focus:ring-2 focus:ring-orange-400/50 shadow-xl shadow-orange-900/5 rounded-2xl placeholder:text-gray-400 text-gray-900 transition-all duration-300"
                 autoFocus
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-orange-500 group-hover:text-orange-600 transition-colors duration-300">
-                <SearchIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/20 group-hover:scale-105 group-hover:bg-orange-600 transition-all duration-300 cursor-pointer">
+                <SearchIcon className="w-5 h-5" />
               </span>
             </div>
           </form>
@@ -118,7 +119,7 @@ function SearchPage() {
             )}
           </p>
         </div>
-        
+
         {/* Decorative bottom border */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-300 to-transparent"></div>
       </section>
