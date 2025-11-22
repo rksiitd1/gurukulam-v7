@@ -179,193 +179,268 @@ export const blogPosts: BlogPost[] = [
     id: 8,
     title: "The Silent Revolution: Rural Women Leading the Charge",
     slug: "rural-women-entrepreneurship-revolution",
-    image: "/images/blog/women_entrepreneurs.png",
+    image: "/images/blog/women-entrepreneurs.png",
     date: "2024-06-05",
     category: "Empowerment",
     excerpt: "From making pickles to painting Madhubani art, rural women in Bihar are stepping out of their homes and becoming the economic backbone of their families.",
     content: `
-      <p>They were told their place was in the kitchen. They were told they couldn't handle money. Today, the women of rural Bihar are proving everyone wrong. A silent revolution is underway, driven by Self-Help Groups (SHGs) and micro-enterprises.</p>
+      <p>In the quiet courtyards of rural Bihar, a revolution is brewing. It’s not loud, it’s not violent, but it is fundamentally shifting the social fabric of the state. It is the revolution of the rural woman entrepreneur.</p>
+
+      <h2>Breaking the Glass Ceiling of Tradition</h2>
+      <p>For generations, the role of a woman in rural Bihar was strictly defined: she was the caretaker, the silent worker whose labor in the fields and the kitchen went largely unrecognized. Financial independence was a distant dream. But today, that narrative is being rewritten, one Self-Help Group (SHG) at a time.</p>
+
+      <p>Consider the story of Sunita Devi (name changed), a mother of three from Supaul. Five years ago, she had never stepped inside a bank. Today, she manages the accounts of her local mushroom cultivation cooperative. "Earlier, I had to ask my husband for ten rupees to buy bangles," she says, her eyes shining with a quiet confidence. "Now, I pay my children's school fees."</p>
 
       <h2>The Mushroom Mahilas</h2>
-      <p>Take the example of the women in our 'Udyamita' program. We trained them in oyster mushroom cultivation—a low-investment, high-yield crop that can be grown indoors. Today, these women, who had never earned a rupee, are contributing significantly to their household income. They are the 'Mushroom Mahilas', and they walk with a new confidence.</p>
+      <p>At Divya Bihar Mission, we identified oyster mushroom cultivation as a potent tool for empowerment. It requires little space, low investment, and can be grown indoors—perfect for women who may face restrictions on mobility. We provided training and spawn to a group of 20 women. The results were transformative.</p>
+      
+      <p>These 'Mushroom Mahilas' are not just earning money; they are earning respect. When a woman contributes to the household income, her voice in family decisions becomes louder. She decides what food is cooked, which school the children go to, and how savings are invested. This is the ripple effect of economic empowerment.</p>
 
-      <h2>Art as Livelihood</h2>
-      <p>Others are turning their traditional skills into businesses. Women who painted their walls for festivals are now selling their Madhubani art on canvas to global buyers. They are making pickles and papads that taste of home, finding markets in bustling cities.</p>
+      <h2>Art as Livelihood: The Mithila Magic</h2>
+      <p>Beyond agriculture, we are tapping into the rich cultural heritage of the region. Women who used to paint Madhubani art on their mud walls for festivals are now painting on canvas, sarees, and handmade paper for global clients. This transition from ritual to commerce has given them a new identity—not just as wives or mothers, but as artists and businesswomen.</p>
 
-      <p>When a woman earns, she invests in her children's education and health. Empowering a woman is not just empowering an individual; it is empowering a generation.</p>
+      <h2>The Road Ahead</h2>
+      <p>The journey is not without challenges. Access to credit, market linkages, and digital literacy remain hurdles. But the women of Bihar are resilient. They are learning to use smartphones to market their products, they are navigating the banking system, and they are mentoring each other.</p>
+
+      <p>We believe that when you empower a man, you empower an individual. But when you empower a woman, you empower a generation. The silent revolution is getting louder, and the world is listening.</p>
     `
   },
   {
     id: 9,
     title: "Echoes of Nalanda: Reclaiming Bihar's Legacy as a Global Knowledge Hub",
     slug: "nalanda-legacy-global-knowledge-hub",
-    image: "/images/blog/nalanda_ruins.png",
+    image: "/images/blog/nalanda-ruins.png",
     date: "2024-05-30",
     category: "Heritage",
     excerpt: "Bihar was once the education capital of the world. The ruins of Nalanda are not just stones; they are a reminder of what we were and what we can be again.",
     content: `
-      <p>Long before Oxford or Cambridge existed, there was Nalanda. A residential university that hosted 10,000 students and 2,000 teachers from across Asia. It was a beacon of logic, philosophy, medicine, and astronomy. Today, the red brick ruins stand as a testament to Bihar's glorious intellectual heritage.</p>
+      <p>Walk through the red brick ruins of Nalanda today, and you might hear the wind whispering secrets of a glorious past. But if you listen closely with your heart, you will hear the echoes of debates that shaped Asian thought for centuries. Nalanda was not just a university; it was the intellectual heartbeat of the ancient world.</p>
 
-      <h2>More Than History</h2>
-      <p>But Nalanda is not just about the past. It is a reminder of the DNA of this land. Bihar has always been a land of seekers. From Buddha seeking enlightenment to Chanakya seeking political wisdom, the quest for knowledge is in our soil.</p>
+      <h2>The First Global University</h2>
+      <p>Founded in the 5th century CE, Nalanda predates Oxford and Cambridge by hundreds of years. At its peak, it hosted over 10,000 students and 2,000 teachers from China, Korea, Japan, Tibet, Mongolia, Turkey, Sri Lanka, and Southeast Asia. It was the world's first residential international university.</p>
+      
+      <p>The curriculum was staggering in its breadth. It wasn't limited to theology. Students studied logic (Hetuvidya), grammar (Shabdavidya), medicine (Chikitsavidya), and the arts (Shilpavidya), alongside metaphysics and philosophy. The admission process was so rigorous that the 'Dwarapalas' (gatekeepers) were scholars themselves, and only those who could answer their difficult questions were allowed to enter.</p>
 
-      <h2>The Modern Revival</h2>
-      <p>The revival of Nalanda University is a symbolic step, but the real revival must happen in every village school. We need to rekindle that spirit of inquiry and debate. We need to move away from rote learning and embrace the critical thinking that Nalanda was famous for.</p>
+      <h2>The Spirit of Inquiry</h2>
+      <p>What made Nalanda truly great was its culture of debate and inquiry. It was a place where ideas were tested, challenged, and refined. Nothing was accepted on blind faith. This spirit of critical thinking—of 'Tarka' and 'Mimamsa'—is the true legacy of Bihar.</p>
 
-      <p>At Divya Bihar Mission, we tell our students: "You are the descendants of the scholars of Nalanda. Greatness is your heritage." This instills a deep sense of pride and responsibility in them.</p>
+      <h2>Reclaiming the Legacy</h2>
+      <p>The destruction of Nalanda in the 12th century was a tragedy for human knowledge. But the spirit of Nalanda cannot be burnt. Today, as we build the 'Divya Bihar Mission', we look to Nalanda for inspiration. We are asking: How can we recreate that ecosystem of excellence?</p>
+
+      <p>It starts with rejecting the rote-learning model that plagues our current education system. We are reintroducing the Socratic method of questioning in our classrooms. We are encouraging students to look beyond textbooks and observe the world around them. We are teaching them that knowledge is not a commodity to be bought, but a truth to be sought.</p>
+
+      <p>The physical walls of Nalanda may be in ruins, but its foundation—the pursuit of wisdom—is what we are rebuilding, one student at a time. We believe that Bihar is destined to be the 'Jagadguru' (World Teacher) once again.</p>
     `
   },
   {
     id: 10,
     title: "Painting Empowerment: How Mithila Art Gave Rural Women a Global Voice",
     slug: "mithila-art-women-empowerment",
-    image: "/images/blog/mithila_art_painting.png",
+    image: "/images/blog/mithila-art.png",
     date: "2024-05-25",
     category: "Art & Culture",
     excerpt: "Mithila (Madhubani) painting started as wall art for weddings. Today, it is a tool for social commentary and financial independence for thousands of women.",
     content: `
-      <p>In the villages of Mithila, art is not a hobby; it is a way of life. For centuries, women have painted the walls of their mud houses (Kohbar) to celebrate weddings and births. These vibrant paintings, characterized by geometrical patterns and double lines, were a domestic ritual.</p>
+      <p>In the flood-prone plains of North Bihar, art is a survival strategy. It is a prayer, a celebration, and now, a powerful voice of protest. Mithila painting, popularly known as Madhubani art, is one of the most vibrant living art forms in the world, and it is almost entirely sustained by women.</p>
 
-      <h2>From Walls to Paper</h2>
-      <p>The great famine of the 1960s changed everything. To generate income, women were encouraged to transfer their art to paper. This simple shift unleashed a creative explosion. Suddenly, the private expressions of rural women were being admired in galleries in Europe and Japan.</p>
+      <h2>From the Kohbar to the Gallery</h2>
+      <p>Traditionally, this art was ephemeral. Women would paint the mud walls of their homes (specifically the 'Kohbar Ghar' or nuptial chamber) with rice paste and natural pigments to bless a newlywed couple. The paintings depicted gods, nature, and symbols of fertility like fish and lotuses. Once the festival or ceremony was over, the art would fade or be washed away.</p>
+      
+      <p>The turning point came during the massive drought of 1966-67. To provide an alternative source of income, the All India Handicrafts Board encouraged women to transfer their wall paintings to paper. This simple shift from wall to scroll unleashed a creative explosion. Suddenly, the private domestic expressions of rural women were traveling to museums in Paris, Tokyo, and New York.</p>
 
-      <h2>A Voice for the Voiceless</h2>
-      <p>What makes Mithila art truly powerful today is its evolution. Artists like Godavari Dutta and Dulari Devi didn't just paint gods and goddesses; they painted their realities. They painted about female infanticide, about dowry, about the environment. The art became a language of protest and progress.</p>
+      <h2>A Language of Their Own</h2>
+      <p>What is fascinating about Mithila art is its evolution. It hasn't remained static. While the traditional themes of Ramayana and Krishna Leela persist, contemporary artists are using the form to talk about their own realities. Artists like Dulari Devi and Godavari Dutta have painted about the pain of floods, the injustice of dowry, the need for education, and even the COVID-19 pandemic.</p>
 
-      <p>We encourage our students to learn this art form not just to preserve a tradition, but to find their own voice. When a girl picks up a brush, she is not just painting; she is rewriting her destiny.</p>
+      <p>The art has become a language. In a society where women were often expected to be silent, their brushes started doing the talking. The intricate 'Kachni' (line work) and 'Bharni' (color filling) became tools of subversion and storytelling.</p>
+
+      <h2>Empowerment at Gurukulam</h2>
+      <p>At our Gurukulam, we ensure that every child, boy or girl, learns the basics of Mithila art. We want them to understand that art is not just decoration; it is heritage. For the girls, specifically, we run advanced workshops where they learn to monetize their skills. We are connecting them with fair-trade platforms so they can earn a dignified livelihood.</p>
+
+      <p>When a woman in a remote village picks up a bamboo twig dipped in color, she is not just drawing a line; she is drawing a connection between her past and her future. She is painting her own liberation.</p>
     `
   },
   {
     id: 11,
     title: "Chhath Puja: The Science and Sustainability Behind Bihar's Mahaparv",
     slug: "chhath-puja-science-sustainability",
-    image: "/images/blog/festivals-learning.png", // Reusing festival image
+    image: "/images/blog/chhath-puja.png",
     date: "2024-05-20",
     category: "Culture",
     excerpt: "Chhath is unique. No idols, no priests, just a direct connection with nature. Explore the scientific and environmental wisdom embedded in this ancient festival.",
     content: `
-      <p>Chhath Puja is the soul of Bihar. It is the 'Mahaparv' (Great Festival). Unlike other festivals that worship idols, Chhath worships the visible God—the Sun, the source of all life on earth.</p>
+      <p>If you want to understand the soul of Bihar, you must understand Chhath. It is not just a festival; it is an emotion that binds every Bihari, regardless of caste or class. It is the 'Mahaparv'—the Great Festival. But beyond the devotion and the folk songs, Chhath is a profound lesson in environmental science and sustainability.</p>
+
+      <h2>Worship of the Visible God</h2>
+      <p>Chhath is unique in the Hindu pantheon of festivals. There are no idols, no temples, and no priests involved. The devotee connects directly with nature. The object of worship is the Sun (Surya)—the visible source of all energy and life on Earth. It is a celebration of the solar cycle that sustains our agriculture and our bodies.</p>
 
       <h2>The Science of Arghya</h2>
-      <p>The ritual of offering 'Arghya' (water) to the rising and setting sun is deeply scientific. Standing in water helps regulate bio-electricity. Looking at the sun through the falling water stream splits the sunlight into its spectrum, providing therapeutic benefits to the eyes and body. The timing corresponds to the periods of maximum Vitamin D absorption.</p>
+      <p>The central ritual of Chhath involves standing in a water body and offering 'Arghya' (water) to the rising and setting sun. This is not mere ritualism. Standing in water for prolonged periods helps regulate the body's bio-electricity. The act of looking at the sun through the stream of falling water splits the sunlight into its spectrum, providing a form of chromotherapy that is beneficial for the eyes and the mind.</p>
+      
+      <p>Furthermore, the festival is timed perfectly during the transition of seasons (Kartik and Chaiti), when the body needs to reset its immunity. The fasting and the exposure to sunlight help in the synthesis of Vitamin D, preparing the body for the coming winter.</p>
 
-      <h2>A Lesson in Ecology</h2>
-      <p>Chhath is perhaps the most eco-friendly festival in the world. The offerings are seasonal fruits and vegetables. The 'prasad' is cooked on earthen stoves using mango wood. Most importantly, it requires a clean water body. Weeks before the festival, entire communities come together to clean rivers, ponds, and ghats. It is a massive, community-led river rejuvenation drive.</p>
+      <h2>A Community-Led River Rejuvenation</h2>
+      <p>Perhaps the most significant aspect of Chhath is its environmental impact. The festival requires a clean water body. Weeks before Chhath, entire communities—rich and poor, young and old—come together to clean the ghats, rivers, and ponds. It is a massive, voluntary river rejuvenation drive that happens every year without any government mandate.</p>
 
-      <p>Chhath teaches us that we are part of nature, not masters of it. In an era of climate change, the wisdom of Chhath is more relevant than ever.</p>
+      <p>The offerings (Prasad) are strictly seasonal and local—sugarcane, coconut, grapefruit, and wheat. They are cooked on earthen stoves using mango wood, ensuring a minimal carbon footprint. There is no plastic, no synthetic colors, no firecrackers.</p>
+
+      <p>In an era of climate crisis, Chhath teaches us a vital lesson: We are not masters of nature, but a part of it. Our well-being is inextricably linked to the health of our rivers and the sun. Chhath is the ultimate celebration of this ecological harmony.</p>
     `
   },
   {
     id: 12,
     title: "Grandmother's Science: Validating Traditional Knowledge with Modern Research",
     slug: "traditional-knowledge-modern-science",
-    image: "/images/blog/sustainable-agriculture.png", // Reusing agriculture image
+    image: "/images/blog/traditional-wisdom.png",
     date: "2024-05-15",
     category: "Wisdom",
     excerpt: "From using turmeric for immunity to eating seasonal greens, our grandmothers knew best. Modern science is now catching up with Bihar's traditional wisdom.",
     content: `
-      <p>We often dismiss our traditional practices as superstition. But look closer, and you will find deep scientific reasoning. Why do we eat curd and jaggery before an exam? Because it provides an instant glucose spike to the brain and cools the stomach. Why do we use neem leaves in grain storage? Because it is a natural pesticide.</p>
+      <p>In our rush to embrace modernity, we often discarded the wisdom of our ancestors, labeling it as 'superstition' or 'backward'. But today, as modern science delves deeper into nutrition and lifestyle, it is finding that our grandmothers were right all along. The traditional lifestyle of Bihar is rooted in deep scientific principles.</p>
 
-      <h2>Sattu: The Original Protein Shake</h2>
-      <p>Long before protein powders became a fad, the peasant of Bihar had 'Sattu'. This roasted gram flour is a powerhouse of energy, protein, and fiber. It cools the body in the scorching summer heat. It is the perfect superfood.</p>
+      <h2>The Superfood 'Sattu'</h2>
+      <p>Long before protein shakes became a gym fad, the peasant of Bihar had 'Sattu'. Made from roasted gram flour, Sattu is a nutritional powerhouse. It is high in protein, fiber, and has a low glycemic index, making it perfect for diabetics. It is a natural coolant, protecting the body from the scorching heat of the Gangetic plains. Today, Sattu is being hailed as a global superfood, but for us, it has always been a staple.</p>
 
-      <h2>Living with the Seasons</h2>
-      <p>Our traditional diet is strictly seasonal. We eat 'Chura-Dahi' in winter and 'Aam-Panna' in summer. This alignment with nature's rhythm keeps the body's immunity high. At our Gurukulam, we are documenting this 'Dadi Ma ke Nuskhe' (Grandmother's remedies) and validating them with scientific explanations. We want our children to respect their heritage not out of blind faith, but out of understanding.</p>
+      <h2>Seasonal Eating (Ritucharya)</h2>
+      <p>Our traditional diet follows the principles of Ayurveda's 'Ritucharya'—eating according to the season. In winter, we eat 'Chura-Dahi' and sesame (Til) to generate heat. In summer, we drink 'Aam Panna' (raw mango drink) to prevent heatstroke. We eat local greens (Saag) that grow wild and are packed with micronutrients. This alignment with nature's rhythm keeps the gut microbiome healthy and immunity high.</p>
+
+      <h2>Sustainable Living</h2>
+      <p>Look at our traditional architecture. The mud houses with thatched roofs were designed to stay cool in summer and warm in winter—natural insulation that modern concrete lacks. The practice of eating on banana leaves or sal leaves is biodegradable and hygienic. The use of copper vessels for storing water kills bacteria naturally.</p>
+
+      <h2>Validating the Old with the New</h2>
+      <p>At Divya Bihar Mission, we are running a project called 'Dadi Ma Ke Nuskhe' (Grandmother's Remedies). We encourage students to document the traditional knowledge of their elders—be it in agriculture, food, or medicine. We then help them research the scientific basis behind these practices. </p>
+
+      <p>We are teaching our children that being modern doesn't mean rejecting the past. It means questioning it, understanding it, and carrying forward the flame of wisdom. Our heritage is not a burden; it is a treasure map to a healthy, sustainable future.</p>
     `
   },
   {
     id: 13,
     title: "Digital Bridges: Connecting Remote Bihar to the Global Economy",
     slug: "digital-bridges-remote-bihar-global-economy",
-    image: "/images/blog/gurukulam-model.png", // Reusing gurukulam image
+    image: "/images/blog/digital-literacy.png",
     date: "2024-05-10",
     category: "Technology",
     excerpt: "The internet is the great equalizer. See how digital literacy is allowing youth in remote Bihar villages to work for global clients and access world-class education.",
     content: `
-      <p>Geography is no longer destiny. A high-speed internet connection has the power to erase the disadvantage of being born in a remote village. In Bihar, the digital revolution is quietly transforming lives.</p>
+      <p>Imagine a girl sitting under a thatched roof in a village in Madhubani, coding a website for a client in London. This is not a scene from a sci-fi movie; this is the reality we are building in Bihar. The internet has become the great equalizer, shattering the barriers of geography and class.</p>
+
+      <h2>The End of 'Location Disadvantage'</h2>
+      <p>For decades, the youth of Bihar suffered from a 'location disadvantage'. To get a good education or a good job, they had to migrate to Delhi, Mumbai, or Bangalore. This brain drain hollowed out the state. But the Digital Revolution is reversing this trend. High-speed internet has reached the villages, and with it, opportunity.</p>
 
       <h2>The Freelance Village</h2>
-      <p>We are seeing young people in villages learning graphic design, coding, and content writing. Sitting in Supaul or Madhubani, they are working for clients in New York and London. They are earning 'dollar salaries' while living with their families in fresh air. This 'Reverse Migration' is the dream.</p>
+      <p>We are witnessing the rise of the 'Freelance Village'. Young people are learning skills like graphic design, content writing, video editing, and software development. Platforms like Upwork and Fiverr allow them to earn in dollars while spending in rupees. They can live with their parents, eat fresh food, breathe clean air, and yet participate in the global economy.</p>
+      
+      <p>Take the example of Rahul (name changed), a student from our center. He taught himself video editing using YouTube tutorials. Today, he edits videos for YouTubers in the US, earning more than what he would have earned in a 9-to-5 job in a metro city. He is building a house for his parents in the village.</p>
 
-      <h2>Education at Your Fingertips</h2>
-      <p>A child in a village school can now watch lectures by the best professors from IITs and MIT. Khan Academy and YouTube have democratized knowledge. We are facilitating this by setting up digital libraries and computer labs in rural areas. We are building digital bridges that cross the chasm of opportunity.</p>
+      <h2>Democratizing Education</h2>
+      <p>Digital literacy is also transforming education. A child in a remote village can now access lectures by the best professors from IITs, MIT, and Harvard. Khan Academy, Coursera, and YouTube have democratized knowledge. At our Gurukulam, we use smart classrooms to bring the world to our students. We are bridging the gap between 'India' and 'Bharat'.</p>
+
+      <h2>The Challenge of Access</h2>
+      <p>Of course, the digital divide still exists. Not everyone has a smartphone or a laptop. That is why we are setting up Community Digital Libraries—spaces where village youth can come and access computers and the internet for free. We are building digital bridges that cross the chasm of inequality.</p>
+
+      <p>We believe that in the 21st century, talent is distributed equally, but opportunity is not. Digital literacy is the key to unlocking that opportunity for Bihar.</p>
     `
   },
   {
     id: 14,
     title: "Roots and Wings: Why Bihar's Youth are Choosing to Lead Locally",
     slug: "youth-leadership-roots-and-wings",
-    image: "/images/blog/founder-journey.png", // Reusing founder image
+    image: "/images/blog/youth-leadership.png",
     date: "2024-05-05",
     category: "Leadership",
     excerpt: "The brain drain is reversing. A new generation of Bihari youth is choosing to stay back and build their state. They have wings to fly, but their roots keep them grounded.",
     content: `
-      <p>For decades, the definition of success for a Bihari youth was to leave Bihar. To get a job in Delhi, Mumbai, or Bangalore and never look back. But the tide is turning. We are meeting young professionals—engineers, MBAs, artists—who are choosing to return.</p>
+      <p>There is a famous saying: "Give your children two things: one is roots, the other is wings." For a long time, the youth of Bihar only wanted wings. They wanted to fly away from the lack of opportunity, the caste politics, and the stagnation. But today, we are seeing a beautiful phenomenon: the return of the roots.</p>
 
-      <h2>The 'Bihari' Pride</h2>
-      <p>There is a renewed sense of pride in our identity. This generation is not ashamed of their roots; they are celebrating them. They are starting agri-tech startups, eco-tourism ventures, and social enterprises right here.</p>
+      <h2>The Reverse Migration</h2>
+      <p>The COVID-19 pandemic was a turning point. Millions of migrant workers returned home, realizing the fragility of their lives in big cities. But along with them came young professionals—engineers, MBAs, artists—who realized that they could work from anywhere. They looked at their home state with fresh eyes. They saw not just problems, but possibilities.</p>
 
-      <h2>Changemakers</h2>
-      <p>They realize that Bihar is a land of opportunities. The challenges here are actually problems waiting to be solved. And solving them creates value. We support these young leaders through mentorship and incubation. We believe that the best people to solve Bihar's problems are the youth of Bihar themselves.</p>
+      <h2>Changemakers in Action</h2>
+      <p>We are meeting young leaders who are starting agri-tech startups to help farmers. We are seeing design graduates working with artisans to revive traditional crafts. We are seeing law graduates starting NGOs to fight for the rights of the marginalized. These are not people who couldn't make it elsewhere; these are people who *chose* to make it here.</p>
+
+      <p>One such leader is Priya, who left a corporate job in Bangalore to start a waste management unit in her village. "I was tired of complaining about the garbage," she says. "I decided to be the one to clean it up." Today, her unit employs 15 local youth and keeps the village spotless.</p>
+
+      <h2>Cultivating Leadership</h2>
+      <p>At Divya Bihar Mission, our goal is to nurture this spirit. We don't just want to create employees; we want to create employers. We want to create leaders who are 'Glocal'—globally competent but locally rooted. We provide mentorship, incubation support, and a network for these young changemakers.</p>
+
+      <p>The narrative of Bihar is changing. It is no longer a story of helplessness. It is a story of resilience, innovation, and hope. And the authors of this new story are the youth of Bihar.</p>
     `
   },
   {
     id: 15,
     title: "Yoga and Ayurveda: Integrating Wellness into Rural Education",
     slug: "yoga-ayurveda-rural-education",
-    image: "/images/blog/gurukulam-model.png", // Reusing gurukulam image
+    image: "/images/blog/holistic-health.png",
     date: "2024-04-30",
     category: "Wellness",
     excerpt: "A healthy mind needs a healthy body. We don't just teach biology; we teach 'Dinacharya' (daily routine). Yoga and Ayurveda are essential parts of our school day.",
     content: `
-      <p>Modern education often treats the body as a machine to carry the brain around. We believe the body is the temple of the spirit. That's why our day begins with Yoga.</p>
+      <p>In the race for marks and grades, modern education often forgets the most fundamental instrument of learning: the human body. At Divya Bihar Mission, we believe that a weak body cannot house a strong mind. That is why Yoga and Ayurveda are not extracurricular activities for us; they are the foundation of our pedagogy.</p>
 
-      <h2>More Than Exercise</h2>
-      <p>Yoga is not just physical exercise; it is a tool for emotional regulation. 'Pranayama' (breath control) helps students manage exam stress and anger. Meditation improves their focus and memory. We have seen a tangible improvement in academic performance since we introduced regular Yoga sessions.</p>
+      <h2>Dinacharya: The Art of Daily Living</h2>
+      <p>Our students follow a 'Dinacharya' (daily routine) inspired by Ayurvedic principles. The day begins before sunrise (Brahma Muhurta), the best time for learning and meditation. They start with 'Usha Paan' (drinking warm water) to cleanse the system. This discipline aligns their biological clock with the circadian rhythm of nature.</p>
 
-      <h2>Kitchen Pharmacy</h2>
-      <p>We also teach the basics of Ayurveda. Students learn to identify medicinal herbs growing in their school garden. They learn the importance of eating fresh, local, and seasonal food. By integrating wellness into education, we are raising a generation that is physically robust and mentally resilient.</p>
+      <h2>Yoga for Emotional Regulation</h2>
+      <p>We have found that Yoga is a powerful tool for emotional regulation. Many of our students come from difficult backgrounds and carry the trauma of poverty. Regular practice of 'Pranayama' (breath control) helps them manage stress, anger, and anxiety. 'Surya Namaskar' builds physical strength and stamina. Meditation improves their focus and attention span, directly impacting their academic performance.</p>
+
+      <h2>The Kitchen Pharmacy</h2>
+      <p>We also teach the basics of Ayurveda—the science of life. Students learn to identify medicinal herbs growing in our herbal garden—Tulsi, Giloy, Ashwagandha, Neem. They learn that food is medicine. They understand the difference between 'Sattvic', 'Rajasic', and 'Tamasic' foods and how they affect the mind.</p>
+
+      <p>By integrating wellness into education, we are not just preventing disease; we are promoting positive health. We are raising a generation that knows how to take care of themselves physically, mentally, and spiritually. This is true education.</p>
     `
   },
   {
     id: 16,
     title: "Guardians of the Ganges: Community-Led Water Conservation",
     slug: "guardians-ganges-water-conservation",
-    image: "/images/blog/makhana-farming.png", // Reusing makhana image (water context)
+    image: "/images/blog/environmental-stewardship.png",
     date: "2024-04-25",
     category: "Environment",
     excerpt: "Water is life, especially in an agrarian state. Learn how communities are reviving traditional ponds and protecting the holy Ganges from pollution.",
     content: `
-      <p>Bihar is blessed with rivers, yet we face water crises. The problem is management. We are reviving the traditional 'Ahar-Pyne' systems of irrigation—an ancient engineering marvel of South Bihar that managed flood and drought simultaneously.</p>
+      <p>Bihar is a land of rivers. The mighty Ganga cuts through the heart of the state, fed by tributaries like the Kosi, Gandak, and Sone. Yet, paradoxically, we face a dual crisis of floods and droughts. The solution lies not in more concrete dams, but in reviving the traditional wisdom of water management.</p>
 
-      <h2>Pond Rejuvenation</h2>
-      <p>Every village in Mithila traditionally had a pond. Over time, these were encroached upon or became dumping grounds. We are mobilizing youth clubs to clean and de-silt these ponds. A revived pond recharges the groundwater, provides fish, and cools the micro-climate.</p>
+      <h2>The Ahar-Pyne System</h2>
+      <p>Centuries ago, the people of South Bihar developed the 'Ahar-Pyne' system—an ingenious network of embankments and channels that harvested floodwater for use during dry months. It was a decentralized, community-managed system. Over the years, this system fell into disrepair. We are working with local communities to revive these structures. It is low-cost, eco-friendly, and highly effective.</p>
+
+      <h2>Pond Rejuvenation in Mithila</h2>
+      <p>In North Bihar, the culture was centered around ponds (Pokhars). Every village had multiple ponds for bathing, irrigation, and fishing. Tragically, many have been encroached upon or turned into garbage dumps. We have launched a movement to 'Reclaim the Pokhar'. Youth clubs are mobilizing to desilt and clean these ponds. A revived pond recharges the groundwater, improves the micro-climate, and supports biodiversity.</p>
 
       <h2>The Ganga Prahari</h2>
-      <p>Along the banks of the Ganges, we are training 'Ganga Praharis'—local volunteers who monitor river health, prevent littering, and plant trees along the banks. They are the guardians of the river. They understand that if the Ganga dies, our civilization dies.</p>
+      <p>The health of the Ganga is non-negotiable. We are training 'Ganga Praharis' (Guardians of the Ganga)—local volunteers who live along the river banks. They monitor water quality, prevent the dumping of plastic and waste, and plant trees to prevent soil erosion. They educate pilgrims about responsible worship.</p>
+
+      <p>We teach our students that water is not a commodity; it is a deity. 'Jal hi Jeevan hai' (Water is Life) is not just a slogan; it is a survival imperative. By becoming guardians of our water bodies, we are securing the future of Bihar.</p>
     `
   },
   {
     id: 17,
     title: "Viksit Bihar: A Blueprint for a Self-Reliant and Prosperous State",
     slug: "viksit-bihar-blueprint-prosperity",
-    image: "/images/blog/founder-journey.png", // Reusing founder image
+    image: "/images/blog/vision-2047.png",
     date: "2024-04-20",
     category: "Vision",
     excerpt: "What will Bihar look like in 2047? We envision a state that is not defined by its poverty, but by its prosperity, culture, and innovation. This is our dream for a 'Viksit Bihar'.",
     content: `
-      <p>We dare to dream. We dream of a Bihar where every child has access to world-class education without leaving their village. A Bihar where farmers are wealthy entrepreneurs. A Bihar that is a global hub for spiritual and cultural tourism.</p>
+      <p>As India marches towards 2047—the centenary of its independence—we must ask: Where will Bihar be? Will it still be a laggard, or will it reclaim its position as a leader? At Divya Bihar Mission, we refuse to accept the status quo. We dare to dream of a 'Viksit Bihar'—a Developed Bihar.</p>
 
-      <h2>The Roadmap</h2>
-      <p>This is not a pipe dream. It is a possibility that requires work. It requires:</p>
-      <ul>
-        <li><strong>Investment in Human Capital:</strong> Health and Education first.</li>
-        <li><strong>Agro-Industrialization:</strong> Processing what we grow.</li>
-        <li><strong>Digital Connectivity:</strong> Bridging the urban-rural divide.</li>
-        <li><strong>Cultural Confidence:</strong> Believing in our own worth.</li>
-      </ul>
+      <h2>The Pillars of Prosperity</h2>
+      <p>Our blueprint for this vision rests on four pillars:</p>
+      
+      <h3>1. Human Capital Revolution</h3>
+      <p>The greatest asset of Bihar is its people. We envision a state where every child, regardless of their pin code, has access to world-class education and healthcare. A state that exports not just labor, but doctors, engineers, artists, and entrepreneurs.</p>
 
-      <p>The 'Divya Bihar Mission' is just one brick in this foundation. We invite every Bihari, resident or non-resident, to add their brick. Together, let us rebuild the glory of Magadh. Let us build a Viksit Bihar.</p>
+      <h3>2. Agro-Industrial Powerhouse</h3>
+      <p>Bihar has the most fertile soil in the world. We envision a shift from subsistence farming to high-value agro-processing. We want to see factories in Bihar processing our litchis, mangoes, makhana, and maize. We want the 'Made in Bihar' tag to be a mark of quality globally.</p>
+
+      <h3>3. Cultural Renaissance</h3>
+      <p>We envision Bihar as a global hub for spiritual and cultural tourism. From the Buddhist circuit to the Sufi shrines, from the Ramayana trail to the Jain Tirthankaras, Bihar has it all. We need to build the infrastructure and the narrative to welcome the world.</p>
+
+      <h3>4. Digital & Physical Connectivity</h3>
+      <p>We see a Bihar where every village is connected by high-speed internet and all-weather roads. Where a startup can operate as seamlessly from Supaul as it does from Silicon Valley.</p>
+
+      <h2>A Collective Dream</h2>
+      <p>This vision cannot be achieved by the government alone. It requires the 'Jan Bhagidari' (people's participation) of every Bihari. It requires the diaspora to give back. It requires the youth to take ownership.</p>
+
+      <p>The 'Divya Bihar Mission' is just a small spark. We want to turn this spark into a fire—a fire of development, dignity, and dharma. Let us build a Bihar that our ancestors would be proud of and our children will be thankful for. Jai Bihar! Jai Hind!</p>
     `
   }
 ];
