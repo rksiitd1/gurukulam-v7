@@ -229,12 +229,12 @@ export function Journey() {
               <div className="text-sm text-gray-500">Since 2018</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">500+</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">1500+</div>
               <div className="text-gray-700 font-medium">Students Impacted</div>
               <div className="text-sm text-gray-500">Across all programs</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2">25+</div>
               <div className="text-gray-700 font-medium">Villages Reached</div>
               <div className="text-sm text-gray-500">In Supaul district</div>
             </div>
