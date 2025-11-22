@@ -4,6 +4,33 @@ import { GraduationCap, BookOpen, Sprout, Users, ArrowRight, Clock, MapPin } fro
 import ProgramImage from "./ProgramImage"
 import Link from "next/link"
 
+import gurukulamImg from "@/public/images/programs/gurukulam.jpg"
+import shriClassesImg from "@/public/images/programs/shri-classes.jpg"
+import agroImg from "@/public/images/programs/agro-gaushala.jpg"
+import udyamitaImg from "@/public/images/programs/udyamita.jpg"
+
+const getColorClasses = (color: string) => {
+  const colors = {
+    blue: "border-blue-200 hover:border-blue-300 hover:shadow-blue-100",
+    green: "border-green-200 hover:border-green-300 hover:shadow-green-100",
+    emerald: "border-emerald-200 hover:border-emerald-300 hover:shadow-emerald-100",
+    orange: "border-orange-200 hover:border-orange-300 hover:shadow-orange-100",
+  };
+  return colors[color as keyof typeof colors] || colors.blue;
+};
+
+const getStats1 = (program: any) => {
+  if (program.stats.students) return { value: program.stats.students, label: "Students" };
+  if (program.stats.farmers) return { value: program.stats.farmers, label: "Farmers" };
+  return { value: program.stats.entrepreneurs, label: "Entrepreneurs" };
+};
+
+const getStats2 = (program: any) => {
+  if (program.stats.grades) return { value: program.stats.grades, label: "Grades" };
+  if (program.stats.acres) return { value: program.stats.acres, label: "Acres" };
+  return { value: program.stats.businesses, label: "Businesses" };
+};
+
 export function ProgramsGrid() {
   const programs = [
     {
@@ -13,7 +40,7 @@ export function ProgramsGrid() {
       icon: <GraduationCap className="w-8 h-8 text-blue-500" />,
       description:
         "Residential K-12 school providing holistic education that combines NCERT curriculum with Sanskrit, Yoga, and traditional Indian values in a nurturing environment.",
-      image: require("@/public/images/programs/gurukulam.jpg").default,
+      image: gurukulamImg,
       features: [
         "NCERT Curriculum",
         "Residential Facilities",
@@ -44,7 +71,7 @@ export function ProgramsGrid() {
       icon: <BookOpen className="w-8 h-8 text-green-500" />,
       description:
         "Specialized coaching for grades 9-12 focusing on Science, Mathematics, and competitive exam preparation with expert faculty and personalized attention.",
-      image: require("@/public/images/programs/shri-classes.jpg").default,
+      image: shriClassesImg,
       features: [
         "Grades 9-12 Coaching",
         "JEE/NEET Preparation",
@@ -75,7 +102,7 @@ export function ProgramsGrid() {
       icon: <Sprout className="w-8 h-8 text-emerald-500" />,
       description:
         "Comprehensive agricultural training program promoting organic farming, agroforestry, and sustainable practices with hands-on experience at our demonstration farm.",
-      image: require("@/public/images/programs/agro-gaushala.jpg").default,
+      image: agroImg,
       features: [
         "Organic Farming Training",
         "Agroforestry Models",
@@ -106,7 +133,7 @@ export function ProgramsGrid() {
       icon: <Users className="w-8 h-8 text-orange-500" />,
       description:
         "Entrepreneurship development program empowering women and youth with skills, training, and support to start their own businesses and become job creators.",
-      image: require("@/public/images/programs/udyamita.jpg").default,
+      image: udyamitaImg,
       features: [
         "Skill Development Training",
         "Business Plan Development",
@@ -132,15 +159,7 @@ export function ProgramsGrid() {
     },
   ];
 
-  const getColorClasses = (color: string) => {
-    const colors = {
-      blue: "border-blue-200 hover:border-blue-300 hover:shadow-blue-100",
-      green: "border-green-200 hover:border-green-300 hover:shadow-green-100",
-      emerald: "border-emerald-200 hover:border-emerald-300 hover:shadow-emerald-100",
-      orange: "border-orange-200 hover:border-orange-300 hover:shadow-orange-100",
-    }
-    return colors[color as keyof typeof colors] || colors.blue
-  }
+
 
   return (
     <section className="py-20 bg-white">
@@ -160,87 +179,90 @@ export function ProgramsGrid() {
 
         {/* Programs Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
-          {programs.map((program, index) => (
-            <Card
-              key={program.id}
-              className={`overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${getColorClasses(program.color)}`}
-            >
-              <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-gray-100">
-                <ProgramImage
-                  src={program.image}
-                  alt={program.title}
-                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 bg-gray-100"
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
-                  {program.icon}
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="text-xl font-bold mb-1">{program.title}</h3>
-                  <p className="text-sm font-devanagari opacity-90">{program.subtitle}</p>
-                </div>
-              </div>
-
-              <CardContent className="p-8 space-y-6">
-                <p className="text-gray-600 leading-relaxed">{program.description}</p>
-
-                {/* Program Stats */}
-                <div className="grid grid-cols-2 gap-4 py-4 bg-gray-50 rounded-lg p-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">
-                      {program.stats.students || program.stats.farmers || program.stats.entrepreneurs}
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      {program.stats.students ? "Students" : program.stats.farmers ? "Farmers" : "Entrepreneurs"}
-                    </div>
+          {programs.map((program, index) => {
+            const stats1 = getStats1(program);
+            const stats2 = getStats2(program);
+            return (
+              <Card
+                key={program.id}
+                className={`overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${getColorClasses(program.color)}`}
+              >
+                <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-gray-100">
+                  <ProgramImage
+                    src={program.image}
+                    alt={program.title}
+                    className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 bg-gray-100"
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
+                    {program.icon}
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">
-                      {program.stats.grades || program.stats.acres || program.stats.businesses}
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      {program.stats.grades ? "Grades" : program.stats.acres ? "Businesses"}
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <h3 className="text-xl font-bold mb-1">{program.title}</h3>
+                    <p className="text-sm font-devanagari opacity-90">{program.subtitle}</p>
                   </div>
                 </div>
+                <CardContent className="p-8 space-y-6">
+                  <p className="text-gray-600 leading-relaxed">{program.description}</p>
 
-                {/* Key Features */}
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {program.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700">{feature}</span>
+                  {/* Program Stats */}
+                  <div className="grid grid-cols-2 gap-4 py-4 bg-gray-50 rounded-lg p-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-900">
+                        {stats1.value}
                       </div>
-                    ))}
+                      <div className="text-xs text-gray-600">
+                        {stats1.label}
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-900">
+                        {stats2.value}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        {stats2.label}
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Program Info */}
-                <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4" />
-                    <span>Est. {program.stats.established}</span>
+                  {/* Key Features */}
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {program.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center space-x-2 text-sm">
+                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{program.stats.location}</span>
-                  </div>
-                </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4">
-                  <Link href={program.link} className="flex-1">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  {/* Program Info */}
+                  <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
+                    <div className="flex items-center space-x-1">
+                      <Clock className="w-4 h-4" />
+                      <span>Est. {program.stats.established}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>{program.stats.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex space-x-3 pt-4">
+                    <Link href={program.link} className="flex-1">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Program Comparison */}
@@ -324,5 +346,5 @@ export function ProgramsGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
