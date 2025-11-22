@@ -75,7 +75,6 @@ const Hero = () => (
               alt="Divya Bihar Mission - Rural Development"
               className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem] object-cover"
               priority
-              fit="cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20">

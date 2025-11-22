@@ -197,6 +197,21 @@ export function HeroCarousel({
               key={index}
               className="relative h-full flex-shrink-0 min-w-full"
             >
+              {/* Permanent Blurred Background */}
+              {fit === 'contain' && src.blurDataURL && (
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url(${src.blurDataURL})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(20px) brightness(0.8)',
+                    transform: 'scale(1.1)',
+                  }}
+                />
+              )}
+
               <Image
                 src={src}
                 alt={`${alt} ${index + 1}`}

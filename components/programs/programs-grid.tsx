@@ -13,7 +13,7 @@ export function ProgramsGrid() {
       icon: <GraduationCap className="w-8 h-8 text-blue-500" />,
       description:
         "Residential K-12 school providing holistic education that combines NCERT curriculum with Sanskrit, Yoga, and traditional Indian values in a nurturing environment.",
-      image: "/images/programs/gurukulam.jpg",
+      image: require("@/public/images/programs/gurukulam.jpg").default,
       features: [
         "NCERT Curriculum",
         "Residential Facilities",
@@ -44,7 +44,7 @@ export function ProgramsGrid() {
       icon: <BookOpen className="w-8 h-8 text-green-500" />,
       description:
         "Specialized coaching for grades 9-12 focusing on Science, Mathematics, and competitive exam preparation with expert faculty and personalized attention.",
-      image: "/images/programs/shri-classes.jpg",
+      image: require("@/public/images/programs/shri-classes.jpg").default,
       features: [
         "Grades 9-12 Coaching",
         "JEE/NEET Preparation",
@@ -75,7 +75,7 @@ export function ProgramsGrid() {
       icon: <Sprout className="w-8 h-8 text-emerald-500" />,
       description:
         "Comprehensive agricultural training program promoting organic farming, agroforestry, and sustainable practices with hands-on experience at our demonstration farm.",
-      image: "/images/programs/agro-gaushala.jpg",
+      image: require("@/public/images/programs/agro-gaushala.jpg").default,
       features: [
         "Organic Farming Training",
         "Agroforestry Models",
@@ -106,7 +106,7 @@ export function ProgramsGrid() {
       icon: <Users className="w-8 h-8 text-orange-500" />,
       description:
         "Entrepreneurship development program empowering women and youth with skills, training, and support to start their own businesses and become job creators.",
-      image: "/images/programs/udyamita.jpg",
+      image: require("@/public/images/programs/udyamita.jpg").default,
       features: [
         "Skill Development Training",
         "Business Plan Development",
@@ -130,7 +130,7 @@ export function ProgramsGrid() {
       color: "orange",
       link: "/programs/udyamita",
     },
-  ]
+  ];
 
   const getColorClasses = (color: string) => {
     const colors = {
@@ -167,10 +167,8 @@ export function ProgramsGrid() {
             >
               <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-gray-100">
                 <ProgramImage
-                  src={program.image || "/placeholder.svg"}
+                  src={program.image}
                   alt={program.title}
-                  width={1536}
-                  height={1024}
                   className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 bg-gray-100"
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
@@ -201,7 +199,7 @@ export function ProgramsGrid() {
                       {program.stats.grades || program.stats.acres || program.stats.businesses}
                     </div>
                     <div className="text-xs text-gray-600">
-                      {program.stats.grades ? "Grades" : program.stats.acres ? "Acres" : "Businesses"}
+                      {program.stats.grades ? "Grades" : program.stats.acres ? "Businesses"}
                     </div>
                   </div>
                 </div>
