@@ -172,7 +172,7 @@ export function UdyamitaSuccess() {
                   <div className="flex items-start space-x-4">
                     <img
                       src={story.image || "/placeholder.svg"}
-                      alt={story.name}
+                      alt={`${story.name} - ${story.business} Entrepreneur`}
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div className="flex-1">

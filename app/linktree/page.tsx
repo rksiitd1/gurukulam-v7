@@ -1,17 +1,17 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { 
-  Home, 
-  Heart, 
-  Mail, 
-  Facebook, 
-  Youtube, 
-  Phone, 
-  Users, 
-  BookOpen, 
-  Camera, 
-  MessageSquare, 
+import {
+  Home,
+  Heart,
+  Mail,
+  Facebook,
+  Youtube,
+  Phone,
+  Users,
+  BookOpen,
+  Camera,
+  MessageSquare,
   User,
   ExternalLink,
   ArrowRight
@@ -136,8 +136,8 @@ export default function LinktreePage() {
         className={`
           group relative flex items-center gap-4 p-4 sm:p-5 rounded-xl
           border-2 transition-all duration-200
-          ${link.highlight 
-            ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white border-orange-500 shadow-lg hover:shadow-xl hover:scale-[1.02]' 
+          ${link.highlight
+            ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white border-orange-500 shadow-lg hover:shadow-xl hover:scale-[1.02]'
             : 'bg-white text-gray-900 border-gray-200 hover:border-orange-400 hover:shadow-md hover:bg-orange-50'
           }
           touch-manipulation
@@ -148,8 +148,8 @@ export default function LinktreePage() {
           className={`
             flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg
             flex items-center justify-center
-            ${link.highlight 
-              ? 'bg-white/20 text-white' 
+            ${link.highlight
+              ? 'bg-white/20 text-white'
               : 'bg-orange-100 text-orange-600 group-hover:bg-orange-200'
             }
             transition-colors
@@ -172,11 +172,11 @@ export default function LinktreePage() {
             </p>
           )}
         </div>
-        <ArrowRight 
+        <ArrowRight
           className={`
             w-5 h-5 flex-shrink-0 transition-transform group-hover:translate-x-1
             ${link.highlight ? 'text-white/80' : 'text-gray-400'}
-          `} 
+          `}
         />
       </div>
     )
@@ -210,7 +210,7 @@ export default function LinktreePage() {
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg p-3 border-4 border-orange-200">
               <Image
                 src="/DBM-logo.png"
-                alt="Divya Bihar Mission Logo"
+                alt="Divya Bihar Mission Logo - Sun and Open Book Symbol"
                 fill
                 className="object-contain p-2"
                 priority

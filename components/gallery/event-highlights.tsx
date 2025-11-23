@@ -135,13 +135,12 @@ export function EventHighlights() {
                   {event.images.map((image, imageIndex) => (
                     <div
                       key={imageIndex}
-                      className={`relative overflow-hidden rounded-xl shadow-lg ${
-                        imageIndex === 0 ? "col-span-2 h-64" : "h-32"
-                      }`}
+                      className={`relative overflow-hidden rounded-xl shadow-lg ${imageIndex === 0 ? "col-span-2 h-64" : "h-32"
+                        }`}
                     >
                       <Image
                         src={image || "/placeholder.svg"}
-                        alt={`${event.title} - Image ${imageIndex + 1}`}
+                        alt={`${event.title} - Highlight Image ${imageIndex + 1}`}
                         width={400}
                         height={300}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

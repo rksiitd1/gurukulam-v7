@@ -29,7 +29,7 @@ export function HeroCarousel({
 }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [images, setImages] = useState<StaticImageData[]>([]);
+  const [images, setImages] = useState<(StaticImageData | { src: StaticImageData; alt: string })[]>([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStartX, setTouchStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
@@ -192,39 +192,48 @@ export function HeroCarousel({
             transform: `translateX(calc(-${currentIndex * 100}% + ${offsetX}px))`,
           }}
         >
-          {images.map((src, index) => (
-            <div
-              key={index}
-              className="relative h-full flex-shrink-0 min-w-full"
-            >
-              {/* Permanent Blurred Background */}
-              {fit === 'contain' && src.blurDataURL && (
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url(${src.blurDataURL})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(20px) brightness(0.8)',
-                    transform: 'scale(1.1)',
-                  }}
-                />
-              )}
+          {images.map((item, index) => {
+            const src = 'src' in item ? item.src : item;
+            const itemAlt = 'alt' in item ? (item as any).alt : `${alt} ${index + 1}`;
 
-              <Image
-                src={src}
-                alt={`${alt} ${index + 1}`}
-                fill
-                className={cn(fit === 'contain' ? 'object-contain' : 'object-cover', 'object-center')}
-                priority={index === 0 && priority}
-                sizes={sizes}
-                placeholder="blur"
-                onLoadingComplete={() => setIsLoading(false)}
-                draggable={false}
-              />
-            </div>
-          ))}
+            return (
+              <div key={index} className="relative w-full h-full flex-shrink-0">
+                {/* Permanent Blurred Background */}
+                {fit === 'contain' && typeof src === 'object' && src.blurDataURL && (
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `url(${src.blurDataURL})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(20px) brightness(0.8)',
+                      transform: 'scale(1.1)',
+                    }}
+                  />
+                )}
+                <Image
+                  src={src}
+                  alt={itemAlt}
+                  fill
+                  className={cn(
+                    "object-center",
+                    fit === 'contain' ? 'object-contain' : 'object-cover',
+                    isTransitioning && 'transition-opacity duration-300 ease-in-out',
+                    isLoading && 'opacity-0' // Hide image until loaded
+                  )}
+                  priority={index === 0 && priority}
+                  sizes={sizes}
+                  placeholder="blur"
+                  onLoadingComplete={() => setIsLoading(false)}
+                  draggable={false}
+                />
+                {showOverlay && fit === 'cover' && (
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* Navigation Arrows - Hidden on mobile, visible on md+ */}

@@ -188,7 +188,7 @@ export function Biography() {
             <div className="relative">
               <Image
                 src="/placeholder.svg?height=400&width=500"
-                alt="Mukund with students during early teaching days"
+                alt="Mukund Agrawal teaching students during his early days of social service"
                 width={500}
                 height={400}
                 className="rounded-xl shadow-lg w-full h-auto object-cover"

@@ -143,7 +143,7 @@ export function GurukulamTestimonials() {
                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name} - ${testimonial.role}`}
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover"
@@ -173,7 +173,7 @@ export function GurukulamTestimonials() {
                 <CardContent className="p-6">
                   <Image
                     src={story.image || "/placeholder.svg"}
-                    alt={story.name}
+                    alt={`${story.name} - ${story.achievement}`}
                     width={80}
                     height={80}
                     className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"

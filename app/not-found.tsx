@@ -68,7 +68,7 @@ export default function NotFound() {
             <div className="relative w-full h-full rounded-full shadow-inner overflow-hidden">
               <Image
                 src="/DBM-logo.png"
-                alt="Divya Bihar Mission logo"
+                alt="Divya Bihar Mission Logo - Sun and Open Book Symbol"
                 fill
                 className="object-cover"
                 priority

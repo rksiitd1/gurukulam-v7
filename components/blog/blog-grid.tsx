@@ -36,7 +36,7 @@ export function BlogGrid() {
               <div className="relative rounded-none">
                 <img
                   src={post.image || "/placeholder.svg"}
-                  alt={post.title}
+                  alt={`${post.title} - Blog Post Thumbnail`}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 {/* Overlay */}

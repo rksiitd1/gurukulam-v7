@@ -263,7 +263,7 @@ export function VideoGallery() {
                 <div className="relative overflow-hidden">
                   <Image
                     src={video.thumbnail || "/placeholder.svg"}
-                    alt={video.title}
+                    alt={`${video.title} - ${video.category} Video Thumbnail`}
                     width={500}
                     height={300}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -344,8 +344,8 @@ export function VideoGallery() {
             </p>
             <p className="font-devanagari text-lg opacity-90 mb-6">हमारे यूट्यूब चैनल को सब्सक्राइब करें</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-red-600 hover:bg-gray-100"
                 asChild
               >
@@ -358,9 +358,9 @@ export function VideoGallery() {
                   Subscribe Now
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="border-white hover:bg-white/10 text-slate-500"
                 asChild
               >

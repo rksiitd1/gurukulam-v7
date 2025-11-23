@@ -103,7 +103,7 @@ export function AboutHero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <HeroCarousel
                 imageDir="about"
-                alt="Mukund Agrawal teaching students in village classroom"
+                alt="Mukund Agrawal teaching mathematics to students in a village classroom in Raghopur"
                 className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>

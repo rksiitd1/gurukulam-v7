@@ -139,7 +139,7 @@ export function StudentShowcase() {
                   <div className={`relative ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
                     <Image
                       src={achievement.image || "/placeholder.svg"}
-                      alt={achievement.title}
+                      alt={`${achievement.title} - ${achievement.category} Achievement`}
                       width={600}
                       height={400}
                       className="w-full h-80 lg:h-full object-cover"
@@ -209,7 +209,7 @@ export function StudentShowcase() {
                   <div className="relative mb-6">
                     <Image
                       src={story.image || "/placeholder.svg"}
-                      alt={story.name}
+                      alt={`${story.name} - ${story.achievement}`}
                       width={120}
                       height={120}
                       className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg"

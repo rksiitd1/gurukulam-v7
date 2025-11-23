@@ -41,7 +41,13 @@ import agri4 from '@/public/images/gallery/agriculture/4.jpg';
 import agri5 from '@/public/images/gallery/agriculture/5.jpg';
 
 export const HERO_IMAGES = {
-    home: [home1, home2, home3, home4, home5],
+    home: [
+        { src: home1, alt: "Children in uniforms sitting in a classroom" },
+        { src: home2, alt: "Teacher teaching students in a classroom" },
+        { src: home3, alt: "Students participating in a cultural event" },
+        { src: home4, alt: "Students engaged in an outdoor activity" },
+        { src: home5, alt: "Community gathering event" }
+    ],
     about: [about1, about2, about3, about4, about5],
     contact: [gallery1, gallery2, gallery3, gallery4, gallery5],
     gallery: [gallery6, gallery7, gallery8, gallery9, gallery10],

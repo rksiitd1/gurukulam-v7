@@ -29,7 +29,7 @@ function ContentRenderer({ content }: { content: string }) {
     .replace(/<li>/g, '<li class="relative pl-6 leading-relaxed before:content-[\'•\'] before:absolute before:left-0 before:text-orange-500 before:font-bold before:text-xl">')
 
   return (
-    <div 
+    <div
       className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-orange-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-strong:text-gray-900 prose-strong:font-semibold"
       dangerouslySetInnerHTML={{ __html: cleanContent }}
     />
@@ -62,9 +62,9 @@ function ArticleMetadata({ post }: { post: any }) {
           })}
         </span>
       </div>
-      
-      <Button 
-        variant="outline" 
+
+      <Button
+        variant="outline"
         size="sm"
         onClick={handleShare}
         className="flex items-center space-x-2 bg-white/80 backdrop-blur-md hover:bg-orange-50 hover:border-orange-300 border-orange-100/60 shadow-sm rounded-full px-5 py-2.5 transition-all duration-300 hover:scale-105 text-sm font-medium"
@@ -79,7 +79,7 @@ function ArticleMetadata({ post }: { post: any }) {
 // Elegant table of contents with perfect sizing
 function TableOfContents({ content }: { content: string }) {
   const headings = content.match(/<h2[^>]*>(.*?)<\/h2>/g) || []
-  
+
   if (headings.length === 0) return null
 
   return (
@@ -90,7 +90,7 @@ function TableOfContents({ content }: { content: string }) {
           {headings.map((heading, index) => {
             const text = heading.replace(/<[^>]*>/g, '')
             const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-            
+
             return (
               <a
                 key={index}
@@ -123,7 +123,7 @@ export function BlogPost({ slug }: BlogPostProps) {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
-  
+
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50/40 via-white to-red-50/40">
@@ -210,7 +210,7 @@ export function BlogPost({ slug }: BlogPostProps) {
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <img
                 src={post.image || "/placeholder.svg"}
-                alt={post.title}
+                alt={`${post.title} - Article Featured Image`}
                 className="w-full h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -228,7 +228,7 @@ export function BlogPost({ slug }: BlogPostProps) {
               <TableOfContents content={post.content} />
             </div>
           </div>
-          
+
           {/* Main Content */}
           <div className="lg:col-span-3">
             <Card className="bg-white/80 backdrop-blur-md border-orange-100/60 shadow-lg rounded-2xl overflow-hidden">
@@ -247,7 +247,7 @@ export function BlogPost({ slug }: BlogPostProps) {
           </div>
         </div>
       </div>
-      
+
       {/* Related Posts with refined styling */}
       <div className="bg-gradient-to-r from-orange-50/60 to-red-50/60 py-16">
         <RelatedPosts currentId={post.id} />

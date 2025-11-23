@@ -145,7 +145,7 @@ export function GurukulamFacilities() {
                 <div className="relative rounded-2xl overflow-hidden shadow-lg">
                   <Image
                     src={facility.image || "/placeholder.svg"}
-                    alt={facility.category}
+                    alt={`${facility.category} at Divya Bihar Gurukulam`}
                     width={500}
                     height={400}
                     className="w-full h-80 object-cover"

@@ -77,7 +77,7 @@ export function ImpactStories() {
               <div className="relative">
                 <img
                   src={story.image || "/placeholder.svg"}
-                  alt={story.title}
+                  alt={`${story.title} - ${story.category} Impact Story`}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <Badge className={`absolute top-4 left-4 ${story.color}`}>

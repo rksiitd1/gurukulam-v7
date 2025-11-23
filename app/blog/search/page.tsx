@@ -176,7 +176,7 @@ function SearchPage() {
                   <div className="relative rounded-none">
                     <img
                       src={post.image || "/placeholder.svg"}
-                      alt={post.title}
+                      alt={`${post.title} - Search Result Thumbnail`}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

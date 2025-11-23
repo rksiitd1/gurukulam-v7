@@ -136,7 +136,7 @@ export function AgricultureResults() {
                   <div className="flex items-start space-x-4">
                     <img
                       src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
+                      alt={`${testimonial.name} - ${testimonial.crop} Farmer`}
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div className="flex-1">

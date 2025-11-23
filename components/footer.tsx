@@ -30,7 +30,7 @@ export function Footer() {
           {/* About Section - full width on mobile */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
-              <Image src="/DBM-logo.png" alt="Divya Bihar Mission Logo" width={50} height={50} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" priority />
+              <Image src="/DBM-logo.png" alt="Divya Bihar Mission Logo - Sun and Open Book Symbol" width={50} height={50} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" priority />
               <div>
                 <h3 className="text-base sm:text-lg font-bold">Divya Bihar Mission</h3>
                 <p className="text-xs sm:text-sm text-gray-400 font-devanagari">दिव्य बिहार मिशन</p>

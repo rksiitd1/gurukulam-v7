@@ -63,7 +63,7 @@ export function VolunteerTestimonials() {
                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name} - ${testimonial.title}`}
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover"

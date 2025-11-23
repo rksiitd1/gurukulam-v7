@@ -55,7 +55,7 @@ export function GalleryHero() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/gallery/header/classroom.png"
-                    alt="Students in classroom"
+                    alt="Students engaged in classroom learning at Divya Bihar Gurukulam"
                     width={300}
                     height={200}
                     className="w-full h-48 object-cover"
@@ -66,7 +66,7 @@ export function GalleryHero() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/gallery/header/cultural-program.png"
-                    alt="Cultural program"
+                    alt="Students performing in a cultural program"
                     width={300}
                     height={250}
                     className="w-full h-60 object-cover"
@@ -79,7 +79,7 @@ export function GalleryHero() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/gallery/header/planting.png"
-                    alt="Agricultural training"
+                    alt="Students participating in tree plantation drive"
                     width={300}
                     height={250}
                     className="w-full h-60 object-cover"
@@ -90,7 +90,7 @@ export function GalleryHero() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/gallery/header/community-events.png"
-                    alt="Community gathering"
+                    alt="Community gathering and celebration event"
                     width={300}
                     height={200}
                     className="w-full h-48 object-cover"
@@ -100,7 +100,7 @@ export function GalleryHero() {
                 </div>
               </div>
             </div>
-            
+
             {/* Floating Elements */}
             <div className="absolute -top-4 -right-4 bg-purple-500 text-white p-3 rounded-full shadow-lg">
               <span className="text-xl">📸</span>

@@ -170,7 +170,7 @@ export function TeamProfiles() {
                           <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                           <Image
                             src={member.image || "/placeholder.svg"}
-                            alt={member.name}
+                            alt={`${member.name} - ${member.title}`}
                             width={160}
                             height={192}
                             className="relative w-full h-full object-cover shadow-2xl border-4 border-white group-hover:border-slate-200 transition-all duration-500 group-hover:scale-105"

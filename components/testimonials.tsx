@@ -3,59 +3,59 @@ import { Star, Quote } from "lucide-react"
 import Image from "next/image"
 
 const testimonials = [
-    {
-      name: "Dr. Rajesh Kumar",
-      title: "IIT Delhi Professor",
-      image: "/placeholder.svg?height=80&width=80",
-      content:
-        "Mukund's dedication to rural education is exemplary. His approach of combining modern curriculum with traditional values is exactly what India needs.",
-      rating: 5,
-      type: "mentor",
-    },
-    {
-      name: "Priya Sharma",
-      title: "Parent, Raghopur",
-      image: "/placeholder.svg?height=80&width=80",
-      content: "मेरे बेटे को गुरुकुल में बेहतरीन शिक्षा मिल रही है। यहाँ संस्कार के साथ-साथ आधुनिक विषयों की भी अच्छी पढ़ाई होती है।",
-      rating: 5,
-      type: "parent",
-    },
-    {
-      name: "Amit Singh",
-      title: "Former Student",
-      image: "/placeholder.svg?height=80&width=80",
-      content:
-        "Golu sir changed my life. From a village boy with no hope, I'm now pursuing engineering. The values he taught will stay with me forever.",
-      rating: 5,
-      type: "student",
-    },
-    {
-      name: "Sunita Devi",
-      title: "Farmer, Supaul",
-      image: "/placeholder.svg?height=80&width=80",
-      content: "कृषि प्रशिक्षण से मेरी आय तीन गुना बढ़ गई है। जैविक खेती की तकनीक सीखकर मैं अब दूसरी महिलाओं को भी सिखाती हूँ।",
-      rating: 5,
-      type: "farmer",
-    },
-    {
-      name: "Prof. Meera Gupta",
-      title: "Delhi University",
-      image: "/placeholder.svg?height=80&width=80",
-      content:
-        "The holistic development approach at Divya Bihar Mission is remarkable. It's creating well-rounded individuals who are both modern and rooted.",
-      rating: 5,
-      type: "mentor",
-    },
-    {
-      name: "Ravi Kumar",
-      title: "Volunteer",
-      image: "/placeholder.svg?height=80&width=80",
-      content:
-        "Working with Mukund bhai has been transformative. His vision of education with yogic values is creating a new generation of conscious leaders.",
-      rating: 5,
-      type: "volunteer",
-    },
-  ]
+  {
+    name: "Dr. Rajesh Kumar",
+    title: "IIT Delhi Professor",
+    image: "/placeholder.svg?height=80&width=80",
+    content:
+      "Mukund's dedication to rural education is exemplary. His approach of combining modern curriculum with traditional values is exactly what India needs.",
+    rating: 5,
+    type: "mentor",
+  },
+  {
+    name: "Priya Sharma",
+    title: "Parent, Raghopur",
+    image: "/placeholder.svg?height=80&width=80",
+    content: "मेरे बेटे को गुरुकुल में बेहतरीन शिक्षा मिल रही है। यहाँ संस्कार के साथ-साथ आधुनिक विषयों की भी अच्छी पढ़ाई होती है।",
+    rating: 5,
+    type: "parent",
+  },
+  {
+    name: "Amit Singh",
+    title: "Former Student",
+    image: "/placeholder.svg?height=80&width=80",
+    content:
+      "Golu sir changed my life. From a village boy with no hope, I'm now pursuing engineering. The values he taught will stay with me forever.",
+    rating: 5,
+    type: "student",
+  },
+  {
+    name: "Sunita Devi",
+    title: "Farmer, Supaul",
+    image: "/placeholder.svg?height=80&width=80",
+    content: "कृषि प्रशिक्षण से मेरी आय तीन गुना बढ़ गई है। जैविक खेती की तकनीक सीखकर मैं अब दूसरी महिलाओं को भी सिखाती हूँ।",
+    rating: 5,
+    type: "farmer",
+  },
+  {
+    name: "Prof. Meera Gupta",
+    title: "Delhi University",
+    image: "/placeholder.svg?height=80&width=80",
+    content:
+      "The holistic development approach at Divya Bihar Mission is remarkable. It's creating well-rounded individuals who are both modern and rooted.",
+    rating: 5,
+    type: "mentor",
+  },
+  {
+    name: "Ravi Kumar",
+    title: "Volunteer",
+    image: "/placeholder.svg?height=80&width=80",
+    content:
+      "Working with Mukund bhai has been transformative. His vision of education with yogic values is creating a new generation of conscious leaders.",
+    rating: 5,
+    type: "volunteer",
+  },
+]
 
 const getTypeColor = (type: string) => {
   const colors = {
@@ -130,7 +130,7 @@ export function Testimonials() {
                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name} - ${testimonial.title}`}
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover"
