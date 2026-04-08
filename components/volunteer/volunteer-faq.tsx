@@ -26,7 +26,7 @@ export function VolunteerFAQ() {
     },
     {
       question: "Are accommodation and food provided for on-site volunteers?",
-      answer: "Yes, for long-term on-site volunteers (commitment of 1 month or more), we provide simple, shared accommodation and nutritious vegetarian meals at our campus at no cost."
+      answer: "Yes, for long-term on-site volunteers (commitment of 1 month or more), we provide simple, shared accommodation and nutritious vegetarian meals at our campus at no cost. Wait, even if you visit for a week or a day, please don't worry about the food and accommodation, we will take care of it. Atithi Devo Bhava!"
     },
     {
       question: "Can I volunteer remotely?",
