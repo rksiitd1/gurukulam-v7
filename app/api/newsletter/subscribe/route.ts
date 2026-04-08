@@ -1,7 +1,9 @@
 // app/api/newsletter/subscribe/route.ts
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { supabaseAdmin } from "@/lib/supabase/server";
+import { getDb } from "@/lib/firebase/admin";
 
 const subscribeSchema = z.object({
   email: z.string().email("A valid email is required."),
@@ -18,16 +20,24 @@ export async function POST(req: Request) {
 
     const { email } = parsedBody.data;
 
-    const { error } = await supabaseAdmin
-      .from('newsletter_subscriptions')
-      .insert({ email: email });
+    // Check for duplicate email (replaces Postgres unique constraint)
+    const existing = await getDb().collection('newsletter_subscriptions')
+      .where('email', '==', email)
+      .limit(1)
+      .get();
 
-    if (error) {
-      // This specifically handles the case where the email is already in the database
-      if (error.code === '23505') { // Unique constraint violation
-        return NextResponse.json({ error: "This email is already subscribed." }, { status: 409 });
-      }
-      console.error("Supabase insert error:", error);
+    if (!existing.empty) {
+      return NextResponse.json({ error: "This email is already subscribed." }, { status: 409 });
+    }
+
+    // Insert new subscription
+    try {
+      await getDb().collection('newsletter_subscriptions').add({
+        email,
+        subscribed_at: new Date(),
+      });
+    } catch (firestoreError) {
+      console.error("Firestore insert error:", firestoreError);
       return NextResponse.json({ error: "Could not subscribe at this time." }, { status: 500 });
     }
 

@@ -1,7 +1,9 @@
 // app/api/webhooks/razorpay/route.ts
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import { supabaseAdmin } from "@/lib/supabase/server"; // Using the secure admin client
+import { getDb } from "@/lib/firebase/admin";
 
 export async function POST(req: Request) {
   const secret = process.env.RAZORPAY_WEBHOOK_SECRET!;
@@ -23,44 +25,56 @@ export async function POST(req: Request) {
     console.log("Webhook signature verified successfully.");
     const event = JSON.parse(requestBody);
 
-    // 2. Handle the 'payment.captured' event (this means a successful payment)
+    // 2. Handle the 'payment.captured' event (successful payment)
     if (event.event === "payment.captured") {
       const payment = event.payload.payment.entity;
       const orderId = payment.order_id;
       const paymentId = payment.id;
 
-      // Update the donation status from 'pending' to 'successful' in Supabase
-      const { data, error } = await supabaseAdmin
-        .from('donations')
-        .update({
-          status: 'successful',
-          razorpay_payment_id: paymentId // Store the final payment ID for reference
-        })
-        .eq('razorpay_order_id', orderId) // Find the correct record using the order ID
-        .select();
+      // Find the donation by razorpay_order_id and update status
+      const snapshot = await getDb().collection('donations')
+        .where('razorpay_order_id', '==', orderId)
+        .limit(1)
+        .get();
 
-      if (error) {
-        console.error("Supabase update error (payment.captured):", error);
-        // Return a 500 error so Razorpay might try sending the webhook again
+      if (snapshot.empty) {
+        console.error(`No donation found for Order ID: ${orderId}`);
+        return NextResponse.json({ error: "Donation record not found." }, { status: 404 });
+      }
+
+      try {
+        await snapshot.docs[0].ref.update({
+          status: 'successful',
+          razorpay_payment_id: paymentId,
+          updated_at: new Date(),
+        });
+        console.log("Successfully updated donation record to 'successful' for Order ID:", orderId);
+      } catch (error) {
+        console.error("Firestore update error (payment.captured):", error);
         return NextResponse.json({ error: "Failed to update donation status in database." }, { status: 500 });
       }
-      console.log("Successfully updated donation record to 'successful':", data);
     }
     // 3. Handle the 'payment.failed' event
     else if (event.event === "payment.failed") {
-        const payment = event.payload.payment.entity;
-        const orderId = payment.order_id;
-        
-        const { error } = await supabaseAdmin
-            .from('donations')
-            .update({ status: 'failed' })
-            .eq('razorpay_order_id', orderId);
+      const payment = event.payload.payment.entity;
+      const orderId = payment.order_id;
+      
+      const snapshot = await getDb().collection('donations')
+        .where('razorpay_order_id', '==', orderId)
+        .limit(1)
+        .get();
 
-        if (error) {
-            console.error("Supabase update error (payment.failed):", error);
-        } else {
-            console.log(`Marked donation as 'failed' for Order ID: ${orderId}`);
+      if (!snapshot.empty) {
+        try {
+          await snapshot.docs[0].ref.update({
+            status: 'failed',
+            updated_at: new Date(),
+          });
+          console.log(`Marked donation as 'failed' for Order ID: ${orderId}`);
+        } catch (error) {
+          console.error("Firestore update error (payment.failed):", error);
         }
+      }
     }
     
     // Acknowledge receipt of the webhook

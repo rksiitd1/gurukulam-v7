@@ -1,7 +1,9 @@
 // app/api/internship/apply/route.ts
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { supabaseAdmin } from "@/lib/supabase/server";
+import { getDb } from "@/lib/firebase/admin";
 
 // Schema to validate the incoming application data
 const applicationSchema = z.object({
@@ -31,22 +33,21 @@ export async function POST(req: Request) {
 
     const { fullName, email, college, gradYear, linkedin, portfolio, role, problemSolving, whyUs } = parsedBody.data;
 
-    const { error } = await supabaseAdmin
-      .from('internship_applications')
-      .insert({
+    try {
+      await getDb().collection('internship_applications').add({
         full_name: fullName,
-        email: email,
-        college: college,
-        graduation_year: gradYear,
-        linkedin_profile: linkedin,
-        portfolio_link: portfolio,
+        email,
+        college: college || null,
+        graduation_year: gradYear || null,
+        linkedin_profile: linkedin || null,
+        portfolio_link: portfolio || null,
         preferred_role: role,
         problem_solving_essay: problemSolving,
         why_us_essay: whyUs,
+        applied_at: new Date(),
       });
-
-    if (error) {
-      console.error("Supabase insert error:", error);
+    } catch (firestoreError) {
+      console.error("Firestore insert error:", firestoreError);
       return NextResponse.json({ error: "Could not save application." }, { status: 500 });
     }
 
