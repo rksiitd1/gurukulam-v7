@@ -9,10 +9,12 @@ import { getDb } from "@/lib/firebase/admin";
 const applicationSchema = z.object({
   fullName: z.string().min(1, "Full name is required."),
   email: z.string().email("A valid email is required."),
+  phone: z.string().min(1, "Phone number is required."),
   college: z.string().optional(),
   gradYear: z.coerce.number().optional(),
   linkedin: z.string().url().optional().or(z.literal('')),
   portfolio: z.string().url().optional().or(z.literal('')),
+  cvLink: z.string().url("A valid URL is required for your CV/resume."),
   role: z.string().min(1, "Role selection is required."),
   problemSolving: z.string().min(1, "This essay is required."),
   whyUs: z.string().min(1, "This essay is required."),
@@ -31,16 +33,18 @@ export async function POST(req: Request) {
       );
     }
 
-    const { fullName, email, college, gradYear, linkedin, portfolio, role, problemSolving, whyUs } = parsedBody.data;
+    const { fullName, email, phone, college, gradYear, linkedin, portfolio, cvLink, role, problemSolving, whyUs } = parsedBody.data;
 
     try {
       await getDb().collection('internship_applications').add({
         full_name: fullName,
         email,
+        phone,
         college: college || null,
         graduation_year: gradYear || null,
         linkedin_profile: linkedin || null,
         portfolio_link: portfolio || null,
+        cv_link: cvLink,
         preferred_role: role,
         problem_solving_essay: problemSolving,
         why_us_essay: whyUs,

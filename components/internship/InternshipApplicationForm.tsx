@@ -15,8 +15,8 @@ import Link from "next/link";
 export default function InternshipApplicationForm() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    fullName: '', email: '', college: '', gradYear: '',
-    linkedin: '', portfolio: '', role: '', problemSolving: '', whyUs: ''
+    fullName: '', email: '', phone: '', college: '', gradYear: '',
+    linkedin: '', portfolio: '', cvLink: '', role: '', problemSolving: '', whyUs: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -48,8 +48,8 @@ export default function InternshipApplicationForm() {
 
   const handleResetForm = () => {
     setFormData({
-      fullName: '', email: '', college: '', gradYear: '',
-      linkedin: '', portfolio: '', role: '', problemSolving: '', whyUs: ''
+      fullName: '', email: '', phone: '', college: '', gradYear: '',
+      linkedin: '', portfolio: '', cvLink: '', role: '', problemSolving: '', whyUs: ''
     });
     setIsSuccess(false);
   };
@@ -126,6 +126,10 @@ export default function InternshipApplicationForm() {
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                       <Input id="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} required />
                     </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number <span className="text-red-500">*</span></label>
+                      <Input id="phone" type="tel" placeholder="+91 98765 43210" value={formData.phone} onChange={handleInputChange} required />
+                    </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
@@ -146,6 +150,11 @@ export default function InternshipApplicationForm() {
                       <label htmlFor="portfolio" className="block text-sm font-medium text-gray-700 mb-1">GitHub / Portfolio</label>
                       <Input id="portfolio" type="url" placeholder="https://github.com/..." value={formData.portfolio} onChange={handleInputChange} />
                     </div>
+                  </div>
+                  <div>
+                    <label htmlFor="cvLink" className="block text-sm font-medium text-gray-700 mb-1">CV / Resume Link <span className="text-red-500">*</span></label>
+                    <p className="text-xs text-gray-500 mb-1">Upload your CV to Google Drive, Dropbox, or similar and paste the link here. Ensure the link is publicly accessible.</p>
+                    <Input id="cvLink" type="url" placeholder="https://drive.google.com/..." value={formData.cvLink} onChange={handleInputChange} required />
                   </div>
                   <div>
                     <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">Preferred Mission/Role</label>

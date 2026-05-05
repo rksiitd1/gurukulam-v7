@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBM Rural Fellowship — Apply</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --sand: #FDF9F1;
+  --espresso: #261912;
+  --terracotta: #B3391A;
+  --forest: #164928;
+  --gold: #C2933D;
+  --muted: #665B54;
+  --border: #EAE3D5;
+  --text: #332C28;
+}
+
+body {
+  background-color: var(--sand);
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Top trust bar ── */
+.trust-bar {
+  background: var(--espresso);
+  padding: 12px 0;
+  text-align: center;
+}
+.trust-bar p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ── Hero banner ── */
+.hero {
+  background: var(--espresso);
+  padding: 60px 0 56px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 44px;
+  color: var(--sand);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero p {
+  font-size: 15px;
+  color: #9A8E87;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+.hindi-hero {
+  font-family: 'Rozha One', Georgia, serif;
+  font-size: 18px;
+  color: var(--terracotta);
+  letter-spacing: 0.5px;
+}
+
+/* ── Outer layout ── */
+.page-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ── Section intro ── */
+.intro-block {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.intro-block p {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 20px;
+  color: var(--espresso);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 560px;
+  margin: 0 auto 16px;
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+  text-align: left;
+}
+.intro-block span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ── Progress strip ── */
+.progress-strip {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+  gap: 0;
+}
+.progress-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin: 0 auto 6px;
+  transition: background 0.3s, color 0.3s;
+}
+.step-num.active { background: var(--terracotta); color: #fff; }
+.step-num.done { background: var(--forest); color: #fff; }
+.step-num.pending { background: var(--border); color: var(--muted); }
+.step-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.step-label.active { color: var(--terracotta); }
+.progress-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 60px;
+  margin-bottom: 20px;
+}
+
+/* ── Form sections ── */
+.form-section {
+  display: none;
+}
+.form-section.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-header {
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-header h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 26px;
+  color: var(--espresso);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.section-header p {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* ── Field styles ── */
+.field {
+  margin-bottom: 28px;
+}
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--espresso);
+  margin-bottom: 8px;
+}
+.field label .required { color: var(--terracotta); margin-left: 3px; }
+.field .hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+}
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23665B54' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+textarea { resize: vertical; min-height: 120px; line-height: 1.65; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; }
+}
+
+/* ── Role cards (select) ── */
+.role-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.role-opt {
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.role-opt input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+.role-opt:has(input:checked) {
+  border-color: var(--terracotta);
+  background: #FEF7F5;
+}
+.role-opt-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 17px;
+  color: var(--espresso);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.role-opt-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.role-opt-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px; right: 20px;
+}
+
+/* ── Char count ── */
+.char-count {
+  text-align: right;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── Navigation ── */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.btn-back {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 13px 28px;
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  border-radius: 2px;
+}
+.btn-back:hover { border-color: var(--espresso); color: var(--espresso); }
+.btn-next {
+  background: var(--terracotta);
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 2px;
+}
+.btn-next:hover { background: #9A2E13; }
+.btn-submit {
+  background: var(--forest);
+  border: none;
+  padding: 16px 48px;
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 2px;
+}
+.btn-submit:hover { background: #0E3319; }
+
+/* ── Success screen ── */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 60px 24px;
+}
+.success-screen.show { display: block; animation: fadeIn 0.5s ease; }
+.success-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 28px;
+  color: #fff;
+}
+.success-screen h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 32px;
+  color: var(--espresso);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.success-screen p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto 20px; }
+.success-hindi {
+  font-family: 'Rozha One', Georgia, serif;
+  font-size: 20px;
+  color: var(--terracotta);
+  margin-top: 28px;
+}
+
+/* ── Footer ── */
+.form-footer {
+  background: var(--espresso);
+  text-align: center;
+  padding: 28px 24px;
+  margin-top: 60px;
+}
+.form-footer p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+.form-footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <p>Divya Bihar Mission Trust &nbsp;·&nbsp; Reg: AAETD5010DE20241 &nbsp;·&nbsp; IIT Alumni Led &nbsp;·&nbsp; 80G Exempted</p>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">Rural Fellowship · Summer 2025 · Supaul, Bihar</div>
+  <h1>The application<br>for <em>serious builders</em>.</h1>
+  <p>We read every application ourselves. Be precise. Be honest. We are not looking for the most impressive CV — we are looking for the most honest mind.</p>
+  <p class="hindi-hero">असतो मा सद्गमय</p>
+</div>
+
+<!-- Page wrap -->
+<div class="page-wrap" id="formArea">
+
+  <!-- Intro -->
+  <div class="intro-block">
+    <p>"This is not a volunteer program. It is not a corporate internship. It is a zero-to-one construction project for people who understand that the real engineering challenge of our generation is not in Bengaluru."</p>
+    <span>— Divya Bihar Mission Core Team</span>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-strip" id="progressStrip">
+    <div class="progress-step">
+      <div class="step-num active" id="step-num-1">1</div>
+      <div class="step-label active" id="step-label-1">Identity</div>
+    </div>
+    <div class="progress-line"></div>
+    <div class="progress-step">
+      <div class="step-num pending" id="step-num-2">2</div>
+      <div class="step-label" id="step-label-2">The Work</div>
+    </div>
+    <div class="progress-line"></div>
+    <div class="progress-step">
+      <div class="step-num pending" id="step-num-3">3</div>
+      <div class="step-label" id="step-label-3">The Mind</div>
+    </div>
+    <div class="progress-line"></div>
+    <div class="progress-step">
+      <div class="step-num pending" id="step-num-4">4</div>
+      <div class="step-label" id="step-label-4">Commitment</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Identity -->
+  <div class="form-section active" id="section-1">
+    <div class="section-header">
+      <div class="section-num">Section 01</div>
+      <h2>Who are you?</h2>
+      <p>Basic information. We need a person, not a profile.</p>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Full Name <span class="required">*</span></label>
+        <input type="text" placeholder="As on your institution ID">
+      </div>
+      <div class="field">
+        <label>Email Address <span class="required">*</span></label>
+        <input type="email" placeholder="Preferred email">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Phone Number <span class="required">*</span></label>
+        <input type="tel" placeholder="+91">
+      </div>
+      <div class="field">
+        <label>Institution & Branch <span class="required">*</span></label>
+        <input type="text" placeholder="e.g. IIT Delhi, CSE, 3rd Year">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Home State / District</label>
+        <input type="text" placeholder="Where are you originally from?">
+      </div>
+      <div class="field">
+        <label>Current CPI / CGPA</label>
+        <input type="text" placeholder="Optional — not a filter">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>LinkedIn or GitHub Profile</label>
+      <div class="hint">Optional. Only if it genuinely shows what you have built.</div>
+      <input type="url" placeholder="https://">
+    </div>
+
+    <div class="form-nav">
+      <div></div>
+      <button class="btn-next" onclick="nextSection(1)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: The Work -->
+  <div class="form-section" id="section-2">
+    <div class="section-header">
+      <div class="section-num">Section 02</div>
+      <h2>What will you build?</h2>
+      <p>Choose your primary role. You may note secondary interest in the free text below.</p>
+    </div>
+
+    <div class="field">
+      <label>Which architecture role speaks to you? <span class="required">*</span></label>
+      <div class="role-options">
+        <label class="role-opt">
+          <input type="radio" name="role" value="edtech">
+          <div class="role-opt-dot" style="background:#164928;"></div>
+          <div class="role-opt-name">Offline-First AI &amp; EdTech</div>
+          <div class="role-opt-desc">Vernacular AI, low-bandwidth learning systems, localized hardware for rural classrooms.</div>
+        </label>
+        <label class="role-opt">
+          <input type="radio" name="role" value="agritech">
+          <div class="role-opt-dot" style="background:#C2933D;"></div>
+          <div class="role-opt-name">Agri-Tech &amp; Ecological Systems</div>
+          <div class="role-opt-desc">Data science on our 10-acre demo farm and Gaushala. Sustainable supply chain design from scratch.</div>
+        </label>
+        <label class="role-opt">
+          <input type="radio" name="role" value="founders">
+          <div class="role-opt-dot" style="background:#B3391A;"></div>
+          <div class="role-opt-name">Founders in Residence</div>
+          <div class="role-opt-desc">Operational and economic architecture to scale this civilizational model to 45,000 villages.</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Describe the most consequential thing you have built. <span class="required">*</span></label>
+      <div class="hint">Not the most technically complex. The most consequential. What did it change, for whom, and by how much? (100–250 words)</div>
+      <textarea id="q1" oninput="updateCount('q1','c1',250)" placeholder="Be specific. Vague claims are the first filter."></textarea>
+      <div class="char-count"><span id="c1">0</span> / 250 words</div>
+    </div>
+
+    <div class="field">
+      <label>What is one system in rural India — education, agriculture, water, commerce — that you understand well enough to redesign?</label>
+      <div class="hint">Show the depth of your actual understanding, not your empathy. (100–200 words)</div>
+      <textarea id="q2" oninput="updateCount('q2','c2',200)" placeholder="Describe the system, its failure mode, and your proposed architecture."></textarea>
+      <div class="char-count"><span id="c2">0</span> / 200 words</div>
+    </div>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="prevSection(2)">← Back</button>
+      <button class="btn-next" onclick="nextSection(2)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 3: The Mind -->
+  <div class="form-section" id="section-3">
+    <div class="section-header">
+      <div class="section-num">Section 03</div>
+      <h2>How do you think?</h2>
+      <p>This is the section most people rush. Do not rush it. These questions have no correct answers — only honest ones.</p>
+    </div>
+
+    <div class="field">
+      <label>Why does the village feel like someone else's problem to most of your peers? <span class="required">*</span></label>
+      <div class="hint">Do not answer this with compassion. Answer it as a systems analyst. What structural forces produced this indifference? (100–200 words)</div>
+      <textarea id="q3" oninput="updateCount('q3','c3',200)" placeholder="Be precise, not sentimental."></textarea>
+      <div class="char-count"><span id="c3">0</span> / 200 words</div>
+    </div>
+
+    <div class="field">
+      <label>What specifically makes you uncomfortable about the work you are currently doing or training to do?</label>
+      <div class="hint">Honest discomfort is more valuable to us than polished ambition. (50–150 words)</div>
+      <textarea id="q4" oninput="updateCount('q4','c4',150)" placeholder="You will not be judged for honesty here."></textarea>
+      <div class="char-count"><span id="c4">0</span> / 150 words</div>
+    </div>
+
+    <div class="field">
+      <label>Name one person — alive, historical, or from your own village — whose work you consider genuinely civilizationally important. Why?</label>
+      <div class="hint">Not the obvious answer. The true one. (50–100 words)</div>
+      <textarea id="q5" oninput="updateCount('q5','c5',100)" placeholder="This tells us more about you than your CGPA."></textarea>
+      <div class="char-count"><span id="c5">0</span> / 100 words</div>
+    </div>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="prevSection(3)">← Back</button>
+      <button class="btn-next" onclick="nextSection(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Commitment -->
+  <div class="form-section" id="section-4">
+    <div class="section-header">
+      <div class="section-num">Section 04</div>
+      <h2>Are you ready?</h2>
+      <p>Practical logistics and your final declaration. Read carefully.</p>
+    </div>
+
+    <div class="field">
+      <label>Preferred fellowship window <span class="required">*</span></label>
+      <select>
+        <option value="">— Select —</option>
+        <option>May – June 2025 (6 weeks)</option>
+        <option>May – July 2025 (8 weeks)</option>
+        <option>June – July 2025 (6 weeks)</option>
+        <option>Flexible — I will work around the program</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Do you have any prior commitments — internships, placements, exams — that overlap this window?</label>
+      <textarea style="min-height:80px;" placeholder="Be honest. We can discuss. We cannot accommodate last-minute withdrawals."></textarea>
+    </div>
+
+    <div class="field">
+      <label>How did you hear about this fellowship? <span class="required">*</span></label>
+      <select>
+        <option value="">— Select —</option>
+        <option>Placement / Academic Affairs Cell</option>
+        <option>WhatsApp (from a peer or group)</option>
+        <option>LinkedIn</option>
+        <option>A DBM team member personally reached out</option>
+        <option>I have been following DBM for some time</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Final declaration — in your own words, in 2–3 sentences: why should we select you over someone equally qualified?</label>
+      <div class="hint">Do not repeat your previous answers. This is your closing argument. (Max 80 words)</div>
+      <textarea id="q6" oninput="updateCount('q6','c6',80)" placeholder="Assume we have read 200 applications. Make this one count."></textarea>
+      <div class="char-count"><span id="c6">0</span> / 80 words</div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="padding:18px 20px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--forest);margin-bottom:8px;">
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">
+        By submitting, you confirm that all information provided is accurate. You understand this is a <strong style="color:var(--espresso);">fully funded, on-ground, 6–8 week commitment</strong> in Raghopur, Supaul, Bihar — not a remote engagement. We will contact shortlisted applicants within 14 days.
+      </p>
+    </div>
+    <div style="padding:14px 20px;background:#FDF5F0;border:1px solid #F0D5CB;margin-bottom:8px;">
+      <p style="font-size:12px;color:var(--terracotta);line-height:1.7;font-weight:600;">
+        ✦ &nbsp;Divya Bihar Mission Trust is 80G exempted. Every Rupee you commit here — whether ₹100 or ₹5 Lakh — is a step toward Bharat. For those unable to join this cohort, donation options are available on our website.
+      </p>
+    </div>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="prevSection(4)">← Back</button>
+      <button class="btn-submit" onclick="submitForm()">Submit Application →</button>
+    </div>
+  </div>
+
+  <!-- Success -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">✓</div>
+    <h2>Your application is received.</h2>
+    <p>We read every application ourselves. You will hear from us within 14 days if you are shortlisted for a conversation. Until then — build something.</p>
+    <p style="font-size:13px;">For any queries: <a href="mailto:hello@divyabiharmission.com" style="color:var(--terracotta);text-decoration:none;">hello@divyabiharmission.com</a></p>
+    <p class="success-hindi">देश की आत्मा गाँवों में बसती है</p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="form-footer">
+  <p>
+    Divya Bihar Mission Trust &nbsp;·&nbsp; Raghopur, Supaul, Bihar<br>
+    Reg: AAETD5010DE20241 &nbsp;·&nbsp; 80G Exempted &nbsp;·&nbsp; Initiative by IIT Alumni<br>
+    <a href="https://divyabiharmission.com">www.divyabiharmission.com</a>
+  </p>
+</div>
+
+<script>
+function nextSection(current) {
+  document.getElementById('section-' + current).classList.remove('active');
+  var next = current + 1;
+  document.getElementById('section-' + next).classList.add('active');
+  updateProgress(next);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevSection(current) {
+  document.getElementById('section-' + current).classList.remove('active');
+  var prev = current - 1;
+  document.getElementById('section-' + prev).classList.add('active');
+  updateProgress(prev);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(active) {
+  for (var i = 1; i <= 4; i++) {
+    var num = document.getElementById('step-num-' + i);
+    var label = document.getElementById('step-label-' + i);
+    num.className = 'step-num';
+    label.className = 'step-label';
+    if (i < active) {
+      num.classList.add('done');
+      num.textContent = '✓';
+    } else if (i === active) {
+      num.classList.add('active');
+      num.textContent = i;
+      label.classList.add('active');
+    } else {
+      num.classList.add('pending');
+      num.textContent = i;
+    }
+  }
+}
+
+function updateCount(textareaId, countId, maxWords) {
+  var text = document.getElementById(textareaId).value.trim();
+  var words = text === '' ? 0 : text.split(/\s+/).length;
+  var countEl = document.getElementById(countId);
+  countEl.textContent = words;
+  countEl.style.color = words > maxWords ? '#B3391A' : '#665B54';
+}
+
+function submitForm() {
+  for (var i = 1; i <= 4; i++) {
+    document.getElementById('section-' + i).classList.remove('active');
+  }
+  document.getElementById('progressStrip').style.display = 'none';
+  document.querySelector('.intro-block').style.display = 'none';
+  document.getElementById('successScreen').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
