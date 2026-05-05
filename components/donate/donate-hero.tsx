@@ -14,7 +14,7 @@ export function DonateHero({ onDonateClick }: DonateHeroProps) {
   ]
 
   return (
-    <section className="relative bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#FFF9F2] via-[#FFF1E5] to-[#FFE8D6] py-24 overflow-hidden border-b border-orange-100">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 bg-orange-300 rounded-full blur-xl"></div>
@@ -45,25 +45,31 @@ export function DonateHero({ onDonateClick }: DonateHeroProps) {
             "दान धर्म का सबसे उत्तम रूप है" - Your generosity creates lasting change
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 text-lg"
-              onClick={onDonateClick}
-            >
-              <Heart className="w-5 h-5 mr-2" />
-              Donate Now
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg"
-              asChild
-            >
-              <a href="/call-to-seva.pdf" target="_blank" rel="noopener noreferrer" download>
-                Download Prospectus
-              </a>
-            </Button>
+          <div className="flex flex-col items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-10 py-7 text-lg rounded-xl shadow-xl shadow-orange-600/20 transition-all duration-300 hover:scale-105"
+                onClick={onDonateClick}
+              >
+                <Heart className="w-5 h-5 mr-2" />
+                Donate Now
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-orange-200 text-orange-800 bg-white/50 backdrop-blur-sm hover:bg-white hover:border-orange-300 hover:text-orange-900 px-10 py-7 text-lg rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
+                asChild
+              >
+                <a href="/call-to-seva.html" target="_blank" rel="noopener noreferrer">
+                  Read Call to Seva
+                </a>
+              </Button>
+            </div>
+            <a href="/call-to-seva.pdf" download className="mt-6 text-sm font-medium text-orange-700/70 hover:text-orange-700 transition-colors flex items-center gap-1.5 group">
+              <span className="underline underline-offset-4 decoration-orange-700/30 group-hover:decoration-orange-700">Or download as PDF</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-y-0.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            </a>
           </div>
         </div>
 
