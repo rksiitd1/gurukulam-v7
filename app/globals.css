@@ -81,6 +81,12 @@
   }
 }
 
+/* Defer rendering of offscreen sections for faster initial paint */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 /* Custom font classes */
 .font-devanagari {
   font-family: var(--font-devanagari), sans-serif;

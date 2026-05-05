@@ -135,6 +135,7 @@ export function About() {
                           alt={image.alt}
                           width={500}
                           height={400}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
                           className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
                         />
                       </div>

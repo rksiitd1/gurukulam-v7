@@ -58,6 +58,7 @@ export function GalleryHero() {
                     alt="Students engaged in classroom learning at Divya Bihar Gurukulam"
                     width={300}
                     height={200}
+                    sizes="(max-width: 768px) 50vw, 300px"
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -69,6 +70,7 @@ export function GalleryHero() {
                     alt="Students performing in a cultural program"
                     width={300}
                     height={250}
+                    sizes="(max-width: 768px) 50vw, 300px"
                     className="w-full h-60 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -82,6 +84,7 @@ export function GalleryHero() {
                     alt="Students participating in tree plantation drive"
                     width={300}
                     height={250}
+                    sizes="(max-width: 768px) 50vw, 300px"
                     className="w-full h-60 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -93,6 +96,7 @@ export function GalleryHero() {
                     alt="Community gathering and celebration event"
                     width={300}
                     height={200}
+                    sizes="(max-width: 768px) 50vw, 300px"
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>

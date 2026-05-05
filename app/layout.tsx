@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { Inter, Noto_Sans_Devanagari } from "next/font/google"
 import "./globals.css"
@@ -143,15 +143,7 @@ export const metadata: Metadata = {
     'Raghopur Education',
     'Supaul Schools'
   ],
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
-  ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    viewportFit: 'cover',
-  },
+
   verification: {
     google: 'WtriZ8saaxufwWJ7SNEjCzc8yxjp4BnmAmFnBRB_4NM', // Replace with your actual key
   },
@@ -159,6 +151,17 @@ export const metadata: Metadata = {
     'msapplication-TileColor': '#2b5797',
     // Removed browserconfig.xml reference as it's no longer used
   },
+};
+
+// Viewport must be a separate export in Next.js 14+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
+  ],
 };
 
 export default function RootLayout({
@@ -261,12 +264,9 @@ export default function RootLayout({
       itemType="https://schema.org/WebPage"
     >
       <head>
-        {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="preconnect" href="https://www.facebook.com" />
-        <link rel="preconnect" href="https://x.com" />
+        {/* Preconnect only to critical domains */}
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Preload critical resources - Removed as Next.js handles this automatically */}
         

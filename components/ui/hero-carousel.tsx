@@ -195,16 +195,17 @@ export function HeroCarousel({
           {images.map((item, index) => {
             const src = 'src' in item ? item.src : item;
             const itemAlt = 'alt' in item ? (item as any).alt : `${alt} ${index + 1}`;
+            const hasBlurData = typeof src === 'object' && 'blurDataURL' in src && !!src.blurDataURL;
 
             return (
               <div key={index} className="relative w-full h-full flex-shrink-0">
                 {/* Permanent Blurred Background */}
-                {fit === 'contain' && typeof src === 'object' && src.blurDataURL && (
+                {fit === 'contain' && hasBlurData && (
                   <div
                     aria-hidden
                     className="absolute inset-0"
                     style={{
-                      backgroundImage: `url(${src.blurDataURL})`,
+                      backgroundImage: `url(${(src as any).blurDataURL})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       filter: 'blur(20px) brightness(0.8)',
@@ -224,8 +225,8 @@ export function HeroCarousel({
                   )}
                   priority={index === 0 && priority}
                   sizes={sizes}
-                  placeholder="blur"
-                  onLoadingComplete={() => setIsLoading(false)}
+                  placeholder={hasBlurData ? "blur" : "empty"}
+                  onLoad={() => setIsLoading(false)}
                   draggable={false}
                 />
                 {showOverlay && fit === 'cover' && (

@@ -92,8 +92,9 @@ export function Programs() {
                 <ProgramImage
                   src={program.image || "/placeholder.svg"}
                   alt={program.title}
-                  width={1536}
-                  height={1024}
+                  width={800}
+                  height={533}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 bg-gray-100"
                 />
                 <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white/90 backdrop-blur-sm rounded-full p-2">

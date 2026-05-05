@@ -51,7 +51,7 @@ export const HERO_IMAGES = {
     about: [about1, about2, about3, about4, about5],
     contact: [gallery1, gallery2, gallery3, gallery4, gallery5],
     gallery: [gallery6, gallery7, gallery8, gallery9, gallery10],
-    programs: [progGurukulam, progShriClasses, progUdyamita, progAgro],
+    programs: [progGurukulam3, progShriClasses3, progUdyamita3],
     gurukulam: [progGurukulam, progGurukulam3, classroom1],
     agriculture: [agri1, agri2, agri3, agri4, agri5],
     'shri-classes': [progShriClasses, progShriClasses3, classroom2],
