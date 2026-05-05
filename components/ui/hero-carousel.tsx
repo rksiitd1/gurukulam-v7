@@ -220,13 +220,11 @@ export function HeroCarousel({
                   className={cn(
                     "object-center",
                     fit === 'contain' ? 'object-contain' : 'object-cover',
-                    isTransitioning && 'transition-opacity duration-300 ease-in-out',
-                    isLoading && 'opacity-0' // Hide image until loaded
+                    isTransitioning && 'transition-opacity duration-300 ease-in-out'
                   )}
                   priority={index === 0 && priority}
                   sizes={sizes}
                   placeholder={hasBlurData ? "blur" : "empty"}
-                  onLoad={() => setIsLoading(false)}
                   draggable={false}
                 />
                 {showOverlay && fit === 'cover' && (
