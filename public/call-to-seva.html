@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Bihar Mission - A Call to Seva</title>
+    <style>
+        /* 
+         * PREMIUM FONTS:
+         * DM Serif Display: Thick, majestic, high-editorial serif for titles.
+         * Plus Jakarta Sans: Ultra-crisp, geometric, highly trusted modern sans-serif.
+         * Rozha One: Traditional, beautiful weight for Hindi/Sanskrit.
+         */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap');
+
+        :root {
+            --sand: #FDF9F1;
+            --sand-dark: #F5EFE3;
+            --terracotta: #B3391A;
+            --forest: #164928;
+            --gold: #C2933D;
+            --brown-dark: #261912;
+            --text-main: #332C28;
+            --text-light: #665B54;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* The Canvas: 1080x1350 */
+        .page {
+            width: 1080px;
+            height: 1350px;
+            background-color: var(--sand);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        /* Mandala Watermark */
+        .watermark-mandala {
+            position: absolute;
+            width: 1300px;
+            height: 1300px;
+            top: -250px;
+            right: -350px;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,0 C50,25 75,50 100,50 C75,50 50,75 50,100 C50,75 25,50 0,50 C25,50 50,25 50,0 Z M50,10 C50,25 65,50 90,50 C65,50 50,75 50,90 C50,75 35,50 10,50 C35,50 50,25 50,10 Z M50,20 C50,30 60,50 80,50 C60,50 50,70 50,80 C50,70 40,50 20,50 C40,50 50,30 50,20 Z" fill="%23B3391A" opacity="0.03"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            pointer-events: none;
+            transform: rotate(15deg);
+        }
+
+        /* Reusable Components */
+        .logo-mark {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            z-index: 100;
+            background: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(179, 57, 26, 0.1);
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(179, 57, 26, 0.1);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: auto;
+        }
+
+        .badge-80g {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 100;
+            background: rgba(253, 249, 241, 0.95);
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 800;
+            color: var(--forest);
+            font-size: 15px;
+            letter-spacing: 3px;
+            border-left: 4px solid var(--terracotta);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-transform: uppercase;
+        }
+
+        /* Typography Classes */
+        .serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .hindi {
+            font-family: 'Rozha One', serif;
+        }
+
+        .section-tag {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--forest);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-tag span {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .hindi-title {
+            font-family: 'Rozha One', serif;
+            font-size: 46px;
+            color: var(--terracotta);
+            margin-bottom: 5px;
+        }
+
+        .page-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 66px;
+            color: var(--brown-dark);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .page-desc {
+            font-size: 21px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 850px;
+            font-weight: 500;
+        }
+
+        /* Content Layout */
+        .hero-img-top {
+            height: 380px;
+            position: relative;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: var(--sand-dark);
+        }
+
+        .hero-img-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(15%) brightness(0.9);
+        }
+
+        .hero-img-top::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(253, 249, 241, 0) 0%,
+                    rgba(253, 249, 241, 0.1) 60%,
+                    rgba(253, 249, 241, 0.8) 90%,
+                    var(--sand) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .content-body {
+            padding: 30px 60px 0 60px;
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        /* Pricing Cards */
+        .price-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(179, 57, 26, 0.04);
+            border: 1px solid rgba(179, 57, 26, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: var(--terracotta);
+        }
+
+        .price-card.forest::before {
+            background: var(--forest);
+        }
+
+        .price-card.gold::before {
+            background: var(--gold);
+        }
+
+        .price-card.brown::before {
+            background: var(--brown-dark);
+        }
+
+        .price-info {
+            flex-grow: 1;
+            padding-right: 40px;
+        }
+
+        .price-info h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 34px;
+            color: var(--brown-dark);
+            margin-bottom: 10px;
+        }
+
+        .price-info p {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .price-amount {
+            text-align: right;
+            flex-shrink: 0;
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
+            padding-left: 40px;
+            min-width: 220px;
+        }
+
+        .price-amount .rupee {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--terracotta);
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .price-amount .frequency {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--forest);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 12px;
+        }
+
+        .small-card {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid var(--forest);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .small-card h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            color: var(--brown-dark);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .small-card p {
+            font-size: 17px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .small-card .p-tag {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--terracotta);
+            letter-spacing: -0.5px;
+        }
+
+        /* Universal Footer */
+        .page-footer {
+            background: var(--terracotta);
+            color: var(--sand);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 25px 50px;
+            gap: 35px;
+            z-index: 50;
+            border-top: 4px solid var(--gold);
+            height: 200px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .footer-qr {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--gold);
+            padding: 6px;
+            flex-shrink: 0;
+        }
+
+        .footer-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .footer-content {
+            min-width: 0;
+        }
+
+        .footer-content h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            color: var(--sand);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .footer-content p {
+            font-size: 17px;
+            color: rgba(253, 249, 241, 0.9);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .footer-upi {
+            text-align: right;
+        }
+
+        .footer-upi h4 {
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            min-width: max-content;
+        }
+
+        .tax-tag {
+            display: inline-block;
+            background: var(--forest);
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        /* ================= 10X EDITORIAL UPGRADE FOR PAGES 18 & 19 ================= */
+
+        /* PAGE 18: Editorial Identity Spread */
+        .identity-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 80px;
+            margin-top: 40px;
+            height: 100%;
+        }
+
+        .id-left {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding-bottom: 20px;
+        }
+
+        .id-right {
+            flex: 0.9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .id-manifesto {
+            font-size: 24px;
+            line-height: 1.6;
+            color: var(--brown-dark);
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .id-gurukulam-box {
+            border-left: 4px solid var(--terracotta);
+            padding-left: 25px;
+            margin-bottom: 40px;
+        }
+
+        .id-gurukulam-box p {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            line-height: 1.4;
+            color: var(--terracotta);
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Glorious Typographic Website Link */
+        .glorious-web-link {
+            margin-top: auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .glorious-web-link h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--forest);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .glorious-web-link p {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--terracotta);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Minimalist Pillar List */
+        .editorial-pillar {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 25px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .editorial-pillar:last-child {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .ep-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 42px;
+            color: var(--gold);
+            line-height: 0.8;
+        }
+
+        .ep-content h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            color: var(--brown-dark);
+            margin-bottom: 6px;
+            line-height: 1;
+        }
+
+        .ep-content h4 span {
+            font-family: 'Rozha One', serif;
+            color: var(--terracotta);
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        .ep-content p {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.5;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* PAGE 19: Full-Bleed Mondrian Mosaic */
+        .page-full-bleed {
+            padding: 0 !important;
+            /* Removes all padding to let images touch the edge */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mosaic-header {
+            padding: 70px 80px 40px 80px;
+            background: var(--sand);
+            z-index: 10;
+        }
+
+        .mondrian-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 4px;
+            /* Razor thin, elegant white gutters */
+            background: white;
+            /* Color of the gutters */
+            flex-grow: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .m-pic {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .m-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(10%) brightness(0.95) contrast(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        /* Strict Grid Spans for 12 Images */
+        .pic-1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Hero Top Left */
+        .pic-2 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-3 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        /* Tall Top Right */
+        .pic-4 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-5 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        /* Tall Mid Left */
+        .pic-6 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Wide Middle */
+        .pic-7 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-8 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-9 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-10 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Wide Bottom Right */
+        .pic-11 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .pic-12 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        @media print {
+            @page {
+                size: 1080px 1350px;
+                margin: 0;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+
+        /* ================= TRUST LOCKUP FOR PAGE 18 ================= */
+        .trust-lockup {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 35px;
+            /* Space between lockup and website banner */
+        }
+
+        .trust-lockup-logo {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(179, 57, 26, 0.1);
+            border: 1px solid rgba(179, 57, 26, 0.1);
+            flex-shrink: 0;
+        }
+
+        .trust-lockup-logo img {
+            width: 85%;
+            height: auto;
+        }
+
+        .trust-lockup-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trust-lockup-hindi {
+            font-family: 'Rozha One', serif;
+            font-size: 38px;
+            color: var(--terracotta);
+            margin-bottom: 2px;
+            line-height: 1.1;
+        }
+
+        .trust-lockup-en {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--forest);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .trust-lockup-address {
+            font-size: 17px;
+            color: var(--text-light);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= PAGE 1: COVER ================= -->
+    <div class="page" style="background: var(--sand-dark); text-align: center; justify-content: center;">
+        <div
+            style="position: absolute; inset: 0; background: url('/images/call-to-seva/vedas.jpg') center/cover; opacity: 0.08; mix-blend-mode: multiply;">
+        </div>
+        <div class="watermark-mandala"></div>
+        <div class="logo-mark" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: none;"><img
+                src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+
+        <div style="position: relative; z-index: 10; padding: 0 60px;">
+            <div style="margin-bottom: 40px; margin-top: -50px;">
+                <h3 class="hindi"
+                    style="font-size: 40px; color: var(--terracotta); margin-bottom: 8px; letter-spacing: 1px;">दिव्य
+                    बिहार मिशन</h3>
+                <h3
+                    style="font-size: 20px; font-weight: 800; letter-spacing: 10px; color: var(--forest); text-transform: uppercase;">
+                    Divya Bihar Mission</h3>
+            </div>
+            <h2 class="hindi" style="font-size: 65px; color: var(--gold); margin-bottom: 10px;">सेवा संकल्प</h2>
+            <h1 class="serif"
+                style="font-size: 120px; color: var(--terracotta); line-height: 1; margin-bottom: 40px; letter-spacing: -2px;">
+                A Call<br>To Seva</h1>
+
+            <p
+                style="font-size: 24px; color: var(--brown-dark); line-height: 1.6; font-weight: 500; max-width: 800px; margin: 0 auto 60px auto;">
+                Real ways to serve. Real ways to build Bharat.<br>Rebuilding rural Bihar, brick by brick.
+            </p>
+
+            <div
+                style="background: var(--terracotta); color: white; font-size: 18px; font-weight: 800; padding: 20px 45px; border-radius: 50px; text-transform: uppercase; letter-spacing: 4px; display: inline-block; box-shadow: 0 10px 20px rgba(179, 57, 26, 0.3);">
+                Initiative by IIT Alumni
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 2: PHILOSOPHY (WE HAVE RETURNED) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">THE DISCONNECT</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+
+        <div class="content-body"
+            style="padding-top: 0; display: flex; flex-direction: column; justify-content: center; height: 100%; margin-top: 0;">
+            <h2 class="hindi" style="font-size: 60px; color: var(--terracotta); margin-bottom: 5px;">हम वापस लौट आए
+                हैं...</h2>
+            <h1 class="page-title" style="font-size: 76px;">We Have Returned.</h1>
+            <div style="width: 80px; height: 6px; background: var(--gold); margin-bottom: 45px; border-radius: 3px;">
+            </div>
+
+            <p
+                style="font-size: 26px; color: var(--brown-dark); line-height: 1.7; font-weight: 600; margin-bottom: 30px;">
+                Our education system teaches the brightest minds to escape the village. We went to IIT Delhi, we saw the
+                world, and we realized a painful truth: <strong style="color: var(--terracotta);">No one is building for
+                    the 90% of India that lives in villages.</strong>
+            </p>
+            <p style="font-size: 24px; color: var(--text-light); line-height: 1.7; margin-bottom: 50px;">
+                True nation-building cannot happen through mobile apps alone—it requires deep cultural roots,
+                individuals devoted from the heart, and physical infrastructure. We returned to Raghopur to build for
+                Real Bharat.
+            </p>
+
+            <div
+                style="background: white; padding: 60px 45px; border-radius: 16px; border-left: 10px solid var(--forest); box-shadow: 0 25px 50px rgba(22, 73, 40, 0.08); display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; position: relative; overflow: hidden;">
+
+                <!-- Decorative background quote mark -->
+                <div
+                    style="position: absolute; top: -10px; left: 25px; font-family: 'DM Serif Display', serif; font-size: 180px; color: rgba(22, 73, 40, 0.04); line-height: 1; user-select: none;">
+                    “</div>
+
+                <div>
+                    <p
+                        style="margin: 0; font-size: 28px; color: var(--brown-dark); font-family: 'DM Serif Display', serif; font-style: italic; line-height: 1.6; position: relative; z-index: 1;">
+                        "In the following pages, you will find specific, tangible ways to contribute. Whether you
+                        sponsor a ₹5 Lakh classroom, or donate ₹100 for a sapling—we welcome every single rupee. Our
+                        Gurukulam will not just be school, we ask you to join us in building a civilizational model."
+                    </p>
+                </div>
+
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; text-align: center; border-left: 1px solid rgba(0,0,0,0.06); padding-left: 40px; position: relative; z-index: 1;">
+                    <img src="/images/call-to-seva/shri-mukund-agrawal.jpg" alt="Shri Mukund Agrawal"
+                        style="width: 230px; height: 230px; border-radius: 50%; object-fit: cover; border: 8px solid white; outline: 1px solid rgba(0,0,0,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-bottom: 25px;">
+
+                    <h4
+                        style="font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--terracotta); margin: 0; line-height: 1.1;">
+                        Shri Mukund Agrawal</h4>
+
+                    <p
+                        style="font-size: 18px; color: var(--forest); font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 2px;">
+                        IIT Delhi Alumnus</p>
+
+                    <p
+                        style="font-size: 15px; color: var(--text-light); margin-top: 6px; font-weight: 600; font-style: italic;">
+                        Founder, Divya Bihar Mission</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 3: ANNADANAM (FOOD) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">NUTRITION & HEALTH</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 2fr 3fr; gap: 0;">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2874&auto=format&fit=crop"
+                alt="Annadanam food image">
+            <div style="display: grid; grid-template-rows: 0.6fr 1fr; gap: 0;">
+                <img src="/images/call-to-seva/annadanam-2.png" alt="Children receiving annadanam meal 1">
+                <img src="/images/call-to-seva/annadanam-3.png" alt="Children receiving annadanam meal 2">
+            </div>
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>01 |</span> Nourishment</span>
+            <h2 class="hindi-title">अन्नदानम्</h2>
+            <h1 class="page-title">The Sacred Offering</h1>
+            <p class="page-desc">No child can learn on an empty stomach. Annadanam is the highest form of Seva. Help us
+                provide nutritious, hygienic daily meals to our rural students.</p>
+
+            <div class="price-card">
+                <div class="price-info">
+                    <h3>Sponsor Meals (1 Day)</h3>
+                    <p>Provide fresh, nutritious meals for all the students at the Gurukulam for an entire day. A
+                        beautiful way to celebrate birthdays or anniversaries.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹2,500</div>
+                    <div class="frequency">Per Day</div>
+                </div>
+            </div>
+            <div class="price-card forest">
+                <div class="price-info">
+                    <h3>Sponsor Meals (1 Month)</h3>
+                    <p>Take the profound responsibility of nourishing the entire student body for 30 days, ensuring
+                        consistent health and focus.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹75,000</div>
+                    <div class="frequency">Per Month</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 4: VIDYA DAAN (CHILD ADOPTION) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">100% UTILIZATION</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/vidyadan-1.JPG" alt="Vidya Daan students 1">
+            <img src="/images/call-to-seva/vidyadan-3.jpg" alt="Vidya Daan students 3">
+            <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 0;">
+                <img src="/images/call-to-seva/vidyadan-2.jpg" alt="Vidya Daan students 2">
+                <img src="/images/call-to-seva/vidyadan-4.jpg" alt="Vidya Daan students 4">
+            </div>
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>02 |</span> Human Impact</span>
+            <h2 class="hindi-title">विद्या दान</h2>
+            <h1 class="page-title">Adopt a Student</h1>
+            <p class="page-desc">Sponsor a rural student's complete hostel education at DBG Gurukulam. Ensure that
+                brilliant minds do not drop out due to poverty.</p>
+
+            <div class="price-card">
+                <div class="price-info">
+                    <h3>Hostel Child (Monthly)</h3>
+                    <p>Covers all residential, nutritional, and educational expenses (tuition, books, study materials)
+                        for one student for 30 days.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹5,000</div>
+                    <div class="frequency">Per Month</div>
+                </div>
+            </div>
+            <div class="price-card forest">
+                <div class="price-info">
+                    <h3>Hostel Child (Annually)</h3>
+                    <p>Secure a child's complete future for an entire academic year without any interruption or
+                        financial anxiety.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹60,000</div>
+                    <div class="frequency">Per Year</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 5: GURU DAKSHINA ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">EMPOWER EDUCATORS</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/faculty-1.jpg" alt="Faculty member 1">
+            <img src="/images/call-to-seva/faculty-2.jpg" alt="Faculty member 2">
+            <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 0;">
+                <img src="/images/call-to-seva/faculty-3.jpg" alt="Faculty member 3">
+                <img src="/images/call-to-seva/faculty-4.jpg" alt="Faculty member 4">
+            </div>
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>03 |</span> Faculty Support</span>
+            <h2 class="hindi-title">गुरु दक्षिणा</h2>
+            <h1 class="page-title">Sponsor an Educator</h1>
+            <p class="page-desc">World-class education requires world-class teachers. Help us provide dignified
+                fellowships to the dedicated educators shaping our villages.</p>
+
+            <div class="price-card gold">
+                <div class="price-info">
+                    <h3>Teacher Fellowship (Monthly)</h3>
+                    <p>Support the monthly salary and dignified livelihood of one dedicated Gurukulam teacher.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹15,000</div>
+                    <div class="frequency">Per Month</div>
+                </div>
+            </div>
+            <div class="price-card brown">
+                <div class="price-info">
+                    <h3>Teacher Fellowship (Annually)</h3>
+                    <p>Provide 12 months of financial stability, allowing an educator to focus entirely on teaching.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹1.8 Lakhs</div>
+                    <div class="frequency">Per Year</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 6: CLASSROOMS (VIDYA MANDIR) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">BRICK BY BRICK</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/classroom-1.jpg" alt="Classroom construction 1">
+            <img src="/images/call-to-seva/classroom-2.jpg" alt="Classroom construction 2">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>04 |</span> Infrastructure</span>
+            <h2 class="hindi-title">विद्या मंदिर निर्माण</h2>
+            <h1 class="page-title">Build a Classroom</h1>
+            <p class="page-desc">Our current school faces a severe deficiency of space. We urgently need to construct 4
+                to 5 new rooms from the ground up to accommodate our growing students with dignity.</p>
+
+            <div class="price-card brown" style="padding: 45px;">
+                <div class="price-info">
+                    <h3 style="font-size: 42px; margin-bottom: 15px;">Build 1 Complete Classroom</h3>
+                    <p style="font-size: 20px;">Covers complete construction materials, masonry labor, flooring, doors,
+                        windows, and roofing for one entirely new classroom at DBG Gurukulam.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 64px;">₹5 Lakhs</div>
+                    <div class="frequency" style="color: var(--terracotta);">One-Time Setup</div>
+                </div>
+            </div>
+
+            <div
+                style="background: white; padding: 25px; border-radius: 12px; margin-top: 20px; text-align: center; border: 1px dashed var(--gold);">
+                <p style="font-size: 18px; color: var(--terracotta); margin: 0; font-weight: 700;">*A plaque with your
+                    family's name will be respectfully placed outside the sponsored classroom.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 7: INFRA (BENCHES & FANS) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">BASIC INFRASTRUCTURE</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="height: 400px;"><img
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2922&auto=format&fit=crop"
+                alt="Classroom"></div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>05 |</span> Furnishings</span>
+            <h2 class="hindi-title">सुविधा और सुकून</h2>
+            <h1 class="page-title">Benches & Electricity</h1>
+            <p class="page-desc">No child should have to sit on a cold floor to learn. Help us furnish the classrooms
+                and provide basic electrical comfort for the summer heat.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div class="small-card" style="border-top-color: var(--forest);">
+                    <h4>Sponsor 1 Desk/Bench</h4>
+                    <p>High-quality wooden seating desk ensuring 2-3 students can sit comfortably.</p>
+                    <div class="p-tag">₹3,000 <span style="font-size: 16px; color:#888;">/ Bench</span></div>
+                </div>
+                <div class="small-card" style="border-top-color: var(--brown-dark);">
+                    <h4>Electric Fans & Wiring</h4>
+                    <p>Basic electrical setup, wiring, and ceiling fans for summer learning.</p>
+                    <div class="p-tag">₹2,000 <span style="font-size: 16px; color:#888;">/ Set</span></div>
+                </div>
+                <div class="small-card"
+                    style="border-top-color: var(--terracotta); grid-column: span 2; display: flex; justify-content: space-between; align-items: center; background: white;">
+                    <div>
+                        <h4>Furnish an Entire Classroom</h4>
+                        <p style="margin: 0; color: var(--text-light);">Sponsor all the benches and fans for one
+                            complete room.</p>
+                    </div>
+                    <div class="p-tag" style="font-size: 42px;">₹45,000</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 8: TRANSPORT & MOBILITY ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">ACCESSIBILITY</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top"
+            style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 4px; background: white;">
+            <img src="/images/call-to-seva/cycle.jpg" alt="Students with bicycles" style="filter: sepia(5%) brightness(0.95);">
+            <img src="/images/call-to-seva/van.jpg" alt="School transport van" style="filter: brightness(1) contrast(1.05);">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>06 |</span> Mobility</span>
+            <h2 class="hindi-title">सुगम यात्रा</h2>
+            <h1 class="page-title">Transport & Safety</h1>
+            <p class="page-desc">Distance should never be a barrier to education. Help students from remote villages
+                reach the Gurukulam safely, reliably, and on time.</p>
+
+            <div class="price-card forest" style="padding: 25px 35px;">
+                <div class="price-info">
+                    <h3>Buy a School Van</h3>
+                    <p>Contribute towards the purchase of a dedicated multi-seater school van for safe transportation of
+                        children from neighboring villages.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 36px; color: var(--forest);">Open Donation</div>
+                    <div class="frequency">Any Amount</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div class="small-card" style="border-top-color: var(--terracotta);">
+                    <h4>Sponsor a Driver</h4>
+                    <p>Provide the monthly salary for a safe, reliable local driver for the school van.</p>
+                    <div class="p-tag">₹12,000 <span style="font-size: 16px; color:#888;">/ Month</span></div>
+                </div>
+                <div class="small-card" style="border-top-color: var(--gold);">
+                    <h4>Donate a Bicycle</h4>
+                    <p>Empower an older student with personal mobility to commute to school daily.</p>
+                    <div class="p-tag">₹4,000 <span style="font-size: 16px; color:#888;">/ Cycle</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 9: THE LIBRARY ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">WISDOM & KNOWLEDGE</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top"><img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2940&auto=format&fit=crop"
+                alt="Library"></div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>07 |</span> Literacy</span>
+            <h2 class="hindi-title">ज्ञान का मंदिर</h2>
+            <h1 class="page-title">Build The Library</h1>
+            <p class="page-desc">A library is a sanctuary of imagination. Help us build a dedicated library room and
+                fill it with books on science, history, literature, and our cultural heritage.</p>
+
+            <div class="price-card brown">
+                <div class="price-info">
+                    <h3>Construct the Library Room</h3>
+                    <p>Build the physical infrastructure for a dedicated, quiet reading space for the entire village.
+                    </p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹4 Lakhs</div>
+                    <div class="frequency">One-Time</div>
+                </div>
+            </div>
+            <div class="price-card gold">
+                <div class="price-info">
+                    <h3>Sponsor a Bookshelf</h3>
+                    <p>Provide a physical wooden shelf fully stocked with high-quality educational and story books.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹10,000</div>
+                    <div class="frequency">Per Shelf</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 10: SCIENCE LAB ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">DISCOVERY</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top"><img src="/images/call-to-seva/science-lab-1.png" alt="Science"></div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>08 |</span> Innovation</span>
+            <h2 class="hindi-title">विज्ञान प्रयोगशाला</h2>
+            <h1 class="page-title">The Science Lab</h1>
+            <p class="page-desc">Foster the next generation of rural scientists. We are building a dedicated laboratory
+                for hands-on experiments in Physics, Chemistry, and Biology.</p>
+
+            <div class="price-card forest">
+                <div class="price-info">
+                    <h3>Construct the Science Lab</h3>
+                    <p>Build the physical laboratory room equipped with proper safety infrastructure, sinks, and
+                        specialized tables.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹5 Lakhs</div>
+                    <div class="frequency">One-Time</div>
+                </div>
+            </div>
+            <div class="price-card terracotta">
+                <div class="price-info">
+                    <h3>Lab Equipment & Kits</h3>
+                    <p>Sponsor microscopes, chemicals, physics apparatus, and biology models for practical learning.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹50,000</div>
+                    <div class="frequency">Full Setup</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 11: SMART BOARDS ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">MODERN LEARNING</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/smart-classroom-2.jpg" alt="Smart classroom session 2">
+            <img src="/images/call-to-seva/smart-classroom-1.jpg" alt="Smart classroom session 1">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>09 |</span> Digital Bharat</span>
+            <h2 class="hindi-title">आधुनिक शिक्षा</h2>
+            <h1 class="page-title">Smart Classrooms</h1>
+            <p class="page-desc">Rural students deserve the same technological advantages as urban students. We are
+                integrating high-end digital learning panels into the Gurukulam.</p>
+
+            <div class="price-card brown" style="padding: 40px;">
+                <div class="price-info">
+                    <h3 style="font-size: 38px; margin-bottom: 15px;">Sponsor 1 Smart Board</h3>
+                    <p style="font-size: 20px;">Includes procurement, delivery, and complete wall-mounted setup of a
+                        large interactive digital learning panel.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 60px;">₹1.5 Lakhs</div>
+                    <div class="frequency" style="color: var(--terracotta);">Complete Setup</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 12: COMPUTER LAB ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">TECH EMPOWERMENT</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/computer-lab-1.jpg" alt="Computer lab session 1">
+            <img src="/images/call-to-seva/computer-lab-2.jpg" alt="Computer lab session 2">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>10 |</span> Technology</span>
+            <h2 class="hindi-title">ग्रामीण तकनीकी क्रांति</h2>
+            <h1 class="page-title">The Computer Lab</h1>
+            <p class="page-desc">We cannot prepare students for the future economy without computers. Help us build a
+                10-PC Tech Lab from scratch to teach coding and digital literacy.</p>
+
+            <div class="price-card terracotta">
+                <div class="price-info">
+                    <h3>Sponsor 1 Computer Set</h3>
+                    <p>One complete Desktop PC setup (Monitor, CPU, peripherals, and software) to help build our rural
+                        tech lab.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹50,000</div>
+                    <div class="frequency">Per System</div>
+                </div>
+            </div>
+
+            <div class="price-card brown">
+                <div class="price-info">
+                    <h3>Sponsor the Entire Lab (10 PCs)</h3>
+                    <p>Fund the complete tech laboratory. A profound way to single-handedly bridge the digital divide
+                        for hundreds of students.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹5 Lakhs</div>
+                    <div class="frequency" style="color: var(--terracotta);">10 Systems</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 13: GAUSHALA ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">COMPASSION</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top"><img src="/images/call-to-seva/goshala-1.jpg" alt="Gaumata at DBM Gaushala"></div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>11 |</span> Gau Seva</span>
+            <h2 class="hindi-title">गौ सेवा</h2>
+            <h1 class="page-title">Adopt a Gaumata</h1>
+            <p class="page-desc">According to our Vedic scriptures, serving Gaumata brings unimaginable peace. Support
+                the DBM Gaushala to provide fodder, water, and medical care.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div class="small-card" style="border-top-color: var(--terracotta);">
+                    <h4>Adopt for 1 Month</h4>
+                    <p>Fodder and basic care for 30 days.</p>
+                    <div class="p-tag">₹3,000</div>
+                </div>
+                <div class="small-card" style="border-top-color: var(--gold);">
+                    <h4>Adopt for 1 Year</h4>
+                    <p>Sustain a cow for a full year.</p>
+                    <div class="p-tag" style="color: var(--gold);">₹36,000</div>
+                </div>
+                <div class="small-card"
+                    style="border-top-color: var(--forest); grid-column: span 2; display: flex; justify-content: space-between; align-items: center; background: white;">
+                    <div>
+                        <h4>Lifetime Adoption</h4>
+                        <p style="margin: 0; color: var(--text-light); font-size: 18px;">Complete lifelong care. Regular
+                            updates & Gau-Pooja photos will be sent.</p>
+                    </div>
+                    <div class="p-tag" style="color: var(--forest); font-size: 42px;">₹3 Lakhs</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 14: TREE PLANTATION ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">ECOLOGICAL RESTORATION</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;">
+            <img src="/images/call-to-seva/tree-plantation-1.jpg" alt="Tree Plantation session 1">
+            <img src="/images/call-to-seva/tree-plantation-2.jpg" alt="Tree Plantation session 2">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2813&auto=format&fit=crop"
+                alt="Nature">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>12 |</span> Environment</span>
+            <h2 class="hindi-title" style="color: var(--forest);">प्रकृति वंदन</h2>
+            <h1 class="page-title">1,000 Tree Plantation</h1>
+            <p class="page-desc">A highly targeted ecological project to plant 1,000 trees across the rural environment
+                of Supaul to restore ecological balance.</p>
+
+            <div class="price-card forest" style="background: white;">
+                <div class="price-info">
+                    <h3 style="color: var(--forest);">Fund the Entire Project</h3>
+                    <p>Covers the complete cost of buying 1000 saplings, soil preparation, and local village labor for
+                        planting.</p>
+                    <p style="color: var(--terracotta); font-weight: 700; font-size: 15px; margin-top: 5px;">*We will
+                        share photos and exact locations of the drive with you.</p>
+                </div>
+                <div class="price-amount" style="border-left-color: rgba(30,86,49,0.2);">
+                    <div class="rupee" style="color: var(--forest);">₹50,000</div>
+                    <div class="frequency" style="color: var(--terracotta);">1000 Trees</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div class="small-card" style="border-top-color: var(--terracotta);">
+                    <h4>Sponsor 100 Trees</h4>
+                    <p>Contribute a major portion to the drive.</p>
+                    <div class="p-tag">₹5,000</div>
+                </div>
+                <div class="small-card" style="border-top-color: var(--terracotta);">
+                    <h4>Sponsor 10 Trees</h4>
+                    <p>Every single plant matters for the future.</p>
+                    <div class="p-tag">₹500</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 15: HAWAN & SPIRITUALITY ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">CULTURE & ROOTS</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 1.2fr 1.5fr; gap: 0;">
+            <img src="https://images.unsplash.com/photo-1630764883473-e8c2056f0589" alt="Diya"
+                style="height: 100%; object-fit: cover;">
+            <div style="display: grid; grid-template-rows: 0.3fr 1fr; gap: 0; height: 100%;">
+                <img src="/images/call-to-seva/spirituality-1.jpg" alt="Spirituality session 1"
+                    style="height: 100%; object-fit: cover;">
+                <img src="/images/call-to-seva/spirituality-2.jpg" alt="Spirituality session 2"
+                    style="height: 100%; object-fit: cover;">
+            </div>
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>13 |</span> Spirituality</span>
+            <h2 class="hindi-title">आध्यात्मिक ऊर्जा</h2>
+            <h1 class="page-title">Hawan & Yagya</h1>
+            <p class="page-desc">The Gurukulam tradition is built on spiritual discipline. Help us sustain our daily
+                cultural practices that purify the environment and the minds of the students.</p>
+
+            <div class="price-card terracotta">
+                <div class="price-info">
+                    <h3>Monthly Yagya Samagri</h3>
+                    <p>Fund the pure ghee, wood, and samagri required for the daily Hawan performed by the students.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹4,000</div>
+                    <div class="frequency">Per Month</div>
+                </div>
+            </div>
+
+            <div class="price-card gold">
+                <div class="price-info">
+                    <h3>Annual Spiritual Fund</h3>
+                    <p>Secure the spiritual and cultural festivities for the entire academic year.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹50,000</div>
+                    <div class="frequency">Per Year</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 16: MUSIC & ARTS ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">CREATIVE EXPRESSION</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+        <div class="hero-img-top" style="display: grid; grid-template-columns: 3fr 2fr; gap: 0;">
+            <img src="/images/call-to-seva/music-1.jpg" alt="Student music session">
+            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2940&auto=format&fit=crop"
+                alt="Music">
+        </div>
+
+        <div class="content-body">
+            <span class="section-tag"><span>14 |</span> Heritage</span>
+            <h2 class="hindi-title">कला और संगीत</h2>
+            <h1 class="page-title">Music & Instruments</h1>
+            <p class="page-desc">Preserving our cultural heritage requires instruments. Sponsor the tools needed to
+                teach our students classical music, bhajan, and arts.</p>
+
+            <div class="price-card gold">
+                <div class="price-info">
+                    <h3>Traditional Percussion & Strings</h3>
+                    <p>Help us expand our musical roots with high-quality Dholaks, Tanpuras, and Flutes for our
+                        students' daily bhajan and classical training.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee">₹25,000</div>
+                    <div class="frequency">Musical Ensemble</div>
+                </div>
+            </div>
+
+            <div class="price-card brown" style="padding: 25px 35px;">
+                <div class="price-info">
+                    <h3>General Arts & Sports Fund</h3>
+                    <p>Contribute to provide painting materials, craft tools, and sports equipment for the students'
+                        holistic growth.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 34px; color: var(--brown-dark);">Open Donation</div>
+                    <div class="frequency">Any Amount</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 17: SANITATION ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g">HEALTH & DIGNITY</div>
+        <div class="logo-mark"><img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+
+        <div class="content-body" style="padding-top: 150px;">
+            <span class="section-tag"><span>15 |</span> Hygiene</span>
+            <h2 class="hindi-title">स्वच्छता और सम्मान</h2>
+            <h1 class="page-title">Sanitation & Campus</h1>
+            <p class="page-desc">Proper sanitation is a fundamental right and critical for student dignity, especially
+                for girls. A beautiful campus inspires a beautiful mind.</p>
+
+            <div class="price-card forest">
+                <div class="price-info">
+                    <h3>Build School Toilets</h3>
+                    <p>Construction of a complete, hygienic, and modern toilet block for boys and girls with proper
+                        water supply and drainage.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 42px;">₹2 - 3 Lakhs</div>
+                    <div class="frequency" style="color: var(--forest);">Per Block</div>
+                </div>
+            </div>
+
+            <div class="price-card gold">
+                <div class="price-info">
+                    <h3>School Painting & Beautification</h3>
+                    <p>Colors, primers, and labor to paint the school walls, creating a vibrant and inspiring learning
+                        environment.</p>
+                </div>
+                <div class="price-amount">
+                    <div class="rupee" style="font-size: 34px; color: var(--brown-dark);">Open Donation</div>
+                    <div class="frequency" style="color: var(--gold);">Any Amount</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div class="footer-qr"><img src="dbm-upi-qr.jpeg" alt="QR Code"></div>
+            <div class="footer-content">
+                <h3>Divya Bihar Mission Trust</h3>
+                <p><strong>A/C No:</strong> 42216836222<br><strong>IFSC:</strong> SBIN0003005 | <strong>Branch:</strong>
+                    Simrahi Bazar</p>
+            </div>
+            <div class="footer-upi">
+                <h4>UPI: divyabihar6222@sbi</h4>
+                <div class="tax-tag">✅ 80G Tax Exempted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 18: ABOUT DBM (THE TRUST & PILLARS) ================= -->
+    <div class="page">
+        <div class="watermark-mandala"></div>
+        <div class="badge-80g"
+            style="background: transparent; border: none; padding: 0; top: 60px; left: 80px; color: var(--terracotta);">
+            OUR IDENTITY</div>
+        <div class="logo-mark" style="top: 40px; right: 60px; box-shadow: none; border: none; background: transparent;">
+            <img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM">
+        </div>
+
+        <div class="content-body"
+            style="padding: 120px 80px 60px 80px; height: 100%; justify-content: flex-start; margin: 0;">
+
+            <h2 class="hindi-title" style="font-size: 52px; margin-bottom: -10px;">परिचय</h2>
+            <h1 class="page-title" style="font-size: 84px; margin-bottom: 20px;">Who We Are.</h1>
+
+            <div class="identity-layout">
+
+                <!-- Left Column: The Narrative & Website -->
+                <div class="id-left">
+                    <div>
+                        <p class="id-manifesto">
+                            Divya Bihar Mission is a registered public charitable trust based in Raghopur, Supaul,
+                            Bihar, established by a collective of IIT alumni and grassroots leaders.
+                        </p>
+                        <p class="id-manifesto" style="color: var(--text-light); font-size: 22px;">
+                            We operate on a profound conviction: true national progress is impossible if we abandon our
+                            villages. We are building a replicable, self-reliant civilizational model across five
+                            interconnected pillars.
+                        </p>
+
+                        <div class="id-gurukulam-box">
+                            <p>DBG Gurukulam acts as the physical epicenter of this mission. It is from this school that
+                                our vision scales to the community.</p>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Bottom Anchor Container (Pushes everything to the bottom) -->
+                    <div style="margin-top: auto;">
+
+                        <!-- The Trust Lockup (Logo + Names + Address) -->
+                        <div class="trust-lockup">
+                            <div class="trust-lockup-logo">
+                                <img src="https://divyabiharmission.com/DBM-logo.png" alt="DBM">
+                            </div>
+                            <div class="trust-lockup-text">
+                                <h3 class="trust-lockup-hindi">दिव्य बिहार मिशन ट्रस्ट</h3>
+                                <h4 class="trust-lockup-en">Divya Bihar Mission Trust</h4>
+                                <p class="trust-lockup-address">Raghopur, Supaul, Bihar – 852111</p>
+                            </div>
+                        </div>
+
+                        <!-- Glorious Website Integration -->
+                        <div class="glorious-web-link"
+                            style="margin-top: 0; padding-top: 25px; border-top: 1px solid rgba(0,0,0,0.1);">
+                            <h2>www.divyabiharmission.com</h2>
+                            <p>Trust Reg: AAETD5010DE20241 &nbsp;|&nbsp; All Donations 80G Exempted</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column: The 5 Pillars (Editorial List) -->
+                <div class="id-right">
+                    <div class="editorial-pillar" style="border-top: 3px solid var(--brown-dark);">
+                        <div class="ep-num">01</div>
+                        <div class="ep-content">
+                            <h4>Education <span>(शिक्षा)</span></h4>
+                            <p>Building tech-enabled, values-based rural Gurukulams.</p>
+                        </div>
+                    </div>
+                    <div class="editorial-pillar">
+                        <div class="ep-num">02</div>
+                        <div class="ep-content">
+                            <h4>Agriculture <span>(कृषि)</span></h4>
+                            <p>Promoting organic farming and ecological restoration.</p>
+                        </div>
+                    </div>
+                    <div class="editorial-pillar">
+                        <div class="ep-num">03</div>
+                        <div class="ep-content">
+                            <h4>Enterprise <span>(उद्यमिता)</span></h4>
+                            <p>Incubating rural startups and local commerce.</p>
+                        </div>
+                    </div>
+                    <div class="editorial-pillar">
+                        <div class="ep-num">04</div>
+                        <div class="ep-content">
+                            <h4>Gaushala <span>(गौशाला)</span></h4>
+                            <p>Protecting indigenous breeds and natural ecosystems.</p>
+                        </div>
+                    </div>
+                    <div class="editorial-pillar" style="border-bottom: 3px solid var(--brown-dark);">
+                        <div class="ep-num">05</div>
+                        <div class="ep-content">
+                            <h4>Values <span>(संस्कार)</span></h4>
+                            <p>Rooting the next generation deeply in Indian Knowledge Systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 19: THE COLLAGE (FULL BLEED MONDRIAN GRID) ================= -->
+    <div class="page page-full-bleed">
+        <div class="watermark-mandala" style="z-index: 1;"></div>
+        <div class="logo-mark"
+            style="top: 40px; right: 60px; box-shadow: none; border: none; background: transparent; z-index: 100;"><img
+                src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+
+        <div class="mosaic-header">
+            <h2 class="hindi-title" style="font-size: 46px; margin-bottom: -5px;">एक झलक</h2>
+            <h1 class="page-title" style="font-size: 84px; margin-bottom: 10px; position: relative; z-index: 20;">A
+                Living Ecosystem.</h1>
+            <p style="font-size: 24px; color: var(--text-light); font-weight: 500; position: relative; z-index: 20;">
+                Glimpses of life, learning, and growth at DBG Gurukulam.</p>
+        </div>
+
+        <!-- 12-Image Full Bleed Architectural Grid -->
+        <div class="mondrian-grid" style="position: relative; z-index: 20;">
+            <div class="m-pic pic-1"><img src="/images/call-to-seva/vidyadan-1.JPG" alt="Image 1"></div>
+            <div class="m-pic pic-2"><img src="/images/call-to-seva/music-1.jpg" alt="Image 2"></div>
+            <div class="m-pic pic-3"><img src="/images/call-to-seva/annadanam-2.png" alt="Image 3"></div>
+            <div class="m-pic pic-4"><img src="/images/call-to-seva/tree-plantation-1.jpg" alt="Image 4"></div>
+
+            <div class="m-pic pic-5"><img src="/images/call-to-seva/faculty-1.jpg" alt="Image 5"></div>
+            <div class="m-pic pic-6"><img src="/images/call-to-seva/spirituality-2.jpg" alt="Image 6"></div>
+
+            <div class="m-pic pic-7"><img src="/images/call-to-seva/classroom-1.jpg" alt="Image 7"></div>
+            <div class="m-pic pic-8"><img src="/images/call-to-seva/smart-classroom-1.jpg" alt="Image 8"></div>
+            <div class="m-pic pic-9"><img src="/images/call-to-seva/spirituality-1.jpg" alt="Image 9"></div>
+
+            <div class="m-pic pic-10"><img src="/images/call-to-seva/vidyadan-2.jpg" alt="Image 10"></div>
+            <div class="m-pic pic-11"><img src="/images/call-to-seva/cycle.jpg" alt="Image 11"></div>
+            <div class="m-pic pic-12"><img src="/images/call-to-seva/tree-plantation-2.jpg" alt="Image 12"></div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 19: THE FINAL APPEAL ================= -->
+    <div class="page"
+        style="background: var(--terracotta); color: white; justify-content: center; align-items: center; text-align: center;">
+        <div class="watermark-mandala"
+            style="top: 0; right: 0; width: 100%; height: 100%; transform: none; background-size: 150%;"></div>
+        <div class="logo-mark"
+            style="position: static; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: none;"><img
+                src="https://divyabiharmission.com/DBM-logo.png" alt="DBM"></div>
+
+        <div style="position: relative; z-index: 10; padding: 0 80px;">
+            <h2 class="hindi" style="font-size: 70px; color: var(--gold); margin-bottom: 15px;">समर्पण</h2>
+            <h1 class="serif"
+                style="font-size: 85px; line-height: 1.1; font-weight: 700; margin-bottom: 30px; color: var(--sand);">
+                Every Rupee<br>Builds Bharat.</h1>
+            <p
+                style="font-size: 24px; color: rgba(253, 249, 241, 0.95); line-height: 1.6; font-weight: 500; max-width: 800px; margin: 0 auto 40px auto;">
+                We humbly accept every single contribution. Whether you sponsor a full classroom, or send ₹100 as a
+                token of your blessings—we respect the intention behind it.
+            </p>
+
+            <div
+                style="background: var(--sand); padding: 30px; border-radius: 16px; max-width: 450px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                    <img src="dbm-upi-qr.jpeg" alt="QR"
+                        style="width:160px; height:160px; border: 2px dashed var(--terracotta); padding: 5px; border-radius: 8px;">
+                </div>
+                <h3
+                    style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800; color: var(--terracotta); margin-bottom: 10px;">
+                    UPI: divyabihar6222@sbi</h3>
+                <p
+                    style="font-size: 18px; color: var(--text-light); margin-bottom: 15px; font-weight: 600; line-height: 1.4;">
+                    Divya Bihar Mission Trust<br>Reg: AAETD5010DE20241</p>
+                <div
+                    style="background: var(--forest); color: white; display: inline-block; padding: 10px 25px; border-radius: 8px; font-weight: bold; font-size: 16px; letter-spacing: 1px;">
+                    ✅ ALL DONATIONS 80G EXEMPTED</div>
+            </div>
+
+            <p
+                style="font-size: 18px; color: rgba(253, 249, 241, 0.8); margin-top: 40px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">
+                contact@divyabiharmission.com &nbsp;|&nbsp; +91 92625 36295</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

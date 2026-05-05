@@ -58,8 +58,11 @@ export function DonateHero({ onDonateClick }: DonateHeroProps) {
               size="lg"
               variant="outline"
               className="border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg"
+              asChild
             >
-              View Impact Report
+              <a href="/call-to-seva.html" target="_blank" rel="noopener noreferrer">
+                Call to Seva Prospectus
+              </a>
             </Button>
           </div>
         </div>

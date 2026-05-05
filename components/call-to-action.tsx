@@ -160,11 +160,17 @@ export function CallToAction() {
                   Donate Now
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-slate-500" asChild>
+              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-white" asChild>
                 <Link href="/volunteer">
                 <Users className="w-5 h-5 mr-2" />
                 Join as Volunteer
                 </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-white" asChild>
+                <a href="/call-to-seva.pdf" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  Download Prospectus (PDF)
+                </a>
               </Button>
             </div>
           </div>
