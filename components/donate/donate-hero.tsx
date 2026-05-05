@@ -60,8 +60,8 @@ export function DonateHero({ onDonateClick }: DonateHeroProps) {
               className="border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg"
               asChild
             >
-              <a href="/call-to-seva.html" target="_blank" rel="noopener noreferrer">
-                Call to Seva Prospectus
+              <a href="/call-to-seva.pdf" target="_blank" rel="noopener noreferrer" download>
+                Download Prospectus
               </a>
             </Button>
           </div>
