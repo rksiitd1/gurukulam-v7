@@ -63,24 +63,12 @@ export function DonateHero({ onDonateClick }: DonateHeroProps) {
                 className="group w-full sm:w-auto border-2 border-orange-200 text-orange-900 bg-white/60 backdrop-blur-md hover:bg-white hover:border-orange-400 px-10 py-7 text-lg md:text-xl rounded-2xl shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
                 asChild
               >
-                <a href="/call-to-seva.html" target="_blank" rel="noopener noreferrer">
+                <a href="/call-to-seva.pdf" target="_blank" rel="noopener noreferrer">
                   <FileText className="w-5 h-5 mr-3 text-orange-600" />
                   A Call to Seva
                 </a>
               </Button>
             </div>
-
-            {/* Subtle PDF Link */}
-            <a 
-              href="/call-to-seva.pdf" 
-              download 
-              className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-orange-600 transition-colors group mt-2"
-            >
-              <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-              <span className="underline underline-offset-4 decoration-gray-300 group-hover:decoration-orange-600 transition-colors">
-                Download as PDF document
-              </span>
-            </a>
           </div>
         </div>
 
