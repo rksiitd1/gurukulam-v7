@@ -11,13 +11,13 @@ const quickFacts = [
   },
   {
     icon: MapPin,
-    label: "Bihar Board Aligned",
-    detail: "Raghopur, Supaul",
+    label: "Classes IX–XII",
+    detail: "Bihar Board aligned",
   },
   {
     icon: NotebookPen,
-    label: "Class 10 Focus",
-    detail: "Mathematics, from the basics",
+    label: "Math · Science · English",
+    detail: "Concept-first, every subject",
   },
 ]
 
@@ -39,13 +39,14 @@ export function ShriClassesHero() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
-                Mathematics, Rebuilt
-                <span className="block text-[#E7D3A1]">From the Ground Up.</span>
+                Rebuilding the Basics,
+                <span className="block text-[#E7D3A1]">One Subject at a Time.</span>
               </h1>
 
               <p className="text-base sm:text-lg text-[#C9D2E0] leading-relaxed max-w-xl">
-                For Class 10 students in Raghopur who feel left behind in mathematics — taught concept-first,
-                one problem at a time, by an IIT Delhi engineer who chose to teach in his own village.
+                A modern Gurukul in Raghopur for Classes IX–XII — Mathematics, Science and English, taught
+                concept-first by an IIT Delhi engineer who came home to teach. It runs deepest today in our
+                Class 10 Bihar Board Mathematics program.
               </p>
             </div>
 
@@ -70,7 +71,7 @@ export function ShriClassesHero() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
-                <Link href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes%20for%20Class%2010%20Mathematics." target="_blank">
+                <Link href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes." target="_blank">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   Message Us on WhatsApp
                 </Link>
@@ -95,7 +96,7 @@ export function ShriClassesHero() {
             <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
               <HeroCarousel
                 imageDir="shri-classes"
-                alt="Students studying mathematics at Shri Classes in Raghopur"
+                alt="Students studying at Shri Classes in Raghopur"
                 className="w-full h-[22rem] sm:h-[28rem] md:h-[32rem]"
                 showOverlay
               />
@@ -108,7 +109,7 @@ export function ShriClassesHero() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-[#0B1B33]">11 Questions</div>
-                  <div className="text-xs text-[#5B6478]">Every single day</div>
+                  <div className="text-xs text-[#5B6478]">Class 10 Math, every day</div>
                 </div>
               </div>
             </div>
