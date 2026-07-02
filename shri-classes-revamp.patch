@@ -1,0 +1,1377 @@
+diff --git a/app/programs/shri-classes/page.tsx b/app/programs/shri-classes/page.tsx
+index ad19ed9..99d8f07 100644
+--- a/app/programs/shri-classes/page.tsx
++++ b/app/programs/shri-classes/page.tsx
+@@ -1,9 +1,9 @@
+ import { ShriClassesHero } from "@/components/programs/shri-classes/shri-classes-hero"
+ import type { Metadata } from "next"
+ export const metadata: Metadata = {
+-  title: "Shri Classes",
++  title: "Shri Classes | DBG Gurukulam",
+   description:
+-    "Coaching for Grades 9–12 with a focus on Science, Mathematics and competitive exams (JEE/NEET).",
++    "Class 10 Bihar Board Mathematics, taught concept-first by an IIT Delhi engineer in Raghopur, Supaul — built around a daily DPP practice system.",
+   openGraph: { images: ["/images/programs/shri-classes.jpg"] },
+ }
+ import { ShriClassesCurriculum } from "@/components/programs/shri-classes/shri-classes-curriculum"
+diff --git a/components/programs/shri-classes/shri-classes-admission.tsx b/components/programs/shri-classes/shri-classes-admission.tsx
+index c4fbc3d..1d940df 100644
+--- a/components/programs/shri-classes/shri-classes-admission.tsx
++++ b/components/programs/shri-classes/shri-classes-admission.tsx
+@@ -1,320 +1,115 @@
+-"use client"
+-
+-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { Card, CardContent } from "@/components/ui/card"
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Input } from "@/components/ui/input"
+-import { Label } from "@/components/ui/label"
+-import { Textarea } from "@/components/ui/textarea"
+-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+-import { Checkbox } from "@/components/ui/checkbox"
+-import { Clock, Users, CheckCircle, Phone, Mail, MapPin, Download } from "lucide-react"
++import { Phone, Mail, MapPin, MessageCircle, ArrowRight } from "lucide-react"
++import Link from "next/link"
+ 
+-const admissionSteps = [
++const steps = [
+   {
+     step: 1,
+-    title: "Application Form",
+-    description: "Fill out the online application form with student and parent details",
+-    duration: "10 minutes",
+-    status: "active",
++    title: "Reach Out",
++    description: "Call or message us on WhatsApp — tell us which class your child is in.",
+   },
+   {
+     step: 2,
+-    title: "Document Submission",
+-    description: "Submit required documents including previous academic records",
+-    duration: "1 day",
+-    status: "pending",
++    title: "Sit In on a Class",
++    description: "Come see a session in person, or try a sample DPP, before deciding anything.",
+   },
+   {
+     step: 3,
+-    title: "Entrance Assessment",
+-    description: "Student assessment to understand current academic level",
+-    duration: "2 hours",
+-    status: "pending",
+-  },
+-  {
+-    step: 4,
+-    title: "Parent Interview",
+-    description: "Discussion with parents about expectations and student needs",
+-    duration: "30 minutes",
+-    status: "pending",
+-  },
+-  {
+-    step: 5,
+-    title: "Admission Decision",
+-    description: "Final admission decision and fee structure discussion",
+-    duration: "2-3 days",
+-    status: "pending",
+-  },
+-]
+-
+-const requirements = [
+-  "Previous year's academic transcripts",
+-  "Birth certificate or age proof",
+-  "Transfer certificate (if applicable)",
+-  "Passport size photographs (4 copies)",
+-  "Medical fitness certificate",
+-  "Character certificate from previous school",
+-]
+-
+-const batches = [
+-  {
+-    name: "Morning Batch",
+-    time: "8:00 AM - 12:00 PM",
+-    classes: "6th to 10th",
+-    seats: "15 per class",
+-    status: "Open",
+-  },
+-  {
+-    name: "Evening Batch",
+-    time: "2:00 PM - 6:00 PM",
+-    classes: "6th to 12th",
+-    seats: "15 per class",
+-    status: "Open",
+-  },
+-  {
+-    name: "Weekend Batch",
+-    time: "9:00 AM - 5:00 PM",
+-    classes: "All classes",
+-    seats: "20 per class",
+-    status: "Limited",
++    title: "Join a Batch",
++    description: "Once you're ready, your child starts with that day's Daily Practice Problem.",
+   },
+ ]
+ 
+ export function ShriClassesAdmission() {
+   return (
+-    <section className="py-12 lg:py-20 bg-gradient-to-br from-purple-50 to-indigo-100">
++    <section className="py-16 lg:py-24 bg-[#FAF7F1]">
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         {/* Header */}
+-        <div className="text-center mb-12 lg:mb-16">
+-          <Badge className="mb-4 bg-purple-100 text-purple-800 hover:bg-purple-200">Admissions Open</Badge>
+-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Join Shri Classes Today</h2>
+-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+-            Start your child's journey towards academic excellence with our proven teaching methods and personalized
+-            attention.
++        <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
++          <Badge className="mb-4 bg-[#0B1B33]/5 text-[#0B1B33] hover:bg-[#0B1B33]/10 border-0">
++            Join Shri Classes
++          </Badge>
++          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1B33] mb-4 tracking-tight">
++            Getting Started Is Simple
++          </h2>
++          <p className="text-lg text-[#4A5468] leading-relaxed">
++            No forms, no documents, no waiting list. If your child is struggling with Class 10 mathematics,
++            the door is open.
+           </p>
+         </div>
+ 
+-        {/* Admission Process */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Admission Process</h3>
+-          <div className="max-w-4xl mx-auto">
+-            <div className="space-y-4">
+-              {admissionSteps.map((step, index) => (
+-                <Card
+-                  key={index}
+-                  className={`hover:shadow-lg transition-all duration-300 border-0 ${
+-                    step.status === "active" ? "bg-purple-50 border-l-4 border-l-purple-500" : "bg-white/90"
+-                  } backdrop-blur-sm`}
+-                >
+-                  <CardContent className="p-6">
+-                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+-                      <div className="flex items-center gap-4">
+-                        <div
+-                          className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
+-                            step.status === "active" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-600"
+-                          }`}
+-                        >
+-                          {step.step}
+-                        </div>
+-                        <div className="flex-1">
+-                          <h4 className="text-lg font-semibold text-gray-900 mb-1">{step.title}</h4>
+-                          <p className="text-gray-600 text-sm sm:text-base">{step.description}</p>
+-                        </div>
+-                      </div>
+-                      <div className="flex items-center text-sm text-gray-500">
+-                        <Clock className="w-4 h-4 mr-1" />
+-                        {step.duration}
+-                      </div>
+-                    </div>
+-                  </CardContent>
+-                </Card>
+-              ))}
+-            </div>
+-          </div>
+-        </div>
+-
+-        {/* Available Batches */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Available Batches</h3>
+-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+-            {batches.map((batch, index) => (
+-              <Card
+-                key={index}
+-                className="hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
+-              >
+-                <CardHeader className="pb-3">
+-                  <div className="flex justify-between items-start">
+-                    <CardTitle className="text-lg font-semibold text-gray-900">{batch.name}</CardTitle>
+-                    <Badge variant={batch.status === "Open" ? "default" : "secondary"}>{batch.status}</Badge>
+-                  </div>
+-                </CardHeader>
+-                <CardContent className="space-y-3">
+-                  <div className="flex items-center text-sm text-gray-600">
+-                    <Clock className="w-4 h-4 mr-2" />
+-                    {batch.time}
+-                  </div>
+-                  <div className="flex items-center text-sm text-gray-600">
+-                    <Users className="w-4 h-4 mr-2" />
+-                    {batch.classes}
++        {/* Steps */}
++        <div className="max-w-3xl mx-auto mb-16 lg:mb-20">
++          <div className="grid sm:grid-cols-3 gap-6">
++            {steps.map((item) => (
++              <Card key={item.step} className="border-0 shadow-sm bg-white">
++                <CardContent className="p-6 text-center">
++                  <div className="w-10 h-10 rounded-full bg-[#0B1B33] text-white font-semibold flex items-center justify-center mx-auto mb-4">
++                    {item.step}
+                   </div>
+-                  <div className="flex items-center text-sm text-gray-600">
+-                    <CheckCircle className="w-4 h-4 mr-2" />
+-                    {batch.seats}
+-                  </div>
+-                  <Button className="w-full mt-4" variant={batch.status === "Limited" ? "outline" : "default"}>
+-                    {batch.status === "Limited" ? "Limited Seats" : "Apply Now"}
+-                  </Button>
++                  <h3 className="font-semibold text-[#0B1B33] mb-2">{item.title}</h3>
++                  <p className="text-sm text-[#5B6478] leading-relaxed">{item.description}</p>
+                 </CardContent>
+               </Card>
+             ))}
+           </div>
+         </div>
+ 
+-        {/* Requirements */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Required Documents</h3>
+-          <div className="max-w-2xl mx-auto">
+-            <Card className="border-0 bg-white/90 backdrop-blur-sm">
+-              <CardContent className="p-6 sm:p-8">
+-                <div className="space-y-4">
+-                  {requirements.map((requirement, index) => (
+-                    <div key={index} className="flex items-start gap-3">
+-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+-                      <span className="text-gray-700">{requirement}</span>
+-                    </div>
+-                  ))}
+-                </div>
+-                <div className="mt-6 pt-6 border-t">
+-                  <Button variant="outline" className="w-full">
+-                    <Download className="w-4 h-4 mr-2" />
+-                    Download Document Checklist
+-                  </Button>
+-                </div>
+-              </CardContent>
+-            </Card>
+-          </div>
+-        </div>
+-
+-        {/* Application Form */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Quick Application Form</h3>
+-          <div className="max-w-2xl mx-auto">
+-            <Card className="border-0 bg-white/90 backdrop-blur-sm">
+-              <CardContent className="p-6 sm:p-8">
+-                <form className="space-y-6">
+-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+-                    <div>
+-                      <Label htmlFor="studentName">Student Name *</Label>
+-                      <Input id="studentName" placeholder="Enter student's full name" className="mt-1" />
+-                    </div>
+-                    <div>
+-                      <Label htmlFor="class">Class Applying For *</Label>
+-                      <Select>
+-                        <SelectTrigger className="mt-1">
+-                          <SelectValue placeholder="Select class" />
+-                        </SelectTrigger>
+-                        <SelectContent>
+-                          <SelectItem value="6">Class 6th</SelectItem>
+-                          <SelectItem value="7">Class 7th</SelectItem>
+-                          <SelectItem value="8">Class 8th</SelectItem>
+-                          <SelectItem value="9">Class 9th</SelectItem>
+-                          <SelectItem value="10">Class 10th</SelectItem>
+-                          <SelectItem value="11">Class 11th</SelectItem>
+-                          <SelectItem value="12">Class 12th</SelectItem>
+-                        </SelectContent>
+-                      </Select>
+-                    </div>
+-                  </div>
+-
+-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+-                    <div>
+-                      <Label htmlFor="parentName">Parent/Guardian Name *</Label>
+-                      <Input id="parentName" placeholder="Enter parent's name" className="mt-1" />
+-                    </div>
+-                    <div>
+-                      <Label htmlFor="phone">Phone Number *</Label>
+-                      <Input id="phone" placeholder="Enter phone number" className="mt-1" />
+-                    </div>
++        {/* Contact */}
++        <div className="max-w-4xl mx-auto">
++          <Card className="border-0 bg-[#0B1B33] text-white overflow-hidden">
++            <CardContent className="p-8 sm:p-10">
++              <h3 className="text-2xl font-bold mb-2">Talk to Us</h3>
++              <p className="text-[#C9D2E0] mb-8 max-w-xl">
++                Reach the Shri Classes team directly — part of Divya Bihar Mission, based in Raghopur.
++              </p>
++
++              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
++                <div className="flex flex-col items-center text-center gap-2">
++                  <MapPin className="w-6 h-6 text-[#C7A354]" />
++                  <div className="font-semibold text-sm">Visit Us</div>
++                  <div className="text-sm text-[#C9D2E0] leading-snug">
++                    Raghopur, Supaul District
++                    <br />
++                    Bihar, India – 852111
+                   </div>
+-
+-                  <div>
+-                    <Label htmlFor="email">Email Address *</Label>
+-                    <Input id="email" type="email" placeholder="Enter email address" className="mt-1" />
+-                  </div>
+-
+-                  <div>
+-                    <Label htmlFor="batch">Preferred Batch *</Label>
+-                    <Select>
+-                      <SelectTrigger className="mt-1">
+-                        <SelectValue placeholder="Select preferred batch" />
+-                      </SelectTrigger>
+-                      <SelectContent>
+-                        <SelectItem value="morning">Morning Batch (8:00 AM - 12:00 PM)</SelectItem>
+-                        <SelectItem value="evening">Evening Batch (2:00 PM - 6:00 PM)</SelectItem>
+-                        <SelectItem value="weekend">Weekend Batch (9:00 AM - 5:00 PM)</SelectItem>
+-                      </SelectContent>
+-                    </Select>
+-                  </div>
+-
+-                  <div>
+-                    <Label htmlFor="address">Address</Label>
+-                    <Textarea id="address" placeholder="Enter complete address" className="mt-1" />
+-                  </div>
+-
+-                  <div>
+-                    <Label htmlFor="message">Additional Information</Label>
+-                    <Textarea id="message" placeholder="Any specific requirements or questions?" className="mt-1" />
+-                  </div>
+-
+-                  <div className="flex items-center space-x-2">
+-                    <Checkbox id="terms" />
+-                    <Label htmlFor="terms" className="text-sm">
+-                      I agree to the terms and conditions and privacy policy
+-                    </Label>
+-                  </div>
+-
+-                  <Button type="submit" className="w-full" size="lg">
+-                    Submit Application
+-                  </Button>
+-                </form>
+-              </CardContent>
+-            </Card>
+-          </div>
+-        </div>
+-
+-        {/* Contact Information */}
+-        <div className="text-center">
+-          <Card className="max-w-4xl mx-auto border-0 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+-            <CardContent className="p-8">
+-              <h3 className="text-2xl font-bold mb-6">Need Help with Admission?</h3>
+-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+-                <div className="flex flex-col items-center">
+-                  <Phone className="w-8 h-8 mb-2 opacity-90" />
+-                  <div className="font-semibold">Call Us</div>
+-                  <div className="opacity-90">+91 98765 43210</div>
+                 </div>
+-                <div className="flex flex-col items-center">
+-                  <Mail className="w-8 h-8 mb-2 opacity-90" />
+-                  <div className="font-semibold">Email Us</div>
+-                  <div className="opacity-90">admissions@shriclasses.org</div>
++                <div className="flex flex-col items-center text-center gap-2">
++                  <Phone className="w-6 h-6 text-[#C7A354]" />
++                  <div className="font-semibold text-sm">Call Us</div>
++                  <a href="tel:+919262536295" className="text-sm text-[#C9D2E0] hover:text-white transition-colors">
++                    +91 92625 36295
++                  </a>
+                 </div>
+-                <div className="flex flex-col items-center">
+-                  <MapPin className="w-8 h-8 mb-2 opacity-90" />
+-                  <div className="font-semibold">Visit Us</div>
+-                  <div className="opacity-90">Mon-Sat, 9 AM - 6 PM</div>
++                <div className="flex flex-col items-center text-center gap-2">
++                  <Mail className="w-6 h-6 text-[#C7A354]" />
++                  <div className="font-semibold text-sm">Email Us</div>
++                  <a
++                    href="mailto:contact@divyabiharmission.com"
++                    className="text-sm text-[#C9D2E0] hover:text-white transition-colors"
++                  >
++                    contact@divyabiharmission.com
++                  </a>
+                 </div>
+               </div>
+-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+-                <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100">
+-                  Schedule Campus Visit
++
++              <div className="flex flex-col sm:flex-row gap-4 justify-center border-t border-white/10 pt-8">
++                <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
++                  <Link
++                    href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes%20for%20Class%2010%20Mathematics."
++                    target="_blank"
++                  >
++                    <MessageCircle className="w-4 h-4 mr-2" />
++                    Message on WhatsApp
++                  </Link>
+                 </Button>
+-                <Button
+-                  size="lg"
+-                  variant="outline"
+-                  className="border-white text-white hover:bg-white hover:text-purple-600"
+-                >
+-                  Download Brochure
++                <Button size="lg" variant="outline" className="border-white/25 text-white hover:bg-white/10 bg-transparent" asChild>
++                  <Link href="/contact">
++                    Send an Inquiry
++                    <ArrowRight className="w-4 h-4 ml-2" />
++                  </Link>
+                 </Button>
+               </div>
+             </CardContent>
+diff --git a/components/programs/shri-classes/shri-classes-curriculum.tsx b/components/programs/shri-classes/shri-classes-curriculum.tsx
+index 389b4f0..149ffd2 100644
+--- a/components/programs/shri-classes/shri-classes-curriculum.tsx
++++ b/components/programs/shri-classes/shri-classes-curriculum.tsx
+@@ -1,248 +1,158 @@
+ "use client"
+ 
+-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { Card, CardContent } from "@/components/ui/card"
+ import { Badge } from "@/components/ui/badge"
+-import { Button } from "@/components/ui/button"
+-import { BookOpen, Clock, Users, Award, CheckCircle, Calendar } from "lucide-react"
++import { Eye, Lightbulb, ListChecks, Link2, Smartphone, FileCheck2 } from "lucide-react"
+ 
+-const subjects = [
++const dppParts = [
+   {
+-    name: "Mathematics",
+-    topics: ["Algebra", "Geometry", "Trigonometry", "Calculus"],
+-    hours: "120",
+-    level: "Advanced",
++    count: "5",
++    title: "Objective Questions",
++    description: "Quick, focused recall — the questions students should be able to answer without hesitation.",
+   },
+   {
+-    name: "Physics",
+-    topics: ["Mechanics", "Thermodynamics", "Optics", "Modern Physics"],
+-    hours: "100",
+-    level: "Advanced",
++    count: "5",
++    title: "Short Answer Questions",
++    description: "Applying the concept in a slightly new way, so understanding isn't just memorised.",
+   },
+   {
+-    name: "Chemistry",
+-    topics: ["Organic", "Inorganic", "Physical", "Analytical"],
+-    hours: "100",
+-    level: "Advanced",
+-  },
+-  {
+-    name: "Biology",
+-    topics: ["Botany", "Zoology", "Genetics", "Ecology"],
+-    hours: "80",
+-    level: "Intermediate",
+-  },
+-  {
+-    name: "English",
+-    topics: ["Grammar", "Literature", "Composition", "Communication"],
+-    hours: "60",
+-    level: "Intermediate",
+-  },
+-  {
+-    name: "Hindi",
+-    topics: ["व्याकरण", "साहित्य", "निबंध", "कविता"],
+-    hours: "40",
+-    level: "Basic",
++    count: "1",
++    title: "Thinking Question",
++    description: "One question designed to be genuinely challenging — and to build real confidence when solved.",
+   },
+ ]
+ 
+-const schedule = [
+-  {
+-    time: "6:00 AM - 7:30 AM",
+-    activity: "Morning Prayer & Meditation",
+-    type: "spiritual",
+-  },
++const philosophy = [
+   {
+-    time: "8:00 AM - 12:00 PM",
+-    activity: "Core Academic Classes",
+-    type: "academic",
++    icon: Eye,
++    title: "Visual First",
++    description: "Every concept is shown before it's stated as a rule.",
+   },
+   {
+-    time: "1:00 PM - 3:00 PM",
+-    activity: "Practical Sessions & Labs",
+-    type: "practical",
++    icon: Lightbulb,
++    title: "Why Before How",
++    description: "Students understand the reasoning, not just the steps.",
+   },
+   {
+-    time: "3:30 PM - 5:00 PM",
+-    activity: "Sports & Physical Activities",
+-    type: "physical",
++    icon: ListChecks,
++    title: "Step-by-Step",
++    description: "No leaps. Every method is built from what came before it.",
+   },
+   {
+-    time: "5:30 PM - 7:00 PM",
+-    activity: "Study Hall & Doubt Clearing",
+-    type: "study",
+-  },
+-  {
+-    time: "7:30 PM - 8:30 PM",
+-    activity: "Cultural Activities",
+-    type: "cultural",
++    icon: Link2,
++    title: "Connected to Real Life",
++    description: "Mathematics is shown to mean something, not just to be solved.",
+   },
+ ]
+ 
+-const features = [
+-  {
+-    icon: Users,
+-    title: "Small Batch Size",
+-    description: "Maximum 15 students per class for personalized attention",
+-  },
+-  {
+-    icon: BookOpen,
+-    title: "Comprehensive Curriculum",
+-    description: "NCERT aligned with additional enrichment materials",
+-  },
+-  {
+-    icon: Award,
+-    title: "Expert Faculty",
+-    description: "Experienced teachers with proven track records",
+-  },
+-  {
+-    icon: Clock,
+-    title: "Flexible Timings",
+-    description: "Morning and evening batches available",
+-  },
++const cycle = [
++  { step: "Evening", activity: "Today's DPP is solved at home — 11 questions, no more, no less." },
++  { step: "Next Morning", activity: "Every answer is checked in class, question by question." },
++  { step: "On the Spot", activity: "Mistakes are corrected immediately, before they become habits." },
++  { step: "Ongoing", activity: "The same concept resurfaces later, until it's genuinely secure." },
+ ]
+ 
+ export function ShriClassesCurriculum() {
+   return (
+-    <section className="py-12 lg:py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
++    <section id="method" className="py-16 lg:py-24 bg-[#FAF7F1]">
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         {/* Header */}
+-        <div className="text-center mb-12 lg:mb-16">
+-          <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">Academic Excellence</Badge>
+-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Comprehensive Curriculum</h2>
+-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+-            Our carefully designed curriculum combines traditional values with modern education, ensuring holistic
+-            development of every student.
++        <div className="text-center mb-14 lg:mb-16 max-w-3xl mx-auto">
++          <Badge className="mb-4 bg-[#0B1B33]/5 text-[#0B1B33] hover:bg-[#0B1B33]/10 border-0">
++            Our Teaching System
++          </Badge>
++          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1B33] mb-4 tracking-tight">
++            The Daily Practice Problem System
++          </h2>
++          <p className="text-lg text-[#4A5468] leading-relaxed">
++            The Bihar Board Class 10 Mathematics syllabus is completed early — deliberately — so the months
++            before the exam can be spent where they matter most: revision, practice, and correcting mistakes
++            before they show up in the exam hall.
+           </p>
+         </div>
+ 
+-        {/* Features Grid */}
+-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 lg:mb-16">
+-          {features.map((feature, index) => (
+-            <Card
+-              key={index}
+-              className="text-center hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm"
+-            >
+-              <CardContent className="p-6">
+-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+-                  <feature.icon className="w-6 h-6 text-blue-600" />
+-                </div>
+-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+-                <p className="text-sm text-gray-600">{feature.description}</p>
+-              </CardContent>
+-            </Card>
+-          ))}
+-        </div>
+-
+-        {/* Subjects Grid */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Subject Coverage</h3>
+-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+-            {subjects.map((subject, index) => (
+-              <Card
+-                key={index}
+-                className="hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
+-              >
+-                <CardHeader className="pb-3">
+-                  <div className="flex justify-between items-start mb-2">
+-                    <CardTitle className="text-lg font-semibold text-gray-900">{subject.name}</CardTitle>
+-                    <Badge
+-                      variant={
+-                        subject.level === "Advanced"
+-                          ? "default"
+-                          : subject.level === "Intermediate"
+-                            ? "secondary"
+-                            : "outline"
+-                      }
+-                    >
+-                      {subject.level}
+-                    </Badge>
+-                  </div>
+-                  <div className="flex items-center text-sm text-gray-600">
+-                    <Clock className="w-4 h-4 mr-1" />
+-                    {subject.hours} hours
+-                  </div>
+-                </CardHeader>
+-                <CardContent className="pt-0">
+-                  <div className="space-y-2">
+-                    {subject.topics.map((topic, topicIndex) => (
+-                      <div key={topicIndex} className="flex items-center text-sm">
+-                        <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
+-                        <span className="text-gray-700">{topic}</span>
+-                      </div>
+-                    ))}
+-                  </div>
++        {/* DPP Breakdown */}
++        <div className="mb-16 lg:mb-20">
++          <div className="text-center mb-4">
++            <span className="text-4xl sm:text-5xl font-bold text-[#0B1B33]">11</span>
++            <span className="text-lg text-[#4A5468] ml-2">questions, every single day</span>
++          </div>
++          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
++            {dppParts.map((part, index) => (
++              <Card key={index} className="border-0 shadow-sm bg-white">
++                <CardContent className="p-8 text-center">
++                  <div className="text-4xl font-bold text-[#C7A354] mb-3">{part.count}</div>
++                  <h3 className="font-semibold text-[#0B1B33] mb-2">{part.title}</h3>
++                  <p className="text-sm text-[#5B6478] leading-relaxed">{part.description}</p>
+                 </CardContent>
+               </Card>
+             ))}
+           </div>
+         </div>
+ 
+-        {/* Daily Schedule */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Daily Schedule</h3>
+-          <div className="max-w-4xl mx-auto">
+-            <Card className="border-0 bg-white/90 backdrop-blur-sm">
+-              <CardContent className="p-6 sm:p-8">
+-                <div className="space-y-4">
+-                  {schedule.map((item, index) => (
+-                    <div
+-                      key={index}
+-                      className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+-                    >
+-                      <div className="flex items-center mb-2 sm:mb-0">
+-                        <Calendar className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+-                        <div>
+-                          <div className="font-medium text-gray-900">{item.time}</div>
+-                          <div className="text-sm text-gray-600 sm:hidden">{item.activity}</div>
+-                        </div>
+-                      </div>
+-                      <div className="hidden sm:block">
+-                        <div className="font-medium text-gray-900">{item.activity}</div>
+-                      </div>
+-                      <Badge
+-                        variant="outline"
+-                        className={`w-fit ${
+-                          item.type === "academic"
+-                            ? "border-blue-200 text-blue-700"
+-                            : item.type === "practical"
+-                              ? "border-green-200 text-green-700"
+-                              : item.type === "physical"
+-                                ? "border-orange-200 text-orange-700"
+-                                : item.type === "spiritual"
+-                                  ? "border-purple-200 text-purple-700"
+-                                  : item.type === "cultural"
+-                                    ? "border-pink-200 text-pink-700"
+-                                    : "border-gray-200 text-gray-700"
+-                        }`}
+-                      >
+-                        {item.type}
+-                      </Badge>
+-                    </div>
+-                  ))}
++        {/* Philosophy */}
++        <div className="mb-16 lg:mb-20">
++          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
++            Concept Before Method
++          </h3>
++          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
++            {philosophy.map((item, index) => (
++              <div key={index} className="text-center p-6 bg-white rounded-xl border border-[#0B1B33]/5">
++                <div className="bg-[#0B1B33]/5 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
++                  <item.icon className="h-6 w-6 text-[#0B1B33]" />
+                 </div>
+-              </CardContent>
+-            </Card>
++                <h4 className="font-semibold text-[#0B1B33] mb-2">{item.title}</h4>
++                <p className="text-sm text-[#5B6478]">{item.description}</p>
++              </div>
++            ))}
+           </div>
+         </div>
+ 
+-        {/* CTA */}
+-        <div className="text-center">
+-          <Card className="max-w-2xl mx-auto border-0 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+-            <CardContent className="p-8">
+-              <h3 className="text-2xl font-bold mb-4">Ready to Join Our Academic Excellence Program?</h3>
+-              <p className="mb-6 opacity-90">
+-                Experience world-class education with traditional values and modern teaching methods.
+-              </p>
+-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+-                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
+-                  Download Curriculum
+-                </Button>
+-                <Button
+-                  size="lg"
+-                  variant="outline"
+-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+-                >
+-                  Schedule Visit
+-                </Button>
++        {/* Practice Cycle */}
++        <div className="mb-16 lg:mb-20">
++          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
++            How a DPP Actually Gets Used
++          </h3>
++          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
++            {cycle.map((item, index) => (
++              <div key={index} className="flex gap-4 p-5 bg-white rounded-lg border border-[#0B1B33]/5">
++                <div className="w-8 h-8 rounded-full bg-[#0B1B33] text-white text-sm font-semibold flex items-center justify-center shrink-0">
++                  {index + 1}
++                </div>
++                <div>
++                  <div className="text-sm font-semibold text-[#0B1B33]">{item.step}</div>
++                  <p className="text-sm text-[#5B6478] mt-0.5">{item.activity}</p>
++                </div>
++              </div>
++            ))}
++          </div>
++        </div>
++
++        {/* Materials note */}
++        <div className="max-w-4xl mx-auto">
++          <Card className="border-0 bg-[#0B1B33] text-white">
++            <CardContent className="p-8 sm:p-10 grid sm:grid-cols-2 gap-8 items-center">
++              <div>
++                <div className="flex items-center gap-2 text-[#C7A354] mb-3">
++                  <Smartphone className="h-5 w-5" />
++                  <span className="text-sm font-medium uppercase tracking-wide">Built for a Phone Screen</span>
++                </div>
++                <h4 className="text-xl font-semibold mb-2">Every worksheet is designed to be read on mobile</h4>
++                <p className="text-sm text-[#C9D2E0] leading-relaxed">
++                  Large fonts, one question per page, no clutter. Most students here study from a phone, not a
++                  desk full of books — so the materials are built for that reality, not against it.
++                </p>
++              </div>
++              <div>
++                <div className="flex items-center gap-2 text-[#C7A354] mb-3">
++                  <FileCheck2 className="h-5 w-5" />
++                  <span className="text-sm font-medium uppercase tracking-wide">NCERT + Bihar Board Aligned</span>
++                </div>
++                <h4 className="text-xl font-semibold mb-2">Notes built from absolute basics</h4>
++                <p className="text-sm text-[#C9D2E0] leading-relaxed">
++                  Theory notes are written chapter by chapter, assuming nothing — because the students who need
++                  Shri Classes most are the ones who were never given a strong foundation to begin with.
++                </p>
+               </div>
+             </CardContent>
+           </Card>
+diff --git a/components/programs/shri-classes/shri-classes-hero.tsx b/components/programs/shri-classes/shri-classes-hero.tsx
+index 1f4a3fc..5b15fda 100644
+--- a/components/programs/shri-classes/shri-classes-hero.tsx
++++ b/components/programs/shri-classes/shri-classes-hero.tsx
+@@ -1,176 +1,119 @@
+ import { Button } from "@/components/ui/button"
+-import { BookOpen, Users, Award, Clock, Star, Play } from "lucide-react"
++import { GraduationCap, MapPin, NotebookPen, MessageCircle } from "lucide-react"
++import Link from "next/link"
+ import { HeroCarousel } from "../../ui/hero-carousel"
+ 
++const quickFacts = [
++  {
++    icon: GraduationCap,
++    label: "Engineer-Led Teaching",
++    detail: "IIT Delhi alumnus",
++  },
++  {
++    icon: MapPin,
++    label: "Bihar Board Aligned",
++    detail: "Raghopur, Supaul",
++  },
++  {
++    icon: NotebookPen,
++    label: "Class 10 Focus",
++    detail: "Mathematics, from the basics",
++  },
++]
++
+ export function ShriClassesHero() {
+   return (
+-    <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-16 sm:py-20 lg:py-24">
+-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-5"></div>
++    <section className="relative bg-[#0B1B33] py-20 sm:py-24 lg:py-28 overflow-hidden">
++      {/* Subtle gold hairline texture */}
++      <div className="pointer-events-none absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_20%_20%,#C7A354,transparent_45%),radial-gradient(circle_at_80%_0%,#C7A354,transparent_35%)]" />
++
+       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+-          <div className="space-y-6 sm:space-y-8">
+-            <div className="space-y-4">
+-              <div className="flex items-center space-x-2 text-blue-600">
+-                <BookOpen className="h-5 w-5" />
+-                <span className="text-sm font-medium uppercase tracking-wide">Quality Education</span>
++        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
++          <div className="space-y-8">
++            <div className="space-y-5">
++              <div className="flex items-center gap-3">
++                <span className="h-px w-8 bg-[#C7A354]" />
++                <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-[#C7A354]">
++                  श्री Classes · DBG Gurukulam
++                </span>
+               </div>
+-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+-                Excellence in
+-                <span className="text-blue-600 block">Academic Learning</span>
++
++              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
++                Mathematics, Rebuilt
++                <span className="block text-[#E7D3A1]">From the Ground Up.</span>
+               </h1>
+-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+-                Comprehensive educational programs designed to nurture young minds with modern teaching methods,
+-                experienced faculty, and holistic development approach.
++
++              <p className="text-base sm:text-lg text-[#C9D2E0] leading-relaxed max-w-xl">
++                For Class 10 students in Raghopur who feel left behind in mathematics — taught concept-first,
++                one problem at a time, by an IIT Delhi engineer who chose to teach in his own village.
+               </p>
+             </div>
+ 
+-            {/* Key Features */}
+-            <div className="grid grid-cols-2 gap-4">
+-              <div className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm">
+-                <div className="bg-blue-100 p-2 rounded-full">
+-                  <Users className="h-5 w-5 text-blue-600" />
+-                </div>
+-                <div>
+-                  <div className="text-sm font-medium text-gray-900">Small Batches</div>
+-                  <div className="text-xs text-gray-600">15-20 students</div>
+-                </div>
+-              </div>
+-              <div className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm">
+-                <div className="bg-green-100 p-2 rounded-full">
+-                  <Award className="h-5 w-5 text-green-600" />
+-                </div>
+-                <div>
+-                  <div className="text-sm font-medium text-gray-900">Expert Faculty</div>
+-                  <div className="text-xs text-gray-600">10+ years exp.</div>
++            {/* Quick Facts */}
++            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
++              {quickFacts.map((fact, index) => (
++                <div
++                  key={index}
++                  className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-lg p-4"
++                >
++                  <div className="bg-[#C7A354]/15 p-2 rounded-full shrink-0">
++                    <fact.icon className="h-4 w-4 text-[#C7A354]" />
++                  </div>
++                  <div>
++                    <div className="text-sm font-medium text-white leading-tight">{fact.label}</div>
++                    <div className="text-xs text-[#9AA6BC] mt-0.5">{fact.detail}</div>
++                  </div>
+                 </div>
+-              </div>
+-            </div>
+-
+-            {/* Stats */}
+-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">500+</div>
+-                <div className="text-sm text-gray-600">Students Taught</div>
+-              </div>
+-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">95%</div>
+-                <div className="text-sm text-gray-600">Success Rate</div>
+-              </div>
+-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
+-                <div className="text-sm text-gray-600">Subjects Offered</div>
+-              </div>
++              ))}
+             </div>
+ 
+             {/* Action Buttons */}
+-            <div className="flex flex-col sm:flex-row gap-4">
+-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+-                Enroll Now
++            <div className="flex flex-col sm:flex-row gap-4 pt-2">
++              <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
++                <Link href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes%20for%20Class%2010%20Mathematics." target="_blank">
++                  <MessageCircle className="h-4 w-4 mr-2" />
++                  Message Us on WhatsApp
++                </Link>
+               </Button>
+-              <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+-                <Play className="h-4 w-4 mr-2" />
+-                Watch Demo Class
++              <Button
++                size="lg"
++                variant="outline"
++                className="border-white/25 text-white hover:bg-white/10 bg-transparent"
++                asChild
++              >
++                <Link href="#method">See How We Teach</Link>
+               </Button>
+             </div>
+ 
+-            {/* Trust Indicators */}
+-            <div className="flex items-center space-x-6 pt-4">
+-              <div className="flex items-center space-x-2">
+-                <div className="flex">
+-                  {[...Array(5)].map((_, i) => (
+-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+-                  ))}
+-                </div>
+-                <span className="text-sm text-gray-600">4.9/5 Rating</span>
+-              </div>
+-              <div className="text-sm text-gray-600">
+-                <span className="font-medium">200+</span> Parent Reviews
+-              </div>
+-            </div>
++            {/* Tagline */}
++            <p className="text-sm text-[#7E8AA3] pt-2 font-devanagari tracking-wide">
++              विद्याधनं सर्वधनं प्रधानम्
++            </p>
+           </div>
+ 
+-          <div className="relative order-first lg:order-last lg:-mt-8">
+-            <div className="rounded-2xl overflow-hidden shadow-2xl">
++          <div className="relative order-first lg:order-last">
++            <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+               <HeroCarousel
+                 imageDir="shri-classes"
+-                alt="Students in classroom"
+-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
++                alt="Students studying mathematics at Shri Classes in Raghopur"
++                className="w-full h-[22rem] sm:h-[28rem] md:h-[32rem]"
++                showOverlay
+               />
+-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+-            </div>
+-
+-            {/* Floating Cards */}
+-            <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+-              <div className="flex items-center space-x-3">
+-                <div className="bg-green-100 p-2 rounded-full">
+-                  <Award className="h-5 w-5 text-green-600" />
+-                </div>
+-                <div>
+-                  <div className="text-sm font-medium text-gray-900">Top Results</div>
+-                  <div className="text-xs text-gray-600">Board Exams 2023</div>
+-                </div>
+-              </div>
+             </div>
+ 
+-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+-              <div className="flex items-center space-x-3">
+-                <div className="bg-blue-100 p-2 rounded-full">
+-                  <Clock className="h-5 w-5 text-blue-600" />
++            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl hidden sm:block">
++              <div className="flex items-center gap-3">
++                <div className="bg-[#0B1B33]/5 p-2 rounded-full">
++                  <NotebookPen className="h-5 w-5 text-[#0B1B33]" />
+                 </div>
+                 <div>
+-                  <div className="text-sm font-medium text-gray-900">Flexible Timing</div>
+-                  <div className="text-xs text-gray-600">Morning & Evening</div>
++                  <div className="text-sm font-medium text-[#0B1B33]">11 Questions</div>
++                  <div className="text-xs text-[#5B6478]">Every single day</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+-
+-        {/* Course Highlights */}
+-        <div className="mt-16 sm:mt-20">
+-          <div className="text-center mb-8">
+-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Why Choose Shri Classes?</h3>
+-          </div>
+-
+-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+-            {[
+-              {
+-                icon: BookOpen,
+-                title: "Comprehensive Curriculum",
+-                description: "Complete syllabus coverage with extra practice",
+-              },
+-              {
+-                icon: Users,
+-                title: "Personal Attention",
+-                description: "Individual focus on each student's progress",
+-              },
+-              {
+-                icon: Award,
+-                title: "Proven Results",
+-                description: "Consistent high performance in board exams",
+-              },
+-              {
+-                icon: Clock,
+-                title: "Flexible Schedule",
+-                description: "Multiple batch timings to suit your needs",
+-              },
+-            ].map((feature, index) => {
+-              const IconComponent = feature.icon
+-              return (
+-                <div
+-                  key={index}
+-                  className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
+-                >
+-                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+-                    <IconComponent className="h-6 w-6 text-blue-600" />
+-                  </div>
+-                  <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
+-                  <p className="text-sm text-gray-600">{feature.description}</p>
+-                </div>
+-              )
+-            })}
+-          </div>
+-        </div>
+       </div>
+     </section>
+   )
+diff --git a/components/programs/shri-classes/shri-classes-results.tsx b/components/programs/shri-classes/shri-classes-results.tsx
+index ca1d693..a2ec49a 100644
+--- a/components/programs/shri-classes/shri-classes-results.tsx
++++ b/components/programs/shri-classes/shri-classes-results.tsx
+@@ -2,235 +2,73 @@
+ 
+ import { Card, CardContent } from "@/components/ui/card"
+ import { Badge } from "@/components/ui/badge"
+-import { Button } from "@/components/ui/button"
+-import { Trophy, TrendingUp, Users, Star, Award, BookOpen, Target } from "lucide-react"
++import { Check, X } from "lucide-react"
+ 
+-const stats = [
++const comparison = [
+   {
+-    icon: Trophy,
+-    number: "95%",
+-    label: "Pass Rate",
+-    description: "Students successfully completing the program",
+-    color: "text-yellow-600",
++    dimension: "Teaching Style",
++    typical: "Rote memorisation, formula-first",
++    shri: "Concept-first — students learn why a method works",
+   },
+   {
+-    icon: TrendingUp,
+-    number: "40%",
+-    label: "Average Improvement",
+-    description: "In academic performance within 6 months",
+-    color: "text-green-600",
++    dimension: "Who Teaches",
++    typical: "Varies, often uncertified",
++    shri: "IIT Delhi engineer, teaching in his own village",
+   },
+   {
+-    icon: Users,
+-    number: "500+",
+-    label: "Students Graduated",
+-    description: "Successfully completed our programs",
+-    color: "text-blue-600",
++    dimension: "Practice",
++    typical: "Occasional homework",
++    shri: "A structured DPP every single day, checked the next morning",
+   },
+   {
+-    icon: Star,
+-    number: "4.9/5",
+-    label: "Parent Satisfaction",
+-    description: "Based on feedback surveys",
+-    color: "text-purple-600",
+-  },
+-]
+-
+-const achievements = [
+-  {
+-    year: "2023",
+-    title: "State Board Toppers",
+-    description: "3 students secured positions in top 10 of state board examinations",
+-    icon: Award,
+-  },
+-  {
+-    year: "2023",
+-    title: "Science Olympiad Winners",
+-    description: "12 students qualified for national level science olympiad",
+-    icon: Trophy,
+-  },
+-  {
+-    year: "2022",
+-    title: "100% College Admission",
+-    description: "All graduating students secured admission in reputed colleges",
+-    icon: Target,
+-  },
+-  {
+-    year: "2022",
+-    title: "Excellence in Mathematics",
+-    description: "Recognized by district education board for outstanding math results",
+-    icon: BookOpen,
+-  },
+-]
+-
+-const testimonials = [
+-  {
+-    name: "Priya Sharma",
+-    role: "Parent of Arjun Sharma",
+-    content:
+-      "My son's confidence and academic performance improved dramatically. The teachers here truly care about each student's progress.",
+-    rating: 5,
+-    improvement: "Mathematics: 65% → 92%",
+-  },
+-  {
+-    name: "Rajesh Kumar",
+-    role: "Parent of Anita Kumar",
+-    content:
+-      "The holistic approach to education here is remarkable. My daughter not only excels academically but also developed strong moral values.",
+-    rating: 5,
+-    improvement: "Overall Grade: B → A+",
++    dimension: "Materials",
++    typical: "Photocopied, generic",
++    shri: "Written from scratch, NCERT + Bihar Board aligned, built for mobile",
+   },
+   {
+-    name: "Sunita Devi",
+-    role: "Parent of Vikash Singh",
+-    content:
+-      "The small class sizes and individual attention helped my son overcome his learning difficulties. Highly recommended!",
+-    rating: 5,
+-    improvement: "Science: 58% → 88%",
++    dimension: "Purpose",
++    typical: "Run as a business",
++    shri: "Run as a mission — part of Divya Bihar Mission",
+   },
+ ]
+ 
+-const subjects = [
+-  { name: "Mathematics", improvement: "+45%", students: 120 },
+-  { name: "Science", improvement: "+38%", students: 115 },
+-  { name: "English", improvement: "+42%", students: 130 },
+-  { name: "Hindi", improvement: "+35%", students: 125 },
+-  { name: "Social Studies", improvement: "+40%", students: 110 },
+-]
+-
+ export function ShriClassesResults() {
+   return (
+-    <section className="py-12 lg:py-20 bg-gradient-to-br from-green-50 to-emerald-100">
++    <section className="py-16 lg:py-24 bg-white">
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         {/* Header */}
+-        <div className="text-center mb-12 lg:mb-16">
+-          <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">Proven Results</Badge>
+-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+-            Academic Excellence & Success Stories
++        <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
++          <Badge className="mb-4 bg-[#C7A354]/10 text-[#8B6B33] hover:bg-[#C7A354]/20 border-0">
++            What Makes This Different
++          </Badge>
++          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1B33] mb-4 tracking-tight">
++            Not Just Another Coaching Class
+           </h2>
+-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+-            Our students consistently achieve outstanding results and develop into confident, well-rounded individuals
+-            ready for future challenges.
++          <p className="text-lg text-[#4A5468] leading-relaxed">
++            Raghopur already has tuition classes. Here's what Shri Classes does differently — and why it exists
++            at all.
+           </p>
+         </div>
+ 
+-        {/* Stats Grid */}
+-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 lg:mb-16">
+-          {stats.map((stat, index) => (
+-            <Card
+-              key={index}
+-              className="text-center hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
+-            >
+-              <CardContent className="p-6">
+-                <div
+-                  className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 ${
+-                    stat.color === "text-yellow-600"
+-                      ? "bg-yellow-100"
+-                      : stat.color === "text-green-600"
+-                        ? "bg-green-100"
+-                        : stat.color === "text-blue-600"
+-                          ? "bg-blue-100"
+-                          : "bg-purple-100"
+-                  }`}
+-                >
+-                  <stat.icon className={`w-6 h-6 ${stat.color}`} />
+-                </div>
+-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+-                <div className="font-semibold text-gray-900 mb-1">{stat.label}</div>
+-                <p className="text-sm text-gray-600">{stat.description}</p>
+-              </CardContent>
+-            </Card>
+-          ))}
+-        </div>
+-
+-        {/* Subject-wise Performance */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">
+-            Subject-wise Performance Improvement
+-          </h3>
+-          <div className="max-w-4xl mx-auto">
+-            <Card className="border-0 bg-white/90 backdrop-blur-sm">
+-              <CardContent className="p-6 sm:p-8">
+-                <div className="space-y-4">
+-                  {subjects.map((subject, index) => (
+-                    <div
+-                      key={index}
+-                      className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+-                    >
+-                      <div className="flex items-center mb-2 sm:mb-0">
+-                        <BookOpen className="w-5 h-5 text-green-600 mr-3" />
+-                        <div>
+-                          <div className="font-semibold text-gray-900">{subject.name}</div>
+-                          <div className="text-sm text-gray-600">{subject.students} students</div>
+-                        </div>
+-                      </div>
+-                      <div className="flex items-center">
+-                        <TrendingUp className="w-4 h-4 text-green-600 mr-2" />
+-                        <span className="text-lg font-bold text-green-600">{subject.improvement}</span>
+-                        <span className="text-sm text-gray-600 ml-1">average improvement</span>
+-                      </div>
+-                    </div>
+-                  ))}
+-                </div>
+-              </CardContent>
+-            </Card>
++        {/* Comparison Table */}
++        <div className="max-w-4xl mx-auto mb-16 lg:mb-20">
++          <div className="hidden sm:grid grid-cols-[1fr_1.3fr_1.3fr] gap-4 px-6 pb-3 text-xs font-semibold uppercase tracking-wide text-[#8B95AA]">
++            <div />
++            <div>Typical Coaching</div>
++            <div className="text-[#0B1B33]">Shri Classes</div>
+           </div>
+-        </div>
+-
+-        {/* Achievements Timeline */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Recent Achievements</h3>
+-          <div className="max-w-4xl mx-auto">
+-            <div className="space-y-6">
+-              {achievements.map((achievement, index) => (
+-                <Card
+-                  key={index}
+-                  className="hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
+-                >
+-                  <CardContent className="p-6">
+-                    <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+-                      <div className="flex items-center sm:flex-col sm:items-center gap-3 sm:gap-2">
+-                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+-                          <achievement.icon className="w-6 h-6 text-green-600" />
+-                        </div>
+-                        <Badge variant="outline" className="border-green-200 text-green-700">
+-                          {achievement.year}
+-                        </Badge>
+-                      </div>
+-                      <div className="flex-1">
+-                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{achievement.title}</h4>
+-                        <p className="text-gray-600">{achievement.description}</p>
+-                      </div>
+-                    </div>
+-                  </CardContent>
+-                </Card>
+-              ))}
+-            </div>
+-          </div>
+-        </div>
+-
+-        {/* Testimonials */}
+-        <div className="mb-12 lg:mb-16">
+-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Parent Testimonials</h3>
+-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+-            {testimonials.map((testimonial, index) => (
+-              <Card
+-                key={index}
+-                className="hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
+-              >
+-                <CardContent className="p-6">
+-                  <div className="flex items-center mb-4">
+-                    {[...Array(testimonial.rating)].map((_, i) => (
+-                      <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
+-                    ))}
++          <div className="space-y-3">
++            {comparison.map((row, index) => (
++              <Card key={index} className="border-0 shadow-sm bg-[#FAF7F1]">
++                <CardContent className="p-6 grid sm:grid-cols-[1fr_1.3fr_1.3fr] gap-3 sm:gap-4 items-center">
++                  <div className="font-semibold text-[#0B1B33] text-sm">{row.dimension}</div>
++                  <div className="flex items-start gap-2 text-sm text-[#6B7488]">
++                    <X className="h-4 w-4 text-[#B8A98C] mt-0.5 shrink-0" />
++                    <span>{row.typical}</span>
+                   </div>
+-                  <p className="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
+-                  <div className="border-t pt-4">
+-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+-                    <div className="text-sm text-gray-600 mb-2">{testimonial.role}</div>
+-                    <Badge variant="outline" className="border-green-200 text-green-700 text-xs">
+-                      {testimonial.improvement}
+-                    </Badge>
++                  <div className="flex items-start gap-2 text-sm text-[#0B1B33] font-medium">
++                    <Check className="h-4 w-4 text-[#C7A354] mt-0.5 shrink-0" />
++                    <span>{row.shri}</span>
+                   </div>
+                 </CardContent>
+               </Card>
+@@ -238,29 +76,19 @@ export function ShriClassesResults() {
+           </div>
+         </div>
+ 
+-        {/* CTA */}
+-        <div className="text-center">
+-          <Card className="max-w-2xl mx-auto border-0 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+-            <CardContent className="p-8">
+-              <Trophy className="w-12 h-12 mx-auto mb-4 opacity-90" />
+-              <h3 className="text-2xl font-bold mb-4">Join Our Success Story</h3>
+-              <p className="mb-6 opacity-90">
+-                Give your child the opportunity to excel academically and develop strong character values.
+-              </p>
+-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+-                <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-gray-100">
+-                  View Detailed Results
+-                </Button>
+-                <Button
+-                  size="lg"
+-                  variant="outline"
+-                  className="border-white text-white hover:bg-white hover:text-green-600"
+-                >
+-                  Schedule Counseling
+-                </Button>
+-              </div>
+-            </CardContent>
+-          </Card>
++        {/* Founder Quote */}
++        <div className="max-w-3xl mx-auto text-center">
++          <div className="border-t border-[#0B1B33]/10 pt-12">
++            <blockquote className="font-devanagari text-2xl sm:text-3xl text-[#0B1B33] mb-3 leading-snug">
++              "शिक्षा ही वह शक्ति है जो समाज को बदल सकती है"
++            </blockquote>
++            <p className="text-[#4A5468] italic mb-3">
++              "Education is the power that can transform society."
++            </p>
++            <cite className="text-sm text-[#8B6B33] font-medium not-italic">
++              — Mukund Agrawal, IIT Delhi alumnus & founder, Divya Bihar Mission
++            </cite>
++          </div>
+         </div>
+       </div>
+     </section>
