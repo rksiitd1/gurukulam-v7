@@ -35,8 +35,8 @@ export function ShriClassesAdmission() {
             Getting Started Is Simple
           </h2>
           <p className="text-lg text-[#4A5468] leading-relaxed">
-            No forms, no documents, no waiting list. If your child is struggling with Class 10 mathematics,
-            the door is open.
+            No forms, no documents, no waiting list. If your child is struggling in any subject, from Class 9
+            to Class 12, the door is open.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export function ShriClassesAdmission() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center border-t border-white/10 pt-8">
                 <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
                   <Link
-                    href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes%20for%20Class%2010%20Mathematics."
+                    href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes."
                     target="_blank"
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
