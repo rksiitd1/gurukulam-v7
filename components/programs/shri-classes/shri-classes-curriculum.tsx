@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Eye, Lightbulb, ListChecks, Link2, Smartphone, FileCheck2 } from "lucide-react"
+import { Eye, Lightbulb, ListChecks, Link2, Smartphone, FileCheck2, Shuffle } from "lucide-react"
 
 const dppParts = [
   {
@@ -19,6 +19,24 @@ const dppParts = [
     count: "1",
     title: "Thinking Question",
     description: "One question designed to be genuinely challenging — and to build real confidence when solved.",
+  },
+]
+
+const chapterTestParts = [
+  {
+    icon: Shuffle,
+    title: "Reshuffled Every Time",
+    description: "Questions and their order are shuffled per student, so no two papers in the room match.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Full Answer Keys",
+    description: "Every chapter test ships with a complete, properly typeset answer key for review.",
+  },
+  {
+    icon: Smartphone,
+    title: "Same Mobile-First Format",
+    description: "One question per page, large and legible — built for a phone screen, like everything else here.",
   },
 ]
 
@@ -41,7 +59,7 @@ const philosophy = [
   {
     icon: Link2,
     title: "Connected to Real Life",
-    description: "Mathematics is shown to mean something, not just to be solved.",
+    description: "Every subject is shown to mean something — not just something to be solved.",
   },
 ]
 
@@ -59,19 +77,25 @@ export function ShriClassesCurriculum() {
         {/* Header */}
         <div className="text-center mb-14 lg:mb-16 max-w-3xl mx-auto">
           <Badge className="mb-4 bg-[#0B1B33]/5 text-[#0B1B33] hover:bg-[#0B1B33]/10 border-0">
-            Our Teaching System
+            How We Teach
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1B33] mb-4 tracking-tight">
-            The Daily Practice Problem System
+            Practice Is the Curriculum
           </h2>
           <p className="text-lg text-[#4A5468] leading-relaxed">
-            The Bihar Board Class 10 Mathematics syllabus is completed early — deliberately — so the months
-            before the exam can be spent where they matter most: revision, practice, and correcting mistakes
-            before they show up in the exam hall.
+            Across Classes IX–XII, in Mathematics, Science and English, the approach stays the same: finish
+            the syllabus early — deliberately — so the months before exams go to what matters most: revision,
+            practice, and correcting mistakes before they show up in the exam hall.
           </p>
         </div>
 
         {/* DPP Breakdown */}
+        <div className="mb-4">
+          <h3 className="text-xl font-semibold text-[#0B1B33] text-center mb-1">
+            Flagship: The Daily Practice Problem
+          </h3>
+          <p className="text-sm text-[#8B95AA] text-center mb-8">Class 10 Bihar Board Mathematics — our most developed program today</p>
+        </div>
         <div className="mb-16 lg:mb-20">
           <div className="text-center mb-4">
             <span className="text-4xl sm:text-5xl font-bold text-[#0B1B33]">11</span>
@@ -90,11 +114,35 @@ export function ShriClassesCurriculum() {
           </div>
         </div>
 
+        {/* Chapter Test Breakdown */}
+        <div className="mb-4">
+          <h3 className="text-xl font-semibold text-[#0B1B33] text-center mb-1">
+            Also Live: Full Chapter Tests
+          </h3>
+          <p className="text-sm text-[#8B95AA] text-center mb-8">Class 10 English, with Science following the same standard</p>
+        </div>
+        <div className="mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {chapterTestParts.map((part, index) => (
+              <Card key={index} className="border-0 shadow-sm bg-white">
+                <CardContent className="p-8 text-center">
+                  <div className="bg-[#0B1B33]/5 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <part.icon className="h-6 w-6 text-[#0B1B33]" />
+                  </div>
+                  <h3 className="font-semibold text-[#0B1B33] mb-2">{part.title}</h3>
+                  <p className="text-sm text-[#5B6478] leading-relaxed">{part.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Philosophy */}
         <div className="mb-16 lg:mb-20">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-1">
             Concept Before Method
           </h3>
+          <p className="text-sm text-[#8B95AA] text-center mb-8">The same four principles, in every subject</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {philosophy.map((item, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-xl border border-[#0B1B33]/5">
@@ -110,9 +158,10 @@ export function ShriClassesCurriculum() {
 
         {/* Practice Cycle */}
         <div className="mb-16 lg:mb-20">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-1">
             How a DPP Actually Gets Used
           </h3>
+          <p className="text-sm text-[#8B95AA] text-center mb-8">The daily loop for Class 10 Mathematics</p>
           <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
             {cycle.map((item, index) => (
               <div key={index} className="flex gap-4 p-5 bg-white rounded-lg border border-[#0B1B33]/5">
@@ -148,10 +197,11 @@ export function ShriClassesCurriculum() {
                   <FileCheck2 className="h-5 w-5" />
                   <span className="text-sm font-medium uppercase tracking-wide">NCERT + Bihar Board Aligned</span>
                 </div>
-                <h4 className="text-xl font-semibold mb-2">Notes built from absolute basics</h4>
+                <h4 className="text-xl font-semibold mb-2">Built from absolute basics, subject by subject</h4>
                 <p className="text-sm text-[#C9D2E0] leading-relaxed">
-                  Theory notes are written chapter by chapter, assuming nothing — because the students who need
-                  Shri Classes most are the ones who were never given a strong foundation to begin with.
+                  Theory notes and question papers are written chapter by chapter, assuming nothing — because
+                  the students who need Shri Classes most are the ones who were never given a strong
+                  foundation to begin with. Science follows the same standard as it comes online.
                 </p>
               </div>
             </CardContent>
