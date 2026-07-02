@@ -1,9 +1,9 @@
 import { ShriClassesHero } from "@/components/programs/shri-classes/shri-classes-hero"
 import type { Metadata } from "next"
 export const metadata: Metadata = {
-  title: "Shri Classes",
+  title: "Shri Classes | DBG Gurukulam",
   description:
-    "Coaching for Grades 9–12 with a focus on Science, Mathematics and competitive exams (JEE/NEET).",
+    "Class 10 Bihar Board Mathematics, taught concept-first by an IIT Delhi engineer in Raghopur, Supaul — built around a daily DPP practice system.",
   openGraph: { images: ["/images/programs/shri-classes.jpg"] },
 }
 import { ShriClassesCurriculum } from "@/components/programs/shri-classes/shri-classes-curriculum"
