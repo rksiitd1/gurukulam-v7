@@ -1,174 +1,117 @@
 import { Button } from "@/components/ui/button"
-import { BookOpen, Users, Award, Clock, Star, Play } from "lucide-react"
+import { GraduationCap, MapPin, NotebookPen, MessageCircle } from "lucide-react"
+import Link from "next/link"
 import { HeroCarousel } from "../../ui/hero-carousel"
+
+const quickFacts = [
+  {
+    icon: GraduationCap,
+    label: "Engineer-Led Teaching",
+    detail: "IIT Delhi alumnus",
+  },
+  {
+    icon: MapPin,
+    label: "Bihar Board Aligned",
+    detail: "Raghopur, Supaul",
+  },
+  {
+    icon: NotebookPen,
+    label: "Class 10 Focus",
+    detail: "Mathematics, from the basics",
+  },
+]
 
 export function ShriClassesHero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-16 sm:py-20 lg:py-24">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-5"></div>
+    <section className="relative bg-[#0B1B33] py-20 sm:py-24 lg:py-28 overflow-hidden">
+      {/* Subtle gold hairline texture */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_20%_20%,#C7A354,transparent_45%),radial-gradient(circle_at_80%_0%,#C7A354,transparent_35%)]" />
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-blue-600">
-                <BookOpen className="h-5 w-5" />
-                <span className="text-sm font-medium uppercase tracking-wide">Quality Education</span>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="space-y-8">
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-[#C7A354]" />
+                <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-[#C7A354]">
+                  श्री Classes · DBG Gurukulam
+                </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Excellence in
-                <span className="text-blue-600 block">Academic Learning</span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
+                Mathematics, Rebuilt
+                <span className="block text-[#E7D3A1]">From the Ground Up.</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                Comprehensive educational programs designed to nurture young minds with modern teaching methods,
-                experienced faculty, and holistic development approach.
+
+              <p className="text-base sm:text-lg text-[#C9D2E0] leading-relaxed max-w-xl">
+                For Class 10 students in Raghopur who feel left behind in mathematics — taught concept-first,
+                one problem at a time, by an IIT Delhi engineer who chose to teach in his own village.
               </p>
             </div>
 
-            {/* Key Features */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Users className="h-5 w-5 text-blue-600" />
+            {/* Quick Facts */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {quickFacts.map((fact, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-lg p-4"
+                >
+                  <div className="bg-[#C7A354]/15 p-2 rounded-full shrink-0">
+                    <fact.icon className="h-4 w-4 text-[#C7A354]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-white leading-tight">{fact.label}</div>
+                    <div className="text-xs text-[#9AA6BC] mt-0.5">{fact.detail}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-900">Small Batches</div>
-                  <div className="text-xs text-gray-600">15-20 students</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <Award className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-900">Expert Faculty</div>
-                  <div className="text-xs text-gray-600">10+ years exp.</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">500+</div>
-                <div className="text-sm text-gray-600">Students Taught</div>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">95%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
-                <div className="text-sm text-gray-600">Subjects Offered</div>
-              </div>
+              ))}
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                Enroll Now
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
+                <Link href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes%20for%20Class%2010%20Mathematics." target="_blank">
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Message Us on WhatsApp
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                <Play className="h-4 w-4 mr-2" />
-                Watch Demo Class
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/25 text-white hover:bg-white/10 bg-transparent"
+                asChild
+              >
+                <Link href="#method">See How We Teach</Link>
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">4.9/5 Rating</span>
-              </div>
-              <div className="text-sm text-gray-600">
-                <span className="font-medium">200+</span> Parent Reviews
-              </div>
-            </div>
+            {/* Tagline */}
+            <p className="text-sm text-[#7E8AA3] pt-2 font-devanagari tracking-wide">
+              विद्याधनं सर्वधनं प्रधानम्
+            </p>
           </div>
 
-          <div className="relative order-first lg:order-last lg:-mt-8">
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative order-first lg:order-last">
+            <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
               <HeroCarousel
                 imageDir="shri-classes"
-                alt="Students in classroom"
-                className="w-full h-[24rem] sm:h-[30rem] md:h-[36rem]"
+                alt="Students studying mathematics at Shri Classes in Raghopur"
+                className="w-full h-[22rem] sm:h-[28rem] md:h-[32rem]"
+                showOverlay
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
-            {/* Floating Cards */}
-            <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <Award className="h-5 w-5 text-green-600" />
+            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl hidden sm:block">
+              <div className="flex items-center gap-3">
+                <div className="bg-[#0B1B33]/5 p-2 rounded-full">
+                  <NotebookPen className="h-5 w-5 text-[#0B1B33]" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Top Results</div>
-                  <div className="text-xs text-gray-600">Board Exams 2023</div>
+                  <div className="text-sm font-medium text-[#0B1B33]">11 Questions</div>
+                  <div className="text-xs text-[#5B6478]">Every single day</div>
                 </div>
               </div>
             </div>
-
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Clock className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-900">Flexible Timing</div>
-                  <div className="text-xs text-gray-600">Morning & Evening</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Course Highlights */}
-        <div className="mt-16 sm:mt-20">
-          <div className="text-center mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Why Choose Shri Classes?</h3>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: BookOpen,
-                title: "Comprehensive Curriculum",
-                description: "Complete syllabus coverage with extra practice",
-              },
-              {
-                icon: Users,
-                title: "Personal Attention",
-                description: "Individual focus on each student's progress",
-              },
-              {
-                icon: Award,
-                title: "Proven Results",
-                description: "Consistent high performance in board exams",
-              },
-              {
-                icon: Clock,
-                title: "Flexible Schedule",
-                description: "Multiple batch timings to suit your needs",
-              },
-            ].map((feature, index) => {
-              const IconComponent = feature.icon
-              return (
-                <div
-                  key={index}
-                  className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
-                </div>
-              )
-            })}
           </div>
         </div>
       </div>
