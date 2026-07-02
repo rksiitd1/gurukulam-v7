@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Shri Classes | DBG Gurukulam",
   description:
-    "Class 10 Bihar Board Mathematics, taught concept-first by an IIT Delhi engineer in Raghopur, Supaul — built around a daily DPP practice system.",
+    "A modern Gurukul in Raghopur, Supaul for Classes IX–XII — Mathematics, Science and English taught concept-first, anchored by our Class 10 Bihar Board Mathematics DPP program.",
   openGraph: { images: ["/images/programs/shri-classes.jpg"] },
 }
 import { ShriClassesCurriculum } from "@/components/programs/shri-classes/shri-classes-curriculum"
