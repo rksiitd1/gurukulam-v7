@@ -1,248 +1,158 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { BookOpen, Clock, Users, Award, CheckCircle, Calendar } from "lucide-react"
+import { Eye, Lightbulb, ListChecks, Link2, Smartphone, FileCheck2 } from "lucide-react"
 
-const subjects = [
+const dppParts = [
   {
-    name: "Mathematics",
-    topics: ["Algebra", "Geometry", "Trigonometry", "Calculus"],
-    hours: "120",
-    level: "Advanced",
+    count: "5",
+    title: "Objective Questions",
+    description: "Quick, focused recall — the questions students should be able to answer without hesitation.",
   },
   {
-    name: "Physics",
-    topics: ["Mechanics", "Thermodynamics", "Optics", "Modern Physics"],
-    hours: "100",
-    level: "Advanced",
+    count: "5",
+    title: "Short Answer Questions",
+    description: "Applying the concept in a slightly new way, so understanding isn't just memorised.",
   },
   {
-    name: "Chemistry",
-    topics: ["Organic", "Inorganic", "Physical", "Analytical"],
-    hours: "100",
-    level: "Advanced",
-  },
-  {
-    name: "Biology",
-    topics: ["Botany", "Zoology", "Genetics", "Ecology"],
-    hours: "80",
-    level: "Intermediate",
-  },
-  {
-    name: "English",
-    topics: ["Grammar", "Literature", "Composition", "Communication"],
-    hours: "60",
-    level: "Intermediate",
-  },
-  {
-    name: "Hindi",
-    topics: ["व्याकरण", "साहित्य", "निबंध", "कविता"],
-    hours: "40",
-    level: "Basic",
+    count: "1",
+    title: "Thinking Question",
+    description: "One question designed to be genuinely challenging — and to build real confidence when solved.",
   },
 ]
 
-const schedule = [
+const philosophy = [
   {
-    time: "6:00 AM - 7:30 AM",
-    activity: "Morning Prayer & Meditation",
-    type: "spiritual",
+    icon: Eye,
+    title: "Visual First",
+    description: "Every concept is shown before it's stated as a rule.",
   },
   {
-    time: "8:00 AM - 12:00 PM",
-    activity: "Core Academic Classes",
-    type: "academic",
+    icon: Lightbulb,
+    title: "Why Before How",
+    description: "Students understand the reasoning, not just the steps.",
   },
   {
-    time: "1:00 PM - 3:00 PM",
-    activity: "Practical Sessions & Labs",
-    type: "practical",
+    icon: ListChecks,
+    title: "Step-by-Step",
+    description: "No leaps. Every method is built from what came before it.",
   },
   {
-    time: "3:30 PM - 5:00 PM",
-    activity: "Sports & Physical Activities",
-    type: "physical",
-  },
-  {
-    time: "5:30 PM - 7:00 PM",
-    activity: "Study Hall & Doubt Clearing",
-    type: "study",
-  },
-  {
-    time: "7:30 PM - 8:30 PM",
-    activity: "Cultural Activities",
-    type: "cultural",
+    icon: Link2,
+    title: "Connected to Real Life",
+    description: "Mathematics is shown to mean something, not just to be solved.",
   },
 ]
 
-const features = [
-  {
-    icon: Users,
-    title: "Small Batch Size",
-    description: "Maximum 15 students per class for personalized attention",
-  },
-  {
-    icon: BookOpen,
-    title: "Comprehensive Curriculum",
-    description: "NCERT aligned with additional enrichment materials",
-  },
-  {
-    icon: Award,
-    title: "Expert Faculty",
-    description: "Experienced teachers with proven track records",
-  },
-  {
-    icon: Clock,
-    title: "Flexible Timings",
-    description: "Morning and evening batches available",
-  },
+const cycle = [
+  { step: "Evening", activity: "Today's DPP is solved at home — 11 questions, no more, no less." },
+  { step: "Next Morning", activity: "Every answer is checked in class, question by question." },
+  { step: "On the Spot", activity: "Mistakes are corrected immediately, before they become habits." },
+  { step: "Ongoing", activity: "The same concept resurfaces later, until it's genuinely secure." },
 ]
 
 export function ShriClassesCurriculum() {
   return (
-    <section className="py-12 lg:py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section id="method" className="py-16 lg:py-24 bg-[#FAF7F1]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">Academic Excellence</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Comprehensive Curriculum</h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Our carefully designed curriculum combines traditional values with modern education, ensuring holistic
-            development of every student.
+        <div className="text-center mb-14 lg:mb-16 max-w-3xl mx-auto">
+          <Badge className="mb-4 bg-[#0B1B33]/5 text-[#0B1B33] hover:bg-[#0B1B33]/10 border-0">
+            Our Teaching System
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1B33] mb-4 tracking-tight">
+            The Daily Practice Problem System
+          </h2>
+          <p className="text-lg text-[#4A5468] leading-relaxed">
+            The Bihar Board Class 10 Mathematics syllabus is completed early — deliberately — so the months
+            before the exam can be spent where they matter most: revision, practice, and correcting mistakes
+            before they show up in the exam hall.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 lg:mb-16">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className="text-center hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm"
-            >
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Subjects Grid */}
-        <div className="mb-12 lg:mb-16">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Subject Coverage</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {subjects.map((subject, index) => (
-              <Card
-                key={index}
-                className="hover:shadow-lg transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm"
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-lg font-semibold text-gray-900">{subject.name}</CardTitle>
-                    <Badge
-                      variant={
-                        subject.level === "Advanced"
-                          ? "default"
-                          : subject.level === "Intermediate"
-                            ? "secondary"
-                            : "outline"
-                      }
-                    >
-                      {subject.level}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {subject.hours} hours
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-2">
-                    {subject.topics.map((topic, topicIndex) => (
-                      <div key={topicIndex} className="flex items-center text-sm">
-                        <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
-                        <span className="text-gray-700">{topic}</span>
-                      </div>
-                    ))}
-                  </div>
+        {/* DPP Breakdown */}
+        <div className="mb-16 lg:mb-20">
+          <div className="text-center mb-4">
+            <span className="text-4xl sm:text-5xl font-bold text-[#0B1B33]">11</span>
+            <span className="text-lg text-[#4A5468] ml-2">questions, every single day</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {dppParts.map((part, index) => (
+              <Card key={index} className="border-0 shadow-sm bg-white">
+                <CardContent className="p-8 text-center">
+                  <div className="text-4xl font-bold text-[#C7A354] mb-3">{part.count}</div>
+                  <h3 className="font-semibold text-[#0B1B33] mb-2">{part.title}</h3>
+                  <p className="text-sm text-[#5B6478] leading-relaxed">{part.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* Daily Schedule */}
-        <div className="mb-12 lg:mb-16">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">Daily Schedule</h3>
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-0 bg-white/90 backdrop-blur-sm">
-              <CardContent className="p-6 sm:p-8">
-                <div className="space-y-4">
-                  {schedule.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="flex items-center mb-2 sm:mb-0">
-                        <Calendar className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
-                        <div>
-                          <div className="font-medium text-gray-900">{item.time}</div>
-                          <div className="text-sm text-gray-600 sm:hidden">{item.activity}</div>
-                        </div>
-                      </div>
-                      <div className="hidden sm:block">
-                        <div className="font-medium text-gray-900">{item.activity}</div>
-                      </div>
-                      <Badge
-                        variant="outline"
-                        className={`w-fit ${
-                          item.type === "academic"
-                            ? "border-blue-200 text-blue-700"
-                            : item.type === "practical"
-                              ? "border-green-200 text-green-700"
-                              : item.type === "physical"
-                                ? "border-orange-200 text-orange-700"
-                                : item.type === "spiritual"
-                                  ? "border-purple-200 text-purple-700"
-                                  : item.type === "cultural"
-                                    ? "border-pink-200 text-pink-700"
-                                    : "border-gray-200 text-gray-700"
-                        }`}
-                      >
-                        {item.type}
-                      </Badge>
-                    </div>
-                  ))}
+        {/* Philosophy */}
+        <div className="mb-16 lg:mb-20">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
+            Concept Before Method
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {philosophy.map((item, index) => (
+              <div key={index} className="text-center p-6 bg-white rounded-xl border border-[#0B1B33]/5">
+                <div className="bg-[#0B1B33]/5 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="h-6 w-6 text-[#0B1B33]" />
                 </div>
-              </CardContent>
-            </Card>
+                <h4 className="font-semibold text-[#0B1B33] mb-2">{item.title}</h4>
+                <p className="text-sm text-[#5B6478]">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Card className="max-w-2xl mx-auto border-0 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4">Ready to Join Our Academic Excellence Program?</h3>
-              <p className="mb-6 opacity-90">
-                Experience world-class education with traditional values and modern teaching methods.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                  Download Curriculum
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
-                >
-                  Schedule Visit
-                </Button>
+        {/* Practice Cycle */}
+        <div className="mb-16 lg:mb-20">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B33] text-center mb-10">
+            How a DPP Actually Gets Used
+          </h3>
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
+            {cycle.map((item, index) => (
+              <div key={index} className="flex gap-4 p-5 bg-white rounded-lg border border-[#0B1B33]/5">
+                <div className="w-8 h-8 rounded-full bg-[#0B1B33] text-white text-sm font-semibold flex items-center justify-center shrink-0">
+                  {index + 1}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-[#0B1B33]">{item.step}</div>
+                  <p className="text-sm text-[#5B6478] mt-0.5">{item.activity}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Materials note */}
+        <div className="max-w-4xl mx-auto">
+          <Card className="border-0 bg-[#0B1B33] text-white">
+            <CardContent className="p-8 sm:p-10 grid sm:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-2 text-[#C7A354] mb-3">
+                  <Smartphone className="h-5 w-5" />
+                  <span className="text-sm font-medium uppercase tracking-wide">Built for a Phone Screen</span>
+                </div>
+                <h4 className="text-xl font-semibold mb-2">Every worksheet is designed to be read on mobile</h4>
+                <p className="text-sm text-[#C9D2E0] leading-relaxed">
+                  Large fonts, one question per page, no clutter. Most students here study from a phone, not a
+                  desk full of books — so the materials are built for that reality, not against it.
+                </p>
+              </div>
+              <div>
+                <div className="flex items-center gap-2 text-[#C7A354] mb-3">
+                  <FileCheck2 className="h-5 w-5" />
+                  <span className="text-sm font-medium uppercase tracking-wide">NCERT + Bihar Board Aligned</span>
+                </div>
+                <h4 className="text-xl font-semibold mb-2">Notes built from absolute basics</h4>
+                <p className="text-sm text-[#C9D2E0] leading-relaxed">
+                  Theory notes are written chapter by chapter, assuming nothing — because the students who need
+                  Shri Classes most are the ones who were never given a strong foundation to begin with.
+                </p>
               </div>
             </CardContent>
           </Card>
