@@ -18,7 +18,7 @@ const comparison = [
   {
     dimension: "Practice",
     typical: "Occasional homework",
-    shri: "A structured DPP every single day, checked the next morning",
+    shri: "Daily DPPs in Mathematics, full chapter tests in every subject — all checked promptly",
   },
   {
     dimension: "Materials",
