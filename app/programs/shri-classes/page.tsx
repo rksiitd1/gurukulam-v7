@@ -6,19 +6,19 @@ export const metadata: Metadata = {
     "A modern Gurukul in Raghopur, Supaul for Classes IX–XII — Mathematics, Science and English taught concept-first, anchored by our Class 10 Bihar Board Mathematics DPP program.",
   openGraph: { images: ["/images/programs/shri-classes.jpg"] },
 }
+import { ShriClassesFaculty } from "@/components/programs/shri-classes/shri-classes-faculty"
 import { ShriClassesCurriculum } from "@/components/programs/shri-classes/shri-classes-curriculum"
 import { ShriClassesResults } from "@/components/programs/shri-classes/shri-classes-results"
 import { ShriClassesAdmission } from "@/components/programs/shri-classes/shri-classes-admission"
-import { CallToAction } from "@/components/call-to-action"
 
 export default function ShriClassesPage() {
   return (
     <main>
       <ShriClassesHero />
+      <ShriClassesFaculty />
       <ShriClassesCurriculum />
       <ShriClassesResults />
       <ShriClassesAdmission />
-      <CallToAction />
     </main>
   )
 }

@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button"
-import { GraduationCap, MapPin, NotebookPen, MessageCircle } from "lucide-react"
-import Link from "next/link"
+import { GraduationCap, Users, BadgeCheck, NotebookPen, MessageCircle } from "lucide-react"
 import { HeroCarousel } from "../../ui/hero-carousel"
 
 const quickFacts = [
@@ -10,14 +8,14 @@ const quickFacts = [
     detail: "IIT Delhi alumnus",
   },
   {
-    icon: MapPin,
-    label: "Classes IX–XII",
-    detail: "Bihar Board aligned",
+    icon: Users,
+    label: "69 Students",
+    detail: "Classes IX–XII, this session",
   },
   {
-    icon: NotebookPen,
-    label: "Math · Science · English",
-    detail: "Concept-first, every subject",
+    icon: BadgeCheck,
+    label: "7 Teachers",
+    detail: "Real degrees, real people",
   },
 ]
 
@@ -68,22 +66,17 @@ export function ShriClassesHero() {
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button size="lg" className="bg-[#C7A354] hover:bg-[#B8924A] text-[#0B1B33] font-semibold" asChild>
-                <Link href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes." target="_blank">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Message Us on WhatsApp
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/25 text-white hover:bg-white/10 bg-transparent"
-                asChild
+            {/* Quiet contact line */}
+            <div className="pt-2">
+              <a
+                href="https://wa.me/919262536295?text=Namaste%2C%20I%27m%20interested%20in%20Shri%20Classes."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-[#C9D2E0] hover:text-white transition-colors border-b border-[#C9D2E0]/30 hover:border-white/60 pb-0.5"
               >
-                <Link href="#method">See How We Teach</Link>
-              </Button>
+                <MessageCircle className="h-4 w-4" />
+                Reach us on WhatsApp
+              </a>
             </div>
 
             {/* Tagline */}
