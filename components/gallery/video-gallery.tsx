@@ -262,7 +262,7 @@ export function VideoGallery() {
               <CardContent className="p-0">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={video.thumbnail || "/placeholder.svg"}
+                    src={`https://img.youtube.com/vi/${video.embedId}/hqdefault.jpg`}
                     alt={`${video.title} - ${video.category} Video Thumbnail`}
                     width={500}
                     height={300}
