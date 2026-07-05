@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Play, Video, Clock, Eye, X } from "lucide-react"
@@ -8,6 +9,11 @@ import Image from "next/image"
 
 export function VideoGallery() {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const videos = [
     // {
@@ -293,7 +299,7 @@ export function VideoGallery() {
         </div>
 
         {/* Video Modal */}
-        {selectedVideo !== null && (
+        {mounted && selectedVideo !== null && createPortal(
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={closeVideo}>
             <div className="relative max-w-4xl w-full" onClick={e => e.stopPropagation()}>
               <button
@@ -330,7 +336,8 @@ export function VideoGallery() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
         {/* YouTube Channel CTA */}
