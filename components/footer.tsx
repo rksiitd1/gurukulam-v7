@@ -53,7 +53,7 @@ export function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/divyabiharmission"
                 className="text-gray-400 hover:text-blue-600 transition-colors p-2 touch-manipulation"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -62,7 +62,7 @@ export function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://x.com/DBMRaghopur"
+                href="https://x.com/divyabiharmsn"
                 className="text-gray-400 hover:text-blue-400 transition-colors p-2 touch-manipulation"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,7 +82,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@shriclasses2"
+                href="https://www.youtube.com/@divyabiharmission"
                 className="text-gray-400 hover:text-red-500 transition-colors p-2 touch-manipulation"
                 target="_blank"
                 rel="noopener noreferrer"
