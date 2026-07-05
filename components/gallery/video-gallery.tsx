@@ -350,7 +350,7 @@ export function VideoGallery() {
                 asChild
               >
                 <a
-                  href="https://www.youtube.com/@shriclasses2?sub_confirmation=1"
+                  href="https://www.youtube.com/@divyabiharmission?sub_confirmation=1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -365,7 +365,7 @@ export function VideoGallery() {
                 asChild
               >
                 <a
-                  href="https://www.youtube.com/@shriclasses2/videos"
+                  href="https://www.youtube.com/@divyabiharmission/videos"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
