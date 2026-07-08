@@ -13,120 +13,94 @@ export function FAQ() {
 
   const faqCategories = [
     {
-      category: "General Information",
+      category: "The Vision & Ecosystem",
       questions: [
         {
-          question: "What is Divya Bihar Mission?",
+          question: "Is Divya Bihar Mission just a school?",
           answer:
-            "Divya Bihar Mission is a comprehensive village upliftment organization founded by Mukund Agrawal in 2018. We focus on holistic education, sustainable agriculture, and community empowerment in Bihar villages through our four main programs: Divya Bihar Global Gurukulam, Shri Classes, Agriculture Program, and Udyamita Program.",
+            "No. While the Divya Bihar Global Gurukulam is our anchor, DBM is a comprehensive civilizational model—a 'Rural Y-Combinator'. We operate across five pillars: Education (Gurukulam), Agriculture (Organic Farming & Gaushala), Enterprise (Udyamita), and Values (Sanskar). We are building a self-reliant rural ecosystem.",
         },
         {
-          question: "Where are you located?",
+          question: "Why focus entirely on rural Bihar instead of urban centers?",
           answer:
-            "Our main campus is situated in Raghopur Village, Raghopur Block, Supaul District, Bihar, and is conveniently accessible by both road and rail.",
+            "Because true national progress is impossible if we abandon our villages. Currently, our education system acts as a filter, pulling the brightest minds out of villages to serve global corporate machinery. We exist to reverse this brain drain. As our motto states: 'देश की आत्मा गाँवों में बसती है' (When villages rise, only then will the nation progress).",
         },
         {
-          question: "What makes your approach unique?",
+          question: "What makes your educational approach different?",
           answer:
-            "Our unique approach combines modern education with traditional Indian values. We integrate NCERT curriculum with Sanskrit, Yoga, and cultural education. Our residential Gurukulam model, affordable fee structure, and focus on character building alongside academic excellence sets us apart.",
+            "We integrate modern, tech-enabled pedagogy with Indian Knowledge Systems (IKS). We don't just prepare students for board exams; we root them deeply in cultural values (Sanskar) while equipping them with the scientific and analytical rigor required to solve real-world problems in their own communities.",
         },
       ],
     },
     {
-      category: "Admissions",
+      category: "Fellowships & Volunteering",
       questions: [
         {
-          question: "What is the admission process for Divya Bihar Global Gurukulam?",
+          question: "I am a working professional / student. How can I contribute?",
           answer:
-            "Our admission process involves four steps: 1) Online/Offline application submission, 2) Document verification, 3) Student and parent interview, 4) Admission confirmation. The entire process takes 7-10 days. We focus on identifying students who will benefit most from our holistic education approach.",
+            "We offer multiple pathways. For serious builders, we run the DBM Rural Fellowship—a 6-12 month on-ground immersion to incubate scalable solutions in education and agriculture. We also welcome short-term volunteering and remote intellectual contributions (Man Seva). We need engineers, researchers, and operators who want to build zero-to-one solutions.",
         },
         {
-          question: "What are the fee structures for different programs?",
+          question: "Can I visit the campus in Raghopur without a formal appointment?",
           answer:
-            "We follow a flexible fee structure. For those who can afford it, we accept a minimal fee as a contribution to support our mission. However, for students from economically weaker backgrounds, we provide our services free of cost to the best of our ability.",
+            "Yes. Our doors are always open to seekers, builders, and well-wishers. Come as you are, see the ground reality, interact with the students and farmers, and understand the ecosystem. We believe transparency is built through direct human connection.",
         },
       ],
     },
     {
-      category: "Programs & Curriculum",
+      category: "Donations & Trust",
       questions: [
         {
-          question: "What curriculum do you follow at the Gurukulam?",
+          question: "Is my financial contribution tax-exempt?",
           answer:
-            "We follow NCERT curriculum integrated with Sanskrit education, Yoga, meditation, and cultural programs. Our curriculum is designed grade-wise from K-12, with special focus on character building, practical learning, and competitive exam preparation for higher grades.",
+            "Yes. Divya Bihar Mission is a registered public charitable trust (Reg: AAETD5010DE20241) spearheaded by a collective of IIT alumni. All financial contributions are eligible for a 50% tax exemption under Section 80G of the Income Tax Act.",
         },
         {
-          question: "What co-curricular activities are available?",
+          question: "I want to sponsor a specific project (like a Smart Board). Is that possible?",
           answer:
-            "We plan to offer extensive co-curricular activities including classical music & dance, folk arts of Bihar, drama & theatre, Sanskrit recitation, sports (cricket, football, badminton, athletics), yoga & meditation, leadership training, computer programming, and community service projects. Currently, our activities are limited since available resource constraints.",
+            "Absolutely. We believe in absolute tangibility. People don't donate to abstract ideas; they donate to tangible outcomes. You can direct your 'Vidya Daan' to sponsor a specific asset like a Smart Board, adopt a child's education for a year, or fund our 10-Acre Demo Farm. Please reach out to our team to discuss specific funding requirements.",
         },
         {
-          question: "How do you ensure quality education in rural areas?",
+          question: "How do I know where my money is being utilized?",
           answer:
-            "We maintain quality through qualified teachers, modern infrastructure, regular teacher training, continuous assessment methods, technology integration, and mentorship from experts at IITs and other premier institutions. Our 95% board pass rate demonstrates our commitment to excellence.",
+            "We operate with the strict financial transparency of an audited institution. You will receive regular, data-backed impact reports, photographs of the assets you funded, and an open invitation to visit our campus in Supaul to witness your contribution at work.",
         },
       ],
     },
     {
-      category: "Facilities & Campus Life",
+      category: "Local Programs & Community",
       questions: [
         {
-          question: "What facilities are available for residential students?",
+          question: "How does the Gurukulam and Shri Classes admission process work?",
           answer:
-            "Our residential facilities include separate hostels for boys and girls, 4-6 students per room, 24/7 security, nutritious vegetarian meals, medical room, library, computer lab, science laboratories, sports facilities, and recreational areas. We ensure a safe and nurturing environment for all students.",
+            "We focus on intent, potential, and need rather than rigid filtering. Admissions to our programs are open to local rural youth. We maintain minimal fees to ensure the dignity of the parents, but no deserving child is ever turned away due to financial constraints.",
         },
         {
-          question: "How do you ensure student safety and security?",
+          question: "How does the Agriculture and Gaushala program help the local community?",
           answer:
-            "Student safety is our top priority. We have 24/7 security personnel, CCTV monitoring, background-verified staff, strict child protection policies, on-campus medical facility, fire safety measures, and emergency contact systems. All staff are trained in child safety protocols.",
-        },
-        {
-          question: "What is the daily routine for residential students?",
-          answer:
-            "Our daily routine includes morning yoga/meditation (6:00 AM), breakfast (7:00 AM), classes (8:00 AM-3:00 PM), lunch, study time, sports/activities (4:00-6:00 PM), evening prayers, dinner (7:00 PM), and supervised study time (8:00-9:30 PM). Lights out at 10:00 PM.",
-        },
-      ],
-    },
-    {
-      category: "Support & Donations",
-      questions: [
-        {
-          question: "How can I support Divya Bihar Mission?",
-          answer:
-            "You can support us through monetary donations, volunteering, sponsoring a child's education, providing equipment/books, offering professional expertise, or spreading awareness about our mission. All donations are tax-exempt under 80G. We welcome both individual and corporate support.",
-        },
-        {
-          question: "Are donations tax-deductible?",
-          answer:
-            "Yes, all donations to Divya Bihar Mission are eligible for tax exemption under Section 80G of the Income Tax Act. We are registered under 12A and 80G, and provide proper receipts for all donations. You can claim up to 50% tax deduction on your donations.",
-        },
-        {
-          question: "Can I visit the campus before making a donation?",
-          answer:
-            "We encourage potential donors to visit our campus and see our work firsthand. You can schedule a campus tour, meet our students and teachers, and understand our impact. Contact us at donations@divyabiharmission.in or +91 98765 43214 to arrange a visit.",
+            "Our 10-Acre Demo Farm and Dhatri Godham (Gaushala) serve as live training centers. We train local farmers in organic practices, ecological restoration, and high-yield farming. We actively protect indigenous cattle breeds and integrate them into a sustainable, zero-waste agricultural cycle.",
         },
       ],
     },
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#FDF9F1]"> {/* Warm Sand background from Brand Book */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium mb-4">
             <HelpCircle className="w-4 h-4 mr-2" />
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#261912] mb-4" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>
             Common
-            <span className="text-blue-600 block">Questions</span>
+            <span className="text-[#B3391A] block">Inquiries</span> {/* Deep Terracotta */}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Find answers to the most commonly asked questions about us, our programs, and how you
-            can get involved with our mission.
+          <p className="text-xl text-[#665B54] max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
+            Find answers about our civilizational model, programs, fellowships, and how you can contribute to building Bharat.
           </p>
-          <p className="text-lg font-devanagari text-blue-700 mt-2">अक्सर पूछे जाने वाले प्रश्न</p>
+          <p className="text-lg text-[#B3391A] mt-2" style={{ fontFamily: 'var(--font-rozha, serif)' }}>अक्सर पूछे जाने वाले प्रश्न</p>
         </div>
 
         {/* FAQ Categories */}
@@ -134,9 +108,9 @@ export function FAQ() {
           {faqCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-gradient-to-r from-white via-gray-50 to-blue-50/30 rounded-lg border-l-4 border-blue-600 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-lg border-l-4 border-[#B3391A] p-8 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-slate-800 mb-6 font-mono tracking-tight border-b-2 border-blue-200 pb-3">
+              <h3 className="text-2xl font-bold text-[#261912] mb-6 tracking-tight border-b border-orange-100 pb-3" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>
                 {category.category}
               </h3>
               <div className="space-y-4">
@@ -145,22 +119,26 @@ export function FAQ() {
                   const isOpen = openItems.includes(globalIndex)
 
                   return (
-                    <Card key={faqIndex} className="hover:shadow-lg transition-shadow">
+                    <Card key={faqIndex} className="border border-gray-100 shadow-none hover:border-orange-200 transition-colors">
                       <CardContent className="p-0">
                         <button
                           onClick={() => toggleItem(globalIndex)}
-                          className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                          className="w-full p-5 text-left flex items-center justify-between hover:bg-orange-50/50 transition-colors"
                         >
-                          <h4 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h4>
+                          <h4 className="text-[17px] font-semibold text-[#261912] pr-4" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
+                            {faq.question}
+                          </h4>
                           {isOpen ? (
-                            <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                            <ChevronUp className="w-5 h-5 text-[#B3391A] flex-shrink-0" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                            <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-6 pb-6">
-                            <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                          <div className="px-5 pb-5 pt-1">
+                            <p className="text-gray-600 leading-relaxed" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
+                              {faq.answer}
+                            </p>
                           </div>
                         )}
                       </CardContent>
@@ -173,40 +151,39 @@ export function FAQ() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-16 bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 p-10 text-white border-l-4 border-blue-500 shadow-2xl">
+        <div className="mt-16 bg-[#261912] p-10 text-[#FDF9F1] border-l-4 border-[#C2933D] shadow-xl">
           <div className="text-center">
-            <h3 className="text-3xl font-bold font-mono tracking-tight mb-6 text-blue-100">Still Have Questions?</h3>
-            <p className="text-lg font-medium text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Can't find the answer you're looking for? Our team is here to help you with any questions about our
-              programs, admissions, or how to get involved.
+            <h3 className="text-3xl font-bold tracking-tight mb-4" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>Still Have Questions?</h3>
+            <p className="text-lg font-medium text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
+              Whether you want to sponsor a classroom, apply for the Rural Fellowship, or simply understand our systems better—we are just a message away.
             </p>
-            <p className="font-devanagari text-xl text-blue-200 mb-10">अभी भी कोई प्रश्न है?</p>
+            <p className="text-xl text-[#C2933D] mb-10" style={{ fontFamily: 'var(--font-rozha, serif)' }}>अभी भी कोई प्रश्न है?</p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
               <a
                 href="mailto:contact@divyabiharmission.com"
-                className="bg-white text-slate-800 hover:bg-gray-100 px-8 py-4 font-bold font-mono tracking-wide transition-all duration-300 hover:scale-105 inline-flex items-center justify-center border-2 border-transparent hover:border-blue-300"
+                className="bg-[#B3391A] text-white hover:bg-[#8f2d15] px-8 py-4 font-bold tracking-wide transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center rounded-sm"
               >
                 <HelpCircle className="w-5 h-5 mr-3" />
                 Ask a Question
               </a>
               <a
                 href="tel:+919262536295"
-                className="border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 font-bold font-mono tracking-wide transition-all duration-300 hover:scale-105 inline-flex items-center justify-center"
+                className="border-2 border-white/20 text-white hover:bg-white hover:text-[#261912] px-8 py-4 font-bold tracking-wide transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center rounded-sm"
               >
                 Call Us Now
               </a>
             </div>
 
-            <div className="bg-slate-700/50 p-6 border-l-2 border-blue-400">
-              <div className="font-mono text-sm text-gray-300 space-y-2">
+            <div className="bg-white/5 p-6 border-l-2 border-[#164928] max-w-xl mx-auto text-left">
+              <div className="text-sm text-gray-300 space-y-2" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
                 <p className="font-semibold">
-                  Email: <span className="text-blue-300">contact@divyabiharmission.com</span>
+                  Email: <span className="text-[#C2933D]">contact@divyabiharmission.com</span>
                 </p>
                 <p className="font-semibold">
-                  Phone: <span className="text-blue-300">+91 92625 36295</span>
+                  Phone: <span className="text-[#C2933D]">+91 92625 36295</span>
                 </p>
-                <p className="text-xs text-gray-400 mt-3">We typically respond within 24 hours</p>
+                <p className="text-xs text-gray-400 mt-3 italic">We humbly accept and respect every inquiry. Our team will respond within 24 hours.</p>
               </div>
             </div>
           </div>
