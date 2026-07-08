@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import {
   Phone,
   MapPin,
@@ -11,10 +12,24 @@ import {
   Users,
   Lightbulb,
   Plane,
+  Copy,
+  Check,
 } from "lucide-react"
 import { HeroCarousel } from "../ui/hero-carousel"
 
 export function ContactHero() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyAddress = async () => {
+    try {
+      await navigator.clipboard.writeText("Jiaram Raghopur, Simrahi Bazaar, Supaul District, Bihar 852111, India")
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy address: ", err)
+    }
+  }
+
   return (
     <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
       {/* Background Pattern */}
@@ -137,15 +152,29 @@ export function ContactHero() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gradient-to-r from-slate-50 to-green-50 rounded-lg p-6 border-l-4 border-green-600 hover:border-blue-600 transition-colors duration-300 shadow-sm">
-                  <div className="flex items-start space-x-4 font-mono">
-                    <MapPin className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-bold text-slate-600 text-xl leading-relaxed">
-                        Jiaram Raghopur, Simrahi Bazaar,
-                      </p>
-                      <p className="font-bold text-slate-600 text-xl">Supaul District, Bihar 852111, India</p>
+                <div className="bg-gradient-to-r from-slate-50 to-green-50 rounded-lg p-6 border-l-4 border-green-600 hover:border-blue-600 transition-colors duration-300 shadow-sm relative group/address">
+                  <div className="flex items-start justify-between space-x-4">
+                    <div className="flex items-start space-x-4 font-mono">
+                      <MapPin className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="font-bold text-slate-600 text-xl leading-relaxed">
+                          Jiaram Raghopur, Simrahi Bazaar,
+                        </p>
+                        <p className="font-bold text-slate-600 text-xl">Supaul District, Bihar 852111, India</p>
+                      </div>
                     </div>
+                    <button
+                      onClick={handleCopyAddress}
+                      className="p-2 text-slate-400 hover:text-slate-600 rounded-md hover:bg-slate-200/50 transition-all duration-200 flex-shrink-0"
+                      title="Copy Address"
+                      aria-label="Copy Address"
+                    >
+                      {copied ? (
+                        <Check className="w-5 h-5 text-green-600" />
+                      ) : (
+                        <Copy className="w-5 h-5" />
+                      )}
+                    </button>
                   </div>
                 </div>
 
