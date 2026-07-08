@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   description: "Photos and videos from our Gurukulam, classes, and community programs.",
   openGraph: { images: ["/og-image.jpg"] },
 }
+import { FeaturedAlbums } from "@/components/gallery/featured-albums"
 import { PhotoGallery } from "@/components/gallery/photo-gallery"
 import { VideoGallery } from "@/components/gallery/video-gallery"
 import { EventHighlights } from "@/components/gallery/event-highlights"
@@ -15,9 +16,11 @@ export default function GalleryPage() {
   return (
     <main>
       <GalleryHero />
+      <FeaturedAlbums />
       <PhotoGallery />
       <VideoGallery />
       <CallToAction />
     </main>
   )
 }
+
