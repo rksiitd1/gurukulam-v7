@@ -36,7 +36,7 @@ export function FAQ() {
       category: "Fellowships & Volunteering",
       questions: [
         {
-          question: "I am a working professional / student. How can I contribute?",
+          question: "I am a working professional or student. How can I contribute?",
           answer:
             "We offer multiple pathways. For serious builders, we run the DBM Rural Fellowship—a 6-12 month on-ground immersion to incubate scalable solutions in education and agriculture. We also welcome short-term volunteering and remote intellectual contributions (Man Seva). We need engineers, researchers, and operators who want to build zero-to-one solutions.",
         },
@@ -44,26 +44,6 @@ export function FAQ() {
           question: "Can I visit the campus in Raghopur without a formal appointment?",
           answer:
             "Yes. Our doors are always open to seekers, builders, and well-wishers. Come as you are, see the ground reality, interact with the students and farmers, and understand the ecosystem. We believe transparency is built through direct human connection.",
-        },
-      ],
-    },
-    {
-      category: "Donations & Trust",
-      questions: [
-        {
-          question: "Is my financial contribution tax-exempt?",
-          answer:
-            "Yes. Divya Bihar Mission is a registered public charitable trust (Reg: AAETD5010DE20241) spearheaded by a collective of IIT alumni. All financial contributions are eligible for a 50% tax exemption under Section 80G of the Income Tax Act.",
-        },
-        {
-          question: "I want to sponsor a specific project (like a Smart Board). Is that possible?",
-          answer:
-            "Absolutely. We believe in absolute tangibility. People don't donate to abstract ideas; they donate to tangible outcomes. You can direct your 'Vidya Daan' to sponsor a specific asset like a Smart Board, adopt a child's education for a year, or fund our 10-Acre Demo Farm. Please reach out to our team to discuss specific funding requirements.",
-        },
-        {
-          question: "How do I know where my money is being utilized?",
-          answer:
-            "We operate with the strict financial transparency of an audited institution. You will receive regular, data-backed impact reports, photographs of the assets you funded, and an open invitation to visit our campus in Supaul to witness your contribution at work.",
         },
       ],
     },
@@ -82,25 +62,46 @@ export function FAQ() {
         },
       ],
     },
+    {
+      category: "Support & Donations",
+      questions: [
+        {
+          question: "Is my financial contribution tax-exempt?",
+          answer:
+            "Yes. Divya Bihar Mission is a registered public charitable trust (Reg: AAETD5010DE20241) spearheaded by a collective of IIT alumni. All financial contributions are eligible for a 50% tax exemption under Section 80G of the Income Tax Act.",
+        },
+        {
+          question: "I want to sponsor a specific project (like a Smart Board). Is that possible?",
+          answer:
+            "Absolutely. We believe in absolute tangibility. People don't donate to abstract ideas; they donate to tangible outcomes. You can direct your 'Vidya Daan' to sponsor a specific asset like a Smart Board, adopt a child's education for a year, or fund our 10-Acre Demo Farm. Please reach out to our team to discuss specific funding requirements.",
+        },
+        {
+          question: "How do I know where my money is being utilized?",
+          answer:
+            "We operate with the strict financial transparency of an audited institution. You will receive regular, data-backed impact reports, photographs of the assets you funded, and an open invitation to visit our campus in Supaul to witness your contribution at work.",
+        },
+      ],
+    },
   ]
 
   return (
-    <section className="py-20 bg-[#FDF9F1]"> {/* Warm Sand background from Brand Book */}
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
             <HelpCircle className="w-4 h-4 mr-2" />
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#261912] mb-4" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Common
-            <span className="text-[#B3391A] block">Inquiries</span> {/* Deep Terracotta */}
+            <span className="text-blue-600 block">Questions</span>
           </h2>
-          <p className="text-xl text-[#665B54] max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
-            Find answers about our civilizational model, programs, fellowships, and how you can contribute to building Bharat.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Find answers to the most commonly asked questions about us, our programs, and how you
+            can get involved with our mission.
           </p>
-          <p className="text-lg text-[#B3391A] mt-2" style={{ fontFamily: 'var(--font-rozha, serif)' }}>अक्सर पूछे जाने वाले प्रश्न</p>
+          <p className="text-lg font-devanagari text-blue-700 mt-2">अक्सर पूछे जाने वाले प्रश्न</p>
         </div>
 
         {/* FAQ Categories */}
@@ -108,9 +109,9 @@ export function FAQ() {
           {faqCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-white rounded-lg border-l-4 border-[#B3391A] p-8 shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-gradient-to-r from-white via-gray-50 to-blue-50/30 rounded-lg border-l-4 border-blue-600 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-[#261912] mb-6 tracking-tight border-b border-orange-100 pb-3" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>
+              <h3 className="text-2xl font-bold text-slate-800 mb-6 font-mono tracking-tight border-b-2 border-blue-200 pb-3">
                 {category.category}
               </h3>
               <div className="space-y-4">
@@ -119,26 +120,22 @@ export function FAQ() {
                   const isOpen = openItems.includes(globalIndex)
 
                   return (
-                    <Card key={faqIndex} className="border border-gray-100 shadow-none hover:border-orange-200 transition-colors">
+                    <Card key={faqIndex} className="hover:shadow-lg transition-shadow">
                       <CardContent className="p-0">
                         <button
                           onClick={() => toggleItem(globalIndex)}
-                          className="w-full p-5 text-left flex items-center justify-between hover:bg-orange-50/50 transition-colors"
+                          className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                         >
-                          <h4 className="text-[17px] font-semibold text-[#261912] pr-4" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
-                            {faq.question}
-                          </h4>
+                          <h4 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h4>
                           {isOpen ? (
-                            <ChevronUp className="w-5 h-5 text-[#B3391A] flex-shrink-0" />
+                            <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                            <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-5 pb-5 pt-1">
-                            <p className="text-gray-600 leading-relaxed" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
-                              {faq.answer}
-                            </p>
+                          <div className="px-6 pb-6">
+                            <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                           </div>
                         )}
                       </CardContent>
@@ -151,39 +148,40 @@ export function FAQ() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-16 bg-[#261912] p-10 text-[#FDF9F1] border-l-4 border-[#C2933D] shadow-xl">
+        <div className="mt-16 bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 p-10 text-white border-l-4 border-blue-500 shadow-2xl">
           <div className="text-center">
-            <h3 className="text-3xl font-bold tracking-tight mb-4" style={{ fontFamily: 'var(--font-dm-serif, serif)' }}>Still Have Questions?</h3>
-            <p className="text-lg font-medium text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
-              Whether you want to sponsor a classroom, apply for the Rural Fellowship, or simply understand our systems better—we are just a message away.
+            <h3 className="text-3xl font-bold font-mono tracking-tight mb-6 text-blue-100">Still Have Questions?</h3>
+            <p className="text-lg font-medium text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Can't find the answer you're looking for? Our team is here to help you with any questions about our
+              programs, admissions, or how to get involved.
             </p>
-            <p className="text-xl text-[#C2933D] mb-10" style={{ fontFamily: 'var(--font-rozha, serif)' }}>अभी भी कोई प्रश्न है?</p>
+            <p className="font-devanagari text-xl text-blue-200 mb-10">अभी भी कोई प्रश्न है?</p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
               <a
                 href="mailto:contact@divyabiharmission.com"
-                className="bg-[#B3391A] text-white hover:bg-[#8f2d15] px-8 py-4 font-bold tracking-wide transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center rounded-sm"
+                className="bg-white text-slate-800 hover:bg-gray-100 px-8 py-4 font-bold font-mono tracking-wide transition-all duration-300 hover:scale-105 inline-flex items-center justify-center border-2 border-transparent hover:border-blue-300"
               >
                 <HelpCircle className="w-5 h-5 mr-3" />
                 Ask a Question
               </a>
               <a
                 href="tel:+919262536295"
-                className="border-2 border-white/20 text-white hover:bg-white hover:text-[#261912] px-8 py-4 font-bold tracking-wide transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center rounded-sm"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 font-bold font-mono tracking-wide transition-all duration-300 hover:scale-105 inline-flex items-center justify-center"
               >
                 Call Us Now
               </a>
             </div>
 
-            <div className="bg-white/5 p-6 border-l-2 border-[#164928] max-w-xl mx-auto text-left">
-              <div className="text-sm text-gray-300 space-y-2" style={{ fontFamily: 'var(--font-plus-jakarta, sans-serif)' }}>
+            <div className="bg-slate-700/50 p-6 border-l-2 border-blue-400">
+              <div className="font-mono text-sm text-gray-300 space-y-2">
                 <p className="font-semibold">
-                  Email: <span className="text-[#C2933D]">contact@divyabiharmission.com</span>
+                  Email: <span className="text-blue-300">contact@divyabiharmission.com</span>
                 </p>
                 <p className="font-semibold">
-                  Phone: <span className="text-[#C2933D]">+91 92625 36295</span>
+                  Phone: <span className="text-blue-300">+91 92625 36295</span>
                 </p>
-                <p className="text-xs text-gray-400 mt-3 italic">We humbly accept and respect every inquiry. Our team will respond within 24 hours.</p>
+                <p className="text-xs text-gray-400 mt-3">We typically respond within 24 hours</p>
               </div>
             </div>
           </div>
