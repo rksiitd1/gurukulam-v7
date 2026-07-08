@@ -39,7 +39,7 @@ const AboutMissionHero = () => (
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Divya Bihar Mission is socio-spiritual dedicated to the holistic development of Bihar's villages—empowering youth, revitalizing agriculture, fostering entrepreneurship, and reviving our rich culture. Join us in building a self-reliant, proud, and progressive rural Bihar.
+            Divya Bihar Mission is socio-spiritual organisation dedicated to the holistic development of Bihar's villages—empowering youth, revitalizing agriculture, fostering entrepreneurship, and reviving our rich culture. Join us in building a self-reliant, proud, and progressive rural Bihar.
           </p>
           <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg max-w-xl mx-auto lg:mx-0">
             <p className="text-yellow-800 font-devanagari text-base sm:text-lg">
