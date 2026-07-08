@@ -16,8 +16,8 @@ export default function GalleryPage() {
   return (
     <main>
       <GalleryHero />
-      <FeaturedAlbums />
       <PhotoGallery />
+      <FeaturedAlbums />
       <VideoGallery />
       <CallToAction />
     </main>
