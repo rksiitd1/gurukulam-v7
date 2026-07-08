@@ -158,7 +158,10 @@ export function ContactHero() {
                       <MapPin className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-bold text-slate-600 text-xl leading-relaxed">
-                          Jiaram Raghopur, Simrahi Bazaar,
+                          Jiaram Raghopur,
+                        </p>
+                        <p className="font-bold text-slate-600 text-xl leading-relaxed">
+                          Simrahi Bazaar,
                         </p>
                         <p className="font-bold text-slate-600 text-xl">Supaul District, Bihar 852111, India</p>
                       </div>
