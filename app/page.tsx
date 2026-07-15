@@ -13,6 +13,7 @@ import { WhyWeExistSection } from "@/components/why-we-exist-section"
 import { GetInvolvedSection } from "@/components/get-involved-section"
 import UpanishadVerse from "@/components/UpanishadVerse"
 import { HomepageTestimonials } from "@/components/homepage-testimonials"
+import { PartnersSection } from "@/components/partners-section"
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <About />
       <Programs />
       <HomepageTestimonials />
+      <PartnersSection />
       <GetInvolvedSection />
       <UpanishadVerse />
       <CallToAction />
