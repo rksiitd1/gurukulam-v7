@@ -93,7 +93,7 @@ export default function LinktreePage() {
     },
     {
       title: "Blog & Stories",
-      href: "/blog",
+      href: "/stories",
       icon: <BookOpen className="w-5 h-5" />,
       description: "Read our stories",
     },

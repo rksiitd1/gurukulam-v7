@@ -7,7 +7,7 @@ export function Footer() {
     { name: "About Us", href: "/about" },
     { name: "Programs", href: "/programs" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Stories", href: "/blog" },
+    { name: "Stories", href: "/stories" },
     { name: "Contact", href: "/contact" },
     { name: "About Founder", href: "/about-founder" },
     { name: "Volunteer", href: "/volunteer" },
