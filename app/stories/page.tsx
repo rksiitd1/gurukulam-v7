@@ -102,14 +102,11 @@ export default function StoriesPage() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
-              asChild
               size="lg"
               className="w-full sm:w-auto bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold px-8 shadow-lg shadow-orange-600/20 transition-all hover:-translate-y-0.5"
             >
-              <Link href="/blog">
-                <BookMarked className="w-5 h-5 mr-2" />
-                Read Our Blog Meanwhile
-              </Link>
+              <BookMarked className="w-5 h-5 mr-2" />
+              Read Our Blog Meanwhile
             </Button>
             <Button
               asChild
